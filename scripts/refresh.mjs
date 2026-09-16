@@ -67,6 +67,10 @@ async function buildFromApi() {
     (lg) => apiFootball.fetchUpcomingFixtures(RAPIDAPI_KEY, { leagueId: lg.id, season, next: NEXT_PER_LEAGUE }),
     CONCURRENCY,
   );
+  perLeague.forEach((r, i) => {
+    if (!Array.isArray(r)) log(`  ${apiFootball.LEAGUES[i].name}: ${r?.__error || 'unknown error'}`);
+    else log(`  ${apiFootball.LEAGUES[i].name}: ${r.length} fixtures`);
+  });
   const fixtures = perLeague.filter((r) => Array.isArray(r)).flat();
   if (!fixtures.length) throw new Error('no upcoming fixtures returned for any league');
 
