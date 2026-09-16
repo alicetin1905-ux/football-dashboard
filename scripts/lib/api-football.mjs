@@ -29,19 +29,29 @@ export function currentSeason(date = new Date()) {
   return month >= 7 ? year : year - 1;
 }
 
-async function apiGet(key, path, params) {
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+
+/** Retries on 429 with backoff — RapidAPI's free tier throttles bursts, not just daily volume. */
+async function apiGet(key, path, params, retries = 3) {
   const url = new URL(BASE + path);
   for (const [k, v] of Object.entries(params || {})) {
     if (v != null) url.searchParams.set(k, String(v));
   }
-  const res = await fetch(url, {
-    headers: { 'x-rapidapi-key': key, 'x-rapidapi-host': HOST },
-  });
-  if (!res.ok) throw new Error(`API-Football ${path} -> HTTP ${res.status}`);
-  const body = await res.json();
-  const errCount = Array.isArray(body.errors) ? body.errors.length : Object.keys(body.errors || {}).length;
-  if (errCount) throw new Error(`API-Football ${path} -> ${JSON.stringify(body.errors)}`);
-  return body.response;
+  for (let attempt = 0; ; attempt++) {
+    const res = await fetch(url, {
+      headers: { 'x-rapidapi-key': key, 'x-rapidapi-host': HOST },
+    });
+    if (res.status === 429 && attempt < retries) {
+      const retryAfter = Number(res.headers.get('retry-after')) || 2 ** attempt;
+      await sleep(retryAfter * 1000);
+      continue;
+    }
+    if (!res.ok) throw new Error(`API-Football ${path} -> HTTP ${res.status}`);
+    const body = await res.json();
+    const errCount = Array.isArray(body.errors) ? body.errors.length : Object.keys(body.errors || {}).length;
+    if (errCount) throw new Error(`API-Football ${path} -> ${JSON.stringify(body.errors)}`);
+    return body.response;
+  }
 }
 
 export async function fetchUpcomingFixtures(key, { leagueId, season, next = 10 }) {

@@ -21,9 +21,13 @@ const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const OUT = resolve(ROOT, 'docs/data');
 
 const RAPIDAPI_KEY = process.env.RAPIDAPI_KEY || '';
-const NEXT_PER_LEAGUE = Number(process.env.FOOTBALL_NEXT || 8);
+// Kept modest: 5 leagues x 5 fixtures already means up to ~50 unique teams,
+// so ~55 requests per refresh against a ~100/day free-tier budget.
+const NEXT_PER_LEAGUE = Number(process.env.FOOTBALL_NEXT || 5);
 const RECENT_MATCHES = Number(process.env.FOOTBALL_RECENT || 10);
-const CONCURRENCY = Number(process.env.FOOTBALL_CONCURRENCY || 4);
+// RapidAPI's free tier throttles bursts (observed: 5 concurrent requests all
+// got HTTP 429), so default to serial requests rather than parallel ones.
+const CONCURRENCY = Number(process.env.FOOTBALL_CONCURRENCY || 1);
 
 const log = (...a) => console.log('[refresh]', ...a);
 
