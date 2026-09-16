@@ -1,0 +1,51 @@
+name: Refresh and deploy dashboard
+
+on:
+  schedule:
+    # Best-effort: GitHub throttles high-frequency schedules on public repos.
+    # Also mind the API-Football free tier (~100 req/day) if RAPIDAPI_KEY is set.
+    - cron: '0 */6 * * *'
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages-deploy
+  cancel-in-progress: false
+
+jobs:
+  refresh-and-deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - id: pages
+        uses: actions/configure-pages@v5
+
+      - name: Build fixtures
+        env:
+          # Optional: set a RAPIDAPI_KEY repo secret to pull live fixtures from
+          # API-Football. Without it (or if the live fetch fails), this falls
+          # back to deterministic demo data and still succeeds.
+          RAPIDAPI_KEY: ${{ secrets.RAPIDAPI_KEY }}
+        run: node scripts/refresh.mjs
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./docs
+
+      - id: deployment
+        uses: actions/deploy-pages@v4
