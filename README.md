@@ -43,37 +43,49 @@ an opaque model. See `scripts/lib/stats.mjs` for the exact logic.
 
 ## Data source
 
-**Demo only, for now.** `scripts/refresh.mjs` generates deterministic sample
-fixtures and history (`scripts/lib/mock.mjs`), seeded by the calendar date,
-so the site always has something to show. The meta badge in the top-left of
-the page says so ("Demo data").
+Two modes, chosen automatically by `scripts/refresh.mjs`:
 
-A live data source is still being evaluated. Tried so far:
+- **Live** — set a `FOOTBALL_DATA_TOKEN` repo secret (a free key from
+  [football-data.org](https://www.football-data.org/client/register), a REST
+  API built for third-party developers, not a scraping target). One request
+  per league (`/v4/competitions/{code}/matches`) returns that competition's
+  full match list — recent results and upcoming fixtures together — so a
+  full refresh across all five leagues is just 5 requests, well under the
+  free tier's 10 requests/minute limit.
+- **Demo** — no token set, or the live fetch fails: generates deterministic
+  sample fixtures and history (`scripts/lib/mock.mjs`), seeded by the
+  calendar date. The site always has something to show. The meta badge in
+  the top-left of the page says which mode produced the current data.
 
-- **API-Football via RapidAPI** — abandoned after subscribing to the wrong,
-  similarly-named API by mistake during marketplace search.
-- **API-Football direct from API-SPORTS** — auth and requests work, but the
-  free plan blocks exactly the parameters a "live upcoming fixtures"
-  dashboard needs (`next`, `last`, and date/round-filtered historical
-  queries all returned "Free plans do not have access to..." errors). A paid
-  plan would very likely be required.
-- **SofaScore's public API directly** — returns `403 Forbidden` for
-  datacenter/CI IPs (confirmed from a GitHub Actions runner), so it can't
-  power a scheduled pipeline regardless of endpoint knowledge.
+Two other routes were tried and abandoned before this one — see
+`scripts/lib/football-data.mjs`'s header comment if picking this back up:
+API-Football's free tier (both via RapidAPI and direct from API-SPORTS)
+blocks exactly the parameters a live-fixtures dashboard needs, and
+SofaScore's own API 403s datacenter/CI IPs outright.
 
 ## Running locally
 
 ```bash
-npm run refresh   # builds docs/data/fixtures.json (demo data)
+npm run refresh   # builds docs/data/fixtures.json
 npm run serve      # http://localhost:8080
 ```
 
-No setup, no build step, no dependencies beyond Node 20+.
+Set `FOOTBALL_DATA_TOKEN=...` before `npm run refresh` to pull live data
+instead of demo data. No other setup, no build step, no dependencies beyond
+Node 20+.
 
 ## Deploying
 
-`.github/workflows/deploy.yml` refreshes the demo data and deploys `docs/` to
-GitHub Pages on a schedule, on push to `main`, and on manual dispatch.
+`.github/workflows/deploy.yml` refreshes the data and deploys `docs/` to
+GitHub Pages on a schedule, on push to `main`, and on manual dispatch. Set a
+`FOOTBALL_DATA_TOKEN` repository secret (Settings → Secrets and variables →
+Actions) to have it pull live data; without one it deploys demo data instead
+of failing.
+
+`.github/workflows/test-data-source.yml` is a lightweight, Pages-independent
+job (`workflow_dispatch` only) for confirming the token works — it runs the
+refresh script and prints which source produced the data, without touching
+the live deploy.
 
 ## Layout
 
@@ -84,9 +96,10 @@ docs/                the published site (GitHub Pages root)
   js/app.js           filter, sort, render
   js/format.js         date/percentage formatting
   data/fixtures.json   built by scripts/refresh.mjs
-scripts/refresh.mjs    the pipeline: demo data, scored + ranked
+scripts/refresh.mjs    the pipeline: live fetch or demo fallback, then scores + ranks
 scripts/serve.mjs      local static server
-scripts/lib/stats.mjs  the scoring logic
+scripts/lib/stats.mjs  the scoring logic, shared by live and demo paths
+scripts/lib/football-data.mjs  football-data.org client
 scripts/lib/mock.mjs   deterministic demo data generator
 ```
 
@@ -95,7 +108,10 @@ scripts/lib/mock.mjs   deterministic demo data generator
 - Team-level rates, not a joint model — see "How the score is computed" above.
 - Demo mode generates plausible-looking but entirely synthetic results; it is
   clearly labelled "Demo data" in the UI and is not real fixture history.
-- No live data source is wired up yet — see "Data source" above.
+- Only the top five leagues are covered. Extending to more leagues means
+  adding competition codes to `COMPETITIONS` in `scripts/lib/football-data.mjs`
+  (and to the mock generator if you want them in demo mode too) — check the
+  free tier covers that competition first.
 - Public/derived match data, shown for information only. **Not betting advice.**
 
 ## Licence

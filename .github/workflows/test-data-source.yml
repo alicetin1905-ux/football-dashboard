@@ -1,0 +1,36 @@
+name: Test data source
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test-refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Run refresh
+        env:
+          FOOTBALL_DATA_TOKEN: ${{ secrets.FOOTBALL_DATA_TOKEN }}
+        run: |
+          echo "FOOTBALL_DATA_TOKEN is set: $([ -n "$FOOTBALL_DATA_TOKEN" ] && echo yes || echo no)"
+          node scripts/refresh.mjs
+
+      - name: Report result
+        run: |
+          node -e '
+            const d = require("./docs/data/fixtures.json");
+            console.log("source:", d.source);
+            console.log("fixture count:", d.fixtures.length);
+            console.log("sample:", JSON.stringify(d.fixtures.slice(0, 5).map(f => ({
+              league: f.league, home: f.home.name, away: f.away.name, date: f.date, combined: f.score.combined,
+            })), null, 2));
+          '
