@@ -23,6 +23,7 @@ jobs:
               c.area?.name === "Turkey" || /s.per lig/i.test(c.name || ""));
             console.log("total competitions listed:", d.competitions?.length);
             console.log("Turkey matches:", JSON.stringify(hits, null, 2));
+            console.log("all competitions:", (d.competitions || []).map(c => `${c.code} - ${c.name} (${c.area?.name})`).join("\n"));
           '
 
   test-refresh:
