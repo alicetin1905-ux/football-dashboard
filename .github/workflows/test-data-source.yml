@@ -27,8 +27,8 @@ jobs:
 
           # Confirmed working: tournament id=1 -> Premier League via /events/next/0 (no season needed).
           # Now sweep ids to find La Liga / Bundesliga / Serie A / Ligue 1 by name, reusing that endpoint.
-          echo "== sweeping tournament ids 1..40 for league names =="
-          for id in $(seq 1 40); do
+          echo "== sweeping tournament ids 41..90 for Bundesliga =="
+          for id in $(seq 41 90); do
             body=$(curl -s -H "x-rapidapi-key: $RAPIDAPI_KEY" -H "x-rapidapi-host: sportapi7.p.rapidapi.com" \
               "https://sportapi7.p.rapidapi.com/api/v1/tournament/$id/events/next/0")
             name=$(echo "$body" | grep -o '"tournament":{"name":"[^"]*"' | head -1)
