@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-17T20:45:15.738Z",
+  "generatedAt": "2026-09-17T20:48:16.559Z",
   "source": "espn",
   "disclaimer": "Public/derived football statistics shown for information only — not betting advice.",
   "fixtures": [
@@ -1056,6 +1056,50 @@
         "combined": 0.5,
         "confidence": "low",
         "sampleHome": 1,
+        "sampleAway": 1
+      }
+    },
+    {
+      "id": "401885434",
+      "date": "2026-09-19T14:30Z",
+      "league": "Primeira Liga",
+      "leagueCountry": "Portugal",
+      "home": {
+        "id": "3472",
+        "name": "C.D. Nacional"
+      },
+      "away": {
+        "id": "12698",
+        "name": "FC Famalicao"
+      },
+      "stats": {
+        "home": {
+          "homeSample": 2,
+          "awaySample": 1,
+          "homeWinPct": 0,
+          "homeLossPct": 1,
+          "homeBttsPct": 1,
+          "awayWinPct": 0,
+          "awayLossPct": 1,
+          "awayBttsPct": 0
+        },
+        "away": {
+          "homeSample": 2,
+          "awaySample": 1,
+          "homeWinPct": 0,
+          "homeLossPct": 0,
+          "homeBttsPct": 0.5,
+          "awayWinPct": 0,
+          "awayLossPct": 0,
+          "awayBttsPct": 1
+        }
+      },
+      "score": {
+        "awayWinLikelihood": 0.5,
+        "bttsLikelihood": 1,
+        "combined": 0.5,
+        "confidence": "low",
+        "sampleHome": 2,
         "sampleAway": 1
       }
     },
@@ -2512,6 +2556,138 @@
       }
     },
     {
+      "id": "401885435",
+      "date": "2026-09-19T14:30Z",
+      "league": "Primeira Liga",
+      "leagueCountry": "Portugal",
+      "home": {
+        "id": "3699",
+        "name": "Gil Vicente"
+      },
+      "away": {
+        "id": "552",
+        "name": "Maritimo"
+      },
+      "stats": {
+        "home": {
+          "homeSample": 1,
+          "awaySample": 2,
+          "homeWinPct": 0,
+          "homeLossPct": 1,
+          "homeBttsPct": 0,
+          "awayWinPct": 0,
+          "awayLossPct": 0.5,
+          "awayBttsPct": 0.5
+        },
+        "away": {
+          "homeSample": 1,
+          "awaySample": 2,
+          "homeWinPct": 0,
+          "homeLossPct": 1,
+          "homeBttsPct": 0,
+          "awayWinPct": 0,
+          "awayLossPct": 1,
+          "awayBttsPct": 1
+        }
+      },
+      "score": {
+        "awayWinLikelihood": 0.5,
+        "bttsLikelihood": 0.5,
+        "combined": 0.25,
+        "confidence": "low",
+        "sampleHome": 1,
+        "sampleAway": 2
+      }
+    },
+    {
+      "id": "401885437",
+      "date": "2026-09-20T14:30Z",
+      "league": "Primeira Liga",
+      "leagueCountry": "Portugal",
+      "home": {
+        "id": "21610",
+        "name": "Estrela"
+      },
+      "away": {
+        "id": "21607",
+        "name": "Académico de Viseu"
+      },
+      "stats": {
+        "home": {
+          "homeSample": 2,
+          "awaySample": 2,
+          "homeWinPct": 0.5,
+          "homeLossPct": 0,
+          "homeBttsPct": 1,
+          "awayWinPct": 0.5,
+          "awayLossPct": 0,
+          "awayBttsPct": 1
+        },
+        "away": {
+          "homeSample": 2,
+          "awaySample": 1,
+          "homeWinPct": 0.5,
+          "homeLossPct": 0.5,
+          "homeBttsPct": 0.5,
+          "awayWinPct": 1,
+          "awayLossPct": 0,
+          "awayBttsPct": 0
+        }
+      },
+      "score": {
+        "awayWinLikelihood": 0.5,
+        "bttsLikelihood": 0.5,
+        "combined": 0.25,
+        "confidence": "low",
+        "sampleHome": 2,
+        "sampleAway": 1
+      }
+    },
+    {
+      "id": "401885433",
+      "date": "2026-09-20T19:30Z",
+      "league": "Primeira Liga",
+      "leagueCountry": "Portugal",
+      "home": {
+        "id": "437",
+        "name": "FC Porto"
+      },
+      "away": {
+        "id": "1929",
+        "name": "Benfica"
+      },
+      "stats": {
+        "home": {
+          "homeSample": 1,
+          "awaySample": 2,
+          "homeWinPct": 1,
+          "homeLossPct": 0,
+          "homeBttsPct": 1,
+          "awayWinPct": 1,
+          "awayLossPct": 0,
+          "awayBttsPct": 0.5
+        },
+        "away": {
+          "homeSample": 2,
+          "awaySample": 2,
+          "homeWinPct": 1,
+          "homeLossPct": 0,
+          "homeBttsPct": 1,
+          "awayWinPct": 1,
+          "awayLossPct": 0,
+          "awayBttsPct": 0
+        }
+      },
+      "score": {
+        "awayWinLikelihood": 0.5,
+        "bttsLikelihood": 0.5,
+        "combined": 0.25,
+        "confidence": "low",
+        "sampleHome": 1,
+        "sampleAway": 2
+      }
+    },
+    {
       "id": "401879271",
       "date": "2026-09-19T14:00Z",
       "league": "Premier League",
@@ -2996,6 +3172,94 @@
       }
     },
     {
+      "id": "401885438",
+      "date": "2026-09-19T17:00Z",
+      "league": "Primeira Liga",
+      "leagueCountry": "Portugal",
+      "home": {
+        "id": "21613",
+        "name": "Alverca"
+      },
+      "away": {
+        "id": "3822",
+        "name": "Rio Ave"
+      },
+      "stats": {
+        "home": {
+          "homeSample": 2,
+          "awaySample": 1,
+          "homeWinPct": 0,
+          "homeLossPct": 0.5,
+          "homeBttsPct": 1,
+          "awayWinPct": 1,
+          "awayLossPct": 0,
+          "awayBttsPct": 1
+        },
+        "away": {
+          "homeSample": 2,
+          "awaySample": 1,
+          "homeWinPct": 0,
+          "homeLossPct": 0.5,
+          "homeBttsPct": 0.5,
+          "awayWinPct": 0,
+          "awayLossPct": 1,
+          "awayBttsPct": 0
+        }
+      },
+      "score": {
+        "awayWinLikelihood": 0.25,
+        "bttsLikelihood": 0.5,
+        "combined": 0.125,
+        "confidence": "low",
+        "sampleHome": 2,
+        "sampleAway": 1
+      }
+    },
+    {
+      "id": "401885432",
+      "date": "2026-09-20T17:00Z",
+      "league": "Primeira Liga",
+      "leagueCountry": "Portugal",
+      "home": {
+        "id": "12215",
+        "name": "Santa Clara"
+      },
+      "away": {
+        "id": "2994",
+        "name": "Braga"
+      },
+      "stats": {
+        "home": {
+          "homeSample": 1,
+          "awaySample": 2,
+          "homeWinPct": 1,
+          "homeLossPct": 0,
+          "homeBttsPct": 0,
+          "awayWinPct": 0.5,
+          "awayLossPct": 0,
+          "awayBttsPct": 1
+        },
+        "away": {
+          "homeSample": 2,
+          "awaySample": 2,
+          "homeWinPct": 1,
+          "homeLossPct": 0,
+          "homeBttsPct": 0,
+          "awayWinPct": 0.5,
+          "awayLossPct": 0.5,
+          "awayBttsPct": 1
+        }
+      },
+      "score": {
+        "awayWinLikelihood": 0.25,
+        "bttsLikelihood": 0.5,
+        "combined": 0.125,
+        "confidence": "low",
+        "sampleHome": 1,
+        "sampleAway": 2
+      }
+    },
+    {
       "id": "401880255",
       "date": "2026-09-18T19:00Z",
       "league": "Championship",
@@ -3212,6 +3476,50 @@
         "combined": 0.0625,
         "confidence": "low",
         "sampleHome": 2,
+        "sampleAway": 2
+      }
+    },
+    {
+      "id": "401885430",
+      "date": "2026-09-20T14:30Z",
+      "league": "Primeira Liga",
+      "leagueCountry": "Portugal",
+      "home": {
+        "id": "5309",
+        "name": "Vitória de Guimaraes"
+      },
+      "away": {
+        "id": "3696",
+        "name": "Moreirense"
+      },
+      "stats": {
+        "home": {
+          "homeSample": 1,
+          "awaySample": 2,
+          "homeWinPct": 0,
+          "homeLossPct": 0,
+          "homeBttsPct": 0,
+          "awayWinPct": 0,
+          "awayLossPct": 1,
+          "awayBttsPct": 0.5
+        },
+        "away": {
+          "homeSample": 2,
+          "awaySample": 2,
+          "homeWinPct": 0.5,
+          "homeLossPct": 0.5,
+          "homeBttsPct": 0.5,
+          "awayWinPct": 0.5,
+          "awayLossPct": 0.5,
+          "awayBttsPct": 0.5
+        }
+      },
+      "score": {
+        "awayWinLikelihood": 0.25,
+        "bttsLikelihood": 0.25,
+        "combined": 0.0625,
+        "confidence": "low",
+        "sampleHome": 1,
         "sampleAway": 2
       }
     },
@@ -4221,6 +4529,94 @@
       "score": {
         "awayWinLikelihood": 0,
         "bttsLikelihood": 0.5,
+        "combined": 0,
+        "confidence": "low",
+        "sampleHome": 1,
+        "sampleAway": 1
+      }
+    },
+    {
+      "id": "401885431",
+      "date": "2026-09-19T19:30Z",
+      "league": "Primeira Liga",
+      "leagueCountry": "Portugal",
+      "home": {
+        "id": "2250",
+        "name": "Sporting CP"
+      },
+      "away": {
+        "id": "15784",
+        "name": "Arouca"
+      },
+      "stats": {
+        "home": {
+          "homeSample": 1,
+          "awaySample": 2,
+          "homeWinPct": 1,
+          "homeLossPct": 0,
+          "homeBttsPct": 0,
+          "awayWinPct": 0.5,
+          "awayLossPct": 0,
+          "awayBttsPct": 0.5
+        },
+        "away": {
+          "homeSample": 2,
+          "awaySample": 1,
+          "homeWinPct": 0.5,
+          "homeLossPct": 0.5,
+          "homeBttsPct": 1,
+          "awayWinPct": 0,
+          "awayLossPct": 0,
+          "awayBttsPct": 0
+        }
+      },
+      "score": {
+        "awayWinLikelihood": 0,
+        "bttsLikelihood": 0,
+        "combined": 0,
+        "confidence": "low",
+        "sampleHome": 1,
+        "sampleAway": 1
+      }
+    },
+    {
+      "id": "401885436",
+      "date": "2026-09-20T17:00Z",
+      "league": "Primeira Liga",
+      "leagueCountry": "Portugal",
+      "home": {
+        "id": "12216",
+        "name": "Estoril"
+      },
+      "away": {
+        "id": "21581",
+        "name": "Casa Pia"
+      },
+      "stats": {
+        "home": {
+          "homeSample": 1,
+          "awaySample": 2,
+          "homeWinPct": 0,
+          "homeLossPct": 0,
+          "homeBttsPct": 0,
+          "awayWinPct": 0,
+          "awayLossPct": 1,
+          "awayBttsPct": 0.5
+        },
+        "away": {
+          "homeSample": 2,
+          "awaySample": 1,
+          "homeWinPct": 0,
+          "homeLossPct": 1,
+          "homeBttsPct": 0.5,
+          "awayWinPct": 0,
+          "awayLossPct": 0,
+          "awayBttsPct": 0
+        }
+      },
+      "score": {
+        "awayWinLikelihood": 0,
+        "bttsLikelihood": 0,
         "combined": 0,
         "confidence": "low",
         "sampleHome": 1,

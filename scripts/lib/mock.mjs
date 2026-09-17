@@ -61,6 +61,11 @@ const LEAGUES = [
     country: 'Belgium',
     teams: ['Club Brugge', 'Anderlecht', 'Genk', 'Royal Antwerp', 'Gent', 'Standard Liège', 'Union SG', 'Charleroi', 'Cercle Brugge', 'Kortrijk'],
   },
+  {
+    name: 'Primeira Liga',
+    country: 'Portugal',
+    teams: ['Benfica', 'Porto', 'Sporting CP', 'Braga', 'Vitoria Guimaraes', 'Famalicao', 'Moreirense', 'Casa Pia', 'Estoril', 'Arouca'],
+  },
 ];
 
 function mulberry32(seed) {
