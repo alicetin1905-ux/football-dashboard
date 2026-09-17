@@ -15,8 +15,7 @@ const state = {
 const els = {
   metaRow: document.getElementById('metaRow'),
   hero: document.getElementById('hero'),
-  heroMatch: document.getElementById('heroMatch'),
-  heroFigures: document.getElementById('heroFigures'),
+  heroCards: document.getElementById('heroCards'),
   leagueFilter: document.getElementById('leagueFilter'),
   hideLowSample: document.getElementById('hideLowSample'),
   teamSearch: document.getElementById('teamSearch'),
@@ -60,16 +59,24 @@ function renderMeta(payload) {
 }
 
 function renderHero(fixtures) {
-  const top = fixtures[0];
-  if (!top) { els.hero.hidden = true; return; }
+  const top = fixtures.slice(0, 3);
+  if (!top.length) { els.hero.hidden = true; return; }
   els.hero.hidden = false;
-  els.heroMatch.innerHTML = `<span class="home">${top.home.name}</span><span class="vs">vs</span>${top.away.name}`;
-  els.heroFigures.innerHTML = `
-    <div class="figure"><div class="figure-value">${pct(top.score.combined)}</div><div class="figure-label">Away win + BTTS</div></div>
-    <div class="figure"><div class="figure-value">${pct(top.score.awayWinLikelihood)}</div><div class="figure-label">Away win likelihood</div></div>
-    <div class="figure"><div class="figure-value">${pct(top.score.bttsLikelihood)}</div><div class="figure-label">BTTS likelihood</div></div>
-    <div class="figure"><div class="figure-value">${top.league}</div><div class="figure-label">${kickoff(top.date)}</div></div>
-  `;
+  els.heroCards.innerHTML = top.map((f, i) => `
+    <div class="hero-card">
+      <div class="hero-card-head">
+        <span class="hero-rank">#${i + 1}</span>
+        <span class="hero-league">${f.league}</span>
+      </div>
+      <div class="hero-match"><span class="home">${f.home.name}</span><span class="vs">vs</span>${f.away.name}</div>
+      <div class="hero-figures">
+        <div class="figure figure-combined"><div class="figure-value">${pct(f.score.combined)}</div><div class="figure-label">Away win + BTTS</div></div>
+        <div class="figure"><div class="figure-value">${pct(f.score.awayWinLikelihood)}</div><div class="figure-label">Away win</div></div>
+        <div class="figure"><div class="figure-value">${pct(f.score.bttsLikelihood)}</div><div class="figure-label">BTTS</div></div>
+      </div>
+      <div class="hero-kickoff">${kickoff(f.date)}</div>
+    </div>
+  `).join('');
 }
 
 function populateLeagues(fixtures) {
