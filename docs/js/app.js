@@ -4,12 +4,20 @@ const ALERT_THRESHOLD = 0.5;
 const ALERT_WINDOW_HOURS = 48;
 const REFRESH_INTERVAL_MS = 5 * 60 * 1000;
 
+const MODES = {
+  away: { label: 'Away win + BTTS', winLabel: 'Away win' },
+  home: { label: 'Home win + BTTS', winLabel: 'Home win' },
+};
+
+const storedMode = readStore('btts-mode', 'away');
+
 const state = {
   fixtures: [],
   league: '',
   hideLowSample: false,
   search: '',
   notify: false,
+  mode: MODES[storedMode] ? storedMode : 'away',
 };
 
 const els = {
@@ -19,6 +27,8 @@ const els = {
   leagueFilter: document.getElementById('leagueFilter'),
   hideLowSample: document.getElementById('hideLowSample'),
   teamSearch: document.getElementById('teamSearch'),
+  modeSelect: document.getElementById('modeSelect'),
+  winHeader: document.getElementById('winHeader'),
   rows: document.getElementById('rows'),
   emptyState: document.getElementById('emptyState'),
   notifyBtn: document.getElementById('notifyBtn'),
@@ -38,6 +48,39 @@ function readStore(key, fallback) {
 
 function writeStore(key, value) {
   try { localStorage.setItem(key, JSON.stringify(value)); } catch { /* storage unavailable */ }
+}
+
+const MIN_SAMPLE_FOR_CONFIDENCE = 5;
+const avg = (arr) => arr.reduce((a, b) => a + b, 0) / arr.length;
+
+/**
+ * Same combining logic as scripts/lib/stats.mjs's scoreFixture, just with
+ * the win side picked by `mode` — mirrors it rather than importing it,
+ * since that module lives outside docs/ (Node-only) and this is the one
+ * place the browser needs it. Every fixture already carries both teams'
+ * full home/away splits (f.stats), so no extra data or refetch is needed
+ * to rank by the other side.
+ */
+function computeScore(f, mode) {
+  const home = f.stats.home;
+  const away = f.stats.away;
+  const winSignals = (mode === 'home'
+    ? [home.homeWinPct, away.awayLossPct]
+    : [home.homeLossPct, away.awayWinPct]
+  ).filter((v) => v != null);
+  const bttsSignals = [home.homeBttsPct, away.awayBttsPct].filter((v) => v != null);
+  if (!winSignals.length || !bttsSignals.length) return null;
+
+  const winLikelihood = avg(winSignals);
+  const bttsLikelihood = avg(bttsSignals);
+  const minSample = Math.min(home.homeSample, away.awaySample);
+
+  return {
+    winLikelihood,
+    bttsLikelihood,
+    combined: winLikelihood * bttsLikelihood,
+    confidence: minSample >= MIN_SAMPLE_FOR_CONFIDENCE ? 'ok' : 'low',
+  };
 }
 
 function formBadges(letters, title) {
@@ -65,6 +108,7 @@ function renderMeta(payload) {
 }
 
 function renderHero(fixtures) {
+  const mode = MODES[state.mode];
   const top = fixtures.slice(0, 3);
   if (!top.length) { els.hero.hidden = true; return; }
   els.hero.hidden = false;
@@ -76,9 +120,9 @@ function renderHero(fixtures) {
       </div>
       <div class="hero-match"><span class="home">${f.home.name}</span><span class="vs">vs</span>${f.away.name}</div>
       <div class="hero-figures">
-        <div class="figure figure-combined"><div class="figure-value">${pct(f.score.combined)}</div><div class="figure-label">Away win + BTTS</div></div>
-        <div class="figure"><div class="figure-value">${pct(f.score.awayWinLikelihood)}</div><div class="figure-label">Away win</div></div>
-        <div class="figure"><div class="figure-value">${pct(f.score.bttsLikelihood)}</div><div class="figure-label">BTTS</div></div>
+        <div class="figure figure-combined"><div class="figure-value">${pct(f._view.combined)}</div><div class="figure-label">${mode.label}</div></div>
+        <div class="figure"><div class="figure-value">${pct(f._view.winLikelihood)}</div><div class="figure-label">${mode.winLabel}</div></div>
+        <div class="figure"><div class="figure-value">${pct(f._view.bttsLikelihood)}</div><div class="figure-label">BTTS</div></div>
       </div>
       <div class="hero-kickoff">${kickoff(f.date)}</div>
     </div>
@@ -91,19 +135,39 @@ function populateLeagues(fixtures) {
     leagues.map((l) => `<option value="${l}">${l}</option>`).join('');
 }
 
+/**
+ * Filters fixtures, then attaches the score for the currently selected
+ * ranking mode as `_view` and re-sorts by it — the server only pre-sorts by
+ * away-win mode, so switching to home mode needs a client-side re-rank.
+ */
 function applyFilters() {
-  return state.fixtures.filter((f) => {
+  const viewed = state.fixtures
+    .map((f) => ({ f, view: computeScore(f, state.mode) }))
+    .filter(({ view }) => view != null);
+
+  const filtered = viewed.filter(({ f, view }) => {
     if (state.league && f.league !== state.league) return false;
-    if (state.hideLowSample && f.score.confidence === 'low') return false;
+    if (state.hideLowSample && view.confidence === 'low') return false;
     if (state.search) {
       const q = state.search.toLowerCase();
       if (!f.home.name.toLowerCase().includes(q) && !f.away.name.toLowerCase().includes(q)) return false;
     }
     return true;
   });
+
+  filtered.sort((a, b) => b.view.combined - a.view.combined);
+  return filtered.map(({ f, view }) => ({ ...f, _view: view }));
+}
+
+function syncModeUi() {
+  const mode = MODES[state.mode];
+  if (els.modeSelect) els.modeSelect.value = state.mode;
+  if (els.winHeader) els.winHeader.textContent = mode.winLabel;
 }
 
 function render() {
+  syncModeUi();
+  const mode = MODES[state.mode];
   const filtered = applyFilters();
   renderHero(filtered);
 
@@ -114,7 +178,7 @@ function render() {
       <td class="league" data-label="League">${f.league}</td>
       <td class="fixture" data-label="Fixture">
         <span class="home">${f.home.name}</span><span class="vs">vs</span>${f.away.name}
-        ${f.score.confidence === 'low' ? '<span class="confidence-low" title="Fewer than 5 recent matches on record for one side">low sample</span>' : ''}
+        ${f._view.confidence === 'low' ? '<span class="confidence-low" title="Fewer than 5 recent matches on record for one side">low sample</span>' : ''}
         <div class="form-row">
           <span class="form-label">Home</span>
           ${formBadges(f.stats.home.homeForm, `${f.home.name}'s last home matches, oldest to newest`)}
@@ -122,9 +186,9 @@ function render() {
           ${formBadges(f.stats.away.awayForm, `${f.away.name}'s last away matches, oldest to newest`)}
         </div>
       </td>
-      <td data-label="Away win">${meter(f.score.awayWinLikelihood)}</td>
-      <td data-label="BTTS">${meter(f.score.bttsLikelihood)}</td>
-      <td data-label="Combined">${meter(f.score.combined, 'combined')}</td>
+      <td data-label="${mode.winLabel}">${meter(f._view.winLikelihood)}</td>
+      <td data-label="BTTS">${meter(f._view.bttsLikelihood)}</td>
+      <td data-label="Combined">${meter(f._view.combined, 'combined')}</td>
     </tr>
   `).join('');
 }
@@ -265,6 +329,11 @@ async function main() {
   els.leagueFilter.addEventListener('change', (e) => { state.league = e.target.value; render(); });
   els.hideLowSample.addEventListener('change', (e) => { state.hideLowSample = e.target.checked; render(); });
   els.teamSearch.addEventListener('input', (e) => { state.search = e.target.value; render(); });
+  els.modeSelect.addEventListener('change', (e) => {
+    state.mode = MODES[e.target.value] ? e.target.value : 'away';
+    writeStore('btts-mode', state.mode);
+    render();
+  });
   els.notifyBtn.addEventListener('click', toggleNotifications);
   els.installHintClose.addEventListener('click', () => { els.installHint.hidden = true; });
 

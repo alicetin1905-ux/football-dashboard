@@ -35,6 +35,12 @@
   </section>
 
   <div class="controls">
+    <label>Rank by
+      <select id="modeSelect">
+        <option value="away">Away win + BTTS</option>
+        <option value="home">Home win + BTTS</option>
+      </select>
+    </label>
     <label>League
       <select id="leagueFilter"><option value="">All leagues</option></select>
     </label>
@@ -61,7 +67,7 @@
         <th>Kickoff</th>
         <th>League</th>
         <th>Fixture</th>
-        <th>Away win</th>
+        <th id="winHeader">Away win</th>
         <th>BTTS</th>
         <th>Combined</th>
       </tr>
@@ -72,15 +78,18 @@
 
   <footer>
     <p id="methodology">
-      <strong>Methodology.</strong> For each fixture, <em>away-win likelihood</em> is the
-      average of the home team's home-loss rate and the away team's away-win rate over
-      their recent matches; <em>BTTS likelihood</em> is the average of the home team's
-      home-BTTS rate and the away team's away-BTTS rate. <em>Combined</em> multiplies the
-      two, treating them as independent — a simplification, not a true joint probability.
-      Fixtures where either team has fewer than 5 recent matches on record are flagged
-      "low sample". The <strong>Home</strong>/<strong>Away</strong> form badges on each row
-      are exactly the matches those two rates come from — the home team's own home matches,
-      oldest to newest, and the away team's own away matches.
+      <strong>Methodology.</strong> The <strong>Rank by</strong> control switches which
+      outcome is ranked: <em>away-win likelihood</em> is the average of the home team's
+      home-loss rate and the away team's away-win rate over their recent matches;
+      <em>home-win likelihood</em> is the average of the home team's home-win rate and the
+      away team's away-loss rate. Either way, <em>BTTS likelihood</em> is the average of
+      the home team's home-BTTS rate and the away team's away-BTTS rate, and
+      <em>Combined</em> multiplies the win likelihood by it, treating them as independent —
+      a simplification, not a true joint probability. Fixtures where either team has fewer
+      than 5 recent matches on record are flagged "low sample". Alerts are always based on
+      away win + BTTS, regardless of the selected ranking. The <strong>Home</strong>/<strong>Away</strong>
+      form badges on each row are exactly the matches those rates come from — the home
+      team's own home matches, oldest to newest, and the away team's own away matches.
     </p>
     <p>Public/derived match data, shown for information only. Not betting advice.</p>
   </footer>

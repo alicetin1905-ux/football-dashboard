@@ -19,8 +19,14 @@ Süper Lig, Eredivisie, Belgian Pro League, Primeira Liga):
 | Combined | Away win × BTTS — the headline ranking metric |
 
 Fixtures are sorted with the most likely "away win + BTTS yes" match first.
-A "low sample" tag marks fixtures where either team has fewer than 5 recent
-matches on record, since the underlying rate is noisier with less data.
+A **Rank by** toggle switches the whole view — table columns, top matches,
+and sort order — to **Home win + BTTS** instead, reusing the same scoring
+logic with the win side swapped (home team's home-win rate and away team's
+away-loss rate, rather than the reverse). Your choice is remembered locally.
+Alerts always stay tied to away win + BTTS regardless of which mode you're
+viewing. A "low sample" tag marks fixtures where either team has fewer than
+5 recent matches on record, since the underlying rate is noisier with less
+data.
 
 **This is not a bookmaker probability or betting advice** — it's a simplified
 estimate from public/derived match data, shown for information only.
