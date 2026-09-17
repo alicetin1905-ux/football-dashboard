@@ -251,6 +251,44 @@ header.top .crumbs {
 .bet-slip-leg .leg-teams .vs { color: var(--muted); margin: 0 4px; }
 .bet-slip-leg .leg-odds { font-weight: 600; flex-shrink: 0; }
 
+.bet-slip-stake {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 10px;
+  font-size: 0.8rem;
+  color: var(--text-2);
+}
+
+.stake-input-wrap {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 4px 8px;
+}
+
+.stake-input-wrap .stake-currency {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+#stakeInput {
+  width: 64px;
+  background: none;
+  border: none;
+  color: var(--text);
+  font-size: 0.9rem;
+  font-weight: 600;
+  font-family: var(--sans);
+  font-variant-numeric: tabular-nums;
+}
+
+#stakeInput:focus { outline: none; }
+
 .bet-slip-return {
   display: flex;
   align-items: baseline;

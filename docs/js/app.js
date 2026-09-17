@@ -3,7 +3,7 @@ import { pct, kickoff, relativeAgo } from './format.js';
 const ALERT_THRESHOLD = 0.5;
 const ALERT_WINDOW_HOURS = 48;
 const REFRESH_INTERVAL_MS = 5 * 60 * 1000;
-const STAKE = 10;
+const DEFAULT_STAKE = 10;
 
 const MODES = {
   away: { label: 'Away win + BTTS', winLabel: 'Away win' },
@@ -11,6 +11,7 @@ const MODES = {
 };
 
 const storedMode = readStore('btts-mode', 'away');
+const storedStake = readStore('btts-stake', DEFAULT_STAKE);
 
 const state = {
   fixtures: [],
@@ -19,6 +20,7 @@ const state = {
   search: '',
   notify: false,
   mode: MODES[storedMode] ? storedMode : 'away',
+  stake: Number.isFinite(storedStake) && storedStake >= 0 ? storedStake : DEFAULT_STAKE,
 };
 
 const els = {
@@ -135,6 +137,17 @@ function renderHero(fixtures) {
 /** 1 ÷ probability — the decimal odds our own estimate implies, not a bookmaker price. */
 const impliedOdds = (p) => (p > 0 ? 1 / p : null);
 
+/** Recomputes just the return/profit figures for the current stake — leaves the rest of the card, and the stake input's focus, untouched. */
+function updateBetSlipReturn(combinedOdds) {
+  const returnEl = els.betSlip.querySelector('#betSlipReturn');
+  const profitEl = els.betSlip.querySelector('#betSlipProfit');
+  if (!returnEl || !profitEl) return;
+  const returns = combinedOdds * state.stake;
+  const profit = returns - state.stake;
+  returnEl.textContent = `€${returns.toFixed(2)}`;
+  profitEl.textContent = `(+€${profit.toFixed(2)})`;
+}
+
 function renderBetSlip(top, mode) {
   if (!els.betSlip) return;
   const legs = top
@@ -144,12 +157,12 @@ function renderBetSlip(top, mode) {
   if (!legs.length) { els.betSlip.innerHTML = ''; return; }
 
   const combinedOdds = legs.reduce((acc, leg) => acc * leg.odds, 1);
-  const returns = combinedOdds * STAKE;
-  const profit = returns - STAKE;
+  const returns = combinedOdds * state.stake;
+  const profit = returns - state.stake;
 
   els.betSlip.innerHTML = `
     <div class="bet-slip-head">
-      <span class="bet-slip-label">&euro;${STAKE} combined &middot; ${legs.length}-leg acca</span>
+      <span class="bet-slip-label">Combined &middot; ${legs.length}-leg acca</span>
       <span class="bet-slip-odds">${combinedOdds.toFixed(2)}&times;</span>
     </div>
     <div class="bet-slip-legs">
@@ -160,10 +173,17 @@ function renderBetSlip(top, mode) {
         </div>
       `).join('')}
     </div>
+    <div class="bet-slip-stake">
+      <label for="stakeInput">Stake</label>
+      <span class="stake-input-wrap">
+        <span class="stake-currency">&euro;</span>
+        <input type="number" id="stakeInput" min="0" step="1" inputmode="decimal" value="${state.stake}">
+      </span>
+    </div>
     <div class="bet-slip-return">
       <span>Potential return</span>
-      <strong>&euro;${returns.toFixed(2)}</strong>
-      <span class="bet-slip-profit">(+&euro;${profit.toFixed(2)})</span>
+      <strong id="betSlipReturn">&euro;${returns.toFixed(2)}</strong>
+      <span class="bet-slip-profit" id="betSlipProfit">(+&euro;${profit.toFixed(2)})</span>
     </div>
     <p class="bet-slip-disclaimer">
       Odds implied from our own ${mode.label.toLowerCase()} estimate (1 &divide; probability) &mdash;
@@ -171,6 +191,13 @@ function renderBetSlip(top, mode) {
       odds. Illustrative only, not betting advice.
     </p>
   `;
+
+  els.betSlip.querySelector('#stakeInput').addEventListener('input', (e) => {
+    const val = parseFloat(e.target.value);
+    state.stake = Number.isFinite(val) && val >= 0 ? val : 0;
+    writeStore('btts-stake', state.stake);
+    updateBetSlipReturn(combinedOdds);
+  });
 }
 
 function populateLeagues(fixtures) {
