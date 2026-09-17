@@ -7,6 +7,27 @@ permissions:
   contents: read
 
 jobs:
+  probe-sportapi7:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - name: Probe sportapi7.p.rapidapi.com
+        env:
+          RAPIDAPI_KEY: ${{ secrets.RAPIDAPI_KEY }}
+        run: |
+          echo "== known event by id (host+key sanity check) =="
+          curl -s -o /tmp/r1.json -w "HTTP %{http_code}\n" \
+            -H "x-rapidapi-key: $RAPIDAPI_KEY" -H "x-rapidapi-host: sportapi7.p.rapidapi.com" \
+            "https://sportapi7.p.rapidapi.com/api/v1/event/7881945"
+          head -c 300 /tmp/r1.json; echo
+
+          echo "== scheduled events today (list endpoint candidate) =="
+          TODAY=$(date -u +%Y-%m-%d)
+          curl -s -o /tmp/r2.json -w "HTTP %{http_code}\n" \
+            -H "x-rapidapi-key: $RAPIDAPI_KEY" -H "x-rapidapi-host: sportapi7.p.rapidapi.com" \
+            "https://sportapi7.p.rapidapi.com/api/v1/sport/football/scheduled-events/$TODAY"
+          head -c 500 /tmp/r2.json; echo
+
   test-refresh:
     runs-on: ubuntu-latest
     timeout-minutes: 5
