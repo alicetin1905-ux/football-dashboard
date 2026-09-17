@@ -3,6 +3,7 @@ import { pct, kickoff, relativeAgo } from './format.js';
 const ALERT_THRESHOLD = 0.5;
 const ALERT_WINDOW_HOURS = 48;
 const REFRESH_INTERVAL_MS = 5 * 60 * 1000;
+const STAKE = 10;
 
 const MODES = {
   away: { label: 'Away win + BTTS', winLabel: 'Away win' },
@@ -24,6 +25,7 @@ const els = {
   metaRow: document.getElementById('metaRow'),
   hero: document.getElementById('hero'),
   heroCards: document.getElementById('heroCards'),
+  betSlip: document.getElementById('betSlip'),
   leagueFilter: document.getElementById('leagueFilter'),
   hideLowSample: document.getElementById('hideLowSample'),
   teamSearch: document.getElementById('teamSearch'),
@@ -127,6 +129,48 @@ function renderHero(fixtures) {
       <div class="hero-kickoff">${kickoff(f.date)}</div>
     </div>
   `).join('');
+  renderBetSlip(top, mode);
+}
+
+/** 1 ÷ probability — the decimal odds our own estimate implies, not a bookmaker price. */
+const impliedOdds = (p) => (p > 0 ? 1 / p : null);
+
+function renderBetSlip(top, mode) {
+  if (!els.betSlip) return;
+  const legs = top
+    .map((f) => ({ f, odds: impliedOdds(f._view.combined) }))
+    .filter((leg) => leg.odds != null);
+
+  if (!legs.length) { els.betSlip.innerHTML = ''; return; }
+
+  const combinedOdds = legs.reduce((acc, leg) => acc * leg.odds, 1);
+  const returns = combinedOdds * STAKE;
+  const profit = returns - STAKE;
+
+  els.betSlip.innerHTML = `
+    <div class="bet-slip-head">
+      <span class="bet-slip-label">&euro;${STAKE} combined &middot; ${legs.length}-leg acca</span>
+      <span class="bet-slip-odds">${combinedOdds.toFixed(2)}&times;</span>
+    </div>
+    <div class="bet-slip-legs">
+      ${legs.map((leg) => `
+        <div class="bet-slip-leg">
+          <span class="leg-teams">${leg.f.home.name}<span class="vs">vs</span>${leg.f.away.name}</span>
+          <span class="leg-odds">${leg.odds.toFixed(2)}</span>
+        </div>
+      `).join('')}
+    </div>
+    <div class="bet-slip-return">
+      <span>Potential return</span>
+      <strong>&euro;${returns.toFixed(2)}</strong>
+      <span class="bet-slip-profit">(+&euro;${profit.toFixed(2)})</span>
+    </div>
+    <p class="bet-slip-disclaimer">
+      Odds implied from our own ${mode.label.toLowerCase()} estimate (1 &divide; probability) &mdash;
+      not a bookmaker price. Combining legs multiplies their uncertainty together, not just their
+      odds. Illustrative only, not betting advice.
+    </p>
+  `;
 }
 
 function populateLeagues(fixtures) {

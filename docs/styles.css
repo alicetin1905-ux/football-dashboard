@@ -203,6 +203,79 @@ header.top .crumbs {
   color: var(--text-2);
 }
 
+.bet-slip {
+  margin-top: 12px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px;
+}
+
+.bet-slip-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.bet-slip-label {
+  font-size: 0.78rem;
+  color: var(--text-2);
+}
+
+.bet-slip-odds {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--good);
+}
+
+.bet-slip-legs {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 8px 0;
+  border-top: 1px solid var(--grid);
+  border-bottom: 1px solid var(--grid);
+  margin-bottom: 10px;
+}
+
+.bet-slip-leg {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  gap: 12px;
+}
+
+.bet-slip-leg .leg-teams { color: var(--text-2); }
+.bet-slip-leg .leg-teams .vs { color: var(--muted); margin: 0 4px; }
+.bet-slip-leg .leg-odds { font-weight: 600; flex-shrink: 0; }
+
+.bet-slip-return {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  font-size: 0.85rem;
+  color: var(--text-2);
+}
+
+.bet-slip-return strong {
+  font-size: 1.3rem;
+  color: var(--text);
+}
+
+.bet-slip-profit {
+  color: var(--good);
+  font-size: 0.8rem;
+}
+
+.bet-slip-disclaimer {
+  margin: 10px 0 0;
+  font-size: 0.72rem;
+  color: var(--muted);
+  line-height: 1.4;
+}
+
 .controls {
   display: flex;
   flex-wrap: wrap;

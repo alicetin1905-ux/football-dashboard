@@ -28,6 +28,14 @@ viewing. A "low sample" tag marks fixtures where either team has fewer than
 5 recent matches on record, since the underlying rate is noisier with less
 data.
 
+Under the top 3, a **€10 combined** card turns those three matches into an
+accumulator: each leg's own likelihood is converted to implied decimal odds
+(1 ÷ probability), the three are multiplied together, and that's shown
+against a flat €10 stake as a potential return. These are **not** bookmaker
+odds — they're our own estimate turned into odds notation — and combining
+three legs compounds each one's uncertainty, so treat it as illustrative,
+not a real price.
+
 **This is not a bookmaker probability or betting advice** — it's a simplified
 estimate from public/derived match data, shown for information only.
 
