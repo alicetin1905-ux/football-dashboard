@@ -30,7 +30,11 @@ jobs:
             const d = require("./docs/data/fixtures.json");
             console.log("source:", d.source);
             console.log("fixture count:", d.fixtures.length);
+            console.log("date range:", d.fixtures.at(-1)?.date, "to", d.fixtures[0]?.date);
+            console.log("low-confidence count:", d.fixtures.filter(f => f.score.confidence === "low").length);
             console.log("sample:", JSON.stringify(d.fixtures.slice(0, 5).map(f => ({
-              league: f.league, home: f.home.name, away: f.away.name, date: f.date, combined: f.score.combined,
+              league: f.league, home: f.home.name, away: f.away.name, date: f.date,
+              combined: f.score.combined, confidence: f.score.confidence,
+              sampleHome: f.score.sampleHome, sampleAway: f.score.sampleAway,
             })), null, 2));
           '

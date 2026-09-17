@@ -23,6 +23,10 @@ const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const OUT = resolve(ROOT, 'docs/data');
 
 const FOOTBALL_DATA_TOKEN = process.env.FOOTBALL_DATA_TOKEN || '';
+// football-data.org returns a competition's entire remaining-season fixture
+// list (hundreds of matches, months out) with no "next N" filter of its own,
+// so narrow to a near-term window ourselves before scoring/display.
+const WINDOW_DAYS = Number(process.env.FOOTBALL_WINDOW_DAYS || 10);
 
 const log = (...a) => console.log('[refresh]', ...a);
 
@@ -45,18 +49,20 @@ function scoreAll(fixtures, formById) {
 async function buildFromApi() {
   const allFixtures = [];
   const formById = new Map();
+  const windowEnd = Date.now() + WINDOW_DAYS * 86_400_000;
 
   for (const comp of COMPETITIONS) {
     const { fixtures, matchesByTeam } = await fetchCompetition(FOOTBALL_DATA_TOKEN, comp);
-    log(`  ${comp.name}: ${fixtures.length} upcoming fixtures, ${matchesByTeam.size} teams with recent matches`);
-    allFixtures.push(...fixtures);
+    const nearTerm = fixtures.filter((f) => new Date(f.date).getTime() <= windowEnd);
+    log(`  ${comp.name}: ${nearTerm.length}/${fixtures.length} fixtures within ${WINDOW_DAYS}d, ${matchesByTeam.size} teams with recent matches`);
+    allFixtures.push(...nearTerm);
     for (const [teamId, matches] of matchesByTeam) {
       formById.set(teamId, summarizeTeamForm(matches));
     }
     await sleep(1000); // stay well under the 10 requests/minute free-tier limit
   }
 
-  if (!allFixtures.length) throw new Error('no upcoming fixtures returned for any league');
+  if (!allFixtures.length) throw new Error('no upcoming fixtures returned for any league within the window');
   return scoreAll(allFixtures, formById);
 }
 
