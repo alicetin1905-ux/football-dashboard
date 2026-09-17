@@ -4,8 +4,9 @@
  *
  * The mark is a shaded soccer-ball glyph — a central pentagon with five
  * outer patches and seam lines, lit from the upper-left with a radial
- * gradient and a soft ground shadow for a 3D-sphere look — on the app's
- * dark surface.
+ * gradient and a soft ground shadow for a 3D-sphere look — full-bleed on a
+ * mowed-grass-green background (an original rendering, not a copy of any
+ * stock photo).
  *
  * Usage: node scripts/make-icons.mjs
  */
@@ -22,11 +23,12 @@ const { chromium } = createRequire(import.meta.url)('playwright');
 const OUT = resolve(dirname(fileURLToPath(import.meta.url)), '../docs/icons');
 const EXE = process.env.CHROMIUM_PATH || '/opt/pw-browsers/chromium-1194/chrome-linux/chrome';
 
-const SURFACE = '#1a1a19';
-const BALL_LIGHT = '#f2f2ee';
+const GRASS_LIGHT = '#4cb84f';
+const GRASS_DARK = '#1f7a2e';
+const BALL_LIGHT = '#f9f9f6';
 const BALL_SHADOW = '#b9b8ae';
-const BALL_DARK = '#151513';
-const PATCH_LIGHT = '#2e2e2a';
+const BALL_DARK = '#141412';
+const PATCH_LIGHT = '#333330';
 
 /** Regular pentagon vertices as an SVG points string. */
 const pentagon = (cx, cy, r, rotationDeg) => {
@@ -36,6 +38,18 @@ const pentagon = (cx, cy, r, rotationDeg) => {
     pts.push(`${(cx + r * Math.cos(a)).toFixed(2)},${(cy + r * Math.sin(a)).toFixed(2)}`);
   }
   return pts.join(' ');
+};
+
+/** Alternating mowed-lawn stripe bands covering the full canvas. */
+const grassStripes = (size) => {
+  const bandH = size / 8;
+  let out = '';
+  for (let y = 0, i = 0; y < size; y += bandH, i++) {
+    if (i % 2 === 1) {
+      out += `<rect x="0" y="${y.toFixed(2)}" width="${size}" height="${bandH.toFixed(2)}" fill="#000000" opacity="0.08"/>`;
+    }
+  }
+  return out;
 };
 
 /** @param {number} inset fraction of the canvas kept clear for mask cropping */
@@ -67,6 +81,10 @@ const svg = (size, inset) => {
 
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 ${size} ${size}">
     <defs>
+      <radialGradient id="grassGrad" cx="50%" cy="38%" r="75%">
+        <stop offset="0%" stop-color="${GRASS_LIGHT}"/>
+        <stop offset="100%" stop-color="${GRASS_DARK}"/>
+      </radialGradient>
       <radialGradient id="sphereGrad" cx="34%" cy="28%" r="80%">
         <stop offset="0%" stop-color="#ffffff"/>
         <stop offset="55%" stop-color="${BALL_LIGHT}"/>
@@ -80,13 +98,14 @@ const svg = (size, inset) => {
         <feGaussianBlur stdDeviation="${(R * 0.07).toFixed(2)}"/>
       </filter>
     </defs>
-    <rect width="${size}" height="${size}" fill="${SURFACE}"/>
-    <ellipse cx="${cx}" cy="${shadowCy.toFixed(2)}" rx="${(R * 0.76).toFixed(2)}" ry="${shadowRy.toFixed(2)}" fill="#000000" opacity="0.4" filter="url(#soften)"/>
+    <rect width="${size}" height="${size}" fill="url(#grassGrad)"/>
+    ${grassStripes(size)}
+    <ellipse cx="${cx}" cy="${shadowCy.toFixed(2)}" rx="${(R * 0.76).toFixed(2)}" ry="${shadowRy.toFixed(2)}" fill="#000000" opacity="0.45" filter="url(#soften)"/>
     <circle cx="${cx}" cy="${cy}" r="${R}" fill="url(#sphereGrad)" stroke="${BALL_DARK}" stroke-width="${strokeW.toFixed(2)}"/>
     ${seams}
     ${patches}
     <polygon points="${pentagon(cx, cy, centralR, -90)}" fill="url(#patchGrad)"/>
-    <ellipse cx="${(cx - R * 0.34).toFixed(2)}" cy="${(cy - R * 0.4).toFixed(2)}" rx="${(R * 0.24).toFixed(2)}" ry="${(R * 0.15).toFixed(2)}" fill="#ffffff" opacity="0.4" filter="url(#soften)"/>
+    <ellipse cx="${(cx - R * 0.34).toFixed(2)}" cy="${(cy - R * 0.4).toFixed(2)}" rx="${(R * 0.24).toFixed(2)}" ry="${(R * 0.15).toFixed(2)}" fill="#ffffff" opacity="0.45" filter="url(#soften)"/>
   </svg>`;
 };
 
@@ -102,7 +121,7 @@ await mkdir(OUT, { recursive: true });
 for (const t of TARGETS) {
   const page = await browser.newPage({ viewport: { width: t.size, height: t.size }, deviceScaleFactor: 1 });
   await page.setContent(
-    `<body style="margin:0;background:${SURFACE}">${svg(t.size, t.inset)}</body>`,
+    `<body style="margin:0;background:${GRASS_DARK}">${svg(t.size, t.inset)}</body>`,
     { waitUntil: 'load' });
   await page.screenshot({ path: `${OUT}/${t.file}`, omitBackground: false });
   await page.close();
