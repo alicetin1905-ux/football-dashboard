@@ -15,18 +15,22 @@ jobs:
         env:
           RAPIDAPI_KEY: ${{ secrets.RAPIDAPI_KEY }}
         run: |
-          echo "== Premier League, season 2024, last 3 finished fixtures =="
-          curl -s -o /tmp/hist.json -w "HTTP %{http_code}\n" \
-            -H "x-apisports-key: $RAPIDAPI_KEY" \
-            "https://v3.football.api-sports.io/fixtures?league=39&season=2024&last=3"
-          node -e '
-            const d = require("/tmp/hist.json");
-            console.log("results:", d.results);
-            console.log("errors:", JSON.stringify(d.errors));
-            for (const r of d.response || []) {
-              console.log(r.fixture.date, r.teams.home.name, r.goals.home, "-", r.goals.away, r.teams.away.name);
-            }
-          '
+          check() {
+            echo "== $1 =="
+            curl -s -o /tmp/hist.json -w "HTTP %{http_code}\n" -H "x-apisports-key: $RAPIDAPI_KEY" "$2"
+            node -e '
+              const d = require("/tmp/hist.json");
+              console.log("results:", d.results, "errors:", JSON.stringify(d.errors));
+              for (const r of (d.response || []).slice(0, 5)) {
+                console.log(r.fixture.date, r.teams.home.name, r.goals.home, "-", r.goals.away, r.teams.away.name);
+              }
+            '
+            sleep 1
+          }
+
+          check "date range, Aug 2024" "https://v3.football.api-sports.io/fixtures?league=39&season=2024&from=2024-08-01&to=2024-08-31"
+          check "round, Regular Season - 1" "https://v3.football.api-sports.io/fixtures?league=39&season=2024&round=Regular%20Season%20-%201"
+          check "single date" "https://v3.football.api-sports.io/fixtures?league=39&season=2024&date=2024-08-17"
 
   test-refresh:
     runs-on: ubuntu-latest
