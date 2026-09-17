@@ -25,6 +25,34 @@ matches on record, since the underlying rate is noisier with less data.
 **This is not a bookmaker probability or betting advice** — it's a simplified
 estimate from public/derived match data, shown for information only.
 
+## Install it, and get alerted
+
+The dashboard is a PWA: a manifest, a service worker (network-first, so a
+deploy is never masked by a stale cache) and icons rendered straight from the
+app's own meter-bar visual language. On iOS, **Share → Add to Home Screen**
+gives it a real app icon, standalone chrome and offline access to the last
+data you loaded.
+
+Tap **Alerts** to be notified when a fixture clears **50% combined
+likelihood** with an "ok"-confidence sample (low-sample fixtures are
+excluded — a 100% score from one lucky match isn't worth an interruption),
+kicking off within the next 48 hours. Each fixture only alerts once, tracked
+locally so it survives a reload.
+
+### What alerts can and cannot do
+
+- **iOS only allows this for a Home Screen app.** Asking for permission from
+  a Safari tab is denied outright, so the app detects that case and tells
+  you how to install rather than appearing to fail. Requires iOS 16.4+.
+- **Alerts only fire while the tab is open.** With the dashboard's data only
+  refreshing every 6 hours (not a live stream), the page rechecks every 5
+  minutes while visible, and immediately when you switch back to it. Nothing
+  arrives while the tab or app is fully closed — true background push needs
+  a server holding push subscriptions and signing with a VAPID key, which
+  GitHub Pages is static and cannot provide. The service worker already
+  implements the `push` handler, so pointing it at a push service later
+  needs no change here.
+
 ## How the score is computed
 
 Nothing here comes from an odds feed. Each team's recent home and away
@@ -93,14 +121,18 @@ live deploy.
 docs/                the published site (GitHub Pages root)
   index.html
   styles.css
-  js/app.js           filter, sort, render
-  js/format.js         date/percentage formatting
-  data/fixtures.json   built by scripts/refresh.mjs
-scripts/refresh.mjs    the pipeline: live fetch or demo fallback, then scores + ranks
-scripts/serve.mjs      local static server
-scripts/lib/stats.mjs  the scoring logic, shared by live and demo paths
-scripts/lib/espn.mjs   ESPN site-API client
-scripts/lib/mock.mjs   deterministic demo data generator
+  manifest.webmanifest PWA manifest
+  sw.js                 service worker: network-first cache, push handler stub
+  icons/                app icons (rendered by scripts/make-icons.mjs)
+  js/app.js             filter, sort, render, alerts
+  js/format.js           date/percentage formatting
+  data/fixtures.json     built by scripts/refresh.mjs
+scripts/refresh.mjs      the pipeline: live fetch or demo fallback, then scores + ranks
+scripts/serve.mjs        local static server
+scripts/make-icons.mjs   one-off icon renderer (headless Chromium) — run once, commit the output
+scripts/lib/stats.mjs    the scoring logic, shared by live and demo paths
+scripts/lib/espn.mjs     ESPN site-API client
+scripts/lib/mock.mjs     deterministic demo data generator
 ```
 
 ## Caveats

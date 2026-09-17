@@ -49,6 +49,10 @@
 
 * { box-sizing: border-box; }
 
+/* A class with its own `display` beats the UA rule for [hidden], which would
+   otherwise leave hero/hint sections visible-but-empty when JS hides them. */
+[hidden] { display: none !important; }
+
 body {
   margin: 0;
   background: var(--page);
@@ -184,6 +188,52 @@ header.top .crumbs {
   gap: 6px;
   font-size: 0.8rem;
   color: var(--text-2);
+}
+
+.alert-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  color: var(--text-2);
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-size: 0.8rem;
+  font-family: var(--sans);
+  cursor: pointer;
+  margin-left: auto;
+}
+
+.alert-btn:hover { background: var(--surface-3); }
+
+.alert-btn[aria-pressed="true"] {
+  color: var(--good);
+  border-color: var(--good);
+}
+
+.install-hint {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 8px 12px;
+  margin-bottom: 12px;
+  font-size: 0.8rem;
+  color: var(--text-2);
+}
+
+.install-hint button {
+  background: none;
+  border: none;
+  color: var(--muted);
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 0 4px;
+  line-height: 1;
 }
 
 table {

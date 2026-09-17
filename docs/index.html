@@ -5,6 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>European Football — Away Win + BTTS Tracker</title>
 <meta name="description" content="Upcoming European football fixtures ranked by the combined likelihood of an away win and both teams scoring." />
+<link rel="manifest" href="./manifest.webmanifest" />
+<meta name="theme-color" content="#0d0d0d" />
+<link rel="apple-touch-icon" href="./icons/apple-touch-icon.png" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="BTTS Tracker" />
 <link rel="stylesheet" href="./styles.css" />
 </head>
 <body>
@@ -40,6 +46,14 @@
     <label>Search
       <input type="text" id="teamSearch" placeholder="Team name…" />
     </label>
+    <button type="button" id="notifyBtn" class="alert-btn" aria-pressed="false"
+      title="Alert me when a fixture clears the threshold">
+      <span aria-hidden="true">&#9711;</span> Alerts
+    </button>
+  </div>
+  <div class="install-hint" id="installHint" hidden>
+    <span id="installHow"></span>
+    <button type="button" id="installHintClose" aria-label="Dismiss">&times;</button>
   </div>
 
   <table>

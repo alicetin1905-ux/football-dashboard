@@ -1,10 +1,15 @@
 import { pct, kickoff, relativeAgo } from './format.js';
 
+const ALERT_THRESHOLD = 0.5;
+const ALERT_WINDOW_HOURS = 48;
+const REFRESH_INTERVAL_MS = 5 * 60 * 1000;
+
 const state = {
   fixtures: [],
   league: '',
   hideLowSample: false,
   search: '',
+  notify: false,
 };
 
 const els = {
@@ -17,7 +22,24 @@ const els = {
   teamSearch: document.getElementById('teamSearch'),
   rows: document.getElementById('rows'),
   emptyState: document.getElementById('emptyState'),
+  notifyBtn: document.getElementById('notifyBtn'),
+  installHint: document.getElementById('installHint'),
+  installHow: document.getElementById('installHow'),
+  installHintClose: document.getElementById('installHintClose'),
 };
+
+function readStore(key, fallback) {
+  try {
+    const raw = localStorage.getItem(key);
+    return raw == null ? fallback : JSON.parse(raw);
+  } catch {
+    return fallback;
+  }
+}
+
+function writeStore(key, value) {
+  try { localStorage.setItem(key, JSON.stringify(value)); } catch { /* storage unavailable */ }
+}
 
 function meter(value, cls = '') {
   const w = value == null ? 0 : Math.round(value * 100);
@@ -88,18 +110,155 @@ function render() {
   `).join('');
 }
 
-async function main() {
+/* ------------------------------- PWA + alerts ------------------------------ */
+
+const notifyPermission = () => (typeof Notification === 'undefined' ? 'unsupported' : Notification.permission);
+
+/** True once the page is running as an installed app (iOS requires this). */
+function isStandalone() {
+  return window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
+}
+
+const isIos = () => /iphone|ipad|ipod/i.test(navigator.userAgent)
+  || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+
+function showInstallHint(message) {
+  els.installHow.textContent = message
+    || (isIos()
+      ? 'In Safari: Share → Add to Home Screen, then open it from there and tap Alerts again.'
+      : 'Install this app from your browser menu, then tap Alerts again.');
+  els.installHint.hidden = false;
+}
+
+/** Notifications go through the service worker: iOS has no Notification ctor. */
+async function notify(title, body, tag) {
+  if (!state.notify || notifyPermission() !== 'granted') return;
+  try {
+    const reg = await navigator.serviceWorker?.ready;
+    if (reg?.showNotification) {
+      await reg.showNotification(title, {
+        body, tag: tag || 'btts-tracker', icon: './icons/icon-192.png', badge: './icons/icon-192.png',
+      });
+    }
+  } catch { /* notification is best-effort */ }
+}
+
+function syncNotifyButton() {
+  const on = state.notify && notifyPermission() === 'granted';
+  els.notifyBtn.setAttribute('aria-pressed', on ? 'true' : 'false');
+  els.notifyBtn.querySelector('span[aria-hidden]').textContent = on ? '●' : '○';
+}
+
+async function enableNotifications() {
+  if (notifyPermission() === 'unsupported') {
+    showInstallHint('This browser does not support notifications.');
+    return;
+  }
+  // On iOS, asking from a Safari tab is denied outright; it only works once the
+  // app has been added to the Home Screen.
+  if (isIos() && !isStandalone()) {
+    showInstallHint();
+    return;
+  }
+  let perm = notifyPermission();
+  if (perm === 'default') {
+    try { perm = await Notification.requestPermission(); } catch { perm = 'denied'; }
+  }
+  if (perm !== 'granted') {
+    showInstallHint(perm === 'denied'
+      ? 'Notifications are blocked for this site — enable them in your browser settings.'
+      : undefined);
+    state.notify = false;
+  } else {
+    state.notify = true;
+    notify('Alerts on', `You'll be told when a fixture clears ${pct(ALERT_THRESHOLD)} away win + BTTS.`);
+    maybeNotifyFixtures(state.fixtures);
+  }
+  writeStore('btts-notify', state.notify);
+  syncNotifyButton();
+}
+
+async function toggleNotifications() {
+  if (state.notify) {
+    state.notify = false;
+    writeStore('btts-notify', false);
+    syncNotifyButton();
+    return;
+  }
+  await enableNotifications();
+}
+
+/**
+ * Fire an alert for a fixture that just cleared the threshold, once per
+ * fixture. Only "ok" confidence fixtures count — a low-sample fixture
+ * hitting 100% from one lucky match isn't worth an interruption.
+ */
+function maybeNotifyFixtures(fixtures) {
+  if (!state.notify) return;
+  const notifiedIds = new Set(readStore('btts-notified-ids', []));
+  const now = Date.now();
+  const windowMs = ALERT_WINDOW_HOURS * 3600 * 1000;
+  let changed = false;
+
+  for (const f of fixtures) {
+    if (f.score.confidence !== 'ok') continue;
+    if (f.score.combined < ALERT_THRESHOLD) continue;
+    const kickoffMs = new Date(f.date).getTime();
+    if (kickoffMs < now || kickoffMs - now > windowMs) continue;
+    if (notifiedIds.has(f.id)) continue;
+
+    notifiedIds.add(f.id);
+    changed = true;
+    notify(
+      `${f.home.name} vs ${f.away.name}`,
+      `${pct(f.score.combined)} away win + BTTS · ${f.league} · ${kickoff(f.date)}`,
+      `fixture-${f.id}`,
+    );
+  }
+
+  if (changed) writeStore('btts-notified-ids', [...notifiedIds].slice(-300));
+}
+
+function registerServiceWorker() {
+  if (!('serviceWorker' in navigator)) return;
+  navigator.serviceWorker.register('./sw.js').catch(() => { /* offline support is optional */ });
+}
+
+/* ---------------------------------------------------------------------- */
+
+async function refreshData() {
   const res = await fetch('./data/fixtures.json', { cache: 'no-store' });
   const payload = await res.json();
   state.fixtures = payload.fixtures;
-
   renderMeta(payload);
   populateLeagues(state.fixtures);
   render();
+  maybeNotifyFixtures(state.fixtures);
+}
+
+async function main() {
+  registerServiceWorker();
+  state.notify = readStore('btts-notify', false) && notifyPermission() === 'granted';
+  syncNotifyButton();
+
+  await refreshData();
 
   els.leagueFilter.addEventListener('change', (e) => { state.league = e.target.value; render(); });
   els.hideLowSample.addEventListener('change', (e) => { state.hideLowSample = e.target.checked; render(); });
   els.teamSearch.addEventListener('input', (e) => { state.search = e.target.value; render(); });
+  els.notifyBtn.addEventListener('click', toggleNotifications);
+  els.installHintClose.addEventListener('click', () => { els.installHint.hidden = true; });
+
+  // Alerts only fire while the page is open — refetch periodically (and
+  // immediately on return to the tab) so a long-open tab still catches new
+  // fixtures crossing the threshold between scheduled refreshes. Once we
+  // have a first successful load, a later refresh failing shouldn't wipe
+  // the page — just log it and keep showing the last good data.
+  const backgroundRefresh = () => refreshData().catch((err) => console.error(err));
+  setInterval(() => { if (document.visibilityState === 'visible') backgroundRefresh(); }, REFRESH_INTERVAL_MS);
+  document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'visible') backgroundRefresh();
+  });
 }
 
 main().catch((err) => {
