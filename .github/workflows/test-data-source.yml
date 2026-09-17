@@ -9,7 +9,7 @@ permissions:
 jobs:
   probe-sportapi7:
     runs-on: ubuntu-latest
-    timeout-minutes: 3
+    timeout-minutes: 6
     steps:
       - name: Probe sportapi7.p.rapidapi.com
         env:
@@ -25,15 +25,17 @@ jobs:
             sleep 1
           }
 
-          # Confirmed working: tournament id=1 -> Premier League, seasonId=61627 is an old default season.
-          probe "/api/v1/tournament/1/seasons"
-          probe "/api/v1/tournament/1/season/61627/rounds"
-          probe "/api/v1/tournament/1/season/61627/events/round/1"
-          probe "/api/v1/tournament/1/events/round/1"
-          probe "/api/v1/tournament/1/season/61627/events/next/0"
-          probe "/api/v1/tournament/1/events/next/0"
-          probe "/api/v1/tournament/1/season/61627/standings/total"
-          probe "/api/v1/tournament/1/standings/61627/total"
+          # Confirmed working: tournament id=1 -> Premier League via /events/next/0 (no season needed).
+          # Now sweep ids to find La Liga / Bundesliga / Serie A / Ligue 1 by name, reusing that endpoint.
+          echo "== sweeping tournament ids 1..40 for league names =="
+          for id in $(seq 1 40); do
+            body=$(curl -s -H "x-rapidapi-key: $RAPIDAPI_KEY" -H "x-rapidapi-host: sportapi7.p.rapidapi.com" \
+              "https://sportapi7.p.rapidapi.com/api/v1/tournament/$id/events/next/0")
+            name=$(echo "$body" | grep -o '"tournament":{"name":"[^"]*"' | head -1)
+            country=$(echo "$body" | grep -o '"category":{"name":"[^"]*"' | head -1)
+            echo "id=$id  $name  $country"
+            sleep 0.8
+          done
 
   test-refresh:
     runs-on: ubuntu-latest
