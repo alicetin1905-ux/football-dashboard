@@ -7,6 +7,24 @@ permissions:
   contents: read
 
 jobs:
+  check-turkish-league:
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    steps:
+      - name: List all competitions, search for Turkey
+        env:
+          FOOTBALL_DATA_TOKEN: ${{ secrets.FOOTBALL_DATA_TOKEN }}
+        run: |
+          curl -s -H "X-Auth-Token: $FOOTBALL_DATA_TOKEN" \
+            "https://api.football-data.org/v4/competitions" -o /tmp/comps.json
+          node -e '
+            const d = require("/tmp/comps.json");
+            const hits = (d.competitions || []).filter(c =>
+              c.area?.name === "Turkey" || /s.per lig/i.test(c.name || ""));
+            console.log("total competitions listed:", d.competitions?.length);
+            console.log("Turkey matches:", JSON.stringify(hits, null, 2));
+          '
+
   test-refresh:
     runs-on: ubuntu-latest
     timeout-minutes: 5
