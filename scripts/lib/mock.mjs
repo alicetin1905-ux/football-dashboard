@@ -1,8 +1,8 @@
 /**
- * Deterministic demo data for the football dashboard: five European leagues,
+ * Deterministic demo data for the football dashboard: six European leagues,
  * a synthetic recent-form history per team, and one upcoming matchday per
- * league. Used whenever RAPIDAPI_KEY isn't set (or the live fetch fails), so
- * the dashboard always has something to render.
+ * league. Used only if the live ESPN fetch fails, so the dashboard always
+ * has something to render.
  *
  * Seeded by the calendar date (UTC), so it's stable within a day and changes
  * on the next — reproducible for testing, but not frozen forever.
@@ -35,6 +35,11 @@ const LEAGUES = [
     name: 'Ligue 1',
     country: 'France',
     teams: ['Paris Saint-Germain', 'Monaco', 'Marseille', 'Lyon', 'Lille', 'Nice', 'Lens', 'Rennes', 'Strasbourg', 'Toulouse'],
+  },
+  {
+    name: 'Turkish Süper Lig',
+    country: 'Turkey',
+    teams: ['Galatasaray', 'Fenerbahce', 'Besiktas', 'Trabzonspor', 'Basaksehir', 'Adana Demirspor', 'Konyaspor', 'Kasimpasa', 'Goztepe', 'Caykur Rizespor'],
   },
 ];
 

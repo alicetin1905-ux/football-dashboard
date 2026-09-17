@@ -35,11 +35,6 @@ jobs:
         uses: actions/configure-pages@v5
 
       - name: Build fixtures
-        env:
-          # Optional: set a FOOTBALL_DATA_TOKEN repo secret (free key from
-          # football-data.org) to pull live fixtures. Without it (or if the
-          # live fetch fails), this falls back to demo data and still succeeds.
-          FOOTBALL_DATA_TOKEN: ${{ secrets.FOOTBALL_DATA_TOKEN }}
         run: node scripts/refresh.mjs
 
       - uses: actions/upload-pages-artifact@v3

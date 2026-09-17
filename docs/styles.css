@@ -107,7 +107,7 @@ header.top .crumbs {
 }
 
 .badge.source-mock { color: var(--warn); border-color: var(--warn); }
-.badge.source-api-football { color: var(--good); border-color: var(--good); }
+.badge.source-live { color: var(--good); border-color: var(--good); }
 
 .disclaimer {
   font-size: 0.8rem;

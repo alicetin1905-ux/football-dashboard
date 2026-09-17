@@ -29,9 +29,10 @@ function meter(value, cls = '') {
 }
 
 function renderMeta(payload) {
-  const sourceLabel = payload.source === 'api-football' ? 'Live · API-Football' : 'Demo data';
+  const isLive = payload.source !== 'mock';
+  const sourceLabel = isLive ? `Live · ${payload.source.toUpperCase()}` : 'Demo data';
   els.metaRow.innerHTML = `
-    <span class="badge source-${payload.source}">${sourceLabel}</span>
+    <span class="badge ${isLive ? 'source-live' : 'source-mock'}">${sourceLabel}</span>
     <span>Refreshed ${relativeAgo(payload.generatedAt)}</span>
   `;
 }
