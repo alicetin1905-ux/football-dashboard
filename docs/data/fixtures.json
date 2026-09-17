@@ -1,8 +1,52 @@
 {
-  "generatedAt": "2026-09-17T17:43:22.815Z",
+  "generatedAt": "2026-09-17T20:36:56.678Z",
   "source": "espn",
   "disclaimer": "Public/derived football statistics shown for information only — not betting advice.",
   "fixtures": [
+    {
+      "id": "401885106",
+      "date": "2026-09-19T18:30Z",
+      "league": "2. Bundesliga",
+      "leagueCountry": "Germany",
+      "home": {
+        "id": "7017",
+        "name": "Dynamo Dresden"
+      },
+      "away": {
+        "id": "129",
+        "name": "Hertha Berlin"
+      },
+      "stats": {
+        "home": {
+          "homeSample": 1,
+          "awaySample": 2,
+          "homeWinPct": 0,
+          "homeLossPct": 1,
+          "homeBttsPct": 1,
+          "awayWinPct": 0,
+          "awayLossPct": 0.5,
+          "awayBttsPct": 1
+        },
+        "away": {
+          "homeSample": 1,
+          "awaySample": 2,
+          "homeWinPct": 1,
+          "homeLossPct": 0,
+          "homeBttsPct": 1,
+          "awayWinPct": 1,
+          "awayLossPct": 0,
+          "awayBttsPct": 1
+        }
+      },
+      "score": {
+        "awayWinLikelihood": 1,
+        "bttsLikelihood": 1,
+        "combined": 1,
+        "confidence": "low",
+        "sampleHome": 1,
+        "sampleAway": 2
+      }
+    },
     {
       "id": "401874964",
       "date": "2026-09-19T13:00Z",
@@ -576,6 +620,94 @@
       }
     },
     {
+      "id": "401885102",
+      "date": "2026-09-20T11:30Z",
+      "league": "2. Bundesliga",
+      "leagueCountry": "Germany",
+      "home": {
+        "id": "123",
+        "name": "Energie Cottbus"
+      },
+      "away": {
+        "id": "270",
+        "name": "St. Pauli"
+      },
+      "stats": {
+        "home": {
+          "homeSample": 1,
+          "awaySample": 2,
+          "homeWinPct": 0,
+          "homeLossPct": 1,
+          "homeBttsPct": 1,
+          "awayWinPct": 0.5,
+          "awayLossPct": 0,
+          "awayBttsPct": 0.5
+        },
+        "away": {
+          "homeSample": 2,
+          "awaySample": 1,
+          "homeWinPct": 0.5,
+          "homeLossPct": 0.5,
+          "homeBttsPct": 0.5,
+          "awayWinPct": 0,
+          "awayLossPct": 0,
+          "awayBttsPct": 1
+        }
+      },
+      "score": {
+        "awayWinLikelihood": 0.5,
+        "bttsLikelihood": 1,
+        "combined": 0.5,
+        "confidence": "low",
+        "sampleHome": 1,
+        "sampleAway": 1
+      }
+    },
+    {
+      "id": "401885109",
+      "date": "2026-09-20T11:30Z",
+      "league": "2. Bundesliga",
+      "leagueCountry": "Germany",
+      "home": {
+        "id": "2428",
+        "name": "Hannover 96"
+      },
+      "away": {
+        "id": "121",
+        "name": "VfL Bochum"
+      },
+      "stats": {
+        "home": {
+          "homeSample": 1,
+          "awaySample": 2,
+          "homeWinPct": 0,
+          "homeLossPct": 0,
+          "homeBttsPct": 1,
+          "awayWinPct": 0.5,
+          "awayLossPct": 0.5,
+          "awayBttsPct": 0.5
+        },
+        "away": {
+          "homeSample": 2,
+          "awaySample": 1,
+          "homeWinPct": 0,
+          "homeLossPct": 0.5,
+          "homeBttsPct": 0.5,
+          "awayWinPct": 1,
+          "awayLossPct": 0,
+          "awayBttsPct": 1
+        }
+      },
+      "score": {
+        "awayWinLikelihood": 0.5,
+        "bttsLikelihood": 1,
+        "combined": 0.5,
+        "confidence": "low",
+        "sampleHome": 1,
+        "sampleAway": 1
+      }
+    },
+    {
       "id": "401874756",
       "date": "2026-09-18T18:45Z",
       "league": "Serie A",
@@ -776,7 +908,7 @@
           "awayBttsPct": 1
         },
         "away": {
-          "homeSample": 1,
+          "homeSample": 2,
           "awaySample": 2,
           "homeWinPct": 1,
           "homeLossPct": 0,
@@ -793,6 +925,50 @@
         "confidence": "low",
         "sampleHome": 2,
         "sampleAway": 2
+      }
+    },
+    {
+      "id": "401885107",
+      "date": "2026-09-19T11:00Z",
+      "league": "2. Bundesliga",
+      "leagueCountry": "Germany",
+      "home": {
+        "id": "4471",
+        "name": "Karlsruher SC"
+      },
+      "away": {
+        "id": "269",
+        "name": "1. FC Nürnberg"
+      },
+      "stats": {
+        "home": {
+          "homeSample": 2,
+          "awaySample": 1,
+          "homeWinPct": 0,
+          "homeLossPct": 1,
+          "homeBttsPct": 0.5,
+          "awayWinPct": 0,
+          "awayLossPct": 0,
+          "awayBttsPct": 1
+        },
+        "away": {
+          "homeSample": 2,
+          "awaySample": 1,
+          "homeWinPct": 1,
+          "homeLossPct": 0,
+          "homeBttsPct": 1,
+          "awayWinPct": 0,
+          "awayLossPct": 0,
+          "awayBttsPct": 1
+        }
+      },
+      "score": {
+        "awayWinLikelihood": 0.5,
+        "bttsLikelihood": 0.75,
+        "combined": 0.375,
+        "confidence": "low",
+        "sampleHome": 2,
+        "sampleAway": 1
       }
     },
     {
@@ -1060,6 +1236,138 @@
       }
     },
     {
+      "id": "401880251",
+      "date": "2026-09-19T11:30Z",
+      "league": "Championship",
+      "leagueCountry": "England",
+      "home": {
+        "id": "391",
+        "name": "Millwall"
+      },
+      "away": {
+        "id": "371",
+        "name": "West Ham United"
+      },
+      "stats": {
+        "home": {
+          "homeSample": 2,
+          "awaySample": 3,
+          "homeWinPct": 0.5,
+          "homeLossPct": 0.5,
+          "homeBttsPct": 0,
+          "awayWinPct": 0,
+          "awayLossPct": 0.6666666666666666,
+          "awayBttsPct": 1
+        },
+        "away": {
+          "homeSample": 3,
+          "awaySample": 2,
+          "homeWinPct": 1,
+          "homeLossPct": 0,
+          "homeBttsPct": 0.3333333333333333,
+          "awayWinPct": 0.5,
+          "awayLossPct": 0,
+          "awayBttsPct": 1
+        }
+      },
+      "score": {
+        "awayWinLikelihood": 0.5,
+        "bttsLikelihood": 0.5,
+        "combined": 0.25,
+        "confidence": "low",
+        "sampleHome": 2,
+        "sampleAway": 2
+      }
+    },
+    {
+      "id": "401880254",
+      "date": "2026-09-19T14:00Z",
+      "league": "Championship",
+      "leagueCountry": "England",
+      "home": {
+        "id": "379",
+        "name": "Burnley"
+      },
+      "away": {
+        "id": "374",
+        "name": "Derby County"
+      },
+      "stats": {
+        "home": {
+          "homeSample": 2,
+          "awaySample": 3,
+          "homeWinPct": 0,
+          "homeLossPct": 0.5,
+          "homeBttsPct": 1,
+          "awayWinPct": 0,
+          "awayLossPct": 0.6666666666666666,
+          "awayBttsPct": 1
+        },
+        "away": {
+          "homeSample": 3,
+          "awaySample": 2,
+          "homeWinPct": 0,
+          "homeLossPct": 1,
+          "homeBttsPct": 0.3333333333333333,
+          "awayWinPct": 0.5,
+          "awayLossPct": 0.5,
+          "awayBttsPct": 0
+        }
+      },
+      "score": {
+        "awayWinLikelihood": 0.5,
+        "bttsLikelihood": 0.5,
+        "combined": 0.25,
+        "confidence": "low",
+        "sampleHome": 2,
+        "sampleAway": 2
+      }
+    },
+    {
+      "id": "401880245",
+      "date": "2026-09-19T14:00Z",
+      "league": "Championship",
+      "leagueCountry": "England",
+      "home": {
+        "id": "352",
+        "name": "Wrexham"
+      },
+      "away": {
+        "id": "376",
+        "name": "Southampton"
+      },
+      "stats": {
+        "home": {
+          "homeSample": 2,
+          "awaySample": 3,
+          "homeWinPct": 0,
+          "homeLossPct": 0.5,
+          "homeBttsPct": 1,
+          "awayWinPct": 0.3333333333333333,
+          "awayLossPct": 0.3333333333333333,
+          "awayBttsPct": 0
+        },
+        "away": {
+          "homeSample": 3,
+          "awaySample": 2,
+          "homeWinPct": 1,
+          "homeLossPct": 0,
+          "homeBttsPct": 1,
+          "awayWinPct": 0,
+          "awayLossPct": 0,
+          "awayBttsPct": 1
+        }
+      },
+      "score": {
+        "awayWinLikelihood": 0.25,
+        "bttsLikelihood": 1,
+        "combined": 0.25,
+        "confidence": "low",
+        "sampleHome": 2,
+        "sampleAway": 2
+      }
+    },
+    {
       "id": "401882857",
       "date": "2026-09-20T16:30Z",
       "league": "La Liga",
@@ -1224,6 +1532,138 @@
           "awayWinPct": 0,
           "awayLossPct": 1,
           "awayBttsPct": 1
+        }
+      },
+      "score": {
+        "awayWinLikelihood": 0.5,
+        "bttsLikelihood": 0.5,
+        "combined": 0.25,
+        "confidence": "low",
+        "sampleHome": 1,
+        "sampleAway": 1
+      }
+    },
+    {
+      "id": "401885103",
+      "date": "2026-09-18T16:30Z",
+      "league": "2. Bundesliga",
+      "leagueCountry": "Germany",
+      "home": {
+        "id": "3070",
+        "name": "SpVgg Greuther Fürth"
+      },
+      "away": {
+        "id": "10382",
+        "name": "1. FC Magdeburg"
+      },
+      "stats": {
+        "home": {
+          "homeSample": 1,
+          "awaySample": 2,
+          "homeWinPct": 0,
+          "homeLossPct": 1,
+          "homeBttsPct": 0,
+          "awayWinPct": 0.5,
+          "awayLossPct": 0,
+          "awayBttsPct": 1
+        },
+        "away": {
+          "homeSample": 2,
+          "awaySample": 1,
+          "homeWinPct": 1,
+          "homeLossPct": 0,
+          "homeBttsPct": 0,
+          "awayWinPct": 0,
+          "awayLossPct": 1,
+          "awayBttsPct": 1
+        }
+      },
+      "score": {
+        "awayWinLikelihood": 0.5,
+        "bttsLikelihood": 0.5,
+        "combined": 0.25,
+        "confidence": "low",
+        "sampleHome": 1,
+        "sampleAway": 1
+      }
+    },
+    {
+      "id": "401885105",
+      "date": "2026-09-19T11:00Z",
+      "league": "2. Bundesliga",
+      "leagueCountry": "Germany",
+      "home": {
+        "id": "7884",
+        "name": "Holstein Kiel"
+      },
+      "away": {
+        "id": "7013",
+        "name": "VfL Osnabruck"
+      },
+      "stats": {
+        "home": {
+          "homeSample": 1,
+          "awaySample": 2,
+          "homeWinPct": 0,
+          "homeLossPct": 0,
+          "homeBttsPct": 1,
+          "awayWinPct": 0,
+          "awayLossPct": 1,
+          "awayBttsPct": 0
+        },
+        "away": {
+          "homeSample": 2,
+          "awaySample": 1,
+          "homeWinPct": 0.5,
+          "homeLossPct": 0.5,
+          "homeBttsPct": 1,
+          "awayWinPct": 1,
+          "awayLossPct": 0,
+          "awayBttsPct": 0
+        }
+      },
+      "score": {
+        "awayWinLikelihood": 0.5,
+        "bttsLikelihood": 0.5,
+        "combined": 0.25,
+        "confidence": "low",
+        "sampleHome": 1,
+        "sampleAway": 1
+      }
+    },
+    {
+      "id": "401885104",
+      "date": "2026-09-20T11:30Z",
+      "league": "2. Bundesliga",
+      "leagueCountry": "Germany",
+      "home": {
+        "id": "2506",
+        "name": "Arminia Bielefeld"
+      },
+      "away": {
+        "id": "6418",
+        "name": "1. FC Heidenheim 1846"
+      },
+      "stats": {
+        "home": {
+          "homeSample": 1,
+          "awaySample": 2,
+          "homeWinPct": 0,
+          "homeLossPct": 0,
+          "homeBttsPct": 1,
+          "awayWinPct": 0,
+          "awayLossPct": 1,
+          "awayBttsPct": 1
+        },
+        "away": {
+          "homeSample": 2,
+          "awaySample": 1,
+          "homeWinPct": 1,
+          "homeLossPct": 0,
+          "homeBttsPct": 0.5,
+          "awayWinPct": 1,
+          "awayLossPct": 0,
+          "awayBttsPct": 0
         }
       },
       "score": {
@@ -1676,6 +2116,226 @@
       }
     },
     {
+      "id": "401880256",
+      "date": "2026-09-19T14:00Z",
+      "league": "Championship",
+      "leagueCountry": "England",
+      "home": {
+        "id": "392",
+        "name": "Birmingham City"
+      },
+      "away": {
+        "id": "369",
+        "name": "Middlesbrough"
+      },
+      "stats": {
+        "home": {
+          "homeSample": 2,
+          "awaySample": 3,
+          "homeWinPct": 0,
+          "homeLossPct": 0,
+          "homeBttsPct": 1,
+          "awayWinPct": 0.6666666666666666,
+          "awayLossPct": 0.3333333333333333,
+          "awayBttsPct": 1
+        },
+        "away": {
+          "homeSample": 3,
+          "awaySample": 2,
+          "homeWinPct": 0.6666666666666666,
+          "homeLossPct": 0,
+          "homeBttsPct": 1,
+          "awayWinPct": 0.5,
+          "awayLossPct": 0,
+          "awayBttsPct": 0.5
+        }
+      },
+      "score": {
+        "awayWinLikelihood": 0.25,
+        "bttsLikelihood": 0.75,
+        "combined": 0.1875,
+        "confidence": "low",
+        "sampleHome": 2,
+        "sampleAway": 2
+      }
+    },
+    {
+      "id": "401880246",
+      "date": "2026-09-20T11:00Z",
+      "league": "Championship",
+      "leagueCountry": "England",
+      "home": {
+        "id": "380",
+        "name": "Wolverhampton Wanderers"
+      },
+      "away": {
+        "id": "383",
+        "name": "West Bromwich Albion"
+      },
+      "stats": {
+        "home": {
+          "homeSample": 1,
+          "awaySample": 3,
+          "homeWinPct": 1,
+          "homeLossPct": 0,
+          "homeBttsPct": 1,
+          "awayWinPct": 0.3333333333333333,
+          "awayLossPct": 0.3333333333333333,
+          "awayBttsPct": 0.6666666666666666
+        },
+        "away": {
+          "homeSample": 3,
+          "awaySample": 2,
+          "homeWinPct": 0.3333333333333333,
+          "homeLossPct": 0,
+          "homeBttsPct": 0.6666666666666666,
+          "awayWinPct": 0.5,
+          "awayLossPct": 0.5,
+          "awayBttsPct": 0.5
+        }
+      },
+      "score": {
+        "awayWinLikelihood": 0.25,
+        "bttsLikelihood": 0.75,
+        "combined": 0.1875,
+        "confidence": "low",
+        "sampleHome": 1,
+        "sampleAway": 2
+      }
+    },
+    {
+      "id": "401880247",
+      "date": "2026-09-19T11:30Z",
+      "league": "Championship",
+      "leagueCountry": "England",
+      "home": {
+        "id": "336",
+        "name": "Stoke City"
+      },
+      "away": {
+        "id": "398",
+        "name": "Sheffield United"
+      },
+      "stats": {
+        "home": {
+          "homeSample": 2,
+          "awaySample": 3,
+          "homeWinPct": 1,
+          "homeLossPct": 0,
+          "homeBttsPct": 0,
+          "awayWinPct": 0.3333333333333333,
+          "awayLossPct": 0.3333333333333333,
+          "awayBttsPct": 1
+        },
+        "away": {
+          "homeSample": 3,
+          "awaySample": 2,
+          "homeWinPct": 0.3333333333333333,
+          "homeLossPct": 0.6666666666666666,
+          "homeBttsPct": 0.6666666666666666,
+          "awayWinPct": 0.5,
+          "awayLossPct": 0,
+          "awayBttsPct": 1
+        }
+      },
+      "score": {
+        "awayWinLikelihood": 0.25,
+        "bttsLikelihood": 0.5,
+        "combined": 0.125,
+        "confidence": "low",
+        "sampleHome": 2,
+        "sampleAway": 2
+      }
+    },
+    {
+      "id": "401880252",
+      "date": "2026-09-19T14:00Z",
+      "league": "Championship",
+      "leagueCountry": "England",
+      "home": {
+        "id": "314",
+        "name": "Lincoln City"
+      },
+      "away": {
+        "id": "318",
+        "name": "Swansea City"
+      },
+      "stats": {
+        "home": {
+          "homeSample": 2,
+          "awaySample": 3,
+          "homeWinPct": 0,
+          "homeLossPct": 0,
+          "homeBttsPct": 0.5,
+          "awayWinPct": 1,
+          "awayLossPct": 0,
+          "awayBttsPct": 0
+        },
+        "away": {
+          "homeSample": 3,
+          "awaySample": 2,
+          "homeWinPct": 0.6666666666666666,
+          "homeLossPct": 0,
+          "homeBttsPct": 0.3333333333333333,
+          "awayWinPct": 0.5,
+          "awayLossPct": 0.5,
+          "awayBttsPct": 0.5
+        }
+      },
+      "score": {
+        "awayWinLikelihood": 0.25,
+        "bttsLikelihood": 0.5,
+        "combined": 0.125,
+        "confidence": "low",
+        "sampleHome": 2,
+        "sampleAway": 2
+      }
+    },
+    {
+      "id": "401880248",
+      "date": "2026-09-19T14:00Z",
+      "league": "Championship",
+      "leagueCountry": "England",
+      "home": {
+        "id": "334",
+        "name": "Queens Park Rangers"
+      },
+      "away": {
+        "id": "394",
+        "name": "Preston North End"
+      },
+      "stats": {
+        "home": {
+          "homeSample": 2,
+          "awaySample": 3,
+          "homeWinPct": 0.5,
+          "homeLossPct": 0.5,
+          "homeBttsPct": 0.5,
+          "awayWinPct": 0.3333333333333333,
+          "awayLossPct": 0,
+          "awayBttsPct": 0.6666666666666666
+        },
+        "away": {
+          "homeSample": 3,
+          "awaySample": 2,
+          "homeWinPct": 0.3333333333333333,
+          "homeLossPct": 0.6666666666666666,
+          "homeBttsPct": 0.6666666666666666,
+          "awayWinPct": 0,
+          "awayLossPct": 1,
+          "awayBttsPct": 0.5
+        }
+      },
+      "score": {
+        "awayWinLikelihood": 0.25,
+        "bttsLikelihood": 0.5,
+        "combined": 0.125,
+        "confidence": "low",
+        "sampleHome": 2,
+        "sampleAway": 2
+      }
+    },
+    {
       "id": "401882860",
       "date": "2026-09-19T12:00Z",
       "league": "La Liga",
@@ -1761,6 +2421,94 @@
         "confidence": "low",
         "sampleHome": 2,
         "sampleAway": 1
+      }
+    },
+    {
+      "id": "401880255",
+      "date": "2026-09-18T19:00Z",
+      "league": "Championship",
+      "leagueCountry": "England",
+      "home": {
+        "id": "333",
+        "name": "Bristol City"
+      },
+      "away": {
+        "id": "395",
+        "name": "Watford"
+      },
+      "stats": {
+        "home": {
+          "homeSample": 2,
+          "awaySample": 3,
+          "homeWinPct": 0.5,
+          "homeLossPct": 0.5,
+          "homeBttsPct": 0.5,
+          "awayWinPct": 0.6666666666666666,
+          "awayLossPct": 0.3333333333333333,
+          "awayBttsPct": 1
+        },
+        "away": {
+          "homeSample": 3,
+          "awaySample": 2,
+          "homeWinPct": 0.3333333333333333,
+          "homeLossPct": 0.3333333333333333,
+          "homeBttsPct": 1,
+          "awayWinPct": 0,
+          "awayLossPct": 1,
+          "awayBttsPct": 0
+        }
+      },
+      "score": {
+        "awayWinLikelihood": 0.25,
+        "bttsLikelihood": 0.25,
+        "combined": 0.0625,
+        "confidence": "low",
+        "sampleHome": 2,
+        "sampleAway": 2
+      }
+    },
+    {
+      "id": "401880249",
+      "date": "2026-09-19T14:00Z",
+      "league": "Championship",
+      "leagueCountry": "England",
+      "home": {
+        "id": "385",
+        "name": "Portsmouth"
+      },
+      "away": {
+        "id": "365",
+        "name": "Blackburn Rovers"
+      },
+      "stats": {
+        "home": {
+          "homeSample": 2,
+          "awaySample": 2,
+          "homeWinPct": 0.5,
+          "homeLossPct": 0.5,
+          "homeBttsPct": 0,
+          "awayWinPct": 0,
+          "awayLossPct": 0.5,
+          "awayBttsPct": 0.5
+        },
+        "away": {
+          "homeSample": 3,
+          "awaySample": 2,
+          "homeWinPct": 0.3333333333333333,
+          "homeLossPct": 0.6666666666666666,
+          "homeBttsPct": 1,
+          "awayWinPct": 0,
+          "awayLossPct": 0.5,
+          "awayBttsPct": 0.5
+        }
+      },
+      "score": {
+        "awayWinLikelihood": 0.25,
+        "bttsLikelihood": 0.25,
+        "combined": 0.0625,
+        "confidence": "low",
+        "sampleHome": 2,
+        "sampleAway": 2
       }
     },
     {
@@ -2028,47 +2776,91 @@
       }
     },
     {
-      "id": "401882869",
-      "date": "2026-09-17T19:30Z",
-      "league": "La Liga",
-      "leagueCountry": "Spain",
+      "id": "401880253",
+      "date": "2026-09-19T11:30Z",
+      "league": "Championship",
+      "leagueCountry": "England",
       "home": {
-        "id": "99",
-        "name": "Málaga"
+        "id": "347",
+        "name": "Cardiff City"
       },
       "away": {
-        "id": "102",
-        "name": "Villarreal"
+        "id": "372",
+        "name": "Charlton Athletic"
       },
       "stats": {
         "home": {
-          "homeSample": 1,
-          "awaySample": 2,
+          "homeSample": 2,
+          "awaySample": 3,
           "homeWinPct": 0,
+          "homeLossPct": 0,
+          "homeBttsPct": 1,
+          "awayWinPct": 0,
+          "awayLossPct": 1,
+          "awayBttsPct": 0.3333333333333333
+        },
+        "away": {
+          "homeSample": 3,
+          "awaySample": 2,
+          "homeWinPct": 0.3333333333333333,
           "homeLossPct": 0,
           "homeBttsPct": 0,
           "awayWinPct": 0,
           "awayLossPct": 0.5,
           "awayBttsPct": 0.5
-        },
-        "away": {
-          "homeSample": 2,
-          "awaySample": 1,
-          "homeWinPct": 0,
-          "homeLossPct": 1,
-          "homeBttsPct": 1,
-          "awayWinPct": 0,
-          "awayLossPct": 1,
-          "awayBttsPct": 0
         }
       },
       "score": {
         "awayWinLikelihood": 0,
-        "bttsLikelihood": 0,
+        "bttsLikelihood": 0.75,
         "combined": 0,
         "confidence": "low",
-        "sampleHome": 1,
-        "sampleAway": 1
+        "sampleHome": 2,
+        "sampleAway": 2
+      }
+    },
+    {
+      "id": "401880250",
+      "date": "2026-09-20T12:30Z",
+      "league": "Championship",
+      "leagueCountry": "England",
+      "home": {
+        "id": "381",
+        "name": "Norwich City"
+      },
+      "away": {
+        "id": "358",
+        "name": "Bolton Wanderers"
+      },
+      "stats": {
+        "home": {
+          "homeSample": 2,
+          "awaySample": 3,
+          "homeWinPct": 1,
+          "homeLossPct": 0,
+          "homeBttsPct": 1,
+          "awayWinPct": 0.3333333333333333,
+          "awayLossPct": 0.6666666666666666,
+          "awayBttsPct": 0.6666666666666666
+        },
+        "away": {
+          "homeSample": 3,
+          "awaySample": 2,
+          "homeWinPct": 0.3333333333333333,
+          "homeLossPct": 0.6666666666666666,
+          "homeBttsPct": 0.3333333333333333,
+          "awayWinPct": 0,
+          "awayLossPct": 1,
+          "awayBttsPct": 0.5
+        }
+      },
+      "score": {
+        "awayWinLikelihood": 0,
+        "bttsLikelihood": 0.75,
+        "combined": 0,
+        "confidence": "low",
+        "sampleHome": 2,
+        "sampleAway": 2
       }
     },
     {
@@ -2175,7 +2967,7 @@
       "stats": {
         "home": {
           "homeSample": 2,
-          "awaySample": 1,
+          "awaySample": 2,
           "homeWinPct": 0,
           "homeLossPct": 0,
           "homeBttsPct": 1,
@@ -2277,6 +3069,94 @@
           "homeWinPct": 1,
           "homeLossPct": 0,
           "homeBttsPct": 0,
+          "awayWinPct": 0,
+          "awayLossPct": 1,
+          "awayBttsPct": 1
+        }
+      },
+      "score": {
+        "awayWinLikelihood": 0,
+        "bttsLikelihood": 0.5,
+        "combined": 0,
+        "confidence": "low",
+        "sampleHome": 1,
+        "sampleAway": 1
+      }
+    },
+    {
+      "id": "401885110",
+      "date": "2026-09-18T16:30Z",
+      "league": "2. Bundesliga",
+      "leagueCountry": "Germany",
+      "home": {
+        "id": "138",
+        "name": "VfL Wolfsburg"
+      },
+      "away": {
+        "id": "3812",
+        "name": "SV Darmstadt 98"
+      },
+      "stats": {
+        "home": {
+          "homeSample": 1,
+          "awaySample": 2,
+          "homeWinPct": 0,
+          "homeLossPct": 0,
+          "homeBttsPct": 1,
+          "awayWinPct": 0.5,
+          "awayLossPct": 0.5,
+          "awayBttsPct": 0.5
+        },
+        "away": {
+          "homeSample": 2,
+          "awaySample": 1,
+          "homeWinPct": 0.5,
+          "homeLossPct": 0.5,
+          "homeBttsPct": 0.5,
+          "awayWinPct": 0,
+          "awayLossPct": 1,
+          "awayBttsPct": 0
+        }
+      },
+      "score": {
+        "awayWinLikelihood": 0,
+        "bttsLikelihood": 0.5,
+        "combined": 0,
+        "confidence": "low",
+        "sampleHome": 1,
+        "sampleAway": 1
+      }
+    },
+    {
+      "id": "401885108",
+      "date": "2026-09-19T11:00Z",
+      "league": "2. Bundesliga",
+      "leagueCountry": "Germany",
+      "home": {
+        "id": "130",
+        "name": "Kaiserslautern"
+      },
+      "away": {
+        "id": "3067",
+        "name": "TSV Eintracht Braunschweig"
+      },
+      "stats": {
+        "home": {
+          "homeSample": 1,
+          "awaySample": 2,
+          "homeWinPct": 1,
+          "homeLossPct": 0,
+          "homeBttsPct": 0,
+          "awayWinPct": 0.5,
+          "awayLossPct": 0.5,
+          "awayBttsPct": 0.5
+        },
+        "away": {
+          "homeSample": 2,
+          "awaySample": 1,
+          "homeWinPct": 0,
+          "homeLossPct": 0.5,
+          "homeBttsPct": 1,
           "awayWinPct": 0,
           "awayLossPct": 1,
           "awayBttsPct": 1

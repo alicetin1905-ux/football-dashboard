@@ -13,8 +13,10 @@ const BASE = 'https://site.api.espn.com/apis/site/v2/sports/soccer';
 
 export const LEAGUES = [
   { slug: 'eng.1', name: 'Premier League', country: 'England' },
+  { slug: 'eng.2', name: 'Championship', country: 'England' },
   { slug: 'esp.1', name: 'La Liga', country: 'Spain' },
   { slug: 'ger.1', name: 'Bundesliga', country: 'Germany' },
+  { slug: 'ger.2', name: '2. Bundesliga', country: 'Germany' },
   { slug: 'ita.1', name: 'Serie A', country: 'Italy' },
   { slug: 'fra.1', name: 'Ligue 1', country: 'France' },
   { slug: 'tur.1', name: 'Turkish Süper Lig', country: 'Turkey' },

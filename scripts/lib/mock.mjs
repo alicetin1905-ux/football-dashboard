@@ -17,6 +17,11 @@ const LEAGUES = [
     teams: ['Arsenal', 'Man City', 'Liverpool', 'Chelsea', 'Man United', 'Tottenham', 'Newcastle', 'Aston Villa', 'Brighton', 'West Ham'],
   },
   {
+    name: 'Championship',
+    country: 'England',
+    teams: ['Leeds United', 'Burnley', 'Sheffield United', 'West Brom', 'Norwich City', 'Middlesbrough', 'Coventry City', 'Hull City', 'Sunderland', 'Watford'],
+  },
+  {
     name: 'La Liga',
     country: 'Spain',
     teams: ['Real Madrid', 'Barcelona', 'Atletico Madrid', 'Real Sociedad', 'Real Betis', 'Villarreal', 'Athletic Bilbao', 'Sevilla', 'Valencia', 'Girona'],
@@ -25,6 +30,11 @@ const LEAGUES = [
     name: 'Bundesliga',
     country: 'Germany',
     teams: ['Bayern Munich', 'Bayer Leverkusen', 'RB Leipzig', 'Borussia Dortmund', 'Eintracht Frankfurt', 'VfB Stuttgart', 'Freiburg', 'Union Berlin', 'Wolfsburg', 'Werder Bremen'],
+  },
+  {
+    name: '2. Bundesliga',
+    country: 'Germany',
+    teams: ['Hamburger SV', 'Köln', 'Schalke 04', 'Hertha BSC', 'Fortuna Düsseldorf', 'Hannover 96', 'Karlsruher SC', 'Nürnberg', 'Paderborn', 'Braunschweig'],
   },
   {
     name: 'Serie A',
