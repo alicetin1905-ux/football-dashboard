@@ -1,18 +1,19 @@
 /**
- * Client for API-Football via RapidAPI (https://rapidapi.com/api-sports/api/api-football).
- * Only exercised when RAPIDAPI_KEY is set — untested against the live API
- * since this was built without a key on hand; verify response shapes once a
- * key is wired in, particularly the `errors` field, which API-Football
- * returns as `{}` (no errors) or a populated object/array depending on
- * endpoint and API version.
+ * Client for API-Football, direct from API-SPORTS (https://dashboard.api-football.com),
+ * not through the RapidAPI marketplace — one unambiguous provider, no risk of
+ * subscribing to a different, similarly-named API by mistake (as happened
+ * with a SofaScore-wrapper API found while searching RapidAPI's hub).
+ *
+ * The key still lives in the RAPIDAPI_KEY secret/env var for continuity with
+ * the rest of this project, even though it's now an api-football.com key,
+ * sent as x-apisports-key rather than the RapidAPI headers.
  *
  * Free tier is ~100 requests/day, so keep FOOTBALL_NEXT and FOOTBALL_RECENT
  * modest — five leagues × ~10 teams with fixtures in the window is already
  * 40-60 calls per refresh.
  */
 
-const BASE = 'https://api-football-v1.p.rapidapi.com/v3';
-const HOST = 'api-football-v1.p.rapidapi.com';
+const BASE = 'https://v3.football.api-sports.io';
 
 export const LEAGUES = [
   { id: 39, name: 'Premier League', country: 'England' },
@@ -31,7 +32,7 @@ export function currentSeason(date = new Date()) {
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
-/** Retries on 429 with backoff — RapidAPI's free tier throttles bursts, not just daily volume. */
+/** Retries on 429 with backoff, in case the free tier throttles request bursts. */
 async function apiGet(key, path, params, retries = 3) {
   const url = new URL(BASE + path);
   for (const [k, v] of Object.entries(params || {})) {
@@ -39,7 +40,7 @@ async function apiGet(key, path, params, retries = 3) {
   }
   for (let attempt = 0; ; attempt++) {
     const res = await fetch(url, {
-      headers: { 'x-rapidapi-key': key, 'x-rapidapi-host': HOST },
+      headers: { 'x-apisports-key': key },
     });
     if (res.status === 429 && attempt < retries) {
       const retryAfter = Number(res.headers.get('retry-after')) || 2 ** attempt;

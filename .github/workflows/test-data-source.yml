@@ -7,24 +7,6 @@ permissions:
   contents: read
 
 jobs:
-  probe-sportapi7-wider:
-    runs-on: ubuntu-latest
-    timeout-minutes: 6
-    steps:
-      - name: Sweep tournament ids 91..200 for Bundesliga
-        env:
-          RAPIDAPI_KEY: ${{ secrets.RAPIDAPI_KEY }}
-        run: |
-          for id in $(seq 91 200); do
-            body=$(curl -s -H "x-rapidapi-key: $RAPIDAPI_KEY" -H "x-rapidapi-host: sportapi7.p.rapidapi.com" \
-              "https://sportapi7.p.rapidapi.com/api/v1/tournament/$id/events/next/0")
-            name=$(echo "$body" | grep -o '"tournament":{"name":"[^"]*"' | head -1)
-            country=$(echo "$body" | grep -o '"category":{"name":"[^"]*"' | head -1)
-            if [ -n "$name" ]; then echo "id=$id  $name  $country"; fi
-            sleep 0.7
-          done
-          echo "done"
-
   test-refresh:
     runs-on: ubuntu-latest
     timeout-minutes: 5
