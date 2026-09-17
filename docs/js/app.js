@@ -40,6 +40,12 @@ function writeStore(key, value) {
   try { localStorage.setItem(key, JSON.stringify(value)); } catch { /* storage unavailable */ }
 }
 
+function formBadges(letters, title) {
+  if (!letters.length) return '<span class="form-none">—</span>';
+  const spans = letters.map((l) => `<span class="form-badge form-${l.toLowerCase()}">${l}</span>`).join('');
+  return `<span class="form-badges" title="${title}">${spans}</span>`;
+}
+
 function meter(value, cls = '') {
   const w = value == null ? 0 : Math.round(value * 100);
   return `
@@ -109,6 +115,12 @@ function render() {
       <td class="fixture" data-label="Fixture">
         <span class="home">${f.home.name}</span><span class="vs">vs</span>${f.away.name}
         ${f.score.confidence === 'low' ? '<span class="confidence-low" title="Fewer than 5 recent matches on record for one side">low sample</span>' : ''}
+        <div class="form-row">
+          <span class="form-label">Home</span>
+          ${formBadges(f.stats.home.homeForm, `${f.home.name}'s last home matches, oldest to newest`)}
+          <span class="form-label">Away</span>
+          ${formBadges(f.stats.away.awayForm, `${f.away.name}'s last away matches, oldest to newest`)}
+        </div>
       </td>
       <td data-label="Away win">${meter(f.score.awayWinLikelihood)}</td>
       <td data-label="BTTS">${meter(f.score.bttsLikelihood)}</td>

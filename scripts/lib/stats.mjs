@@ -18,6 +18,13 @@
 
 const avg = (arr) => arr.reduce((a, b) => a + b, 0) / arr.length;
 
+const RECENT_FORM_COUNT = 5;
+
+/** W/D/L for a team's own matches, oldest to newest — the last entry is most recent. */
+function formLetters(matches) {
+  return matches.slice(-RECENT_FORM_COUNT).map((m) => (m.gf > m.ga ? 'W' : m.gf < m.ga ? 'L' : 'D'));
+}
+
 /**
  * @param {{venue: 'home'|'away', gf: number, ga: number}[]} matches
  */
@@ -35,6 +42,11 @@ export function summarizeTeamForm(matches) {
     awayWinPct: rate(away, (m) => m.gf > m.ga),
     awayLossPct: rate(away, (m) => m.gf < m.ga),
     awayBttsPct: rate(away, (m) => m.gf > 0 && m.ga > 0),
+    // Home/away-specific, since those are the splits the score is actually
+    // built from — a team's overall form can read very differently from its
+    // home-only or away-only record.
+    homeForm: formLetters(home),
+    awayForm: formLetters(away),
   };
 }
 

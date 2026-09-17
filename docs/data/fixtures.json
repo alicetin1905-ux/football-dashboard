@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-17T21:11:47.926Z",
+  "generatedAt": "2026-09-17T21:26:02.551Z",
   "source": "espn",
   "disclaimer": "Public/derived football statistics shown for information only — not betting advice.",
   "fixtures": [
@@ -25,7 +25,17 @@
           "homeBttsPct": 1,
           "awayWinPct": 0,
           "awayLossPct": 0.75,
-          "awayBttsPct": 0.5
+          "awayBttsPct": 0.5,
+          "homeForm": [
+            "L",
+            "L"
+          ],
+          "awayForm": [
+            "L",
+            "L",
+            "D",
+            "L"
+          ]
         },
         "away": {
           "homeSample": 4,
@@ -35,7 +45,17 @@
           "homeBttsPct": 0.5,
           "awayWinPct": 0,
           "awayLossPct": 0.5,
-          "awayBttsPct": 1
+          "awayBttsPct": 1,
+          "homeForm": [
+            "L",
+            "L",
+            "L",
+            "W"
+          ],
+          "awayForm": [
+            "L",
+            "D"
+          ]
         }
       },
       "score": {
@@ -69,7 +89,15 @@
           "homeBttsPct": 1,
           "awayWinPct": 0,
           "awayLossPct": 0.6666666666666666,
-          "awayBttsPct": 1
+          "awayBttsPct": 1,
+          "homeForm": [
+            "L"
+          ],
+          "awayForm": [
+            "L",
+            "D",
+            "L"
+          ]
         },
         "away": {
           "homeSample": 7,
@@ -79,7 +107,21 @@
           "homeBttsPct": 0.7142857142857143,
           "awayWinPct": 0,
           "awayLossPct": 0.625,
-          "awayBttsPct": 0.75
+          "awayBttsPct": 0.75,
+          "homeForm": [
+            "W",
+            "W",
+            "L",
+            "W",
+            "W"
+          ],
+          "awayForm": [
+            "D",
+            "L",
+            "L",
+            "L",
+            "D"
+          ]
         }
       },
       "score": {
@@ -113,7 +155,17 @@
           "homeBttsPct": 0.6666666666666666,
           "awayWinPct": 0,
           "awayLossPct": 0.6666666666666666,
-          "awayBttsPct": 1
+          "awayBttsPct": 1,
+          "homeForm": [
+            "L",
+            "D",
+            "L"
+          ],
+          "awayForm": [
+            "L",
+            "D",
+            "L"
+          ]
         },
         "away": {
           "homeSample": 8,
@@ -123,7 +175,21 @@
           "homeBttsPct": 0.875,
           "awayWinPct": 0.42857142857142855,
           "awayLossPct": 0.42857142857142855,
-          "awayBttsPct": 0.7142857142857143
+          "awayBttsPct": 0.7142857142857143,
+          "homeForm": [
+            "L",
+            "W",
+            "W",
+            "L",
+            "L"
+          ],
+          "awayForm": [
+            "L",
+            "L",
+            "D",
+            "W",
+            "W"
+          ]
         }
       },
       "score": {
@@ -157,7 +223,21 @@
           "homeBttsPct": 0.875,
           "awayWinPct": 0.7142857142857143,
           "awayLossPct": 0,
-          "awayBttsPct": 0.2857142857142857
+          "awayBttsPct": 0.2857142857142857,
+          "homeForm": [
+            "W",
+            "D",
+            "D",
+            "L",
+            "W"
+          ],
+          "awayForm": [
+            "W",
+            "D",
+            "W",
+            "W",
+            "W"
+          ]
         },
         "away": {
           "homeSample": 7,
@@ -167,7 +247,21 @@
           "homeBttsPct": 0.7142857142857143,
           "awayWinPct": 0.5,
           "awayLossPct": 0.125,
-          "awayBttsPct": 0.75
+          "awayBttsPct": 0.75,
+          "homeForm": [
+            "W",
+            "D",
+            "L",
+            "W",
+            "L"
+          ],
+          "awayForm": [
+            "W",
+            "W",
+            "W",
+            "W",
+            "D"
+          ]
         }
       },
       "score": {
@@ -201,7 +295,21 @@
           "homeBttsPct": 0.5714285714285714,
           "awayWinPct": 0.25,
           "awayLossPct": 0.5,
-          "awayBttsPct": 0.75
+          "awayBttsPct": 0.75,
+          "homeForm": [
+            "L",
+            "W",
+            "L",
+            "L",
+            "W"
+          ],
+          "awayForm": [
+            "L",
+            "D",
+            "L",
+            "L",
+            "D"
+          ]
         },
         "away": {
           "homeSample": 7,
@@ -211,7 +319,21 @@
           "homeBttsPct": 0.7142857142857143,
           "awayWinPct": 0.5,
           "awayLossPct": 0.375,
-          "awayBttsPct": 0.75
+          "awayBttsPct": 0.75,
+          "homeForm": [
+            "D",
+            "D",
+            "W",
+            "W",
+            "D"
+          ],
+          "awayForm": [
+            "D",
+            "W",
+            "W",
+            "L",
+            "W"
+          ]
         }
       },
       "score": {
@@ -245,7 +367,21 @@
           "homeBttsPct": 0.8888888888888888,
           "awayWinPct": 0,
           "awayLossPct": 0.5,
-          "awayBttsPct": 0.3333333333333333
+          "awayBttsPct": 0.3333333333333333,
+          "homeForm": [
+            "W",
+            "L",
+            "W",
+            "L",
+            "L"
+          ],
+          "awayForm": [
+            "L",
+            "L",
+            "D",
+            "D",
+            "D"
+          ]
         },
         "away": {
           "homeSample": 8,
@@ -255,7 +391,21 @@
           "homeBttsPct": 0.25,
           "awayWinPct": 0.2857142857142857,
           "awayLossPct": 0,
-          "awayBttsPct": 1
+          "awayBttsPct": 1,
+          "homeForm": [
+            "W",
+            "W",
+            "W",
+            "W",
+            "W"
+          ],
+          "awayForm": [
+            "D",
+            "D",
+            "D",
+            "W",
+            "D"
+          ]
         }
       },
       "score": {
@@ -289,7 +439,15 @@
           "homeBttsPct": 0.5,
           "awayWinPct": 0.5,
           "awayLossPct": 0,
-          "awayBttsPct": 0.5
+          "awayBttsPct": 0.5,
+          "homeForm": [
+            "L",
+            "W"
+          ],
+          "awayForm": [
+            "W",
+            "D"
+          ]
         },
         "away": {
           "homeSample": 6,
@@ -299,7 +457,21 @@
           "homeBttsPct": 0.5,
           "awayWinPct": 0.6666666666666666,
           "awayLossPct": 0.1111111111111111,
-          "awayBttsPct": 0.6666666666666666
+          "awayBttsPct": 0.6666666666666666,
+          "homeForm": [
+            "W",
+            "L",
+            "D",
+            "W",
+            "W"
+          ],
+          "awayForm": [
+            "W",
+            "W",
+            "D",
+            "W",
+            "W"
+          ]
         }
       },
       "score": {
@@ -333,7 +505,15 @@
           "homeBttsPct": 0.5,
           "awayWinPct": 0,
           "awayLossPct": 1,
-          "awayBttsPct": 0.5
+          "awayBttsPct": 0.5,
+          "homeForm": [
+            "L",
+            "L"
+          ],
+          "awayForm": [
+            "L",
+            "L"
+          ]
         },
         "away": {
           "homeSample": 8,
@@ -343,7 +523,21 @@
           "homeBttsPct": 0.625,
           "awayWinPct": 0.7142857142857143,
           "awayLossPct": 0.2857142857142857,
-          "awayBttsPct": 0.2857142857142857
+          "awayBttsPct": 0.2857142857142857,
+          "homeForm": [
+            "D",
+            "L",
+            "W",
+            "W",
+            "D"
+          ],
+          "awayForm": [
+            "W",
+            "W",
+            "L",
+            "W",
+            "W"
+          ]
         }
       },
       "score": {
@@ -377,7 +571,21 @@
           "homeBttsPct": 1,
           "awayWinPct": 0.2857142857142857,
           "awayLossPct": 0.5714285714285714,
-          "awayBttsPct": 0.42857142857142855
+          "awayBttsPct": 0.42857142857142855,
+          "homeForm": [
+            "L",
+            "W",
+            "W",
+            "D",
+            "D"
+          ],
+          "awayForm": [
+            "L",
+            "D",
+            "L",
+            "W",
+            "L"
+          ]
         },
         "away": {
           "homeSample": 2,
@@ -387,7 +595,15 @@
           "homeBttsPct": 0,
           "awayWinPct": 0.5,
           "awayLossPct": 0,
-          "awayBttsPct": 0.5
+          "awayBttsPct": 0.5,
+          "homeForm": [
+            "W",
+            "D"
+          ],
+          "awayForm": [
+            "W",
+            "D"
+          ]
         }
       },
       "score": {
@@ -421,7 +637,21 @@
           "homeBttsPct": 0.75,
           "awayWinPct": 0.2857142857142857,
           "awayLossPct": 0.2857142857142857,
-          "awayBttsPct": 0.42857142857142855
+          "awayBttsPct": 0.42857142857142855,
+          "homeForm": [
+            "W",
+            "W",
+            "L",
+            "D",
+            "W"
+          ],
+          "awayForm": [
+            "D",
+            "W",
+            "L",
+            "W",
+            "D"
+          ]
         },
         "away": {
           "homeSample": 9,
@@ -431,7 +661,21 @@
           "homeBttsPct": 0.6666666666666666,
           "awayWinPct": 0.6666666666666666,
           "awayLossPct": 0.3333333333333333,
-          "awayBttsPct": 0.6666666666666666
+          "awayBttsPct": 0.6666666666666666,
+          "homeForm": [
+            "W",
+            "W",
+            "D",
+            "W",
+            "W"
+          ],
+          "awayForm": [
+            "W",
+            "W",
+            "L",
+            "L",
+            "W"
+          ]
         }
       },
       "score": {
@@ -465,7 +709,18 @@
           "homeBttsPct": 0.6666666666666666,
           "awayWinPct": 0.75,
           "awayLossPct": 0.25,
-          "awayBttsPct": 0.25
+          "awayBttsPct": 0.25,
+          "homeForm": [
+            "L",
+            "D",
+            "D"
+          ],
+          "awayForm": [
+            "L",
+            "W",
+            "W",
+            "W"
+          ]
         },
         "away": {
           "homeSample": 8,
@@ -475,7 +730,21 @@
           "homeBttsPct": 0.5,
           "awayWinPct": 0.5714285714285714,
           "awayLossPct": 0.14285714285714285,
-          "awayBttsPct": 0.7142857142857143
+          "awayBttsPct": 0.7142857142857143,
+          "homeForm": [
+            "W",
+            "D",
+            "W",
+            "D",
+            "W"
+          ],
+          "awayForm": [
+            "W",
+            "D",
+            "W",
+            "W",
+            "L"
+          ]
         }
       },
       "score": {
@@ -509,7 +778,21 @@
           "homeBttsPct": 0.5714285714285714,
           "awayWinPct": 0.125,
           "awayLossPct": 0.375,
-          "awayBttsPct": 0.625
+          "awayBttsPct": 0.625,
+          "homeForm": [
+            "L",
+            "D",
+            "L",
+            "W",
+            "D"
+          ],
+          "awayForm": [
+            "L",
+            "D",
+            "L",
+            "D",
+            "D"
+          ]
         },
         "away": {
           "homeSample": 2,
@@ -519,7 +802,15 @@
           "homeBttsPct": 0.5,
           "awayWinPct": 0.5,
           "awayLossPct": 0.5,
-          "awayBttsPct": 1
+          "awayBttsPct": 1,
+          "homeForm": [
+            "W",
+            "L"
+          ],
+          "awayForm": [
+            "L",
+            "W"
+          ]
         }
       },
       "score": {
@@ -553,7 +844,17 @@
           "homeBttsPct": 0.6666666666666666,
           "awayWinPct": 0.3333333333333333,
           "awayLossPct": 0,
-          "awayBttsPct": 1
+          "awayBttsPct": 1,
+          "homeForm": [
+            "D",
+            "W",
+            "L"
+          ],
+          "awayForm": [
+            "D",
+            "W",
+            "D"
+          ]
         },
         "away": {
           "homeSample": 8,
@@ -563,7 +864,21 @@
           "homeBttsPct": 0.375,
           "awayWinPct": 0.42857142857142855,
           "awayLossPct": 0.2857142857142857,
-          "awayBttsPct": 0.8571428571428571
+          "awayBttsPct": 0.8571428571428571,
+          "homeForm": [
+            "W",
+            "W",
+            "W",
+            "W",
+            "W"
+          ],
+          "awayForm": [
+            "D",
+            "L",
+            "W",
+            "L",
+            "W"
+          ]
         }
       },
       "score": {
@@ -597,7 +912,21 @@
           "homeBttsPct": 0.8333333333333334,
           "awayWinPct": 0.3333333333333333,
           "awayLossPct": 0.3333333333333333,
-          "awayBttsPct": 0.4444444444444444
+          "awayBttsPct": 0.4444444444444444,
+          "homeForm": [
+            "W",
+            "D",
+            "D",
+            "L",
+            "D"
+          ],
+          "awayForm": [
+            "L",
+            "D",
+            "W",
+            "D",
+            "L"
+          ]
         },
         "away": {
           "homeSample": 9,
@@ -607,7 +936,21 @@
           "homeBttsPct": 0.8888888888888888,
           "awayWinPct": 0.3333333333333333,
           "awayLossPct": 0.16666666666666666,
-          "awayBttsPct": 0.8333333333333334
+          "awayBttsPct": 0.8333333333333334,
+          "homeForm": [
+            "W",
+            "W",
+            "W",
+            "W",
+            "W"
+          ],
+          "awayForm": [
+            "W",
+            "D",
+            "L",
+            "D",
+            "D"
+          ]
         }
       },
       "score": {
@@ -641,7 +984,21 @@
           "homeBttsPct": 0.5714285714285714,
           "awayWinPct": 0.375,
           "awayLossPct": 0.5,
-          "awayBttsPct": 0.5
+          "awayBttsPct": 0.5,
+          "homeForm": [
+            "W",
+            "L",
+            "W",
+            "L",
+            "W"
+          ],
+          "awayForm": [
+            "W",
+            "L",
+            "W",
+            "D",
+            "W"
+          ]
         },
         "away": {
           "homeSample": 7,
@@ -651,7 +1008,21 @@
           "homeBttsPct": 0.5714285714285714,
           "awayWinPct": 0.75,
           "awayLossPct": 0.25,
-          "awayBttsPct": 0.5
+          "awayBttsPct": 0.5,
+          "homeForm": [
+            "W",
+            "W",
+            "W",
+            "W",
+            "W"
+          ],
+          "awayForm": [
+            "L",
+            "L",
+            "W",
+            "W",
+            "W"
+          ]
         }
       },
       "score": {
@@ -685,7 +1056,21 @@
           "homeBttsPct": 0.42857142857142855,
           "awayWinPct": 0.5,
           "awayLossPct": 0.25,
-          "awayBttsPct": 0.875
+          "awayBttsPct": 0.875,
+          "homeForm": [
+            "D",
+            "W",
+            "W",
+            "W",
+            "W"
+          ],
+          "awayForm": [
+            "D",
+            "L",
+            "L",
+            "W",
+            "D"
+          ]
         },
         "away": {
           "homeSample": 8,
@@ -695,7 +1080,21 @@
           "homeBttsPct": 1,
           "awayWinPct": 0.7142857142857143,
           "awayLossPct": 0.14285714285714285,
-          "awayBttsPct": 0.8571428571428571
+          "awayBttsPct": 0.8571428571428571,
+          "homeForm": [
+            "W",
+            "W",
+            "D",
+            "W",
+            "W"
+          ],
+          "awayForm": [
+            "D",
+            "W",
+            "W",
+            "W",
+            "W"
+          ]
         }
       },
       "score": {
@@ -729,7 +1128,18 @@
           "homeBttsPct": 1,
           "awayWinPct": 0,
           "awayLossPct": 0.75,
-          "awayBttsPct": 1
+          "awayBttsPct": 1,
+          "homeForm": [
+            "D",
+            "D",
+            "L"
+          ],
+          "awayForm": [
+            "L",
+            "L",
+            "D",
+            "L"
+          ]
         },
         "away": {
           "homeSample": 8,
@@ -739,7 +1149,21 @@
           "homeBttsPct": 0.375,
           "awayWinPct": 0.2857142857142857,
           "awayLossPct": 0.7142857142857143,
-          "awayBttsPct": 0.7142857142857143
+          "awayBttsPct": 0.7142857142857143,
+          "homeForm": [
+            "L",
+            "D",
+            "L",
+            "L",
+            "L"
+          ],
+          "awayForm": [
+            "L",
+            "W",
+            "L",
+            "W",
+            "L"
+          ]
         }
       },
       "score": {
@@ -773,7 +1197,21 @@
           "homeBttsPct": 0.625,
           "awayWinPct": 0.14285714285714285,
           "awayLossPct": 0.7142857142857143,
-          "awayBttsPct": 0.5714285714285714
+          "awayBttsPct": 0.5714285714285714,
+          "homeForm": [
+            "L",
+            "L",
+            "D",
+            "W",
+            "L"
+          ],
+          "awayForm": [
+            "L",
+            "L",
+            "W",
+            "L",
+            "L"
+          ]
         },
         "away": {
           "homeSample": 8,
@@ -783,7 +1221,21 @@
           "homeBttsPct": 0.625,
           "awayWinPct": 0.2857142857142857,
           "awayLossPct": 0.5714285714285714,
-          "awayBttsPct": 0.7142857142857143
+          "awayBttsPct": 0.7142857142857143,
+          "homeForm": [
+            "D",
+            "W",
+            "D",
+            "W",
+            "W"
+          ],
+          "awayForm": [
+            "D",
+            "W",
+            "L",
+            "L",
+            "L"
+          ]
         }
       },
       "score": {
@@ -817,7 +1269,14 @@
           "homeBttsPct": 0,
           "awayWinPct": 0.5,
           "awayLossPct": 0.5,
-          "awayBttsPct": 0.5
+          "awayBttsPct": 0.5,
+          "homeForm": [
+            "D"
+          ],
+          "awayForm": [
+            "L",
+            "W"
+          ]
         },
         "away": {
           "homeSample": 2,
@@ -827,7 +1286,14 @@
           "homeBttsPct": 1,
           "awayWinPct": 1,
           "awayLossPct": 0,
-          "awayBttsPct": 1
+          "awayBttsPct": 1,
+          "homeForm": [
+            "W",
+            "L"
+          ],
+          "awayForm": [
+            "W"
+          ]
         }
       },
       "score": {
@@ -861,7 +1327,16 @@
           "homeBttsPct": 1,
           "awayWinPct": 0.3333333333333333,
           "awayLossPct": 0.3333333333333333,
-          "awayBttsPct": 0.3333333333333333
+          "awayBttsPct": 0.3333333333333333,
+          "homeForm": [
+            "W",
+            "L"
+          ],
+          "awayForm": [
+            "L",
+            "D",
+            "W"
+          ]
         },
         "away": {
           "homeSample": 3,
@@ -871,7 +1346,16 @@
           "homeBttsPct": 0.6666666666666666,
           "awayWinPct": 0,
           "awayLossPct": 0,
-          "awayBttsPct": 1
+          "awayBttsPct": 1,
+          "homeForm": [
+            "D",
+            "L",
+            "W"
+          ],
+          "awayForm": [
+            "D",
+            "D"
+          ]
         }
       },
       "score": {
@@ -905,7 +1389,21 @@
           "homeBttsPct": 0.5714285714285714,
           "awayWinPct": 0.125,
           "awayLossPct": 0.75,
-          "awayBttsPct": 0.625
+          "awayBttsPct": 0.625,
+          "homeForm": [
+            "L",
+            "L",
+            "L",
+            "W",
+            "W"
+          ],
+          "awayForm": [
+            "L",
+            "L",
+            "L",
+            "D",
+            "W"
+          ]
         },
         "away": {
           "homeSample": 9,
@@ -915,7 +1413,21 @@
           "homeBttsPct": 0.7777777777777778,
           "awayWinPct": 0.5,
           "awayLossPct": 0.16666666666666666,
-          "awayBttsPct": 0.5
+          "awayBttsPct": 0.5,
+          "homeForm": [
+            "L",
+            "D",
+            "W",
+            "L",
+            "L"
+          ],
+          "awayForm": [
+            "W",
+            "W",
+            "D",
+            "D",
+            "W"
+          ]
         }
       },
       "score": {
@@ -949,7 +1461,21 @@
           "homeBttsPct": 0.42857142857142855,
           "awayWinPct": 0.25,
           "awayLossPct": 0.5,
-          "awayBttsPct": 0.625
+          "awayBttsPct": 0.625,
+          "homeForm": [
+            "D",
+            "L",
+            "D",
+            "L",
+            "L"
+          ],
+          "awayForm": [
+            "L",
+            "L",
+            "D",
+            "W",
+            "D"
+          ]
         },
         "away": {
           "homeSample": 2,
@@ -959,7 +1485,15 @@
           "homeBttsPct": 0.5,
           "awayWinPct": 0.5,
           "awayLossPct": 0.5,
-          "awayBttsPct": 0.5
+          "awayBttsPct": 0.5,
+          "homeForm": [
+            "D",
+            "L"
+          ],
+          "awayForm": [
+            "W",
+            "L"
+          ]
         }
       },
       "score": {
@@ -993,7 +1527,21 @@
           "homeBttsPct": 0.75,
           "awayWinPct": 0.42857142857142855,
           "awayLossPct": 0.2857142857142857,
-          "awayBttsPct": 0.7142857142857143
+          "awayBttsPct": 0.7142857142857143,
+          "homeForm": [
+            "D",
+            "D",
+            "D",
+            "L",
+            "D"
+          ],
+          "awayForm": [
+            "W",
+            "D",
+            "L",
+            "W",
+            "L"
+          ]
         },
         "away": {
           "homeSample": 8,
@@ -1003,7 +1551,21 @@
           "homeBttsPct": 0.75,
           "awayWinPct": 0.42857142857142855,
           "awayLossPct": 0.2857142857142857,
-          "awayBttsPct": 0.7142857142857143
+          "awayBttsPct": 0.7142857142857143,
+          "homeForm": [
+            "W",
+            "D",
+            "L",
+            "L",
+            "D"
+          ],
+          "awayForm": [
+            "L",
+            "D",
+            "W",
+            "W",
+            "W"
+          ]
         }
       },
       "score": {
@@ -1037,7 +1599,21 @@
           "homeBttsPct": 0.75,
           "awayWinPct": 0.2857142857142857,
           "awayLossPct": 0.7142857142857143,
-          "awayBttsPct": 0.14285714285714285
+          "awayBttsPct": 0.14285714285714285,
+          "homeForm": [
+            "W",
+            "D",
+            "W",
+            "W",
+            "L"
+          ],
+          "awayForm": [
+            "L",
+            "L",
+            "W",
+            "L",
+            "L"
+          ]
         },
         "away": {
           "homeSample": 7,
@@ -1047,7 +1623,21 @@
           "homeBttsPct": 0.7142857142857143,
           "awayWinPct": 0.625,
           "awayLossPct": 0.125,
-          "awayBttsPct": 0.375
+          "awayBttsPct": 0.375,
+          "homeForm": [
+            "L",
+            "W",
+            "D",
+            "W",
+            "L"
+          ],
+          "awayForm": [
+            "W",
+            "L",
+            "D",
+            "D",
+            "W"
+          ]
         }
       },
       "score": {
@@ -1081,7 +1671,21 @@
           "homeBttsPct": 0.8571428571428571,
           "awayWinPct": 0.375,
           "awayLossPct": 0.25,
-          "awayBttsPct": 0.75
+          "awayBttsPct": 0.75,
+          "homeForm": [
+            "W",
+            "L",
+            "W",
+            "D",
+            "W"
+          ],
+          "awayForm": [
+            "W",
+            "W",
+            "L",
+            "L",
+            "D"
+          ]
         },
         "away": {
           "homeSample": 8,
@@ -1091,7 +1695,21 @@
           "homeBttsPct": 0.5,
           "awayWinPct": 0.42857142857142855,
           "awayLossPct": 0.5714285714285714,
-          "awayBttsPct": 0.8571428571428571
+          "awayBttsPct": 0.8571428571428571,
+          "homeForm": [
+            "W",
+            "W",
+            "W",
+            "W",
+            "W"
+          ],
+          "awayForm": [
+            "W",
+            "W",
+            "L",
+            "L",
+            "L"
+          ]
         }
       },
       "score": {
@@ -1125,7 +1743,21 @@
           "homeBttsPct": 0.625,
           "awayWinPct": 0.2857142857142857,
           "awayLossPct": 0.2857142857142857,
-          "awayBttsPct": 0.5714285714285714
+          "awayBttsPct": 0.5714285714285714,
+          "homeForm": [
+            "L",
+            "L",
+            "D",
+            "W",
+            "L"
+          ],
+          "awayForm": [
+            "L",
+            "W",
+            "W",
+            "D",
+            "D"
+          ]
         },
         "away": {
           "homeSample": 8,
@@ -1135,7 +1767,21 @@
           "homeBttsPct": 0.75,
           "awayWinPct": 0.2857142857142857,
           "awayLossPct": 0.5714285714285714,
-          "awayBttsPct": 0.8571428571428571
+          "awayBttsPct": 0.8571428571428571,
+          "homeForm": [
+            "L",
+            "L",
+            "L",
+            "W",
+            "L"
+          ],
+          "awayForm": [
+            "L",
+            "W",
+            "L",
+            "L",
+            "L"
+          ]
         }
       },
       "score": {
@@ -1169,7 +1815,21 @@
           "homeBttsPct": 0.42857142857142855,
           "awayWinPct": 0.375,
           "awayLossPct": 0.5,
-          "awayBttsPct": 0.5
+          "awayBttsPct": 0.5,
+          "homeForm": [
+            "L",
+            "W",
+            "W",
+            "D",
+            "L"
+          ],
+          "awayForm": [
+            "L",
+            "D",
+            "W",
+            "L",
+            "L"
+          ]
         },
         "away": {
           "homeSample": 7,
@@ -1179,7 +1839,21 @@
           "homeBttsPct": 0.2857142857142857,
           "awayWinPct": 0.625,
           "awayLossPct": 0.25,
-          "awayBttsPct": 0.5
+          "awayBttsPct": 0.5,
+          "homeForm": [
+            "W",
+            "W",
+            "D",
+            "W",
+            "W"
+          ],
+          "awayForm": [
+            "L",
+            "D",
+            "W",
+            "W",
+            "W"
+          ]
         }
       },
       "score": {
@@ -1213,7 +1887,21 @@
           "homeBttsPct": 0.375,
           "awayWinPct": 0,
           "awayLossPct": 0.42857142857142855,
-          "awayBttsPct": 0.42857142857142855
+          "awayBttsPct": 0.42857142857142855,
+          "homeForm": [
+            "W",
+            "L",
+            "W",
+            "W",
+            "L"
+          ],
+          "awayForm": [
+            "D",
+            "D",
+            "L",
+            "D",
+            "L"
+          ]
         },
         "away": {
           "homeSample": 3,
@@ -1223,7 +1911,17 @@
           "homeBttsPct": 0.3333333333333333,
           "awayWinPct": 0.3333333333333333,
           "awayLossPct": 0.6666666666666666,
-          "awayBttsPct": 1
+          "awayBttsPct": 1,
+          "homeForm": [
+            "W",
+            "D",
+            "L"
+          ],
+          "awayForm": [
+            "W",
+            "L",
+            "L"
+          ]
         }
       },
       "score": {
@@ -1257,7 +1955,21 @@
           "homeBttsPct": 0.7142857142857143,
           "awayWinPct": 0.25,
           "awayLossPct": 0.375,
-          "awayBttsPct": 0.875
+          "awayBttsPct": 0.875,
+          "homeForm": [
+            "D",
+            "L",
+            "L",
+            "D",
+            "L"
+          ],
+          "awayForm": [
+            "W",
+            "D",
+            "L",
+            "D",
+            "W"
+          ]
         },
         "away": {
           "homeSample": 9,
@@ -1267,7 +1979,21 @@
           "homeBttsPct": 0.7777777777777778,
           "awayWinPct": 0.5,
           "awayLossPct": 0.5,
-          "awayBttsPct": 0.3333333333333333
+          "awayBttsPct": 0.3333333333333333,
+          "homeForm": [
+            "W",
+            "D",
+            "W",
+            "W",
+            "W"
+          ],
+          "awayForm": [
+            "W",
+            "W",
+            "L",
+            "L",
+            "W"
+          ]
         }
       },
       "score": {
@@ -1301,7 +2027,21 @@
           "homeBttsPct": 0.75,
           "awayWinPct": 0.2857142857142857,
           "awayLossPct": 0.5714285714285714,
-          "awayBttsPct": 0.42857142857142855
+          "awayBttsPct": 0.42857142857142855,
+          "homeForm": [
+            "D",
+            "W",
+            "W",
+            "W",
+            "D"
+          ],
+          "awayForm": [
+            "D",
+            "L",
+            "L",
+            "L",
+            "W"
+          ]
         },
         "away": {
           "homeSample": 8,
@@ -1311,7 +2051,21 @@
           "homeBttsPct": 0.375,
           "awayWinPct": 0.5714285714285714,
           "awayLossPct": 0.14285714285714285,
-          "awayBttsPct": 0.42857142857142855
+          "awayBttsPct": 0.42857142857142855,
+          "homeForm": [
+            "W",
+            "W",
+            "W",
+            "W",
+            "L"
+          ],
+          "awayForm": [
+            "W",
+            "W",
+            "D",
+            "D",
+            "W"
+          ]
         }
       },
       "score": {
@@ -1345,7 +2099,21 @@
           "homeBttsPct": 0.625,
           "awayWinPct": 0.8571428571428571,
           "awayLossPct": 0,
-          "awayBttsPct": 0.2857142857142857
+          "awayBttsPct": 0.2857142857142857,
+          "homeForm": [
+            "L",
+            "D",
+            "W",
+            "W",
+            "L"
+          ],
+          "awayForm": [
+            "W",
+            "W",
+            "W",
+            "W",
+            "W"
+          ]
         },
         "away": {
           "homeSample": 7,
@@ -1355,7 +2123,21 @@
           "homeBttsPct": 0.5714285714285714,
           "awayWinPct": 0.25,
           "awayLossPct": 0.375,
-          "awayBttsPct": 0.875
+          "awayBttsPct": 0.875,
+          "homeForm": [
+            "W",
+            "L",
+            "D",
+            "L",
+            "L"
+          ],
+          "awayForm": [
+            "W",
+            "L",
+            "D",
+            "L",
+            "D"
+          ]
         }
       },
       "score": {
@@ -1389,7 +2171,21 @@
           "homeBttsPct": 0.5714285714285714,
           "awayWinPct": 0.375,
           "awayLossPct": 0.375,
-          "awayBttsPct": 0.75
+          "awayBttsPct": 0.75,
+          "homeForm": [
+            "D",
+            "D",
+            "L",
+            "W",
+            "W"
+          ],
+          "awayForm": [
+            "L",
+            "W",
+            "D",
+            "L",
+            "L"
+          ]
         },
         "away": {
           "homeSample": 7,
@@ -1399,7 +2195,21 @@
           "homeBttsPct": 0.5714285714285714,
           "awayWinPct": 0.625,
           "awayLossPct": 0.375,
-          "awayBttsPct": 0.625
+          "awayBttsPct": 0.625,
+          "homeForm": [
+            "W",
+            "W",
+            "D",
+            "W",
+            "W"
+          ],
+          "awayForm": [
+            "W",
+            "L",
+            "L",
+            "W",
+            "W"
+          ]
         }
       },
       "score": {
@@ -1433,7 +2243,14 @@
           "homeBttsPct": 0,
           "awayWinPct": 0,
           "awayLossPct": 0.5,
-          "awayBttsPct": 0
+          "awayBttsPct": 0,
+          "homeForm": [
+            "L"
+          ],
+          "awayForm": [
+            "D",
+            "L"
+          ]
         },
         "away": {
           "homeSample": 8,
@@ -1443,7 +2260,21 @@
           "homeBttsPct": 0.75,
           "awayWinPct": 0.2857142857142857,
           "awayLossPct": 0.42857142857142855,
-          "awayBttsPct": 0.7142857142857143
+          "awayBttsPct": 0.7142857142857143,
+          "homeForm": [
+            "W",
+            "D",
+            "W",
+            "L",
+            "W"
+          ],
+          "awayForm": [
+            "L",
+            "D",
+            "W",
+            "L",
+            "L"
+          ]
         }
       },
       "score": {
@@ -1477,7 +2308,21 @@
           "homeBttsPct": 0.42857142857142855,
           "awayWinPct": 0.125,
           "awayLossPct": 0.625,
-          "awayBttsPct": 0.375
+          "awayBttsPct": 0.375,
+          "homeForm": [
+            "D",
+            "D",
+            "D",
+            "D",
+            "D"
+          ],
+          "awayForm": [
+            "D",
+            "D",
+            "L",
+            "L",
+            "L"
+          ]
         },
         "away": {
           "homeSample": 8,
@@ -1487,7 +2332,21 @@
           "homeBttsPct": 0.375,
           "awayWinPct": 1,
           "awayLossPct": 0,
-          "awayBttsPct": 0.2857142857142857
+          "awayBttsPct": 0.2857142857142857,
+          "homeForm": [
+            "D",
+            "D",
+            "L",
+            "D",
+            "W"
+          ],
+          "awayForm": [
+            "W",
+            "W",
+            "W",
+            "W",
+            "W"
+          ]
         }
       },
       "score": {
@@ -1521,7 +2380,21 @@
           "homeBttsPct": 1,
           "awayWinPct": 0.25,
           "awayLossPct": 0.625,
-          "awayBttsPct": 0.5
+          "awayBttsPct": 0.5,
+          "homeForm": [
+            "W",
+            "D",
+            "D",
+            "D",
+            "L"
+          ],
+          "awayForm": [
+            "L",
+            "L",
+            "L",
+            "L",
+            "W"
+          ]
         },
         "away": {
           "homeSample": 8,
@@ -1531,7 +2404,21 @@
           "homeBttsPct": 0.625,
           "awayWinPct": 0.42857142857142855,
           "awayLossPct": 0.42857142857142855,
-          "awayBttsPct": 0.2857142857142857
+          "awayBttsPct": 0.2857142857142857,
+          "homeForm": [
+            "D",
+            "L",
+            "L",
+            "L",
+            "D"
+          ],
+          "awayForm": [
+            "L",
+            "D",
+            "L",
+            "W",
+            "L"
+          ]
         }
       },
       "score": {
@@ -1565,7 +2452,21 @@
           "homeBttsPct": 0.2857142857142857,
           "awayWinPct": 0.125,
           "awayLossPct": 0.625,
-          "awayBttsPct": 0.75
+          "awayBttsPct": 0.75,
+          "homeForm": [
+            "W",
+            "W",
+            "W",
+            "W",
+            "L"
+          ],
+          "awayForm": [
+            "L",
+            "L",
+            "L",
+            "L",
+            "D"
+          ]
         },
         "away": {
           "homeSample": 6,
@@ -1575,7 +2476,21 @@
           "homeBttsPct": 0.6666666666666666,
           "awayWinPct": 0.6666666666666666,
           "awayLossPct": 0.2222222222222222,
-          "awayBttsPct": 0.6666666666666666
+          "awayBttsPct": 0.6666666666666666,
+          "homeForm": [
+            "L",
+            "L",
+            "W",
+            "W",
+            "W"
+          ],
+          "awayForm": [
+            "L",
+            "L",
+            "W",
+            "W",
+            "W"
+          ]
         }
       },
       "score": {
@@ -1609,7 +2524,21 @@
           "homeBttsPct": 0.7142857142857143,
           "awayWinPct": 0.25,
           "awayLossPct": 0.625,
-          "awayBttsPct": 0.625
+          "awayBttsPct": 0.625,
+          "homeForm": [
+            "D",
+            "D",
+            "L",
+            "W",
+            "L"
+          ],
+          "awayForm": [
+            "L",
+            "W",
+            "D",
+            "L",
+            "L"
+          ]
         },
         "away": {
           "homeSample": 8,
@@ -1619,7 +2548,21 @@
           "homeBttsPct": 1,
           "awayWinPct": 0,
           "awayLossPct": 0.42857142857142855,
-          "awayBttsPct": 0.8571428571428571
+          "awayBttsPct": 0.8571428571428571,
+          "homeForm": [
+            "W",
+            "L",
+            "L",
+            "W",
+            "D"
+          ],
+          "awayForm": [
+            "D",
+            "D",
+            "D",
+            "L",
+            "L"
+          ]
         }
       },
       "score": {
@@ -1653,7 +2596,21 @@
           "homeBttsPct": 0.375,
           "awayWinPct": 0.42857142857142855,
           "awayLossPct": 0.42857142857142855,
-          "awayBttsPct": 0.42857142857142855
+          "awayBttsPct": 0.42857142857142855,
+          "homeForm": [
+            "W",
+            "W",
+            "L",
+            "W",
+            "D"
+          ],
+          "awayForm": [
+            "D",
+            "L",
+            "L",
+            "L",
+            "W"
+          ]
         },
         "away": {
           "homeSample": 8,
@@ -1663,7 +2620,21 @@
           "homeBttsPct": 0.375,
           "awayWinPct": 0.8571428571428571,
           "awayLossPct": 0.14285714285714285,
-          "awayBttsPct": 0.42857142857142855
+          "awayBttsPct": 0.42857142857142855,
+          "homeForm": [
+            "W",
+            "W",
+            "W",
+            "W",
+            "W"
+          ],
+          "awayForm": [
+            "L",
+            "W",
+            "W",
+            "W",
+            "W"
+          ]
         }
       },
       "score": {
@@ -1697,7 +2668,21 @@
           "homeBttsPct": 0.7142857142857143,
           "awayWinPct": 0.125,
           "awayLossPct": 0.375,
-          "awayBttsPct": 0.75
+          "awayBttsPct": 0.75,
+          "homeForm": [
+            "D",
+            "W",
+            "W",
+            "L",
+            "L"
+          ],
+          "awayForm": [
+            "D",
+            "L",
+            "D",
+            "L",
+            "D"
+          ]
         },
         "away": {
           "homeSample": 7,
@@ -1707,7 +2692,21 @@
           "homeBttsPct": 0.5714285714285714,
           "awayWinPct": 0.375,
           "awayLossPct": 0.5,
-          "awayBttsPct": 0.375
+          "awayBttsPct": 0.375,
+          "homeForm": [
+            "W",
+            "W",
+            "D",
+            "L",
+            "L"
+          ],
+          "awayForm": [
+            "L",
+            "L",
+            "W",
+            "W",
+            "W"
+          ]
         }
       },
       "score": {
@@ -1741,7 +2740,21 @@
           "homeBttsPct": 0.14285714285714285,
           "awayWinPct": 0.25,
           "awayLossPct": 0.25,
-          "awayBttsPct": 0.625
+          "awayBttsPct": 0.625,
+          "homeForm": [
+            "W",
+            "L",
+            "W",
+            "L",
+            "W"
+          ],
+          "awayForm": [
+            "D",
+            "W",
+            "L",
+            "L",
+            "D"
+          ]
         },
         "away": {
           "homeSample": 4,
@@ -1751,7 +2764,18 @@
           "homeBttsPct": 0.5,
           "awayWinPct": 0.3333333333333333,
           "awayLossPct": 0,
-          "awayBttsPct": 1
+          "awayBttsPct": 1,
+          "homeForm": [
+            "L",
+            "W",
+            "W",
+            "W"
+          ],
+          "awayForm": [
+            "D",
+            "D",
+            "W"
+          ]
         }
       },
       "score": {
@@ -1785,7 +2809,21 @@
           "homeBttsPct": 0.375,
           "awayWinPct": 0.2857142857142857,
           "awayLossPct": 0.2857142857142857,
-          "awayBttsPct": 0.42857142857142855
+          "awayBttsPct": 0.42857142857142855,
+          "homeForm": [
+            "D",
+            "D",
+            "W",
+            "W",
+            "W"
+          ],
+          "awayForm": [
+            "D",
+            "L",
+            "W",
+            "W",
+            "D"
+          ]
         },
         "away": {
           "homeSample": 8,
@@ -1795,7 +2833,21 @@
           "homeBttsPct": 0.5,
           "awayWinPct": 0.5714285714285714,
           "awayLossPct": 0.14285714285714285,
-          "awayBttsPct": 0.8571428571428571
+          "awayBttsPct": 0.8571428571428571,
+          "homeForm": [
+            "D",
+            "L",
+            "D",
+            "W",
+            "W"
+          ],
+          "awayForm": [
+            "W",
+            "W",
+            "D",
+            "W",
+            "L"
+          ]
         }
       },
       "score": {
@@ -1829,7 +2881,21 @@
           "homeBttsPct": 0.42857142857142855,
           "awayWinPct": 0,
           "awayLossPct": 0.75,
-          "awayBttsPct": 0.5
+          "awayBttsPct": 0.5,
+          "homeForm": [
+            "D",
+            "D",
+            "W",
+            "W",
+            "L"
+          ],
+          "awayForm": [
+            "L",
+            "D",
+            "L",
+            "L",
+            "L"
+          ]
         },
         "away": {
           "homeSample": 8,
@@ -1839,7 +2905,21 @@
           "homeBttsPct": 0.75,
           "awayWinPct": 0.7142857142857143,
           "awayLossPct": 0,
-          "awayBttsPct": 0.5714285714285714
+          "awayBttsPct": 0.5714285714285714,
+          "homeForm": [
+            "L",
+            "L",
+            "L",
+            "D",
+            "L"
+          ],
+          "awayForm": [
+            "W",
+            "D",
+            "W",
+            "W",
+            "W"
+          ]
         }
       },
       "score": {
@@ -1873,7 +2953,21 @@
           "homeBttsPct": 0.42857142857142855,
           "awayWinPct": 0.25,
           "awayLossPct": 0.375,
-          "awayBttsPct": 0.875
+          "awayBttsPct": 0.875,
+          "homeForm": [
+            "W",
+            "D",
+            "W",
+            "L",
+            "L"
+          ],
+          "awayForm": [
+            "L",
+            "L",
+            "D",
+            "W",
+            "D"
+          ]
         },
         "away": {
           "homeSample": 8,
@@ -1883,7 +2977,21 @@
           "homeBttsPct": 0.375,
           "awayWinPct": 0.42857142857142855,
           "awayLossPct": 0.5714285714285714,
-          "awayBttsPct": 0.5714285714285714
+          "awayBttsPct": 0.5714285714285714,
+          "homeForm": [
+            "W",
+            "L",
+            "L",
+            "W",
+            "W"
+          ],
+          "awayForm": [
+            "L",
+            "L",
+            "W",
+            "W",
+            "L"
+          ]
         }
       },
       "score": {
@@ -1917,7 +3025,21 @@
           "homeBttsPct": 0.2857142857142857,
           "awayWinPct": 0.5,
           "awayLossPct": 0.25,
-          "awayBttsPct": 0.5
+          "awayBttsPct": 0.5,
+          "homeForm": [
+            "L",
+            "W",
+            "L",
+            "D",
+            "L"
+          ],
+          "awayForm": [
+            "D",
+            "W",
+            "L",
+            "W",
+            "L"
+          ]
         },
         "away": {
           "homeSample": 8,
@@ -1927,7 +3049,21 @@
           "homeBttsPct": 0.375,
           "awayWinPct": 0.42857142857142855,
           "awayLossPct": 0.42857142857142855,
-          "awayBttsPct": 0.5714285714285714
+          "awayBttsPct": 0.5714285714285714,
+          "homeForm": [
+            "W",
+            "L",
+            "W",
+            "L",
+            "W"
+          ],
+          "awayForm": [
+            "L",
+            "D",
+            "W",
+            "W",
+            "W"
+          ]
         }
       },
       "score": {
@@ -1961,7 +3097,21 @@
           "homeBttsPct": 0.5714285714285714,
           "awayWinPct": 0.375,
           "awayLossPct": 0.5,
-          "awayBttsPct": 0.5
+          "awayBttsPct": 0.5,
+          "homeForm": [
+            "W",
+            "W",
+            "L",
+            "D",
+            "D"
+          ],
+          "awayForm": [
+            "W",
+            "L",
+            "D",
+            "L",
+            "L"
+          ]
         },
         "away": {
           "homeSample": 3,
@@ -1971,7 +3121,16 @@
           "homeBttsPct": 0.6666666666666666,
           "awayWinPct": 0.5,
           "awayLossPct": 0.5,
-          "awayBttsPct": 0.5
+          "awayBttsPct": 0.5,
+          "homeForm": [
+            "L",
+            "W",
+            "L"
+          ],
+          "awayForm": [
+            "L",
+            "W"
+          ]
         }
       },
       "score": {
@@ -2005,7 +3164,17 @@
           "homeBttsPct": 1,
           "awayWinPct": 0.5,
           "awayLossPct": 0.25,
-          "awayBttsPct": 0.75
+          "awayBttsPct": 0.75,
+          "homeForm": [
+            "D",
+            "W"
+          ],
+          "awayForm": [
+            "W",
+            "L",
+            "D",
+            "W"
+          ]
         },
         "away": {
           "homeSample": 8,
@@ -2015,7 +3184,21 @@
           "homeBttsPct": 0.5,
           "awayWinPct": 0.5714285714285714,
           "awayLossPct": 0.2857142857142857,
-          "awayBttsPct": 0.42857142857142855
+          "awayBttsPct": 0.42857142857142855,
+          "homeForm": [
+            "D",
+            "W",
+            "D",
+            "W",
+            "D"
+          ],
+          "awayForm": [
+            "W",
+            "L",
+            "W",
+            "L",
+            "W"
+          ]
         }
       },
       "score": {
@@ -2049,7 +3232,21 @@
           "homeBttsPct": 0.3333333333333333,
           "awayWinPct": 0.2222222222222222,
           "awayLossPct": 0.5555555555555556,
-          "awayBttsPct": 0.3333333333333333
+          "awayBttsPct": 0.3333333333333333,
+          "homeForm": [
+            "D",
+            "D",
+            "L",
+            "W",
+            "W"
+          ],
+          "awayForm": [
+            "D",
+            "L",
+            "L",
+            "W",
+            "L"
+          ]
         },
         "away": {
           "homeSample": 8,
@@ -2059,7 +3256,21 @@
           "homeBttsPct": 0.625,
           "awayWinPct": 0.42857142857142855,
           "awayLossPct": 0.5714285714285714,
-          "awayBttsPct": 0.7142857142857143
+          "awayBttsPct": 0.7142857142857143,
+          "homeForm": [
+            "L",
+            "L",
+            "D",
+            "L",
+            "D"
+          ],
+          "awayForm": [
+            "L",
+            "L",
+            "L",
+            "W",
+            "W"
+          ]
         }
       },
       "score": {
@@ -2093,7 +3304,21 @@
           "homeBttsPct": 0.625,
           "awayWinPct": 0.2857142857142857,
           "awayLossPct": 0.7142857142857143,
-          "awayBttsPct": 0.42857142857142855
+          "awayBttsPct": 0.42857142857142855,
+          "homeForm": [
+            "L",
+            "D",
+            "L",
+            "W",
+            "D"
+          ],
+          "awayForm": [
+            "W",
+            "L",
+            "L",
+            "L",
+            "W"
+          ]
         },
         "away": {
           "homeSample": 9,
@@ -2103,7 +3328,21 @@
           "homeBttsPct": 0.5555555555555556,
           "awayWinPct": 0.16666666666666666,
           "awayLossPct": 0.3333333333333333,
-          "awayBttsPct": 0.8333333333333334
+          "awayBttsPct": 0.8333333333333334,
+          "homeForm": [
+            "L",
+            "W",
+            "W",
+            "W",
+            "L"
+          ],
+          "awayForm": [
+            "L",
+            "D",
+            "W",
+            "D",
+            "L"
+          ]
         }
       },
       "score": {
@@ -2137,7 +3376,21 @@
           "homeBttsPct": 0.5,
           "awayWinPct": 0.42857142857142855,
           "awayLossPct": 0.42857142857142855,
-          "awayBttsPct": 0.42857142857142855
+          "awayBttsPct": 0.42857142857142855,
+          "homeForm": [
+            "D",
+            "W",
+            "D",
+            "L",
+            "L"
+          ],
+          "awayForm": [
+            "W",
+            "W",
+            "L",
+            "L",
+            "W"
+          ]
         },
         "away": {
           "homeSample": 8,
@@ -2147,7 +3400,21 @@
           "homeBttsPct": 0.5,
           "awayWinPct": 0.14285714285714285,
           "awayLossPct": 0.42857142857142855,
-          "awayBttsPct": 0.7142857142857143
+          "awayBttsPct": 0.7142857142857143,
+          "homeForm": [
+            "D",
+            "L",
+            "W",
+            "D",
+            "L"
+          ],
+          "awayForm": [
+            "D",
+            "D",
+            "L",
+            "L",
+            "W"
+          ]
         }
       },
       "score": {
@@ -2181,7 +3448,21 @@
           "homeBttsPct": 0.5714285714285714,
           "awayWinPct": 0.125,
           "awayLossPct": 0.5,
-          "awayBttsPct": 0.75
+          "awayBttsPct": 0.75,
+          "homeForm": [
+            "L",
+            "D",
+            "D",
+            "D",
+            "W"
+          ],
+          "awayForm": [
+            "L",
+            "D",
+            "D",
+            "W",
+            "D"
+          ]
         },
         "away": {
           "homeSample": 3,
@@ -2191,7 +3472,17 @@
           "homeBttsPct": 0.3333333333333333,
           "awayWinPct": 0.3333333333333333,
           "awayLossPct": 0,
-          "awayBttsPct": 0.6666666666666666
+          "awayBttsPct": 0.6666666666666666,
+          "homeForm": [
+            "L",
+            "L",
+            "W"
+          ],
+          "awayForm": [
+            "D",
+            "D",
+            "W"
+          ]
         }
       },
       "score": {
@@ -2225,7 +3516,21 @@
           "homeBttsPct": 1,
           "awayWinPct": 0.125,
           "awayLossPct": 0.375,
-          "awayBttsPct": 0.625
+          "awayBttsPct": 0.625,
+          "homeForm": [
+            "W",
+            "L",
+            "W",
+            "L",
+            "L"
+          ],
+          "awayForm": [
+            "D",
+            "L",
+            "D",
+            "D",
+            "L"
+          ]
         },
         "away": {
           "homeSample": 7,
@@ -2235,7 +3540,21 @@
           "homeBttsPct": 0.5714285714285714,
           "awayWinPct": 0.125,
           "awayLossPct": 0.5,
-          "awayBttsPct": 0.375
+          "awayBttsPct": 0.375,
+          "homeForm": [
+            "W",
+            "W",
+            "W",
+            "W",
+            "L"
+          ],
+          "awayForm": [
+            "W",
+            "L",
+            "L",
+            "D",
+            "D"
+          ]
         }
       },
       "score": {
@@ -2269,7 +3588,21 @@
           "homeBttsPct": 0.375,
           "awayWinPct": 0.2857142857142857,
           "awayLossPct": 0.14285714285714285,
-          "awayBttsPct": 0.7142857142857143
+          "awayBttsPct": 0.7142857142857143,
+          "homeForm": [
+            "L",
+            "W",
+            "W",
+            "W",
+            "D"
+          ],
+          "awayForm": [
+            "D",
+            "W",
+            "L",
+            "D",
+            "W"
+          ]
         },
         "away": {
           "homeSample": 8,
@@ -2279,7 +3612,21 @@
           "homeBttsPct": 0.75,
           "awayWinPct": 0.5714285714285714,
           "awayLossPct": 0.14285714285714285,
-          "awayBttsPct": 0.7142857142857143
+          "awayBttsPct": 0.7142857142857143,
+          "homeForm": [
+            "L",
+            "L",
+            "W",
+            "W",
+            "D"
+          ],
+          "awayForm": [
+            "W",
+            "D",
+            "W",
+            "L",
+            "W"
+          ]
         }
       },
       "score": {
@@ -2313,7 +3660,21 @@
           "homeBttsPct": 0.375,
           "awayWinPct": 0.5714285714285714,
           "awayLossPct": 0.42857142857142855,
-          "awayBttsPct": 0.2857142857142857
+          "awayBttsPct": 0.2857142857142857,
+          "homeForm": [
+            "L",
+            "D",
+            "D",
+            "L",
+            "D"
+          ],
+          "awayForm": [
+            "L",
+            "W",
+            "W",
+            "L",
+            "L"
+          ]
         },
         "away": {
           "homeSample": 7,
@@ -2323,7 +3684,21 @@
           "homeBttsPct": 0.8571428571428571,
           "awayWinPct": 0.25,
           "awayLossPct": 0.625,
-          "awayBttsPct": 0.625
+          "awayBttsPct": 0.625,
+          "homeForm": [
+            "D",
+            "W",
+            "D",
+            "L",
+            "L"
+          ],
+          "awayForm": [
+            "D",
+            "L",
+            "L",
+            "L",
+            "W"
+          ]
         }
       },
       "score": {
@@ -2357,7 +3732,21 @@
           "homeBttsPct": 0.375,
           "awayWinPct": 0.14285714285714285,
           "awayLossPct": 0.7142857142857143,
-          "awayBttsPct": 0.14285714285714285
+          "awayBttsPct": 0.14285714285714285,
+          "homeForm": [
+            "L",
+            "W",
+            "W",
+            "L",
+            "L"
+          ],
+          "awayForm": [
+            "W",
+            "L",
+            "D",
+            "L",
+            "L"
+          ]
         },
         "away": {
           "homeSample": 7,
@@ -2367,7 +3756,21 @@
           "homeBttsPct": 0.5714285714285714,
           "awayWinPct": 0.25,
           "awayLossPct": 0.125,
-          "awayBttsPct": 0.625
+          "awayBttsPct": 0.625,
+          "homeForm": [
+            "D",
+            "W",
+            "L",
+            "D",
+            "D"
+          ],
+          "awayForm": [
+            "W",
+            "D",
+            "D",
+            "L",
+            "D"
+          ]
         }
       },
       "score": {
@@ -2401,7 +3804,21 @@
           "homeBttsPct": 0.5714285714285714,
           "awayWinPct": 0.625,
           "awayLossPct": 0,
-          "awayBttsPct": 0.5
+          "awayBttsPct": 0.5,
+          "homeForm": [
+            "W",
+            "W",
+            "L",
+            "W",
+            "W"
+          ],
+          "awayForm": [
+            "W",
+            "D",
+            "D",
+            "W",
+            "W"
+          ]
         },
         "away": {
           "homeSample": 7,
@@ -2411,7 +3828,21 @@
           "homeBttsPct": 0.14285714285714285,
           "awayWinPct": 0.375,
           "awayLossPct": 0.25,
-          "awayBttsPct": 0.875
+          "awayBttsPct": 0.875,
+          "homeForm": [
+            "L",
+            "D",
+            "W",
+            "W",
+            "L"
+          ],
+          "awayForm": [
+            "L",
+            "D",
+            "W",
+            "L",
+            "D"
+          ]
         }
       },
       "score": {
@@ -2445,7 +3876,21 @@
           "homeBttsPct": 0.5714285714285714,
           "awayWinPct": 0.125,
           "awayLossPct": 0.625,
-          "awayBttsPct": 0.5
+          "awayBttsPct": 0.5,
+          "homeForm": [
+            "L",
+            "L",
+            "D",
+            "L",
+            "D"
+          ],
+          "awayForm": [
+            "D",
+            "D",
+            "L",
+            "L",
+            "L"
+          ]
         },
         "away": {
           "homeSample": 8,
@@ -2455,7 +3900,21 @@
           "homeBttsPct": 0.375,
           "awayWinPct": 0.14285714285714285,
           "awayLossPct": 0.7142857142857143,
-          "awayBttsPct": 0.2857142857142857
+          "awayBttsPct": 0.2857142857142857,
+          "homeForm": [
+            "L",
+            "D",
+            "L",
+            "L",
+            "L"
+          ],
+          "awayForm": [
+            "L",
+            "W",
+            "L",
+            "L",
+            "D"
+          ]
         }
       },
       "score": {
@@ -2489,7 +3948,21 @@
           "homeBttsPct": 0.5,
           "awayWinPct": 0,
           "awayLossPct": 0.42857142857142855,
-          "awayBttsPct": 0.14285714285714285
+          "awayBttsPct": 0.14285714285714285,
+          "homeForm": [
+            "W",
+            "L",
+            "W",
+            "L",
+            "L"
+          ],
+          "awayForm": [
+            "D",
+            "L",
+            "D",
+            "L",
+            "D"
+          ]
         },
         "away": {
           "homeSample": 8,
@@ -2499,7 +3972,21 @@
           "homeBttsPct": 0.875,
           "awayWinPct": 0.2857142857142857,
           "awayLossPct": 0.2857142857142857,
-          "awayBttsPct": 0.42857142857142855
+          "awayBttsPct": 0.42857142857142855,
+          "homeForm": [
+            "W",
+            "W",
+            "W",
+            "W",
+            "L"
+          ],
+          "awayForm": [
+            "W",
+            "D",
+            "W",
+            "L",
+            "D"
+          ]
         }
       },
       "score": {
@@ -2533,7 +4020,21 @@
           "homeBttsPct": 0.42857142857142855,
           "awayWinPct": 0.5,
           "awayLossPct": 0.5,
-          "awayBttsPct": 0.625
+          "awayBttsPct": 0.625,
+          "homeForm": [
+            "L",
+            "W",
+            "W",
+            "D",
+            "W"
+          ],
+          "awayForm": [
+            "W",
+            "L",
+            "W",
+            "L",
+            "W"
+          ]
         },
         "away": {
           "homeSample": 7,
@@ -2543,7 +4044,21 @@
           "homeBttsPct": 0.7142857142857143,
           "awayWinPct": 0.5,
           "awayLossPct": 0.375,
-          "awayBttsPct": 0.5
+          "awayBttsPct": 0.5,
+          "homeForm": [
+            "W",
+            "W",
+            "W",
+            "W",
+            "W"
+          ],
+          "awayForm": [
+            "L",
+            "W",
+            "W",
+            "L",
+            "W"
+          ]
         }
       },
       "score": {
@@ -2577,7 +4092,21 @@
           "homeBttsPct": 0.42857142857142855,
           "awayWinPct": 0.125,
           "awayLossPct": 0.375,
-          "awayBttsPct": 1
+          "awayBttsPct": 1,
+          "homeForm": [
+            "L",
+            "W",
+            "D",
+            "W",
+            "W"
+          ],
+          "awayForm": [
+            "L",
+            "D",
+            "D",
+            "L",
+            "L"
+          ]
         },
         "away": {
           "homeSample": 8,
@@ -2587,7 +4116,21 @@
           "homeBttsPct": 0.375,
           "awayWinPct": 0.5714285714285714,
           "awayLossPct": 0.2857142857142857,
-          "awayBttsPct": 0.5714285714285714
+          "awayBttsPct": 0.5714285714285714,
+          "homeForm": [
+            "L",
+            "W",
+            "W",
+            "W",
+            "W"
+          ],
+          "awayForm": [
+            "W",
+            "L",
+            "L",
+            "W",
+            "W"
+          ]
         }
       },
       "score": {
@@ -2621,7 +4164,21 @@
           "homeBttsPct": 0.5714285714285714,
           "awayWinPct": 0.25,
           "awayLossPct": 0.25,
-          "awayBttsPct": 0.5
+          "awayBttsPct": 0.5,
+          "homeForm": [
+            "L",
+            "W",
+            "L",
+            "L",
+            "D"
+          ],
+          "awayForm": [
+            "W",
+            "D",
+            "D",
+            "D",
+            "D"
+          ]
         },
         "away": {
           "homeSample": 3,
@@ -2631,7 +4188,17 @@
           "homeBttsPct": 1,
           "awayWinPct": 0,
           "awayLossPct": 1,
-          "awayBttsPct": 0.6666666666666666
+          "awayBttsPct": 0.6666666666666666,
+          "homeForm": [
+            "D",
+            "W",
+            "W"
+          ],
+          "awayForm": [
+            "L",
+            "L",
+            "L"
+          ]
         }
       },
       "score": {
@@ -2665,7 +4232,21 @@
           "homeBttsPct": 0.375,
           "awayWinPct": 0.2857142857142857,
           "awayLossPct": 0.42857142857142855,
-          "awayBttsPct": 0.8571428571428571
+          "awayBttsPct": 0.8571428571428571,
+          "homeForm": [
+            "L",
+            "D",
+            "W",
+            "L",
+            "L"
+          ],
+          "awayForm": [
+            "L",
+            "L",
+            "W",
+            "D",
+            "D"
+          ]
         },
         "away": {
           "homeSample": 8,
@@ -2675,7 +4256,21 @@
           "homeBttsPct": 0.375,
           "awayWinPct": 0.14285714285714285,
           "awayLossPct": 0.2857142857142857,
-          "awayBttsPct": 0.7142857142857143
+          "awayBttsPct": 0.7142857142857143,
+          "homeForm": [
+            "D",
+            "L",
+            "L",
+            "L",
+            "D"
+          ],
+          "awayForm": [
+            "D",
+            "D",
+            "D",
+            "W",
+            "D"
+          ]
         }
       },
       "score": {
@@ -2709,7 +4304,21 @@
           "homeBttsPct": 0.8571428571428571,
           "awayWinPct": 0.125,
           "awayLossPct": 0.875,
-          "awayBttsPct": 0.75
+          "awayBttsPct": 0.75,
+          "homeForm": [
+            "D",
+            "D",
+            "W",
+            "W",
+            "D"
+          ],
+          "awayForm": [
+            "W",
+            "L",
+            "L",
+            "L",
+            "L"
+          ]
         },
         "away": {
           "homeSample": 3,
@@ -2719,7 +4328,16 @@
           "homeBttsPct": 0.6666666666666666,
           "awayWinPct": 0.5,
           "awayLossPct": 0.5,
-          "awayBttsPct": 0.5
+          "awayBttsPct": 0.5,
+          "homeForm": [
+            "W",
+            "W",
+            "W"
+          ],
+          "awayForm": [
+            "L",
+            "W"
+          ]
         }
       },
       "score": {
@@ -2753,7 +4371,17 @@
           "homeBttsPct": 0.3333333333333333,
           "awayWinPct": 0,
           "awayLossPct": 1,
-          "awayBttsPct": 0
+          "awayBttsPct": 0,
+          "homeForm": [
+            "L",
+            "L",
+            "L"
+          ],
+          "awayForm": [
+            "L",
+            "L",
+            "L"
+          ]
         },
         "away": {
           "homeSample": 3,
@@ -2763,7 +4391,17 @@
           "homeBttsPct": 0,
           "awayWinPct": 0,
           "awayLossPct": 1,
-          "awayBttsPct": 0.3333333333333333
+          "awayBttsPct": 0.3333333333333333,
+          "homeForm": [
+            "W",
+            "W",
+            "W"
+          ],
+          "awayForm": [
+            "L",
+            "L",
+            "L"
+          ]
         }
       },
       "score": {
@@ -2797,7 +4435,21 @@
           "homeBttsPct": 0.25,
           "awayWinPct": 0.8571428571428571,
           "awayLossPct": 0.14285714285714285,
-          "awayBttsPct": 0.7142857142857143
+          "awayBttsPct": 0.7142857142857143,
+          "homeForm": [
+            "W",
+            "W",
+            "W",
+            "W",
+            "W"
+          ],
+          "awayForm": [
+            "W",
+            "L",
+            "W",
+            "W",
+            "W"
+          ]
         },
         "away": {
           "homeSample": 7,
@@ -2807,7 +4459,21 @@
           "homeBttsPct": 0.7142857142857143,
           "awayWinPct": 0.75,
           "awayLossPct": 0,
-          "awayBttsPct": 0.625
+          "awayBttsPct": 0.625,
+          "homeForm": [
+            "W",
+            "D",
+            "D",
+            "W",
+            "W"
+          ],
+          "awayForm": [
+            "D",
+            "W",
+            "W",
+            "W",
+            "W"
+          ]
         }
       },
       "score": {
@@ -2841,7 +4507,21 @@
           "homeBttsPct": 0.42857142857142855,
           "awayWinPct": 0.375,
           "awayLossPct": 0.375,
-          "awayBttsPct": 0.5
+          "awayBttsPct": 0.5,
+          "homeForm": [
+            "L",
+            "D",
+            "L",
+            "L",
+            "W"
+          ],
+          "awayForm": [
+            "L",
+            "W",
+            "W",
+            "D",
+            "D"
+          ]
         },
         "away": {
           "homeSample": 7,
@@ -2851,7 +4531,21 @@
           "homeBttsPct": 0.42857142857142855,
           "awayWinPct": 0.375,
           "awayLossPct": 0.5,
-          "awayBttsPct": 0.375
+          "awayBttsPct": 0.375,
+          "homeForm": [
+            "D",
+            "L",
+            "W",
+            "L",
+            "W"
+          ],
+          "awayForm": [
+            "D",
+            "W",
+            "W",
+            "W",
+            "L"
+          ]
         }
       },
       "score": {
@@ -2885,7 +4579,21 @@
           "homeBttsPct": 0.625,
           "awayWinPct": 0.14285714285714285,
           "awayLossPct": 0.7142857142857143,
-          "awayBttsPct": 0.5714285714285714
+          "awayBttsPct": 0.5714285714285714,
+          "homeForm": [
+            "D",
+            "L",
+            "L",
+            "D",
+            "D"
+          ],
+          "awayForm": [
+            "L",
+            "L",
+            "W",
+            "L",
+            "L"
+          ]
         },
         "away": {
           "homeSample": 8,
@@ -2895,7 +4603,21 @@
           "homeBttsPct": 0.375,
           "awayWinPct": 0.14285714285714285,
           "awayLossPct": 0.42857142857142855,
-          "awayBttsPct": 0.5714285714285714
+          "awayBttsPct": 0.5714285714285714,
+          "homeForm": [
+            "D",
+            "W",
+            "L",
+            "L",
+            "D"
+          ],
+          "awayForm": [
+            "W",
+            "L",
+            "L",
+            "D",
+            "D"
+          ]
         }
       },
       "score": {
@@ -2929,7 +4651,21 @@
           "homeBttsPct": 0.7142857142857143,
           "awayWinPct": 0.375,
           "awayLossPct": 0.375,
-          "awayBttsPct": 0.75
+          "awayBttsPct": 0.75,
+          "homeForm": [
+            "L",
+            "W",
+            "W",
+            "L",
+            "D"
+          ],
+          "awayForm": [
+            "W",
+            "L",
+            "W",
+            "L",
+            "D"
+          ]
         },
         "away": {
           "homeSample": 8,
@@ -2939,7 +4675,21 @@
           "homeBttsPct": 0.5,
           "awayWinPct": 0.14285714285714285,
           "awayLossPct": 0.5714285714285714,
-          "awayBttsPct": 0.7142857142857143
+          "awayBttsPct": 0.7142857142857143,
+          "homeForm": [
+            "W",
+            "L",
+            "L",
+            "L",
+            "L"
+          ],
+          "awayForm": [
+            "L",
+            "L",
+            "L",
+            "W",
+            "D"
+          ]
         }
       },
       "score": {
@@ -2973,7 +4723,21 @@
           "homeBttsPct": 0.2857142857142857,
           "awayWinPct": 0,
           "awayLossPct": 0.625,
-          "awayBttsPct": 0.5
+          "awayBttsPct": 0.5,
+          "homeForm": [
+            "W",
+            "L",
+            "L",
+            "L",
+            "D"
+          ],
+          "awayForm": [
+            "L",
+            "D",
+            "L",
+            "L",
+            "L"
+          ]
         },
         "away": {
           "homeSample": 8,
@@ -2983,7 +4747,21 @@
           "homeBttsPct": 0.5,
           "awayWinPct": 0.14285714285714285,
           "awayLossPct": 0.8571428571428571,
-          "awayBttsPct": 0.42857142857142855
+          "awayBttsPct": 0.42857142857142855,
+          "homeForm": [
+            "L",
+            "W",
+            "L",
+            "D",
+            "W"
+          ],
+          "awayForm": [
+            "L",
+            "L",
+            "L",
+            "L",
+            "L"
+          ]
         }
       },
       "score": {
@@ -3017,7 +4795,21 @@
           "homeBttsPct": 0.75,
           "awayWinPct": 0.5714285714285714,
           "awayLossPct": 0,
-          "awayBttsPct": 0.7142857142857143
+          "awayBttsPct": 0.7142857142857143,
+          "homeForm": [
+            "W",
+            "W",
+            "W",
+            "W",
+            "W"
+          ],
+          "awayForm": [
+            "D",
+            "W",
+            "D",
+            "W",
+            "D"
+          ]
         },
         "away": {
           "homeSample": 8,
@@ -3027,7 +4819,21 @@
           "homeBttsPct": 0.75,
           "awayWinPct": 0.42857142857142855,
           "awayLossPct": 0.42857142857142855,
-          "awayBttsPct": 0.2857142857142857
+          "awayBttsPct": 0.2857142857142857,
+          "homeForm": [
+            "D",
+            "W",
+            "W",
+            "W",
+            "L"
+          ],
+          "awayForm": [
+            "L",
+            "W",
+            "W",
+            "L",
+            "D"
+          ]
         }
       },
       "score": {
@@ -3061,7 +4867,21 @@
           "homeBttsPct": 0.42857142857142855,
           "awayWinPct": 0.375,
           "awayLossPct": 0.375,
-          "awayBttsPct": 0.75
+          "awayBttsPct": 0.75,
+          "homeForm": [
+            "W",
+            "D",
+            "L",
+            "L",
+            "W"
+          ],
+          "awayForm": [
+            "L",
+            "W",
+            "W",
+            "L",
+            "D"
+          ]
         },
         "away": {
           "homeSample": 8,
@@ -3071,7 +4891,21 @@
           "homeBttsPct": 0.625,
           "awayWinPct": 0.2857142857142857,
           "awayLossPct": 0.2857142857142857,
-          "awayBttsPct": 0.5714285714285714
+          "awayBttsPct": 0.5714285714285714,
+          "homeForm": [
+            "L",
+            "W",
+            "L",
+            "L",
+            "W"
+          ],
+          "awayForm": [
+            "L",
+            "W",
+            "D",
+            "D",
+            "L"
+          ]
         }
       },
       "score": {
@@ -3105,7 +4939,21 @@
           "homeBttsPct": 0.2857142857142857,
           "awayWinPct": 0.375,
           "awayLossPct": 0.25,
-          "awayBttsPct": 0.5
+          "awayBttsPct": 0.5,
+          "homeForm": [
+            "W",
+            "W",
+            "D",
+            "W",
+            "W"
+          ],
+          "awayForm": [
+            "D",
+            "L",
+            "W",
+            "D",
+            "W"
+          ]
         },
         "away": {
           "homeSample": 8,
@@ -3115,7 +4963,21 @@
           "homeBttsPct": 0.625,
           "awayWinPct": 0.42857142857142855,
           "awayLossPct": 0.2857142857142857,
-          "awayBttsPct": 0.7142857142857143
+          "awayBttsPct": 0.7142857142857143,
+          "homeForm": [
+            "D",
+            "D",
+            "D",
+            "W",
+            "W"
+          ],
+          "awayForm": [
+            "L",
+            "D",
+            "D",
+            "W",
+            "L"
+          ]
         }
       },
       "score": {
@@ -3149,7 +5011,21 @@
           "homeBttsPct": 0.5,
           "awayWinPct": 0.2857142857142857,
           "awayLossPct": 0.42857142857142855,
-          "awayBttsPct": 0.5714285714285714
+          "awayBttsPct": 0.5714285714285714,
+          "homeForm": [
+            "D",
+            "W",
+            "D",
+            "L",
+            "W"
+          ],
+          "awayForm": [
+            "L",
+            "L",
+            "D",
+            "W",
+            "L"
+          ]
         },
         "away": {
           "homeSample": 7,
@@ -3159,7 +5035,21 @@
           "homeBttsPct": 1,
           "awayWinPct": 0.5,
           "awayLossPct": 0.5,
-          "awayBttsPct": 0.25
+          "awayBttsPct": 0.25,
+          "homeForm": [
+            "D",
+            "L",
+            "L",
+            "D",
+            "W"
+          ],
+          "awayForm": [
+            "W",
+            "L",
+            "L",
+            "L",
+            "W"
+          ]
         }
       },
       "score": {
@@ -3193,7 +5083,21 @@
           "homeBttsPct": 0.42857142857142855,
           "awayWinPct": 0.25,
           "awayLossPct": 0.625,
-          "awayBttsPct": 0.625
+          "awayBttsPct": 0.625,
+          "homeForm": [
+            "W",
+            "D",
+            "W",
+            "L",
+            "D"
+          ],
+          "awayForm": [
+            "L",
+            "W",
+            "L",
+            "W",
+            "L"
+          ]
         },
         "away": {
           "homeSample": 7,
@@ -3203,7 +5107,21 @@
           "homeBttsPct": 0.5714285714285714,
           "awayWinPct": 0.125,
           "awayLossPct": 0.5,
-          "awayBttsPct": 0.875
+          "awayBttsPct": 0.875,
+          "homeForm": [
+            "D",
+            "W",
+            "L",
+            "L",
+            "L"
+          ],
+          "awayForm": [
+            "L",
+            "D",
+            "D",
+            "L",
+            "D"
+          ]
         }
       },
       "score": {
@@ -3237,7 +5155,21 @@
           "homeBttsPct": 0.375,
           "awayWinPct": 0.5714285714285714,
           "awayLossPct": 0.2857142857142857,
-          "awayBttsPct": 0.42857142857142855
+          "awayBttsPct": 0.42857142857142855,
+          "homeForm": [
+            "D",
+            "D",
+            "D",
+            "L",
+            "L"
+          ],
+          "awayForm": [
+            "D",
+            "L",
+            "W",
+            "L",
+            "W"
+          ]
         },
         "away": {
           "homeSample": 9,
@@ -3247,7 +5179,21 @@
           "homeBttsPct": 0.4444444444444444,
           "awayWinPct": 0.5,
           "awayLossPct": 0.16666666666666666,
-          "awayBttsPct": 0.3333333333333333
+          "awayBttsPct": 0.3333333333333333,
+          "homeForm": [
+            "W",
+            "L",
+            "W",
+            "L",
+            "W"
+          ],
+          "awayForm": [
+            "D",
+            "D",
+            "W",
+            "W",
+            "L"
+          ]
         }
       },
       "score": {
@@ -3281,7 +5227,16 @@
           "homeBttsPct": 0,
           "awayWinPct": 0,
           "awayLossPct": 0.6666666666666666,
-          "awayBttsPct": 0.3333333333333333
+          "awayBttsPct": 0.3333333333333333,
+          "homeForm": [
+            "L",
+            "W"
+          ],
+          "awayForm": [
+            "L",
+            "D",
+            "L"
+          ]
         },
         "away": {
           "homeSample": 8,
@@ -3291,7 +5246,21 @@
           "homeBttsPct": 0.75,
           "awayWinPct": 0.42857142857142855,
           "awayLossPct": 0.5714285714285714,
-          "awayBttsPct": 0.5714285714285714
+          "awayBttsPct": 0.5714285714285714,
+          "homeForm": [
+            "W",
+            "W",
+            "D",
+            "L",
+            "L"
+          ],
+          "awayForm": [
+            "W",
+            "W",
+            "L",
+            "W",
+            "L"
+          ]
         }
       },
       "score": {
@@ -3325,7 +5294,21 @@
           "homeBttsPct": 1,
           "awayWinPct": 0.6666666666666666,
           "awayLossPct": 0,
-          "awayBttsPct": 0.5555555555555556
+          "awayBttsPct": 0.5555555555555556,
+          "homeForm": [
+            "D",
+            "W",
+            "D",
+            "D",
+            "D"
+          ],
+          "awayForm": [
+            "W",
+            "W",
+            "W",
+            "W",
+            "W"
+          ]
         },
         "away": {
           "homeSample": 8,
@@ -3335,7 +5318,21 @@
           "homeBttsPct": 0.625,
           "awayWinPct": 0.2857142857142857,
           "awayLossPct": 0.42857142857142855,
-          "awayBttsPct": 0.8571428571428571
+          "awayBttsPct": 0.8571428571428571,
+          "homeForm": [
+            "W",
+            "W",
+            "L",
+            "L",
+            "D"
+          ],
+          "awayForm": [
+            "W",
+            "D",
+            "L",
+            "D",
+            "W"
+          ]
         }
       },
       "score": {
@@ -3369,7 +5366,21 @@
           "homeBttsPct": 0.42857142857142855,
           "awayWinPct": 0.25,
           "awayLossPct": 0.5,
-          "awayBttsPct": 0.5
+          "awayBttsPct": 0.5,
+          "homeForm": [
+            "D",
+            "D",
+            "W",
+            "L",
+            "D"
+          ],
+          "awayForm": [
+            "W",
+            "W",
+            "L",
+            "L",
+            "D"
+          ]
         },
         "away": {
           "homeSample": 7,
@@ -3379,7 +5390,21 @@
           "homeBttsPct": 0.7142857142857143,
           "awayWinPct": 0.125,
           "awayLossPct": 0.5,
-          "awayBttsPct": 0.5
+          "awayBttsPct": 0.5,
+          "homeForm": [
+            "W",
+            "L",
+            "W",
+            "L",
+            "L"
+          ],
+          "awayForm": [
+            "L",
+            "D",
+            "W",
+            "L",
+            "D"
+          ]
         }
       },
       "score": {
@@ -3413,7 +5438,21 @@
           "homeBttsPct": 0.375,
           "awayWinPct": 0.5714285714285714,
           "awayLossPct": 0.14285714285714285,
-          "awayBttsPct": 0.2857142857142857
+          "awayBttsPct": 0.2857142857142857,
+          "homeForm": [
+            "W",
+            "D",
+            "L",
+            "W",
+            "D"
+          ],
+          "awayForm": [
+            "D",
+            "W",
+            "D",
+            "W",
+            "L"
+          ]
         },
         "away": {
           "homeSample": 8,
@@ -3423,7 +5462,21 @@
           "homeBttsPct": 0.375,
           "awayWinPct": 0.2857142857142857,
           "awayLossPct": 0.2857142857142857,
-          "awayBttsPct": 0.8571428571428571
+          "awayBttsPct": 0.8571428571428571,
+          "homeForm": [
+            "D",
+            "L",
+            "W",
+            "W",
+            "L"
+          ],
+          "awayForm": [
+            "D",
+            "L",
+            "W",
+            "D",
+            "L"
+          ]
         }
       },
       "score": {
@@ -3457,7 +5510,21 @@
           "homeBttsPct": 0.375,
           "awayWinPct": 0.2857142857142857,
           "awayLossPct": 0.14285714285714285,
-          "awayBttsPct": 0.5714285714285714
+          "awayBttsPct": 0.5714285714285714,
+          "homeForm": [
+            "W",
+            "W",
+            "W",
+            "D",
+            "W"
+          ],
+          "awayForm": [
+            "D",
+            "D",
+            "L",
+            "W",
+            "D"
+          ]
         },
         "away": {
           "homeSample": 7,
@@ -3467,7 +5534,21 @@
           "homeBttsPct": 0.7142857142857143,
           "awayWinPct": 0.25,
           "awayLossPct": 0.625,
-          "awayBttsPct": 0.625
+          "awayBttsPct": 0.625,
+          "homeForm": [
+            "D",
+            "D",
+            "L",
+            "L",
+            "L"
+          ],
+          "awayForm": [
+            "L",
+            "L",
+            "D",
+            "L",
+            "W"
+          ]
         }
       },
       "score": {
@@ -3501,7 +5582,21 @@
           "homeBttsPct": 0.75,
           "awayWinPct": 0.42857142857142855,
           "awayLossPct": 0.14285714285714285,
-          "awayBttsPct": 0.7142857142857143
+          "awayBttsPct": 0.7142857142857143,
+          "homeForm": [
+            "D",
+            "W",
+            "D",
+            "D",
+            "D"
+          ],
+          "awayForm": [
+            "W",
+            "W",
+            "D",
+            "L",
+            "D"
+          ]
         },
         "away": {
           "homeSample": 8,
@@ -3511,7 +5606,21 @@
           "homeBttsPct": 0.75,
           "awayWinPct": 0.2857142857142857,
           "awayLossPct": 0.5714285714285714,
-          "awayBttsPct": 0.8571428571428571
+          "awayBttsPct": 0.8571428571428571,
+          "homeForm": [
+            "W",
+            "D",
+            "D",
+            "D",
+            "D"
+          ],
+          "awayForm": [
+            "W",
+            "L",
+            "L",
+            "D",
+            "W"
+          ]
         }
       },
       "score": {
@@ -3545,7 +5654,21 @@
           "homeBttsPct": 0.5,
           "awayWinPct": 0.42857142857142855,
           "awayLossPct": 0.2857142857142857,
-          "awayBttsPct": 0.5714285714285714
+          "awayBttsPct": 0.5714285714285714,
+          "homeForm": [
+            "D",
+            "D",
+            "W",
+            "W",
+            "D"
+          ],
+          "awayForm": [
+            "D",
+            "D",
+            "W",
+            "W",
+            "W"
+          ]
         },
         "away": {
           "homeSample": 7,
@@ -3555,7 +5678,21 @@
           "homeBttsPct": 0.5714285714285714,
           "awayWinPct": 0.375,
           "awayLossPct": 0.375,
-          "awayBttsPct": 0.625
+          "awayBttsPct": 0.625,
+          "homeForm": [
+            "W",
+            "W",
+            "L",
+            "L",
+            "D"
+          ],
+          "awayForm": [
+            "D",
+            "W",
+            "W",
+            "L",
+            "D"
+          ]
         }
       },
       "score": {
@@ -3589,7 +5726,21 @@
           "homeBttsPct": 0.7142857142857143,
           "awayWinPct": 0.25,
           "awayLossPct": 0.375,
-          "awayBttsPct": 0.75
+          "awayBttsPct": 0.75,
+          "homeForm": [
+            "W",
+            "W",
+            "D",
+            "D",
+            "D"
+          ],
+          "awayForm": [
+            "D",
+            "D",
+            "W",
+            "L",
+            "W"
+          ]
         },
         "away": {
           "homeSample": 8,
@@ -3599,7 +5750,21 @@
           "homeBttsPct": 0.625,
           "awayWinPct": 0.14285714285714285,
           "awayLossPct": 0.42857142857142855,
-          "awayBttsPct": 0.7142857142857143
+          "awayBttsPct": 0.7142857142857143,
+          "homeForm": [
+            "D",
+            "W",
+            "W",
+            "W",
+            "D"
+          ],
+          "awayForm": [
+            "L",
+            "L",
+            "L",
+            "D",
+            "W"
+          ]
         }
       },
       "score": {
@@ -3633,7 +5798,21 @@
           "homeBttsPct": 0.2857142857142857,
           "awayWinPct": 0.375,
           "awayLossPct": 0.25,
-          "awayBttsPct": 0.875
+          "awayBttsPct": 0.875,
+          "homeForm": [
+            "L",
+            "W",
+            "L",
+            "W",
+            "L"
+          ],
+          "awayForm": [
+            "L",
+            "D",
+            "W",
+            "W",
+            "L"
+          ]
         },
         "away": {
           "homeSample": 8,
@@ -3643,7 +5822,21 @@
           "homeBttsPct": 0.625,
           "awayWinPct": 0,
           "awayLossPct": 0.8571428571428571,
-          "awayBttsPct": 0.42857142857142855
+          "awayBttsPct": 0.42857142857142855,
+          "homeForm": [
+            "L",
+            "W",
+            "D",
+            "W",
+            "L"
+          ],
+          "awayForm": [
+            "L",
+            "L",
+            "D",
+            "L",
+            "L"
+          ]
         }
       },
       "score": {
@@ -3677,7 +5870,21 @@
           "homeBttsPct": 0.42857142857142855,
           "awayWinPct": 0.125,
           "awayLossPct": 0.625,
-          "awayBttsPct": 0.375
+          "awayBttsPct": 0.375,
+          "homeForm": [
+            "W",
+            "L",
+            "W",
+            "L",
+            "D"
+          ],
+          "awayForm": [
+            "W",
+            "L",
+            "L",
+            "L",
+            "L"
+          ]
         },
         "away": {
           "homeSample": 8,
@@ -3687,7 +5894,21 @@
           "homeBttsPct": 0.625,
           "awayWinPct": 0.2857142857142857,
           "awayLossPct": 0.42857142857142855,
-          "awayBttsPct": 0.14285714285714285
+          "awayBttsPct": 0.14285714285714285,
+          "homeForm": [
+            "L",
+            "L",
+            "L",
+            "L",
+            "D"
+          ],
+          "awayForm": [
+            "W",
+            "D",
+            "D",
+            "L",
+            "L"
+          ]
         }
       },
       "score": {
@@ -3721,7 +5942,21 @@
           "homeBttsPct": 0.875,
           "awayWinPct": 0.5714285714285714,
           "awayLossPct": 0.2857142857142857,
-          "awayBttsPct": 0.7142857142857143
+          "awayBttsPct": 0.7142857142857143,
+          "homeForm": [
+            "D",
+            "W",
+            "L",
+            "L",
+            "D"
+          ],
+          "awayForm": [
+            "D",
+            "L",
+            "W",
+            "W",
+            "L"
+          ]
         },
         "away": {
           "homeSample": 8,
@@ -3731,7 +5966,21 @@
           "homeBttsPct": 0.625,
           "awayWinPct": 0,
           "awayLossPct": 0.42857142857142855,
-          "awayBttsPct": 0.7142857142857143
+          "awayBttsPct": 0.7142857142857143,
+          "homeForm": [
+            "D",
+            "L",
+            "W",
+            "W",
+            "D"
+          ],
+          "awayForm": [
+            "D",
+            "L",
+            "D",
+            "L",
+            "D"
+          ]
         }
       },
       "score": {
@@ -3765,7 +6014,16 @@
           "homeBttsPct": 0,
           "awayWinPct": 0.3333333333333333,
           "awayLossPct": 0.3333333333333333,
-          "awayBttsPct": 1
+          "awayBttsPct": 1,
+          "homeForm": [
+            "L",
+            "W"
+          ],
+          "awayForm": [
+            "D",
+            "L",
+            "W"
+          ]
         },
         "away": {
           "homeSample": 7,
@@ -3775,7 +6033,21 @@
           "homeBttsPct": 0.5714285714285714,
           "awayWinPct": 0.125,
           "awayLossPct": 0.375,
-          "awayBttsPct": 0.625
+          "awayBttsPct": 0.625,
+          "homeForm": [
+            "D",
+            "L",
+            "W",
+            "W",
+            "D"
+          ],
+          "awayForm": [
+            "D",
+            "L",
+            "D",
+            "L",
+            "W"
+          ]
         }
       },
       "score": {
@@ -3809,7 +6081,21 @@
           "homeBttsPct": 0.8571428571428571,
           "awayWinPct": 0.75,
           "awayLossPct": 0,
-          "awayBttsPct": 0.625
+          "awayBttsPct": 0.625,
+          "homeForm": [
+            "W",
+            "W",
+            "D",
+            "W",
+            "W"
+          ],
+          "awayForm": [
+            "W",
+            "W",
+            "W",
+            "D",
+            "W"
+          ]
         },
         "away": {
           "homeSample": 8,
@@ -3819,7 +6105,21 @@
           "homeBttsPct": 0.75,
           "awayWinPct": 0.2857142857142857,
           "awayLossPct": 0.7142857142857143,
-          "awayBttsPct": 0.42857142857142855
+          "awayBttsPct": 0.42857142857142855,
+          "homeForm": [
+            "L",
+            "D",
+            "W",
+            "D",
+            "L"
+          ],
+          "awayForm": [
+            "L",
+            "L",
+            "L",
+            "W",
+            "L"
+          ]
         }
       },
       "score": {
@@ -3853,7 +6153,21 @@
           "homeBttsPct": 0.2857142857142857,
           "awayWinPct": 0.625,
           "awayLossPct": 0.375,
-          "awayBttsPct": 0.5
+          "awayBttsPct": 0.5,
+          "homeForm": [
+            "D",
+            "W",
+            "W",
+            "W",
+            "W"
+          ],
+          "awayForm": [
+            "W",
+            "W",
+            "W",
+            "W",
+            "W"
+          ]
         },
         "away": {
           "homeSample": 8,
@@ -3863,7 +6177,21 @@
           "homeBttsPct": 0.75,
           "awayWinPct": 0.42857142857142855,
           "awayLossPct": 0.14285714285714285,
-          "awayBttsPct": 0.5714285714285714
+          "awayBttsPct": 0.5714285714285714,
+          "homeForm": [
+            "W",
+            "D",
+            "W",
+            "W",
+            "W"
+          ],
+          "awayForm": [
+            "W",
+            "D",
+            "W",
+            "D",
+            "W"
+          ]
         }
       },
       "score": {
@@ -3897,7 +6225,15 @@
           "homeBttsPct": 1,
           "awayWinPct": 0,
           "awayLossPct": 0.5,
-          "awayBttsPct": 1
+          "awayBttsPct": 1,
+          "homeForm": [
+            "D",
+            "D"
+          ],
+          "awayForm": [
+            "L",
+            "D"
+          ]
         },
         "away": {
           "homeSample": 8,
@@ -3907,7 +6243,21 @@
           "homeBttsPct": 0.75,
           "awayWinPct": 0.2857142857142857,
           "awayLossPct": 0.2857142857142857,
-          "awayBttsPct": 0.2857142857142857
+          "awayBttsPct": 0.2857142857142857,
+          "homeForm": [
+            "W",
+            "L",
+            "L",
+            "L",
+            "D"
+          ],
+          "awayForm": [
+            "L",
+            "D",
+            "W",
+            "D",
+            "W"
+          ]
         }
       },
       "score": {
@@ -3941,7 +6291,21 @@
           "homeBttsPct": 0.875,
           "awayWinPct": 0.42857142857142855,
           "awayLossPct": 0.42857142857142855,
-          "awayBttsPct": 0.14285714285714285
+          "awayBttsPct": 0.14285714285714285,
+          "homeForm": [
+            "D",
+            "W",
+            "D",
+            "W",
+            "L"
+          ],
+          "awayForm": [
+            "L",
+            "W",
+            "L",
+            "W",
+            "D"
+          ]
         },
         "away": {
           "homeSample": 8,
@@ -3951,7 +6315,21 @@
           "homeBttsPct": 0.25,
           "awayWinPct": 0.14285714285714285,
           "awayLossPct": 0.5714285714285714,
-          "awayBttsPct": 0.42857142857142855
+          "awayBttsPct": 0.42857142857142855,
+          "homeForm": [
+            "W",
+            "W",
+            "L",
+            "W",
+            "L"
+          ],
+          "awayForm": [
+            "W",
+            "D",
+            "D",
+            "L",
+            "L"
+          ]
         }
       },
       "score": {
@@ -3985,7 +6363,21 @@
           "homeBttsPct": 0.8571428571428571,
           "awayWinPct": 0.5,
           "awayLossPct": 0.5,
-          "awayBttsPct": 0.625
+          "awayBttsPct": 0.625,
+          "homeForm": [
+            "W",
+            "D",
+            "L",
+            "W",
+            "W"
+          ],
+          "awayForm": [
+            "L",
+            "L",
+            "L",
+            "W",
+            "L"
+          ]
         },
         "away": {
           "homeSample": 4,
@@ -3995,7 +6387,18 @@
           "homeBttsPct": 0.5,
           "awayWinPct": 0,
           "awayLossPct": 0.6666666666666666,
-          "awayBttsPct": 0.3333333333333333
+          "awayBttsPct": 0.3333333333333333,
+          "homeForm": [
+            "W",
+            "L",
+            "L",
+            "W"
+          ],
+          "awayForm": [
+            "D",
+            "L",
+            "L"
+          ]
         }
       },
       "score": {
@@ -4029,7 +6432,21 @@
           "homeBttsPct": 0.5714285714285714,
           "awayWinPct": 0.125,
           "awayLossPct": 0.25,
-          "awayBttsPct": 0.625
+          "awayBttsPct": 0.625,
+          "homeForm": [
+            "D",
+            "W",
+            "D",
+            "W",
+            "D"
+          ],
+          "awayForm": [
+            "L",
+            "L",
+            "D",
+            "D",
+            "D"
+          ]
         },
         "away": {
           "homeSample": 7,
@@ -4039,7 +6456,21 @@
           "homeBttsPct": 0.5714285714285714,
           "awayWinPct": 0.25,
           "awayLossPct": 0.625,
-          "awayBttsPct": 0.75
+          "awayBttsPct": 0.75,
+          "homeForm": [
+            "L",
+            "L",
+            "W",
+            "W",
+            "D"
+          ],
+          "awayForm": [
+            "L",
+            "D",
+            "L",
+            "W",
+            "L"
+          ]
         }
       },
       "score": {
@@ -4073,7 +6504,21 @@
           "homeBttsPct": 0.42857142857142855,
           "awayWinPct": 0.25,
           "awayLossPct": 0.375,
-          "awayBttsPct": 0.75
+          "awayBttsPct": 0.75,
+          "homeForm": [
+            "W",
+            "D",
+            "W",
+            "D",
+            "D"
+          ],
+          "awayForm": [
+            "L",
+            "L",
+            "W",
+            "D",
+            "W"
+          ]
         },
         "away": {
           "homeSample": 8,
@@ -4083,7 +6528,21 @@
           "homeBttsPct": 0.375,
           "awayWinPct": 0.2857142857142857,
           "awayLossPct": 0.5714285714285714,
-          "awayBttsPct": 0.7142857142857143
+          "awayBttsPct": 0.7142857142857143,
+          "homeForm": [
+            "W",
+            "L",
+            "L",
+            "L",
+            "W"
+          ],
+          "awayForm": [
+            "W",
+            "L",
+            "L",
+            "L",
+            "L"
+          ]
         }
       },
       "score": {
@@ -4117,7 +6576,16 @@
           "homeBttsPct": 0.3333333333333333,
           "awayWinPct": 0,
           "awayLossPct": 0.5,
-          "awayBttsPct": 0.5
+          "awayBttsPct": 0.5,
+          "homeForm": [
+            "W",
+            "W",
+            "W"
+          ],
+          "awayForm": [
+            "L",
+            "D"
+          ]
         },
         "away": {
           "homeSample": 8,
@@ -4127,7 +6595,21 @@
           "homeBttsPct": 0.5,
           "awayWinPct": 0.42857142857142855,
           "awayLossPct": 0.42857142857142855,
-          "awayBttsPct": 0.42857142857142855
+          "awayBttsPct": 0.42857142857142855,
+          "homeForm": [
+            "D",
+            "L",
+            "W",
+            "W",
+            "W"
+          ],
+          "awayForm": [
+            "L",
+            "W",
+            "D",
+            "L",
+            "W"
+          ]
         }
       },
       "score": {
@@ -4161,7 +6643,21 @@
           "homeBttsPct": 0.14285714285714285,
           "awayWinPct": 0.125,
           "awayLossPct": 0.75,
-          "awayBttsPct": 0.5
+          "awayBttsPct": 0.5,
+          "homeForm": [
+            "W",
+            "L",
+            "L",
+            "W",
+            "D"
+          ],
+          "awayForm": [
+            "L",
+            "L",
+            "L",
+            "L",
+            "L"
+          ]
         },
         "away": {
           "homeSample": 8,
@@ -4171,7 +6667,21 @@
           "homeBttsPct": 0.375,
           "awayWinPct": 0.14285714285714285,
           "awayLossPct": 0.7142857142857143,
-          "awayBttsPct": 0.42857142857142855
+          "awayBttsPct": 0.42857142857142855,
+          "homeForm": [
+            "W",
+            "D",
+            "D",
+            "L",
+            "W"
+          ],
+          "awayForm": [
+            "L",
+            "L",
+            "L",
+            "W",
+            "L"
+          ]
         }
       },
       "score": {
@@ -4205,7 +6715,21 @@
           "homeBttsPct": 0.3333333333333333,
           "awayWinPct": 0.5555555555555556,
           "awayLossPct": 0.2222222222222222,
-          "awayBttsPct": 0.8888888888888888
+          "awayBttsPct": 0.8888888888888888,
+          "homeForm": [
+            "W",
+            "W",
+            "D",
+            "L",
+            "W"
+          ],
+          "awayForm": [
+            "W",
+            "L",
+            "W",
+            "W",
+            "D"
+          ]
         },
         "away": {
           "homeSample": 7,
@@ -4215,7 +6739,21 @@
           "homeBttsPct": 0.42857142857142855,
           "awayWinPct": 0.125,
           "awayLossPct": 0.375,
-          "awayBttsPct": 0.75
+          "awayBttsPct": 0.75,
+          "homeForm": [
+            "W",
+            "W",
+            "L",
+            "W",
+            "L"
+          ],
+          "awayForm": [
+            "D",
+            "D",
+            "W",
+            "L",
+            "D"
+          ]
         }
       },
       "score": {
@@ -4249,7 +6787,21 @@
           "homeBttsPct": 0.42857142857142855,
           "awayWinPct": 0.125,
           "awayLossPct": 0.5,
-          "awayBttsPct": 0.75
+          "awayBttsPct": 0.75,
+          "homeForm": [
+            "D",
+            "W",
+            "W",
+            "L",
+            "W"
+          ],
+          "awayForm": [
+            "D",
+            "L",
+            "W",
+            "L",
+            "L"
+          ]
         },
         "away": {
           "homeSample": 7,
@@ -4259,7 +6811,21 @@
           "homeBttsPct": 0.7142857142857143,
           "awayWinPct": 0.25,
           "awayLossPct": 0.5,
-          "awayBttsPct": 0.375
+          "awayBttsPct": 0.375,
+          "homeForm": [
+            "D",
+            "L",
+            "D",
+            "D",
+            "L"
+          ],
+          "awayForm": [
+            "D",
+            "L",
+            "L",
+            "D",
+            "W"
+          ]
         }
       },
       "score": {
@@ -4293,7 +6859,18 @@
           "homeBttsPct": 1,
           "awayWinPct": 0,
           "awayLossPct": 0.75,
-          "awayBttsPct": 0.5
+          "awayBttsPct": 0.5,
+          "homeForm": [
+            "D",
+            "D",
+            "D"
+          ],
+          "awayForm": [
+            "D",
+            "L",
+            "L",
+            "L"
+          ]
         },
         "away": {
           "homeSample": 9,
@@ -4303,7 +6880,21 @@
           "homeBttsPct": 0.5555555555555556,
           "awayWinPct": 0.16666666666666666,
           "awayLossPct": 0.3333333333333333,
-          "awayBttsPct": 0.8333333333333334
+          "awayBttsPct": 0.8333333333333334,
+          "homeForm": [
+            "W",
+            "W",
+            "W",
+            "D",
+            "D"
+          ],
+          "awayForm": [
+            "D",
+            "L",
+            "W",
+            "D",
+            "L"
+          ]
         }
       },
       "score": {
@@ -4337,7 +6928,17 @@
           "homeBttsPct": 0,
           "awayWinPct": 0.3333333333333333,
           "awayLossPct": 0.3333333333333333,
-          "awayBttsPct": 0.3333333333333333
+          "awayBttsPct": 0.3333333333333333,
+          "homeForm": [
+            "L",
+            "W",
+            "L"
+          ],
+          "awayForm": [
+            "D",
+            "W",
+            "L"
+          ]
         },
         "away": {
           "homeSample": 8,
@@ -4347,7 +6948,21 @@
           "homeBttsPct": 0.5,
           "awayWinPct": 0,
           "awayLossPct": 0.7142857142857143,
-          "awayBttsPct": 0.42857142857142855
+          "awayBttsPct": 0.42857142857142855,
+          "homeForm": [
+            "W",
+            "D",
+            "D",
+            "L",
+            "L"
+          ],
+          "awayForm": [
+            "D",
+            "L",
+            "L",
+            "L",
+            "D"
+          ]
         }
       },
       "score": {
@@ -4381,7 +6996,21 @@
           "homeBttsPct": 0,
           "awayWinPct": 0.3333333333333333,
           "awayLossPct": 0.5555555555555556,
-          "awayBttsPct": 0.2222222222222222
+          "awayBttsPct": 0.2222222222222222,
+          "homeForm": [
+            "W",
+            "L",
+            "W",
+            "D",
+            "W"
+          ],
+          "awayForm": [
+            "L",
+            "W",
+            "D",
+            "W",
+            "L"
+          ]
         },
         "away": {
           "homeSample": 7,
@@ -4391,7 +7020,21 @@
           "homeBttsPct": 0.7142857142857143,
           "awayWinPct": 0.25,
           "awayLossPct": 0.625,
-          "awayBttsPct": 0.5
+          "awayBttsPct": 0.5,
+          "homeForm": [
+            "D",
+            "W",
+            "L",
+            "L",
+            "D"
+          ],
+          "awayForm": [
+            "W",
+            "L",
+            "L",
+            "W",
+            "L"
+          ]
         }
       },
       "score": {
@@ -4425,7 +7068,21 @@
           "homeBttsPct": 0.2857142857142857,
           "awayWinPct": 0.625,
           "awayLossPct": 0.25,
-          "awayBttsPct": 0.625
+          "awayBttsPct": 0.625,
+          "homeForm": [
+            "W",
+            "W",
+            "W",
+            "W",
+            "W"
+          ],
+          "awayForm": [
+            "W",
+            "D",
+            "W",
+            "L",
+            "W"
+          ]
         },
         "away": {
           "homeSample": 7,
@@ -4435,7 +7092,21 @@
           "homeBttsPct": 0.5714285714285714,
           "awayWinPct": 0.25,
           "awayLossPct": 0.25,
-          "awayBttsPct": 0.5
+          "awayBttsPct": 0.5,
+          "homeForm": [
+            "W",
+            "D",
+            "W",
+            "W",
+            "D"
+          ],
+          "awayForm": [
+            "W",
+            "D",
+            "L",
+            "D",
+            "D"
+          ]
         }
       },
       "score": {
@@ -4469,7 +7140,21 @@
           "homeBttsPct": 0.375,
           "awayWinPct": 0.14285714285714285,
           "awayLossPct": 0.7142857142857143,
-          "awayBttsPct": 0
+          "awayBttsPct": 0,
+          "homeForm": [
+            "W",
+            "W",
+            "W",
+            "D",
+            "D"
+          ],
+          "awayForm": [
+            "D",
+            "L",
+            "L",
+            "L",
+            "L"
+          ]
         },
         "away": {
           "homeSample": 2,
@@ -4479,7 +7164,16 @@
           "homeBttsPct": 0.5,
           "awayWinPct": 0,
           "awayLossPct": 0.6666666666666666,
-          "awayBttsPct": 0.3333333333333333
+          "awayBttsPct": 0.3333333333333333,
+          "homeForm": [
+            "D",
+            "D"
+          ],
+          "awayForm": [
+            "L",
+            "L",
+            "D"
+          ]
         }
       },
       "score": {
@@ -4513,7 +7207,21 @@
           "homeBttsPct": 0.375,
           "awayWinPct": 0.14285714285714285,
           "awayLossPct": 0.5714285714285714,
-          "awayBttsPct": 0.5714285714285714
+          "awayBttsPct": 0.5714285714285714,
+          "homeForm": [
+            "W",
+            "W",
+            "W",
+            "D",
+            "L"
+          ],
+          "awayForm": [
+            "D",
+            "L",
+            "W",
+            "L",
+            "L"
+          ]
         },
         "away": {
           "homeSample": 8,
@@ -4523,7 +7231,21 @@
           "homeBttsPct": 0.625,
           "awayWinPct": 0.2857142857142857,
           "awayLossPct": 0.5714285714285714,
-          "awayBttsPct": 0
+          "awayBttsPct": 0,
+          "homeForm": [
+            "W",
+            "W",
+            "W",
+            "D",
+            "L"
+          ],
+          "awayForm": [
+            "L",
+            "L",
+            "W",
+            "W",
+            "L"
+          ]
         }
       },
       "score": {
@@ -4557,7 +7279,21 @@
           "homeBttsPct": 0.5714285714285714,
           "awayWinPct": 0.5,
           "awayLossPct": 0.25,
-          "awayBttsPct": 0.75
+          "awayBttsPct": 0.75,
+          "homeForm": [
+            "W",
+            "D",
+            "D",
+            "L",
+            "D"
+          ],
+          "awayForm": [
+            "W",
+            "W",
+            "L",
+            "D",
+            "W"
+          ]
         },
         "away": {
           "homeSample": 2,
@@ -4567,7 +7303,15 @@
           "homeBttsPct": 0,
           "awayWinPct": 0,
           "awayLossPct": 1,
-          "awayBttsPct": 0
+          "awayBttsPct": 0,
+          "homeForm": [
+            "L",
+            "L"
+          ],
+          "awayForm": [
+            "L",
+            "L"
+          ]
         }
       },
       "score": {
@@ -4601,7 +7345,16 @@
           "homeBttsPct": 0.5,
           "awayWinPct": 0.6666666666666666,
           "awayLossPct": 0.3333333333333333,
-          "awayBttsPct": 0.3333333333333333
+          "awayBttsPct": 0.3333333333333333,
+          "homeForm": [
+            "D",
+            "D"
+          ],
+          "awayForm": [
+            "W",
+            "W",
+            "L"
+          ]
         },
         "away": {
           "homeSample": 8,
@@ -4611,7 +7364,21 @@
           "homeBttsPct": 0.5,
           "awayWinPct": 0,
           "awayLossPct": 0.7142857142857143,
-          "awayBttsPct": 0.7142857142857143
+          "awayBttsPct": 0.7142857142857143,
+          "homeForm": [
+            "D",
+            "L",
+            "D",
+            "L",
+            "W"
+          ],
+          "awayForm": [
+            "L",
+            "L",
+            "D",
+            "L",
+            "L"
+          ]
         }
       },
       "score": {

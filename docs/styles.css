@@ -21,6 +21,7 @@
   --series-1: #3987e5;
   --good:     #0ca30c;
   --warn:     #fab219;
+  --bad:      #e66767;
 
   --radius: 10px;
   --gutter: 16px;
@@ -45,6 +46,7 @@
   --series-1: #2a78d6;
   --good:     #0ca30c;
   --warn:     #fab219;
+  --bad:      #d03b3b;
 }
 
 * { box-sizing: border-box; }
@@ -344,6 +346,46 @@ td.fixture .vs { color: var(--muted); margin: 0 4px; }
   padding: 1px 6px;
   margin-left: 6px;
 }
+
+.form-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+.form-label {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--muted);
+}
+
+.form-badges {
+  display: inline-flex;
+  gap: 2px;
+}
+
+.form-none {
+  font-size: 0.7rem;
+  color: var(--muted);
+}
+
+.form-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  font-size: 0.62rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.form-badge.form-w { background: var(--good); }
+.form-badge.form-d { background: var(--axis); color: var(--text-2); }
+.form-badge.form-l { background: var(--bad); }
 
 footer {
   margin-top: 24px;
