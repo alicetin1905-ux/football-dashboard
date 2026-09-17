@@ -46,14 +46,16 @@ an opaque model. See `scripts/lib/stats.mjs` for the exact logic.
 
 **Live, always** — `scripts/refresh.mjs` pulls from
 [ESPN's public site API](https://site.api.espn.com), which needs no key, no
-signup, and has shown no rate limiting under normal use. There's no single
-"whole season" endpoint, so the pipeline sweeps day-by-day scoreboard
-requests across a window (21 days back, 10 days forward, per league) and
-derives both recent team form and upcoming fixtures from that same sweep —
-about 190 requests per refresh, all unauthenticated. Demo data
-(`scripts/lib/mock.mjs`) is only a fallback if that live fetch fails for any
-reason, so the dashboard always has something to show; the meta badge in the
-top-left says which mode produced the current data.
+signup, and has shown no rate limiting under normal use. Upcoming fixtures
+come from a day-by-day scoreboard sweep (there's no "next N" endpoint).
+Recent team form comes from each team's own schedule endpoint rather than a
+wider day sweep — early in a season that alone doesn't have enough finished
+matches, so it automatically bridges into the previous season's tail to
+keep sample sizes meaningful instead of flagging almost everything
+"low sample" for the first couple of months. Demo data (`scripts/lib/mock.mjs`)
+is only a fallback if the live fetch fails for any reason, so the dashboard
+always has something to show; the meta badge in the top-left says which mode
+produced the current data.
 
 Three other routes were tried and abandoned before this one:
 
@@ -109,9 +111,10 @@ scripts/lib/mock.mjs   deterministic demo data generator
 - ESPN's site API is undocumented — it could change shape or start rate
   limiting without notice. If a refresh starts failing, check
   `scripts/lib/espn.mjs` against a fresh response first.
-- Early in a season, most fixtures come back "low confidence" (each team has
-  only 1-2 home/away matches on record). This is correct behaviour, not a
-  bug — it fills in as more matchdays are played.
+- Some fixtures still come back "low confidence" early in a season even with
+  the previous-season bridge — mainly newly promoted/relegated teams, whose
+  "previous season" was in a different division and so isn't queried under
+  the current league's slug. This is a real data gap, not a bug.
 - Extending to more leagues means adding an entry to `LEAGUES` in
   `scripts/lib/espn.mjs` with that league's ESPN slug (and to the mock
   generator if you want it in demo mode too).
