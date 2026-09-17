@@ -15,18 +15,25 @@ jobs:
         env:
           RAPIDAPI_KEY: ${{ secrets.RAPIDAPI_KEY }}
         run: |
-          echo "== known event by id (host+key sanity check) =="
-          curl -s -o /tmp/r1.json -w "HTTP %{http_code}\n" \
-            -H "x-rapidapi-key: $RAPIDAPI_KEY" -H "x-rapidapi-host: sportapi7.p.rapidapi.com" \
-            "https://sportapi7.p.rapidapi.com/api/v1/event/7881945"
-          head -c 300 /tmp/r1.json; echo
+          probe() {
+            echo "== $1 =="
+            code=$(curl -s -o /tmp/probe.json -w "%{http_code}" \
+              -H "x-rapidapi-key: $RAPIDAPI_KEY" -H "x-rapidapi-host: sportapi7.p.rapidapi.com" \
+              "https://sportapi7.p.rapidapi.com$1")
+            echo "HTTP $code"
+            head -c 350 /tmp/probe.json; echo
+            sleep 1
+          }
 
-          echo "== scheduled events today (list endpoint candidate) =="
-          TODAY=$(date -u +%Y-%m-%d)
-          curl -s -o /tmp/r2.json -w "HTTP %{http_code}\n" \
-            -H "x-rapidapi-key: $RAPIDAPI_KEY" -H "x-rapidapi-host: sportapi7.p.rapidapi.com" \
-            "https://sportapi7.p.rapidapi.com/api/v1/sport/football/scheduled-events/$TODAY"
-          head -c 500 /tmp/r2.json; echo
+          # Confirmed working: tournament id=1 -> Premier League, seasonId=61627 is an old default season.
+          probe "/api/v1/tournament/1/seasons"
+          probe "/api/v1/tournament/1/season/61627/rounds"
+          probe "/api/v1/tournament/1/season/61627/events/round/1"
+          probe "/api/v1/tournament/1/events/round/1"
+          probe "/api/v1/tournament/1/season/61627/events/next/0"
+          probe "/api/v1/tournament/1/events/next/0"
+          probe "/api/v1/tournament/1/season/61627/standings/total"
+          probe "/api/v1/tournament/1/standings/61627/total"
 
   test-refresh:
     runs-on: ubuntu-latest
