@@ -51,6 +51,16 @@ const LEAGUES = [
     country: 'Turkey',
     teams: ['Galatasaray', 'Fenerbahce', 'Besiktas', 'Trabzonspor', 'Basaksehir', 'Adana Demirspor', 'Konyaspor', 'Kasimpasa', 'Goztepe', 'Caykur Rizespor'],
   },
+  {
+    name: 'Eredivisie',
+    country: 'Netherlands',
+    teams: ['Ajax', 'PSV Eindhoven', 'Feyenoord', 'AZ Alkmaar', 'FC Twente', 'FC Utrecht', 'Sparta Rotterdam', 'Go Ahead Eagles', 'Heerenveen', 'NEC Nijmegen'],
+  },
+  {
+    name: 'Belgian Pro League',
+    country: 'Belgium',
+    teams: ['Club Brugge', 'Anderlecht', 'Genk', 'Royal Antwerp', 'Gent', 'Standard Liège', 'Union SG', 'Charleroi', 'Cercle Brugge', 'Kortrijk'],
+  },
 ];
 
 function mulberry32(seed) {

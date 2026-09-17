@@ -20,6 +20,8 @@ export const LEAGUES = [
   { slug: 'ita.1', name: 'Serie A', country: 'Italy' },
   { slug: 'fra.1', name: 'Ligue 1', country: 'France' },
   { slug: 'tur.1', name: 'Turkish Süper Lig', country: 'Turkey' },
+  { slug: 'ned.1', name: 'Eredivisie', country: 'Netherlands' },
+  { slug: 'bel.1', name: 'Belgian Pro League', country: 'Belgium' },
 ];
 
 const yyyymmdd = (date) => date.toISOString().slice(0, 10).replace(/-/g, '');

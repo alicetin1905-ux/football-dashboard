@@ -8,9 +8,9 @@ outcomes stacked together.
 
 ## What it shows
 
-For every upcoming fixture across eight European leagues (Premier League,
+For every upcoming fixture across ten European leagues (Premier League,
 Championship, La Liga, Bundesliga, 2. Bundesliga, Serie A, Ligue 1, Turkish
-Süper Lig):
+Süper Lig, Eredivisie, Belgian Pro League):
 
 | Column | Meaning |
 |---|---|

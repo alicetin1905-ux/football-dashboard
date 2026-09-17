@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-17T20:36:56.678Z",
+  "generatedAt": "2026-09-17T20:45:15.738Z",
   "source": "espn",
   "disclaimer": "Public/derived football statistics shown for information only — not betting advice.",
   "fixtures": [
@@ -180,6 +180,50 @@
       }
     },
     {
+      "id": "401878982",
+      "date": "2026-09-20T11:30Z",
+      "league": "Belgian Pro League",
+      "leagueCountry": "Belgium",
+      "home": {
+        "id": "17544",
+        "name": "Antwerp"
+      },
+      "away": {
+        "id": "5807",
+        "name": "Union St.-Gilloise"
+      },
+      "stats": {
+        "home": {
+          "homeSample": 1,
+          "awaySample": 2,
+          "homeWinPct": 0,
+          "homeLossPct": 1,
+          "homeBttsPct": 1,
+          "awayWinPct": 0,
+          "awayLossPct": 1,
+          "awayBttsPct": 0.5
+        },
+        "away": {
+          "homeSample": 2,
+          "awaySample": 2,
+          "homeWinPct": 1,
+          "homeLossPct": 0,
+          "homeBttsPct": 0,
+          "awayWinPct": 1,
+          "awayLossPct": 0,
+          "awayBttsPct": 0.5
+        }
+      },
+      "score": {
+        "awayWinLikelihood": 1,
+        "bttsLikelihood": 0.75,
+        "combined": 0.75,
+        "confidence": "low",
+        "sampleHome": 1,
+        "sampleAway": 2
+      }
+    },
+    {
       "id": "401876457",
       "date": "2026-09-19T18:45Z",
       "league": "Ligue 1",
@@ -308,6 +352,50 @@
         "combined": 0.5625,
         "confidence": "low",
         "sampleHome": 1,
+        "sampleAway": 2
+      }
+    },
+    {
+      "id": "401875597",
+      "date": "2026-09-19T19:00Z",
+      "league": "Eredivisie",
+      "leagueCountry": "Netherlands",
+      "home": {
+        "id": "156",
+        "name": "Willem II"
+      },
+      "away": {
+        "id": "143",
+        "name": "Fortuna Sittard"
+      },
+      "stats": {
+        "home": {
+          "homeSample": 2,
+          "awaySample": 2,
+          "homeWinPct": 0,
+          "homeLossPct": 0.5,
+          "homeBttsPct": 0.5,
+          "awayWinPct": 0,
+          "awayLossPct": 0.5,
+          "awayBttsPct": 1
+        },
+        "away": {
+          "homeSample": 1,
+          "awaySample": 2,
+          "homeWinPct": 0,
+          "homeLossPct": 1,
+          "homeBttsPct": 1,
+          "awayWinPct": 1,
+          "awayLossPct": 0,
+          "awayBttsPct": 1
+        }
+      },
+      "score": {
+        "awayWinLikelihood": 0.75,
+        "bttsLikelihood": 0.75,
+        "combined": 0.5625,
+        "confidence": "low",
+        "sampleHome": 2,
         "sampleAway": 2
       }
     },
@@ -840,6 +928,138 @@
       }
     },
     {
+      "id": "401875600",
+      "date": "2026-09-19T14:30Z",
+      "league": "Eredivisie",
+      "leagueCountry": "Netherlands",
+      "home": {
+        "id": "2726",
+        "name": "ADO Den Haag"
+      },
+      "away": {
+        "id": "3736",
+        "name": "SC Cambuur"
+      },
+      "stats": {
+        "home": {
+          "homeSample": 1,
+          "awaySample": 2,
+          "homeWinPct": 0,
+          "homeLossPct": 1,
+          "homeBttsPct": 1,
+          "awayWinPct": 0,
+          "awayLossPct": 0.5,
+          "awayBttsPct": 0.5
+        },
+        "away": {
+          "homeSample": 2,
+          "awaySample": 1,
+          "homeWinPct": 0.5,
+          "homeLossPct": 0.5,
+          "homeBttsPct": 0.5,
+          "awayWinPct": 0,
+          "awayLossPct": 0,
+          "awayBttsPct": 1
+        }
+      },
+      "score": {
+        "awayWinLikelihood": 0.5,
+        "bttsLikelihood": 1,
+        "combined": 0.5,
+        "confidence": "low",
+        "sampleHome": 1,
+        "sampleAway": 1
+      }
+    },
+    {
+      "id": "401875596",
+      "date": "2026-09-20T10:15Z",
+      "league": "Eredivisie",
+      "leagueCountry": "Netherlands",
+      "home": {
+        "id": "142",
+        "name": "Feyenoord Rotterdam"
+      },
+      "away": {
+        "id": "153",
+        "name": "FC Utrecht"
+      },
+      "stats": {
+        "home": {
+          "homeSample": 1,
+          "awaySample": 2,
+          "homeWinPct": 0,
+          "homeLossPct": 0,
+          "homeBttsPct": 1,
+          "awayWinPct": 1,
+          "awayLossPct": 0,
+          "awayBttsPct": 0.5
+        },
+        "away": {
+          "homeSample": 2,
+          "awaySample": 1,
+          "homeWinPct": 0,
+          "homeLossPct": 0.5,
+          "homeBttsPct": 1,
+          "awayWinPct": 1,
+          "awayLossPct": 0,
+          "awayBttsPct": 1
+        }
+      },
+      "score": {
+        "awayWinLikelihood": 0.5,
+        "bttsLikelihood": 1,
+        "combined": 0.5,
+        "confidence": "low",
+        "sampleHome": 1,
+        "sampleAway": 1
+      }
+    },
+    {
+      "id": "401878985",
+      "date": "2026-09-19T16:15Z",
+      "league": "Belgian Pro League",
+      "leagueCountry": "Belgium",
+      "home": {
+        "id": "3616",
+        "name": "Royal Charleroi SC"
+      },
+      "away": {
+        "id": "3610",
+        "name": "Cercle Brugge KSV"
+      },
+      "stats": {
+        "home": {
+          "homeSample": 1,
+          "awaySample": 2,
+          "homeWinPct": 0,
+          "homeLossPct": 1,
+          "homeBttsPct": 1,
+          "awayWinPct": 1,
+          "awayLossPct": 0,
+          "awayBttsPct": 0.5
+        },
+        "away": {
+          "homeSample": 2,
+          "awaySample": 1,
+          "homeWinPct": 0,
+          "homeLossPct": 1,
+          "homeBttsPct": 0,
+          "awayWinPct": 0,
+          "awayLossPct": 0,
+          "awayBttsPct": 1
+        }
+      },
+      "score": {
+        "awayWinLikelihood": 0.5,
+        "bttsLikelihood": 1,
+        "combined": 0.5,
+        "confidence": "low",
+        "sampleHome": 1,
+        "sampleAway": 1
+      }
+    },
+    {
       "id": "401882859",
       "date": "2026-09-19T19:00Z",
       "league": "La Liga",
@@ -1057,6 +1277,50 @@
         "confidence": "low",
         "sampleHome": 2,
         "sampleAway": 1
+      }
+    },
+    {
+      "id": "401875598",
+      "date": "2026-09-19T18:00Z",
+      "league": "Eredivisie",
+      "leagueCountry": "Netherlands",
+      "home": {
+        "id": "139",
+        "name": "Ajax Amsterdam"
+      },
+      "away": {
+        "id": "2566",
+        "name": "Excelsior"
+      },
+      "stats": {
+        "home": {
+          "homeSample": 2,
+          "awaySample": 2,
+          "homeWinPct": 0.5,
+          "homeLossPct": 0.5,
+          "homeBttsPct": 1,
+          "awayWinPct": 1,
+          "awayLossPct": 0,
+          "awayBttsPct": 0.5
+        },
+        "away": {
+          "homeSample": 2,
+          "awaySample": 2,
+          "homeWinPct": 0.5,
+          "homeLossPct": 0.5,
+          "homeBttsPct": 1,
+          "awayWinPct": 0.5,
+          "awayLossPct": 0,
+          "awayBttsPct": 0.5
+        }
+      },
+      "score": {
+        "awayWinLikelihood": 0.5,
+        "bttsLikelihood": 0.75,
+        "combined": 0.375,
+        "confidence": "low",
+        "sampleHome": 2,
+        "sampleAway": 2
       }
     },
     {
@@ -2072,6 +2336,182 @@
       }
     },
     {
+      "id": "401875599",
+      "date": "2026-09-18T18:00Z",
+      "league": "Eredivisie",
+      "leagueCountry": "Netherlands",
+      "home": {
+        "id": "145",
+        "name": "FC Groningen"
+      },
+      "away": {
+        "id": "2565",
+        "name": "PEC Zwolle"
+      },
+      "stats": {
+        "home": {
+          "homeSample": 2,
+          "awaySample": 1,
+          "homeWinPct": 0,
+          "homeLossPct": 0.5,
+          "homeBttsPct": 1,
+          "awayWinPct": 0,
+          "awayLossPct": 0,
+          "awayBttsPct": 1
+        },
+        "away": {
+          "homeSample": 2,
+          "awaySample": 1,
+          "homeWinPct": 0,
+          "homeLossPct": 1,
+          "homeBttsPct": 0.5,
+          "awayWinPct": 0,
+          "awayLossPct": 0,
+          "awayBttsPct": 1
+        }
+      },
+      "score": {
+        "awayWinLikelihood": 0.25,
+        "bttsLikelihood": 1,
+        "combined": 0.25,
+        "confidence": "low",
+        "sampleHome": 2,
+        "sampleAway": 1
+      }
+    },
+    {
+      "id": "401875593",
+      "date": "2026-09-20T12:30Z",
+      "league": "Eredivisie",
+      "leagueCountry": "Netherlands",
+      "home": {
+        "id": "152",
+        "name": "FC Twente"
+      },
+      "away": {
+        "id": "148",
+        "name": "PSV Eindhoven"
+      },
+      "stats": {
+        "home": {
+          "homeSample": 2,
+          "awaySample": 2,
+          "homeWinPct": 1,
+          "homeLossPct": 0,
+          "homeBttsPct": 0,
+          "awayWinPct": 0.5,
+          "awayLossPct": 0,
+          "awayBttsPct": 1
+        },
+        "away": {
+          "homeSample": 1,
+          "awaySample": 2,
+          "homeWinPct": 1,
+          "homeLossPct": 0,
+          "homeBttsPct": 1,
+          "awayWinPct": 1,
+          "awayLossPct": 0,
+          "awayBttsPct": 1
+        }
+      },
+      "score": {
+        "awayWinLikelihood": 0.5,
+        "bttsLikelihood": 0.5,
+        "combined": 0.25,
+        "confidence": "low",
+        "sampleHome": 2,
+        "sampleAway": 2
+      }
+    },
+    {
+      "id": "401875594",
+      "date": "2026-09-20T14:45Z",
+      "league": "Eredivisie",
+      "leagueCountry": "Netherlands",
+      "home": {
+        "id": "147",
+        "name": "NEC Nijmegen"
+      },
+      "away": {
+        "id": "3706",
+        "name": "Go Ahead Eagles"
+      },
+      "stats": {
+        "home": {
+          "homeSample": 2,
+          "awaySample": 2,
+          "homeWinPct": 0,
+          "homeLossPct": 0.5,
+          "homeBttsPct": 1,
+          "awayWinPct": 0.5,
+          "awayLossPct": 0.5,
+          "awayBttsPct": 0.5
+        },
+        "away": {
+          "homeSample": 1,
+          "awaySample": 2,
+          "homeWinPct": 0,
+          "homeLossPct": 0,
+          "homeBttsPct": 1,
+          "awayWinPct": 0,
+          "awayLossPct": 0.5,
+          "awayBttsPct": 1
+        }
+      },
+      "score": {
+        "awayWinLikelihood": 0.25,
+        "bttsLikelihood": 1,
+        "combined": 0.25,
+        "confidence": "low",
+        "sampleHome": 2,
+        "sampleAway": 2
+      }
+    },
+    {
+      "id": "401878983",
+      "date": "2026-09-19T18:45Z",
+      "league": "Belgian Pro League",
+      "leagueCountry": "Belgium",
+      "home": {
+        "id": "22269",
+        "name": "Lommel SK"
+      },
+      "away": {
+        "id": "7879",
+        "name": "KV Mechelen"
+      },
+      "stats": {
+        "home": {
+          "homeSample": 1,
+          "awaySample": 2,
+          "homeWinPct": 0,
+          "homeLossPct": 1,
+          "homeBttsPct": 0,
+          "awayWinPct": 0.5,
+          "awayLossPct": 0.5,
+          "awayBttsPct": 0
+        },
+        "away": {
+          "homeSample": 2,
+          "awaySample": 1,
+          "homeWinPct": 0,
+          "homeLossPct": 1,
+          "homeBttsPct": 0,
+          "awayWinPct": 0,
+          "awayLossPct": 0,
+          "awayBttsPct": 1
+        }
+      },
+      "score": {
+        "awayWinLikelihood": 0.5,
+        "bttsLikelihood": 0.5,
+        "combined": 0.25,
+        "confidence": "low",
+        "sampleHome": 1,
+        "sampleAway": 1
+      }
+    },
+    {
       "id": "401879271",
       "date": "2026-09-19T14:00Z",
       "league": "Premier League",
@@ -2200,6 +2640,50 @@
         "combined": 0.1875,
         "confidence": "low",
         "sampleHome": 1,
+        "sampleAway": 2
+      }
+    },
+    {
+      "id": "401878987",
+      "date": "2026-09-18T18:45Z",
+      "league": "Belgian Pro League",
+      "leagueCountry": "Belgium",
+      "home": {
+        "id": "3611",
+        "name": "KAA Gent"
+      },
+      "away": {
+        "id": "559",
+        "name": "Standard Liege"
+      },
+      "stats": {
+        "home": {
+          "homeSample": 2,
+          "awaySample": 2,
+          "homeWinPct": 1,
+          "homeLossPct": 0,
+          "homeBttsPct": 0.5,
+          "awayWinPct": 0.5,
+          "awayLossPct": 0,
+          "awayBttsPct": 0.5
+        },
+        "away": {
+          "homeSample": 1,
+          "awaySample": 2,
+          "homeWinPct": 1,
+          "homeLossPct": 0,
+          "homeBttsPct": 0,
+          "awayWinPct": 0.5,
+          "awayLossPct": 0.5,
+          "awayBttsPct": 1
+        }
+      },
+      "score": {
+        "awayWinLikelihood": 0.25,
+        "bttsLikelihood": 0.75,
+        "combined": 0.1875,
+        "confidence": "low",
+        "sampleHome": 2,
         "sampleAway": 2
       }
     },
@@ -2424,6 +2908,94 @@
       }
     },
     {
+      "id": "401878986",
+      "date": "2026-09-19T14:00Z",
+      "league": "Belgian Pro League",
+      "leagueCountry": "Belgium",
+      "home": {
+        "id": "5579",
+        "name": "OH Leuven"
+      },
+      "away": {
+        "id": "131235",
+        "name": "RAAL La Louvière"
+      },
+      "stats": {
+        "home": {
+          "homeSample": 2,
+          "awaySample": 2,
+          "homeWinPct": 0,
+          "homeLossPct": 0.5,
+          "homeBttsPct": 1,
+          "awayWinPct": 0,
+          "awayLossPct": 1,
+          "awayBttsPct": 0
+        },
+        "away": {
+          "homeSample": 2,
+          "awaySample": 1,
+          "homeWinPct": 0.5,
+          "homeLossPct": 0,
+          "homeBttsPct": 0.5,
+          "awayWinPct": 0,
+          "awayLossPct": 1,
+          "awayBttsPct": 0
+        }
+      },
+      "score": {
+        "awayWinLikelihood": 0.25,
+        "bttsLikelihood": 0.5,
+        "combined": 0.125,
+        "confidence": "low",
+        "sampleHome": 2,
+        "sampleAway": 1
+      }
+    },
+    {
+      "id": "401878979",
+      "date": "2026-09-20T17:15Z",
+      "league": "Belgian Pro League",
+      "leagueCountry": "Belgium",
+      "home": {
+        "id": "5786",
+        "name": "KV Kortrijk"
+      },
+      "away": {
+        "id": "13450",
+        "name": "Waasland-Beveren"
+      },
+      "stats": {
+        "home": {
+          "homeSample": 2,
+          "awaySample": 2,
+          "homeWinPct": 0,
+          "homeLossPct": 1,
+          "homeBttsPct": 0.5,
+          "awayWinPct": 0,
+          "awayLossPct": 1,
+          "awayBttsPct": 0
+        },
+        "away": {
+          "homeSample": 2,
+          "awaySample": 1,
+          "homeWinPct": 1,
+          "homeLossPct": 0,
+          "homeBttsPct": 0,
+          "awayWinPct": 0,
+          "awayLossPct": 1,
+          "awayBttsPct": 0
+        }
+      },
+      "score": {
+        "awayWinLikelihood": 0.5,
+        "bttsLikelihood": 0.25,
+        "combined": 0.125,
+        "confidence": "low",
+        "sampleHome": 2,
+        "sampleAway": 1
+      }
+    },
+    {
       "id": "401880255",
       "date": "2026-09-18T19:00Z",
       "league": "Championship",
@@ -2596,6 +3168,50 @@
         "combined": 0.0625,
         "confidence": "low",
         "sampleHome": 1,
+        "sampleAway": 2
+      }
+    },
+    {
+      "id": "401878984",
+      "date": "2026-09-19T18:45Z",
+      "league": "Belgian Pro League",
+      "leagueCountry": "Belgium",
+      "home": {
+        "id": "441",
+        "name": "Anderlecht"
+      },
+      "away": {
+        "id": "4691",
+        "name": "Zulte-Waregem"
+      },
+      "stats": {
+        "home": {
+          "homeSample": 2,
+          "awaySample": 2,
+          "homeWinPct": 0.5,
+          "homeLossPct": 0,
+          "homeBttsPct": 0,
+          "awayWinPct": 0.5,
+          "awayLossPct": 0.5,
+          "awayBttsPct": 0
+        },
+        "away": {
+          "homeSample": 1,
+          "awaySample": 2,
+          "homeWinPct": 0,
+          "homeLossPct": 1,
+          "homeBttsPct": 0,
+          "awayWinPct": 0.5,
+          "awayLossPct": 0,
+          "awayBttsPct": 0.5
+        }
+      },
+      "score": {
+        "awayWinLikelihood": 0.25,
+        "bttsLikelihood": 0.25,
+        "combined": 0.0625,
+        "confidence": "low",
+        "sampleHome": 2,
         "sampleAway": 2
       }
     },
@@ -3429,6 +4045,182 @@
       "score": {
         "awayWinLikelihood": 0,
         "bttsLikelihood": 0,
+        "combined": 0,
+        "confidence": "low",
+        "sampleHome": 1,
+        "sampleAway": 1
+      }
+    },
+    {
+      "id": "401875601",
+      "date": "2026-09-19T16:45Z",
+      "league": "Eredivisie",
+      "leagueCountry": "Netherlands",
+      "home": {
+        "id": "151",
+        "name": "Sparta Rotterdam"
+      },
+      "away": {
+        "id": "146",
+        "name": "Heerenveen"
+      },
+      "stats": {
+        "home": {
+          "homeSample": 1,
+          "awaySample": 2,
+          "homeWinPct": 0,
+          "homeLossPct": 0,
+          "homeBttsPct": 1,
+          "awayWinPct": 0,
+          "awayLossPct": 1,
+          "awayBttsPct": 1
+        },
+        "away": {
+          "homeSample": 2,
+          "awaySample": 1,
+          "homeWinPct": 0,
+          "homeLossPct": 0.5,
+          "homeBttsPct": 0.5,
+          "awayWinPct": 0,
+          "awayLossPct": 0,
+          "awayBttsPct": 1
+        }
+      },
+      "score": {
+        "awayWinLikelihood": 0,
+        "bttsLikelihood": 1,
+        "combined": 0,
+        "confidence": "low",
+        "sampleHome": 1,
+        "sampleAway": 1
+      }
+    },
+    {
+      "id": "401875595",
+      "date": "2026-09-20T12:30Z",
+      "league": "Eredivisie",
+      "leagueCountry": "Netherlands",
+      "home": {
+        "id": "140",
+        "name": "AZ Alkmaar"
+      },
+      "away": {
+        "id": "3735",
+        "name": "Telstar"
+      },
+      "stats": {
+        "home": {
+          "homeSample": 2,
+          "awaySample": 1,
+          "homeWinPct": 0.5,
+          "homeLossPct": 0,
+          "homeBttsPct": 1,
+          "awayWinPct": 1,
+          "awayLossPct": 0,
+          "awayBttsPct": 1
+        },
+        "away": {
+          "homeSample": 2,
+          "awaySample": 2,
+          "homeWinPct": 0,
+          "homeLossPct": 0.5,
+          "homeBttsPct": 0.5,
+          "awayWinPct": 0,
+          "awayLossPct": 0.5,
+          "awayBttsPct": 0
+        }
+      },
+      "score": {
+        "awayWinLikelihood": 0,
+        "bttsLikelihood": 0.5,
+        "combined": 0,
+        "confidence": "low",
+        "sampleHome": 2,
+        "sampleAway": 2
+      }
+    },
+    {
+      "id": "401878981",
+      "date": "2026-09-20T14:00Z",
+      "league": "Belgian Pro League",
+      "leagueCountry": "Belgium",
+      "home": {
+        "id": "936",
+        "name": "Sint-Truidense"
+      },
+      "away": {
+        "id": "606",
+        "name": "KVC Westerlo"
+      },
+      "stats": {
+        "home": {
+          "homeSample": 2,
+          "awaySample": 2,
+          "homeWinPct": 0.5,
+          "homeLossPct": 0.5,
+          "homeBttsPct": 0,
+          "awayWinPct": 0.5,
+          "awayLossPct": 0.5,
+          "awayBttsPct": 0.5
+        },
+        "away": {
+          "homeSample": 2,
+          "awaySample": 1,
+          "homeWinPct": 0.5,
+          "homeLossPct": 0,
+          "homeBttsPct": 1,
+          "awayWinPct": 1,
+          "awayLossPct": 0,
+          "awayBttsPct": 0
+        }
+      },
+      "score": {
+        "awayWinLikelihood": 0.75,
+        "bttsLikelihood": 0,
+        "combined": 0,
+        "confidence": "low",
+        "sampleHome": 2,
+        "sampleAway": 1
+      }
+    },
+    {
+      "id": "401878980",
+      "date": "2026-09-20T16:30Z",
+      "league": "Belgian Pro League",
+      "leagueCountry": "Belgium",
+      "home": {
+        "id": "570",
+        "name": "Club Brugge"
+      },
+      "away": {
+        "id": "938",
+        "name": "Racing Genk"
+      },
+      "stats": {
+        "home": {
+          "homeSample": 1,
+          "awaySample": 2,
+          "homeWinPct": 1,
+          "homeLossPct": 0,
+          "homeBttsPct": 1,
+          "awayWinPct": 0.5,
+          "awayLossPct": 0.5,
+          "awayBttsPct": 0.5
+        },
+        "away": {
+          "homeSample": 2,
+          "awaySample": 1,
+          "homeWinPct": 0.5,
+          "homeLossPct": 0,
+          "homeBttsPct": 0.5,
+          "awayWinPct": 0,
+          "awayLossPct": 0,
+          "awayBttsPct": 0
+        }
+      },
+      "score": {
+        "awayWinLikelihood": 0,
+        "bttsLikelihood": 0.5,
         "combined": 0,
         "confidence": "low",
         "sampleHome": 1,
