@@ -7,34 +7,33 @@ permissions:
   contents: read
 
 jobs:
-  probe-sportapi7:
+  probe-direct-sofascore:
     runs-on: ubuntu-latest
-    timeout-minutes: 6
+    timeout-minutes: 3
     steps:
-      - name: Probe sportapi7.p.rapidapi.com
-        env:
-          RAPIDAPI_KEY: ${{ secrets.RAPIDAPI_KEY }}
+      - name: Probe api.sofascore.com directly (no key)
         run: |
-          probe() {
-            echo "== $1 =="
-            code=$(curl -s -o /tmp/probe.json -w "%{http_code}" \
-              -H "x-rapidapi-key: $RAPIDAPI_KEY" -H "x-rapidapi-host: sportapi7.p.rapidapi.com" \
-              "https://sportapi7.p.rapidapi.com$1")
-            echo "HTTP $code"
-            head -c 350 /tmp/probe.json; echo
-            sleep 1
-          }
+          UA="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0 Safari/537.36"
 
-          # Confirmed working: tournament id=1 -> Premier League via /events/next/0 (no season needed).
-          # Now sweep ids to find La Liga / Bundesliga / Serie A / Ligue 1 by name, reusing that endpoint.
-          echo "== checking the gap ids from 1..40 via /seasons (works even with no upcoming fixture) =="
-          for id in 7 8 9 10 11 14 20 21 22 23 25 26 31 32 38 39 40; do
-            body=$(curl -s -H "x-rapidapi-key: $RAPIDAPI_KEY" -H "x-rapidapi-host: sportapi7.p.rapidapi.com" \
-              "https://sportapi7.p.rapidapi.com/api/v1/tournament/$id/seasons")
-            name=$(echo "$body" | grep -o '"name":"[^"]*"' | head -1)
-            echo "id=$id  $name"
-            sleep 0.8
-          done
+          echo "== reachability: unique-tournament/1 (Premier League) events/next/0 =="
+          curl -s -o /tmp/p1.json -w "HTTP %{http_code}\n" -A "$UA" \
+            "https://api.sofascore.com/api/v1/unique-tournament/1/events/next/0"
+          head -c 300 /tmp/p1.json; echo
+
+          echo "== reachability fallback: tournament/1 (in case path segment differs) events/next/0 =="
+          curl -s -o /tmp/p1b.json -w "HTTP %{http_code}\n" -A "$UA" \
+            "https://api.sofascore.com/api/v1/tournament/1/events/next/0"
+          head -c 300 /tmp/p1b.json; echo
+
+          echo "== search: Bundesliga =="
+          curl -s -o /tmp/p2.json -w "HTTP %{http_code}\n" -A "$UA" \
+            "https://api.sofascore.com/api/v1/search/unique-tournaments?q=Bundesliga"
+          head -c 800 /tmp/p2.json; echo
+
+          echo "== search/all: Bundesliga (alternate path) =="
+          curl -s -o /tmp/p3.json -w "HTTP %{http_code}\n" -A "$UA" \
+            "https://api.sofascore.com/api/v1/search/all?q=Bundesliga"
+          head -c 800 /tmp/p3.json; echo
 
   test-refresh:
     runs-on: ubuntu-latest
