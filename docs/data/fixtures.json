@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-18T22:26:56.986Z",
+  "generatedAt": "2026-09-18T23:09:45.529Z",
   "source": "espn",
   "disclaimer": "Public/derived football statistics shown for information only — not betting advice.",
   "fixtures": [
@@ -85,6 +85,12 @@
           "winLikelihood": 0.8651260340340368,
           "bttsLikelihood": 0.7112083629513066,
           "combined": 0.6756657988475201,
+          "confidence": "ok"
+        },
+        "dc1x": {
+          "winLikelihood": 0.21163392277341553,
+          "bttsLikelihood": 0.7112083629513066,
+          "combined": 0.1834019386216355,
           "confidence": "ok"
         },
         "sampleHome": 7,
@@ -179,6 +185,12 @@
           "combined": 0.7640011362322854,
           "confidence": "ok"
         },
+        "dc1x": {
+          "winLikelihood": 0.35168331956386767,
+          "bttsLikelihood": 0.802927069254225,
+          "combined": 0.31026211472295484,
+          "confidence": "ok"
+        },
         "sampleHome": 9,
         "sampleAway": 7,
         "expectedGoals": {
@@ -261,6 +273,12 @@
           "winLikelihood": 0.887834215518927,
           "bttsLikelihood": 0.8305390803254833,
           "combined": 0.7939456438638934,
+          "confidence": "low"
+        },
+        "dc1x": {
+          "winLikelihood": 0.3995689091405427,
+          "bttsLikelihood": 0.8305390803254833,
+          "combined": 0.3556406344475578,
           "confidence": "low"
         },
         "sampleHome": 2,
@@ -355,6 +373,12 @@
           "combined": 0.8282165008891222,
           "confidence": "ok"
         },
+        "dc1x": {
+          "winLikelihood": 0.46523513018762624,
+          "bttsLikelihood": 0.860723260744634,
+          "combined": 0.4181581572596668,
+          "confidence": "ok"
+        },
         "sampleHome": 8,
         "sampleAway": 6,
         "expectedGoals": {
@@ -435,6 +459,12 @@
           "winLikelihood": 0.9576624605056696,
           "bttsLikelihood": 0.9245430907053118,
           "combined": 0.908941457091753,
+          "confidence": "low"
+        },
+        "dc1x": {
+          "winLikelihood": 0.554830511903621,
+          "bttsLikelihood": 0.9245430907053118,
+          "combined": 0.5195064089319966,
           "confidence": "low"
         },
         "sampleHome": 2,
@@ -523,6 +553,12 @@
           "winLikelihood": 0.7330038036601769,
           "bttsLikelihood": 0.5958307506495959,
           "combined": 0.5334468445020089,
+          "confidence": "low"
+        },
+        "dc1x": {
+          "winLikelihood": 0.25280414693589026,
+          "bttsLikelihood": 0.5958307506495959,
+          "combined": 0.1923759358826199,
           "confidence": "low"
         },
         "sampleHome": 3,
@@ -617,6 +653,12 @@
           "combined": 0.5969447023139233,
           "confidence": "ok"
         },
+        "dc1x": {
+          "winLikelihood": 0.42284301079019826,
+          "bttsLikelihood": 0.6767643610308673,
+          "combined": 0.3223223241708446,
+          "confidence": "ok"
+        },
         "sampleHome": 8,
         "sampleAway": 8,
         "expectedGoals": {
@@ -701,6 +743,12 @@
           "winLikelihood": 0.6617449879590542,
           "bttsLikelihood": 0.64940932620244,
           "combined": 0.5568282532600758,
+          "confidence": "low"
+        },
+        "dc1x": {
+          "winLikelihood": 0.47312705180548087,
+          "bttsLikelihood": 0.64940932620244,
+          "combined": 0.3420263995543575,
           "confidence": "low"
         },
         "sampleHome": 8,
@@ -789,6 +837,12 @@
           "combined": 0.39894200019474335,
           "confidence": "low"
         },
+        "dc1x": {
+          "winLikelihood": 0.3292301683791421,
+          "bttsLikelihood": 0.4914999682985439,
+          "combined": 0.20756778067979903,
+          "confidence": "low"
+        },
         "sampleHome": 2,
         "sampleAway": 9,
         "expectedGoals": {
@@ -873,6 +927,12 @@
           "winLikelihood": 0.6543758786538146,
           "bttsLikelihood": 0.3722797655597288,
           "combined": 0.32275463148363626,
+          "confidence": "low"
+        },
+        "dc1x": {
+          "winLikelihood": 0.14593286131963412,
+          "bttsLikelihood": 0.3722797655597288,
+          "combined": 0.08910221772122855,
           "confidence": "low"
         },
         "sampleHome": 2,
@@ -962,6 +1022,12 @@
           "winLikelihood": 0.708357543904509,
           "bttsLikelihood": 0.7035319632200455,
           "combined": 0.6177950921822766,
+          "confidence": "low"
+        },
+        "dc1x": {
+          "winLikelihood": 0.5648301123825598,
+          "bttsLikelihood": 0.7035319632200455,
+          "combined": 0.4210578274786157,
           "confidence": "low"
         },
         "sampleHome": 3,
@@ -1056,6 +1122,12 @@
           "combined": 0.3757925155160916,
           "confidence": "ok"
         },
+        "dc1x": {
+          "winLikelihood": 0.3141851602748982,
+          "bttsLikelihood": 0.46683882401658455,
+          "combined": 0.1925041698702009,
+          "confidence": "ok"
+        },
         "sampleHome": 7,
         "sampleAway": 8,
         "expectedGoals": {
@@ -1148,6 +1220,12 @@
           "combined": 0.3998651761253628,
           "confidence": "ok"
         },
+        "dc1x": {
+          "winLikelihood": 0.36272007481115964,
+          "bttsLikelihood": 0.4988312838335072,
+          "combined": 0.22619475681179715,
+          "confidence": "ok"
+        },
         "sampleHome": 6,
         "sampleAway": 6,
         "expectedGoals": {
@@ -1235,6 +1313,12 @@
           "combined": 0.6301912994815386,
           "confidence": "low"
         },
+        "dc1x": {
+          "winLikelihood": 0.5890637154179116,
+          "bttsLikelihood": 0.7136556807373338,
+          "combined": 0.4410392081668465,
+          "confidence": "low"
+        },
         "sampleHome": 7,
         "sampleAway": 2,
         "expectedGoals": {
@@ -1320,6 +1404,12 @@
           "winLikelihood": 0.5563149379233981,
           "bttsLikelihood": 0.4029958928486972,
           "combined": 0.32819075144066995,
+          "confidence": "low"
+        },
+        "dc1x": {
+          "winLikelihood": 0.23717807120942505,
+          "bttsLikelihood": 0.4029958928486972,
+          "combined": 0.13864759354501077,
           "confidence": "low"
         },
         "sampleHome": 2,
@@ -1414,6 +1504,12 @@
           "combined": 0.44739938993229794,
           "confidence": "ok"
         },
+        "dc1x": {
+          "winLikelihood": 0.4600237672587002,
+          "bttsLikelihood": 0.5561274708453503,
+          "combined": 0.29562248438551014,
+          "confidence": "ok"
+        },
         "sampleHome": 8,
         "sampleAway": 7,
         "expectedGoals": {
@@ -1504,6 +1600,12 @@
           "winLikelihood": 0.5562812310407709,
           "bttsLikelihood": 0.5652744636369383,
           "combined": 0.4551137574416859,
+          "confidence": "ok"
+        },
+        "dc1x": {
+          "winLikelihood": 0.4819117203446394,
+          "bttsLikelihood": 0.5652744636369383,
+          "combined": 0.3103924580028697,
           "confidence": "ok"
         },
         "sampleHome": 8,
@@ -1598,6 +1700,12 @@
           "combined": 0.41490540119546643,
           "confidence": "ok"
         },
+        "dc1x": {
+          "winLikelihood": 0.4364595834606872,
+          "bttsLikelihood": 0.5244304360530363,
+          "combined": 0.2709148164417471,
+          "confidence": "ok"
+        },
         "sampleHome": 8,
         "sampleAway": 7,
         "expectedGoals": {
@@ -1688,6 +1796,12 @@
           "winLikelihood": 0.5911678512721793,
           "bttsLikelihood": 0.6056641012501197,
           "combined": 0.4980167294572913,
+          "confidence": "ok"
+        },
+        "dc1x": {
+          "winLikelihood": 0.5293840098165961,
+          "bttsLikelihood": 0.6056641012501197,
+          "combined": 0.35311686062700043,
           "confidence": "ok"
         },
         "sampleHome": 7,
@@ -1782,6 +1896,12 @@
           "combined": 0.5212601417581902,
           "confidence": "ok"
         },
+        "dc1x": {
+          "winLikelihood": 0.5968903949967225,
+          "bttsLikelihood": 0.6276229116228312,
+          "combined": 0.39942117637604696,
+          "confidence": "ok"
+        },
         "sampleHome": 7,
         "sampleAway": 8,
         "expectedGoals": {
@@ -1866,6 +1986,12 @@
           "winLikelihood": 0.5249969934097933,
           "bttsLikelihood": 0.5507699768099122,
           "combined": 0.4339078329537613,
+          "confidence": "low"
+        },
+        "dc1x": {
+          "winLikelihood": 0.5224938777574828,
+          "bttsLikelihood": 0.5507699768099122,
+          "combined": 0.32299372937976356,
           "confidence": "low"
         },
         "sampleHome": 2,
@@ -1955,6 +2081,12 @@
           "winLikelihood": 0.47433586535099015,
           "bttsLikelihood": 0.36884985077957116,
           "combined": 0.2834058682183322,
+          "confidence": "low"
+        },
+        "dc1x": {
+          "winLikelihood": 0.2798563324721878,
+          "bttsLikelihood": 0.36884985077957116,
+          "combined": 0.14681634376654215,
           "confidence": "low"
         },
         "sampleHome": 3,
@@ -2049,6 +2181,12 @@
           "combined": 0.5875854989583852,
           "confidence": "ok"
         },
+        "dc1x": {
+          "winLikelihood": 0.65546746328518,
+          "bttsLikelihood": 0.6798949018607655,
+          "combined": 0.46124060171089554,
+          "confidence": "ok"
+        },
         "sampleHome": 8,
         "sampleAway": 8,
         "expectedGoals": {
@@ -2138,6 +2276,12 @@
           "combined": 0.5841127996107771,
           "confidence": "low"
         },
+        "dc1x": {
+          "winLikelihood": 0.6559626315236299,
+          "bttsLikelihood": 0.6771590878499723,
+          "combined": 0.45987638916702783,
+          "confidence": "low"
+        },
         "sampleHome": 7,
         "sampleAway": 3,
         "expectedGoals": {
@@ -2224,6 +2368,12 @@
           "winLikelihood": 0.8033238405472112,
           "bttsLikelihood": 0.7692641165348151,
           "combined": 0.7080955532700997,
+          "confidence": "low"
+        },
+        "dc1x": {
+          "winLikelihood": 0.7127294823825702,
+          "bttsLikelihood": 0.7692641165348151,
+          "combined": 0.5529730556661377,
           "confidence": "low"
         },
         "sampleHome": 7,
@@ -2318,6 +2468,12 @@
           "combined": 0.47323603370176115,
           "confidence": "ok"
         },
+        "dc1x": {
+          "winLikelihood": 0.5955461371582497,
+          "bttsLikelihood": 0.588088768692743,
+          "combined": 0.3770062587852589,
+          "confidence": "ok"
+        },
         "sampleHome": 7,
         "sampleAway": 8,
         "expectedGoals": {
@@ -2404,6 +2560,12 @@
           "winLikelihood": 0.5700199068964261,
           "bttsLikelihood": 0.5982467986332674,
           "combined": 0.4851112549267201,
+          "confidence": "low"
+        },
+        "dc1x": {
+          "winLikelihood": 0.6175982690649353,
+          "bttsLikelihood": 0.5982467986332674,
+          "combined": 0.39342300611942965,
           "confidence": "low"
         },
         "sampleHome": 7,
@@ -2498,6 +2660,12 @@
           "combined": 0.5141248609766903,
           "confidence": "ok"
         },
+        "dc1x": {
+          "winLikelihood": 0.6481264457082512,
+          "bttsLikelihood": 0.6216670907632058,
+          "combined": 0.4223452695779275,
+          "confidence": "ok"
+        },
         "sampleHome": 8,
         "sampleAway": 7,
         "expectedGoals": {
@@ -2588,6 +2756,12 @@
           "winLikelihood": 0.5146110791257784,
           "bttsLikelihood": 0.5537080745624725,
           "combined": 0.432686012536128,
+          "confidence": "ok"
+        },
+        "dc1x": {
+          "winLikelihood": 0.5930185338676509,
+          "bttsLikelihood": 0.5537080745624725,
+          "combined": 0.3567308160837784,
           "confidence": "ok"
         },
         "sampleHome": 7,
@@ -2682,6 +2856,12 @@
           "combined": 0.5889075963876812,
           "confidence": "ok"
         },
+        "dc1x": {
+          "winLikelihood": 0.7211741885982741,
+          "bttsLikelihood": 0.6768194006899164,
+          "combined": 0.49641908583688255,
+          "confidence": "ok"
+        },
         "sampleHome": 8,
         "sampleAway": 7,
         "expectedGoals": {
@@ -2770,6 +2950,12 @@
           "combined": 0.5008346603602978,
           "confidence": "low"
         },
+        "dc1x": {
+          "winLikelihood": 0.6768768480131272,
+          "bttsLikelihood": 0.609802498108663,
+          "combined": 0.4294048145597734,
+          "confidence": "low"
+        },
         "sampleHome": 2,
         "sampleAway": 7,
         "expectedGoals": {
@@ -2856,6 +3042,12 @@
           "winLikelihood": 0.5651146761316225,
           "bttsLikelihood": 0.5922466748232794,
           "combined": 0.47881984654355675,
+          "confidence": "low"
+        },
+        "dc1x": {
+          "winLikelihood": 0.6656768738809905,
+          "bttsLikelihood": 0.5922466748232794,
+          "combined": 0.4129831625730944,
           "confidence": "low"
         },
         "sampleHome": 3,
@@ -2950,6 +3142,12 @@
           "combined": 0.44102329952891023,
           "confidence": "ok"
         },
+        "dc1x": {
+          "winLikelihood": 0.6444816328820602,
+          "bttsLikelihood": 0.5612107339056339,
+          "combined": 0.38414881472076257,
+          "confidence": "ok"
+        },
         "sampleHome": 7,
         "sampleAway": 7,
         "expectedGoals": {
@@ -3040,6 +3238,12 @@
           "winLikelihood": 0.3888215740129864,
           "bttsLikelihood": 0.4298073987131978,
           "combined": 0.30433086572684404,
+          "confidence": "ok"
+        },
+        "dc1x": {
+          "winLikelihood": 0.5016158848493638,
+          "bttsLikelihood": 0.4298073987131978,
+          "combined": 0.25414384506563775,
           "confidence": "ok"
         },
         "sampleHome": 7,
@@ -3134,6 +3338,12 @@
           "combined": 0.3730718186769094,
           "confidence": "ok"
         },
+        "dc1x": {
+          "winLikelihood": 0.6093929640445223,
+          "bttsLikelihood": 0.5018481862674058,
+          "combined": 0.33401303283608946,
+          "confidence": "ok"
+        },
         "sampleHome": 8,
         "sampleAway": 7,
         "expectedGoals": {
@@ -3218,6 +3428,12 @@
           "winLikelihood": 0.9794834357659395,
           "bttsLikelihood": 0.9280143276295676,
           "combined": 0.9212180236657002,
+          "confidence": "low"
+        },
+        "dc1x": {
+          "winLikelihood": 0.8252803929882305,
+          "bttsLikelihood": 0.9280143276295676,
+          "combined": 0.7623548793200683,
           "confidence": "low"
         },
         "sampleHome": 7,
@@ -3312,6 +3528,12 @@
           "combined": 0.3628871727520083,
           "confidence": "ok"
         },
+        "dc1x": {
+          "winLikelihood": 0.6218350151091989,
+          "bttsLikelihood": 0.4929097659405627,
+          "combined": 0.33359247689625515,
+          "confidence": "ok"
+        },
         "sampleHome": 8,
         "sampleAway": 7,
         "expectedGoals": {
@@ -3402,6 +3624,12 @@
           "winLikelihood": 0.6010487577803024,
           "bttsLikelihood": 0.6094246276968756,
           "combined": 0.5042846465506263,
+          "confidence": "ok"
+        },
+        "dc1x": {
+          "winLikelihood": 0.7207484814127965,
+          "bttsLikelihood": 0.6094246276968756,
+          "combined": 0.4507068477347719,
           "confidence": "ok"
         },
         "sampleHome": 8,
@@ -3496,6 +3724,12 @@
           "combined": 0.35198994591335914,
           "confidence": "ok"
         },
+        "dc1x": {
+          "winLikelihood": 0.6131447017770648,
+          "bttsLikelihood": 0.4828347538173073,
+          "combined": 0.3242651008070234,
+          "confidence": "ok"
+        },
         "sampleHome": 8,
         "sampleAway": 7,
         "expectedGoals": {
@@ -3586,6 +3820,12 @@
           "winLikelihood": 0.4581602423050173,
           "bttsLikelihood": 0.5102132123214062,
           "combined": 0.3822778526353518,
+          "confidence": "ok"
+        },
+        "dc1x": {
+          "winLikelihood": 0.653213959050488,
+          "bttsLikelihood": 0.5102132123214062,
+          "combined": 0.35645888453992414,
           "confidence": "ok"
         },
         "sampleHome": 7,
@@ -3680,6 +3920,12 @@
           "combined": 0.336074721872723,
           "confidence": "ok"
         },
+        "dc1x": {
+          "winLikelihood": 0.6171676840283641,
+          "bttsLikelihood": 0.46826444573778664,
+          "combined": 0.31706482373193395,
+          "confidence": "ok"
+        },
         "sampleHome": 8,
         "sampleAway": 6,
         "expectedGoals": {
@@ -3770,6 +4016,12 @@
           "winLikelihood": 0.31252401131866275,
           "bttsLikelihood": 0.3375827046924021,
           "combined": 0.22184391352378285,
+          "confidence": "ok"
+        },
+        "dc1x": {
+          "winLikelihood": 0.449927755298553,
+          "bttsLikelihood": 0.3375827046924021,
+          "combined": 0.1913440963278622,
           "confidence": "ok"
         },
         "sampleHome": 7,
@@ -3864,6 +4116,12 @@
           "combined": 0.36603931460524597,
           "confidence": "ok"
         },
+        "dc1x": {
+          "winLikelihood": 0.6593789257923476,
+          "bttsLikelihood": 0.49562638855026514,
+          "combined": 0.3496933822727006,
+          "confidence": "ok"
+        },
         "sampleHome": 7,
         "sampleAway": 6,
         "expectedGoals": {
@@ -3954,6 +4212,12 @@
           "winLikelihood": 0.6378936207515761,
           "bttsLikelihood": 0.6242699288246023,
           "combined": 0.5283843850803254,
+          "confidence": "ok"
+        },
+        "dc1x": {
+          "winLikelihood": 0.7598938031202208,
+          "bttsLikelihood": 0.6242699288246023,
+          "combined": 0.48062786606475244,
           "confidence": "ok"
         },
         "sampleHome": 8,
@@ -4048,6 +4312,12 @@
           "combined": 0.6012615012170084,
           "confidence": "ok"
         },
+        "dc1x": {
+          "winLikelihood": 0.7948084792352103,
+          "bttsLikelihood": 0.6767715006441186,
+          "combined": 0.5383097411475464,
+          "confidence": "ok"
+        },
         "sampleHome": 6,
         "sampleAway": 7,
         "expectedGoals": {
@@ -4138,6 +4408,12 @@
           "winLikelihood": 0.3691047144544716,
           "bttsLikelihood": 0.4379552685370057,
           "combined": 0.30364344224239315,
+          "confidence": "ok"
+        },
+        "dc1x": {
+          "winLikelihood": 0.6313761737937535,
+          "bttsLikelihood": 0.4379552685370057,
+          "combined": 0.3035293344817677,
           "confidence": "ok"
         },
         "sampleHome": 8,
@@ -4232,6 +4508,12 @@
           "combined": 0.30923789720529987,
           "confidence": "ok"
         },
+        "dc1x": {
+          "winLikelihood": 0.6420752139518306,
+          "bttsLikelihood": 0.4433920666186927,
+          "combined": 0.3105236595178731,
+          "confidence": "ok"
+        },
         "sampleHome": 8,
         "sampleAway": 8,
         "expectedGoals": {
@@ -4322,6 +4604,12 @@
           "winLikelihood": 0.5487500455737637,
           "bttsLikelihood": 0.5611076160352928,
           "combined": 0.4494771990745255,
+          "confidence": "ok"
+        },
+        "dc1x": {
+          "winLikelihood": 0.7485300897193667,
+          "bttsLikelihood": 0.5611076160352928,
+          "combined": 0.43014979379566126,
           "confidence": "ok"
         },
         "sampleHome": 8,
@@ -4416,6 +4704,12 @@
           "combined": 0.214391339756975,
           "confidence": "ok"
         },
+        "dc1x": {
+          "winLikelihood": 0.505274285781665,
+          "bttsLikelihood": 0.33719153270480606,
+          "combined": 0.20676529414908718,
+          "confidence": "ok"
+        },
         "sampleHome": 8,
         "sampleAway": 7,
         "expectedGoals": {
@@ -4506,6 +4800,12 @@
           "winLikelihood": 0.29577308168441335,
           "bttsLikelihood": 0.3581846309126366,
           "combined": 0.22994477675292746,
+          "confidence": "ok"
+        },
+        "dc1x": {
+          "winLikelihood": 0.5417465015138895,
+          "bttsLikelihood": 0.3581846309126366,
+          "combined": 0.22858079219936728,
           "confidence": "ok"
         },
         "sampleHome": 8,
@@ -4600,6 +4900,12 @@
           "combined": 0.2952306630261184,
           "confidence": "ok"
         },
+        "dc1x": {
+          "winLikelihood": 0.649617180583043,
+          "bttsLikelihood": 0.42999555441927084,
+          "combined": 0.3045332973497484,
+          "confidence": "ok"
+        },
         "sampleHome": 7,
         "sampleAway": 7,
         "expectedGoals": {
@@ -4687,6 +4993,12 @@
           "winLikelihood": 0.49814613532170166,
           "bttsLikelihood": 0.5260832062215237,
           "combined": 0.4067979109744779,
+          "confidence": "low"
+        },
+        "dc1x": {
+          "winLikelihood": 0.7387884345262935,
+          "bttsLikelihood": 0.5260832062215237,
+          "combined": 0.4012695312962373,
           "confidence": "low"
         },
         "sampleHome": 3,
@@ -4781,6 +5093,12 @@
           "combined": 0.2824906466835433,
           "confidence": "ok"
         },
+        "dc1x": {
+          "winLikelihood": 0.6389371650498785,
+          "bttsLikelihood": 0.4175569516540629,
+          "combined": 0.2932093776456415,
+          "confidence": "ok"
+        },
         "sampleHome": 7,
         "sampleAway": 8,
         "expectedGoals": {
@@ -4871,6 +5189,12 @@
           "winLikelihood": 0.46012343503169945,
           "bttsLikelihood": 0.501507527407571,
           "combined": 0.3766815607640673,
+          "confidence": "ok"
+        },
+        "dc1x": {
+          "winLikelihood": 0.7229729956892494,
+          "bttsLikelihood": 0.501507527407571,
+          "combined": 0.37788911424236327,
           "confidence": "ok"
         },
         "sampleHome": 7,
@@ -4965,6 +5289,12 @@
           "combined": 0.2959896832868716,
           "confidence": "ok"
         },
+        "dc1x": {
+          "winLikelihood": 0.6733494366391911,
+          "bttsLikelihood": 0.430412934295325,
+          "combined": 0.3124761904498611,
+          "confidence": "ok"
+        },
         "sampleHome": 7,
         "sampleAway": 7,
         "expectedGoals": {
@@ -5055,6 +5385,12 @@
           "winLikelihood": 0.3867037824962085,
           "bttsLikelihood": 0.4485412915368165,
           "combined": 0.3163354243630138,
+          "confidence": "ok"
+        },
+        "dc1x": {
+          "winLikelihood": 0.7001941373847603,
+          "bttsLikelihood": 0.4485412915368165,
+          "combined": 0.33342584887957877,
           "confidence": "ok"
         },
         "sampleHome": 7,
@@ -5149,6 +5485,12 @@
           "combined": 0.455632246135028,
           "confidence": "ok"
         },
+        "dc1x": {
+          "winLikelihood": 0.7867156817299377,
+          "bttsLikelihood": 0.5602738782186865,
+          "combined": 0.4464718331018629,
+          "confidence": "ok"
+        },
         "sampleHome": 7,
         "sampleAway": 8,
         "expectedGoals": {
@@ -5235,6 +5577,12 @@
           "winLikelihood": 0.5727723126766365,
           "bttsLikelihood": 0.5552249070871457,
           "combined": 0.4525408457256628,
+          "confidence": "low"
+        },
+        "dc1x": {
+          "winLikelihood": 0.7993491144280324,
+          "bttsLikelihood": 0.5552249070871457,
+          "combined": 0.4482648853660423,
           "confidence": "low"
         },
         "sampleHome": 8,
@@ -5329,6 +5677,12 @@
           "combined": 0.24420429414939782,
           "confidence": "ok"
         },
+        "dc1x": {
+          "winLikelihood": 0.6744184043976966,
+          "bttsLikelihood": 0.37914976812096135,
+          "combined": 0.2786617415476363,
+          "confidence": "ok"
+        },
         "sampleHome": 6,
         "sampleAway": 7,
         "expectedGoals": {
@@ -5419,6 +5773,12 @@
           "winLikelihood": 0.26194207405509606,
           "bttsLikelihood": 0.34515195974350643,
           "combined": 0.21182139784536394,
+          "confidence": "ok"
+        },
+        "dc1x": {
+          "winLikelihood": 0.6515425383861458,
+          "bttsLikelihood": 0.34515195974350643,
+          "combined": 0.24991582867501416,
           "confidence": "ok"
         },
         "sampleHome": 7,
@@ -5513,6 +5873,12 @@
           "combined": 0.23418403051014053,
           "confidence": "ok"
         },
+        "dc1x": {
+          "winLikelihood": 0.6888131561193334,
+          "bttsLikelihood": 0.3685133928089492,
+          "combined": 0.2753461544310707,
+          "confidence": "ok"
+        },
         "sampleHome": 8,
         "sampleAway": 8,
         "expectedGoals": {
@@ -5597,6 +5963,12 @@
           "winLikelihood": 0.2025385831082267,
           "bttsLikelihood": 0.23706875766097632,
           "combined": 0.13380990415010702,
+          "confidence": "low"
+        },
+        "dc1x": {
+          "winLikelihood": 0.47494645133816116,
+          "bttsLikelihood": 0.23706875766097632,
+          "combined": 0.1447967065051625,
           "confidence": "low"
         },
         "sampleHome": 7,
@@ -5691,6 +6063,12 @@
           "combined": 0.5926941990815155,
           "confidence": "ok"
         },
+        "dc1x": {
+          "winLikelihood": 0.8791546124185327,
+          "bttsLikelihood": 0.6496189524534298,
+          "combined": 0.5654580775455729,
+          "confidence": "ok"
+        },
         "sampleHome": 7,
         "sampleAway": 7,
         "expectedGoals": {
@@ -5781,6 +6159,12 @@
           "winLikelihood": 0.37945774744519156,
           "bttsLikelihood": 0.12150494080726232,
           "combined": 0.08757433899968431,
+          "confidence": "ok"
+        },
+        "dc1x": {
+          "winLikelihood": 0.1671534474381495,
+          "bttsLikelihood": 0.12150494080726232,
+          "combined": 0.03945738430105516,
           "confidence": "ok"
         },
         "sampleHome": 7,
@@ -5875,6 +6259,12 @@
           "combined": 0.580494590821423,
           "confidence": "ok"
         },
+        "dc1x": {
+          "winLikelihood": 0.8802866124449895,
+          "bttsLikelihood": 0.6391897576325775,
+          "combined": 0.5571687859145733,
+          "confidence": "ok"
+        },
         "sampleHome": 8,
         "sampleAway": 7,
         "expectedGoals": {
@@ -5965,6 +6355,12 @@
           "winLikelihood": 0.4753658655150093,
           "bttsLikelihood": 0.468364641855099,
           "combined": 0.3573183918186042,
+          "confidence": "ok"
+        },
+        "dc1x": {
+          "winLikelihood": 0.820526758480179,
+          "bttsLikelihood": 0.468364641855099,
+          "combined": 0.389300142881616,
           "confidence": "ok"
         },
         "sampleHome": 8,
@@ -6059,6 +6455,12 @@
           "combined": 0.3160580852795561,
           "confidence": "ok"
         },
+        "dc1x": {
+          "winLikelihood": 0.8067315239130685,
+          "bttsLikelihood": 0.43430048428801515,
+          "combined": 0.35788223287856546,
+          "confidence": "ok"
+        },
         "sampleHome": 7,
         "sampleAway": 7,
         "expectedGoals": {
@@ -6149,6 +6551,12 @@
           "winLikelihood": 0.442740305614845,
           "bttsLikelihood": 0.44636886973155543,
           "combined": 0.33188427459217285,
+          "confidence": "ok"
+        },
+        "dc1x": {
+          "winLikelihood": 0.8171405946598725,
+          "bttsLikelihood": 0.44636886973155543,
+          "combined": 0.370769131091654,
           "confidence": "ok"
         },
         "sampleHome": 7,
@@ -6243,6 +6651,12 @@
           "combined": 0.3270948364685354,
           "confidence": "ok"
         },
+        "dc1x": {
+          "winLikelihood": 0.8183862270548815,
+          "bttsLikelihood": 0.44172088119217257,
+          "combined": 0.36751688423962553,
+          "confidence": "ok"
+        },
         "sampleHome": 8,
         "sampleAway": 7,
         "expectedGoals": {
@@ -6333,6 +6747,12 @@
           "winLikelihood": 0.3902282053659784,
           "bttsLikelihood": 0.41522356994286397,
           "combined": 0.29483318819853443,
+          "confidence": "ok"
+        },
+        "dc1x": {
+          "winLikelihood": 0.8037722173529109,
+          "bttsLikelihood": 0.41522356994286397,
+          "combined": 0.3420896573358107,
           "confidence": "ok"
         },
         "sampleHome": 7,
@@ -6427,6 +6847,12 @@
           "combined": 0.48321223005339287,
           "confidence": "ok"
         },
+        "dc1x": {
+          "winLikelihood": 0.8758938160493615,
+          "bttsLikelihood": 0.5597056733507365,
+          "combined": 0.48701923934460967,
+          "confidence": "ok"
+        },
         "sampleHome": 8,
         "sampleAway": 7,
         "expectedGoals": {
@@ -6509,6 +6935,12 @@
           "winLikelihood": 0.1705996331800159,
           "bttsLikelihood": 0.25716269832598276,
           "combined": 0.13570934574945434,
+          "confidence": "low"
+        },
+        "dc1x": {
+          "winLikelihood": 0.6711759720154707,
+          "bttsLikelihood": 0.25716269832598276,
+          "combined": 0.19400689562817006,
           "confidence": "low"
         },
         "sampleHome": 3,
@@ -6603,6 +7035,12 @@
           "combined": 0.5113779262434758,
           "confidence": "ok"
         },
+        "dc1x": {
+          "winLikelihood": 0.9119748360737594,
+          "bttsLikelihood": 0.5689571674602588,
+          "combined": 0.5132373416060467,
+          "confidence": "ok"
+        },
         "sampleHome": 6,
         "sampleAway": 8,
         "expectedGoals": {
@@ -6693,6 +7131,12 @@
           "winLikelihood": 0.5717668064923684,
           "bttsLikelihood": 0.4685967023157965,
           "combined": 0.3839781919023518,
+          "confidence": "ok"
+        },
+        "dc1x": {
+          "winLikelihood": 0.8906212682517693,
+          "bttsLikelihood": 0.4685967023157965,
+          "combined": 0.4154572301764326,
           "confidence": "ok"
         },
         "sampleHome": 8,
@@ -6787,6 +7231,12 @@
           "combined": 0.061981063492930755,
           "confidence": "ok"
         },
+        "dc1x": {
+          "winLikelihood": 0.458029851863016,
+          "bttsLikelihood": 0.13014958917729474,
+          "combined": 0.08114201141667444,
+          "confidence": "ok"
+        },
         "sampleHome": 8,
         "sampleAway": 6,
         "expectedGoals": {
@@ -6872,6 +7322,12 @@
           "winLikelihood": 0.6484684139786361,
           "bttsLikelihood": 0.4936020848811617,
           "combined": 0.423834723958838,
+          "confidence": "low"
+        },
+        "dc1x": {
+          "winLikelihood": 0.9117977064348649,
+          "bttsLikelihood": 0.4936020848811617,
+          "combined": 0.44607003832602465,
           "confidence": "low"
         },
         "sampleHome": 7,
@@ -6966,6 +7422,12 @@
           "combined": 0.09683498832291891,
           "confidence": "ok"
         },
+        "dc1x": {
+          "winLikelihood": 0.6885001138931237,
+          "bttsLikelihood": 0.2057566939567553,
+          "combined": 0.1597620552790212,
+          "confidence": "ok"
+        },
         "sampleHome": 7,
         "sampleAway": 7,
         "expectedGoals": {
@@ -7053,6 +7515,12 @@
           "winLikelihood": 0.5920561310386895,
           "bttsLikelihood": 0.45558572172114975,
           "combined": 0.3786594535550245,
+          "confidence": "low"
+        },
+        "dc1x": {
+          "winLikelihood": 0.9084909176465198,
+          "bttsLikelihood": 0.45558572172114975,
+          "combined": 0.4110259701965712,
           "confidence": "low"
         },
         "sampleHome": 7,
@@ -7147,6 +7615,12 @@
           "combined": 0.10622536302897101,
           "confidence": "ok"
         },
+        "dc1x": {
+          "winLikelihood": 0.7379057743932939,
+          "bttsLikelihood": 0.21831874641930013,
+          "combined": 0.1761954648142381,
+          "confidence": "ok"
+        },
         "sampleHome": 7,
         "sampleAway": 7,
         "expectedGoals": {
@@ -7230,6 +7704,12 @@
           "winLikelihood": 0.12753169393881766,
           "bttsLikelihood": 0.09208494671362731,
           "combined": 0.04474074807767689,
+          "confidence": "low"
+        },
+        "dc1x": {
+          "winLikelihood": 0.39204382247891795,
+          "bttsLikelihood": 0.09208494671362731,
+          "combined": 0.05313657117439039,
           "confidence": "low"
         },
         "sampleHome": 1,
@@ -7324,6 +7804,12 @@
           "combined": 0.33402235596655727,
           "confidence": "ok"
         },
+        "dc1x": {
+          "winLikelihood": 0.9203805788035576,
+          "bttsLikelihood": 0.40925133234121447,
+          "combined": 0.37414255203273417,
+          "confidence": "ok"
+        },
         "sampleHome": 8,
         "sampleAway": 8,
         "expectedGoals": {
@@ -7416,6 +7902,12 @@
           "combined": 0.05089667651878022,
           "confidence": "ok"
         },
+        "dc1x": {
+          "winLikelihood": 0.7250381342632142,
+          "bttsLikelihood": 0.13450871301183284,
+          "combined": 0.10966904974523374,
+          "confidence": "ok"
+        },
         "sampleHome": 7,
         "sampleAway": 7,
         "expectedGoals": {
@@ -7501,6 +7993,12 @@
           "winLikelihood": 0.1556534312278827,
           "bttsLikelihood": 0.18880649716365913,
           "combined": 0.09726012964364857,
+          "confidence": "low"
+        },
+        "dc1x": {
+          "winLikelihood": 0.8706546752195499,
+          "bttsLikelihood": 0.18880649716365913,
+          "combined": 0.16937622057024132,
           "confidence": "low"
         },
         "sampleHome": 2,
@@ -7595,6 +8093,12 @@
           "combined": 0.17662588536565085,
           "confidence": "ok"
         },
+        "dc1x": {
+          "winLikelihood": 0.9232542368561235,
+          "bttsLikelihood": 0.25708148943767406,
+          "combined": 0.23788567589700038,
+          "confidence": "ok"
+        },
         "sampleHome": 7,
         "sampleAway": 8,
         "expectedGoals": {
@@ -7687,6 +8191,12 @@
           "combined": 0.2567848789796337,
           "confidence": "ok"
         },
+        "dc1x": {
+          "winLikelihood": 0.9526057493299052,
+          "bttsLikelihood": 0.31591382733443557,
+          "combined": 0.2987334759342186,
+          "confidence": "ok"
+        },
         "sampleHome": 7,
         "sampleAway": 7,
         "expectedGoals": {
@@ -7775,6 +8285,12 @@
           "combined": 0.23436214359000807,
           "confidence": "low"
         },
+        "dc1x": {
+          "winLikelihood": 0.9518693675131903,
+          "bttsLikelihood": 0.29511842965665847,
+          "combined": 0.27911009698338207,
+          "confidence": "low"
+        },
         "sampleHome": 3,
         "sampleAway": 7,
         "expectedGoals": {
@@ -7860,6 +8376,12 @@
           "winLikelihood": 0.4099266530788865,
           "bttsLikelihood": 0.2528775883020163,
           "combined": 0.18558330745651433,
+          "confidence": "low"
+        },
+        "dc1x": {
+          "winLikelihood": 0.9445270506874254,
+          "bttsLikelihood": 0.2528775883020163,
+          "combined": 0.23815174211401768,
           "confidence": "low"
         },
         "sampleHome": 3,
@@ -7954,6 +8476,12 @@
           "combined": 0.1361487520471755,
           "confidence": "ok"
         },
+        "dc1x": {
+          "winLikelihood": 0.9321023226782537,
+          "bttsLikelihood": 0.20956577650116234,
+          "combined": 0.19605170024364912,
+          "confidence": "ok"
+        },
         "sampleHome": 6,
         "sampleAway": 8,
         "expectedGoals": {
@@ -8046,6 +8574,12 @@
           "combined": 0.1453086077319127,
           "confidence": "ok"
         },
+        "dc1x": {
+          "winLikelihood": 0.9471353730961485,
+          "bttsLikelihood": 0.20986212860148906,
+          "combined": 0.19862763188411828,
+          "confidence": "ok"
+        },
         "sampleHome": 8,
         "sampleAway": 7,
         "expectedGoals": {
@@ -8132,6 +8666,12 @@
           "winLikelihood": 0.2645989964112187,
           "bttsLikelihood": 0.16429500994281757,
           "combined": 0.1033251113594836,
+          "confidence": "low"
+        },
+        "dc1x": {
+          "winLikelihood": 0.9474292439347387,
+          "bttsLikelihood": 0.16429500994281757,
+          "combined": 0.15609843060537043,
           "confidence": "low"
         },
         "sampleHome": 8,
@@ -8226,6 +8766,12 @@
           "combined": 0.14566986964090586,
           "confidence": "ok"
         },
+        "dc1x": {
+          "winLikelihood": 0.9635042421613864,
+          "bttsLikelihood": 0.19753633137531876,
+          "combined": 0.18962705441418795,
+          "confidence": "ok"
+        },
         "sampleHome": 7,
         "sampleAway": 7,
         "expectedGoals": {
@@ -8318,6 +8864,12 @@
           "combined": 0.20065606739828898,
           "confidence": "ok"
         },
+        "dc1x": {
+          "winLikelihood": 0.9756322297241774,
+          "bttsLikelihood": 0.24022059392833708,
+          "combined": 0.23279684800871064,
+          "confidence": "ok"
+        },
         "sampleHome": 7,
         "sampleAway": 8,
         "expectedGoals": {
@@ -8404,6 +8956,12 @@
           "combined": 0.059232863215232225,
           "confidence": "low"
         },
+        "dc1x": {
+          "winLikelihood": 0.9611513210511933,
+          "bttsLikelihood": 0.10410591880803852,
+          "combined": 0.10044334707706849,
+          "confidence": "low"
+        },
         "sampleHome": 7,
         "sampleAway": 2,
         "expectedGoals": {
@@ -8480,6 +9038,12 @@
           "winLikelihood": 0.0035994931830894716,
           "bttsLikelihood": 0.019402267831602257,
           "combined": 0.0027338578662636005,
+          "confidence": "low"
+        },
+        "dc1x": {
+          "winLikelihood": 0.8787903125912745,
+          "bttsLikelihood": 0.019402267831602257,
+          "combined": 0.01808233616621612,
           "confidence": "low"
         },
         "sampleHome": 1,
@@ -8574,6 +9138,12 @@
           "winLikelihood": 0.7079077644763265,
           "bttsLikelihood": 0.6170668189637564,
           "combined": 0.5444344477849138,
+          "confidence": "ok"
+        },
+        "dc1x": {
+          "winLikelihood": 0.8558446565140032,
+          "bttsLikelihood": 0.6170668189637564,
+          "combined": 0.5248784544726408,
           "confidence": "ok"
         },
         "sampleHome": 7,
@@ -8678,6 +9248,12 @@
           "combined": 0.21594325332362616,
           "confidence": "ok"
         },
+        "dc1x": {
+          "winLikelihood": 0.9056850694042594,
+          "bttsLikelihood": 0.3057989728018038,
+          "combined": 0.2778551198205648,
+          "confidence": "ok"
+        },
         "sampleHome": 6,
         "sampleAway": 7,
         "expectedGoals": {
@@ -8780,6 +9356,12 @@
           "combined": 0.2692457072206725,
           "confidence": "ok"
         },
+        "dc1x": {
+          "winLikelihood": 0.7206871890089369,
+          "bttsLikelihood": 0.4021380286360622,
+          "combined": 0.30768384479681987,
+          "confidence": "ok"
+        },
         "sampleHome": 7,
         "sampleAway": 7,
         "expectedGoals": {
@@ -8874,6 +9456,12 @@
           "winLikelihood": 0.7499405915451565,
           "bttsLikelihood": 0.7377981285928767,
           "combined": 0.6616232573457117,
+          "confidence": "low"
+        },
+        "dc1x": {
+          "winLikelihood": 0.6233134820377432,
+          "bttsLikelihood": 0.7377981285928767,
+          "combined": 0.4754974220705619,
           "confidence": "low"
         },
         "sampleHome": 1,
@@ -8978,6 +9566,12 @@
           "combined": 0.4389700918502855,
           "confidence": "ok"
         },
+        "dc1x": {
+          "winLikelihood": 0.8265555908427926,
+          "bttsLikelihood": 0.5375397677173083,
+          "combined": 0.446396103059951,
+          "confidence": "ok"
+        },
         "sampleHome": 5,
         "sampleAway": 7,
         "expectedGoals": {
@@ -9078,6 +9672,12 @@
           "winLikelihood": 0.43065500421005043,
           "bttsLikelihood": 0.47073091833098074,
           "combined": 0.3454860593065801,
+          "confidence": "ok"
+        },
+        "dc1x": {
+          "winLikelihood": 0.5164734750823362,
+          "bttsLikelihood": 0.47073091833098074,
+          "combined": 0.2804695972558651,
           "confidence": "ok"
         },
         "sampleHome": 7,
@@ -9182,6 +9782,12 @@
           "combined": 0.49826900311929245,
           "confidence": "ok"
         },
+        "dc1x": {
+          "winLikelihood": 0.9852421430682092,
+          "bttsLikelihood": 0.5095006914259101,
+          "combined": 0.500239046218888,
+          "confidence": "ok"
+        },
         "sampleHome": 6,
         "sampleAway": 7,
         "expectedGoals": {
@@ -9282,6 +9888,12 @@
           "winLikelihood": 0.8048754242266595,
           "bttsLikelihood": 0.6501061927001313,
           "combined": 0.6019959808515037,
+          "confidence": "ok"
+        },
+        "dc1x": {
+          "winLikelihood": 0.9006715999344799,
+          "bttsLikelihood": 0.6501061927001313,
+          "combined": 0.5788918239613102,
           "confidence": "ok"
         },
         "sampleHome": 7,
@@ -9386,6 +9998,12 @@
           "combined": 0.2707206047338744,
           "confidence": "ok"
         },
+        "dc1x": {
+          "winLikelihood": 0.8073770071724566,
+          "bttsLikelihood": 0.39158173294590826,
+          "combined": 0.32465887572649016,
+          "confidence": "ok"
+        },
         "sampleHome": 7,
         "sampleAway": 7,
         "expectedGoals": {
@@ -9488,6 +10106,12 @@
           "combined": 0.5298224416647804,
           "confidence": "ok"
         },
+        "dc1x": {
+          "winLikelihood": 0.4373071535656521,
+          "bttsLikelihood": 0.6233908824113943,
+          "combined": 0.31106779116829664,
+          "confidence": "ok"
+        },
         "sampleHome": 7,
         "sampleAway": 6,
         "expectedGoals": {
@@ -9585,6 +10209,12 @@
           "combined": 0.4868727788920747,
           "confidence": "low"
         },
+        "dc1x": {
+          "winLikelihood": 0.7821480979437315,
+          "bttsLikelihood": 0.5869847014222811,
+          "combined": 0.46431427104633227,
+          "confidence": "low"
+        },
         "sampleHome": 2,
         "sampleAway": 7,
         "expectedGoals": {
@@ -9680,6 +10310,12 @@
           "winLikelihood": 0.04838539568331538,
           "bttsLikelihood": 0.11016081429256222,
           "combined": 0.03755308134339439,
+          "confidence": "low"
+        },
+        "dc1x": {
+          "winLikelihood": 0.7625009083018397,
+          "bttsLikelihood": 0.11016081429256222,
+          "combined": 0.09299145794604533,
           "confidence": "low"
         },
         "sampleHome": 2,
@@ -9784,6 +10420,12 @@
           "combined": 0.03246755207605907,
           "confidence": "ok"
         },
+        "dc1x": {
+          "winLikelihood": 0.9362431184236083,
+          "bttsLikelihood": 0.07930830289148859,
+          "combined": 0.075535142005373,
+          "confidence": "ok"
+        },
         "sampleHome": 7,
         "sampleAway": 6,
         "expectedGoals": {
@@ -9879,6 +10521,12 @@
           "winLikelihood": 0.7432446799891943,
           "bttsLikelihood": 0.3996261112302003,
           "combined": 0.36259161387200806,
+          "confidence": "low"
+        },
+        "dc1x": {
+          "winLikelihood": 0.9694328941344315,
+          "bttsLikelihood": 0.3996261112302003,
+          "combined": 0.38376053669067495,
           "confidence": "low"
         },
         "sampleHome": 6,
@@ -9983,6 +10631,12 @@
           "combined": 0.507101705663468,
           "confidence": "ok"
         },
+        "dc1x": {
+          "winLikelihood": 0.7522980079571181,
+          "bttsLikelihood": 0.608106460989784,
+          "combined": 0.4652796248619917,
+          "confidence": "ok"
+        },
         "sampleHome": 6,
         "sampleAway": 6,
         "expectedGoals": {
@@ -10078,6 +10732,12 @@
           "winLikelihood": 0.4820849779327521,
           "bttsLikelihood": 0.48898094908880346,
           "combined": 0.37444621118547045,
+          "confidence": "low"
+        },
+        "dc1x": {
+          "winLikelihood": 0.7960540686053277,
+          "bttsLikelihood": 0.48898094908880346,
+          "combined": 0.3963582420568395,
           "confidence": "low"
         },
         "sampleHome": 2,
@@ -10182,6 +10842,12 @@
           "combined": 0.2984141271818227,
           "confidence": "ok"
         },
+        "dc1x": {
+          "winLikelihood": 0.4658831175303224,
+          "bttsLikelihood": 0.4194342291433959,
+          "combined": 0.23621117555781132,
+          "confidence": "ok"
+        },
         "sampleHome": 6,
         "sampleAway": 7,
         "expectedGoals": {
@@ -10278,6 +10944,12 @@
           "winLikelihood": 0.2544004000187113,
           "bttsLikelihood": 0.3082323022291431,
           "combined": 0.1879098631834637,
+          "confidence": "low"
+        },
+        "dc1x": {
+          "winLikelihood": 0.5123650202533436,
+          "bttsLikelihood": 0.3082323022291431,
+          "combined": 0.19268682649695792,
           "confidence": "low"
         },
         "sampleHome": 5,
@@ -10382,6 +11054,12 @@
           "combined": 0.42175542839205404,
           "confidence": "ok"
         },
+        "dc1x": {
+          "winLikelihood": 0.829599730555243,
+          "bttsLikelihood": 0.5221147888301066,
+          "combined": 0.43542932709275595,
+          "confidence": "ok"
+        },
         "sampleHome": 7,
         "sampleAway": 7,
         "expectedGoals": {
@@ -10484,6 +11162,12 @@
           "combined": 0.5115341033493069,
           "confidence": "ok"
         },
+        "dc1x": {
+          "winLikelihood": 0.7380626121653271,
+          "bttsLikelihood": 0.6134730419402291,
+          "combined": 0.4620242735888771,
+          "confidence": "ok"
+        },
         "sampleHome": 8,
         "sampleAway": 6,
         "expectedGoals": {
@@ -10579,6 +11263,12 @@
           "winLikelihood": 0.5664761060348715,
           "bttsLikelihood": 0.5470896503941516,
           "combined": 0.444240935811802,
+          "confidence": "low"
+        },
+        "dc1x": {
+          "winLikelihood": 0.8048888946995626,
+          "bttsLikelihood": 0.5470896503941516,
+          "combined": 0.44446432536322744,
           "confidence": "low"
         },
         "sampleHome": 7,
@@ -10683,6 +11373,12 @@
           "combined": 0.38043380211672506,
           "confidence": "ok"
         },
+        "dc1x": {
+          "winLikelihood": 0.7914429301849293,
+          "bttsLikelihood": 0.49514208258928233,
+          "combined": 0.39931090337034325,
+          "confidence": "ok"
+        },
         "sampleHome": 7,
         "sampleAway": 6,
         "expectedGoals": {
@@ -10785,6 +11481,12 @@
           "combined": 0.3169032029857428,
           "confidence": "ok"
         },
+        "dc1x": {
+          "winLikelihood": 0.7734145897641072,
+          "bttsLikelihood": 0.44130899462346723,
+          "combined": 0.35242768158916354,
+          "confidence": "ok"
+        },
         "sampleHome": 7,
         "sampleAway": 7,
         "expectedGoals": {
@@ -10880,6 +11582,12 @@
           "winLikelihood": 0.4783171250473974,
           "bttsLikelihood": 0.4846686778780929,
           "combined": 0.3701428037760523,
+          "confidence": "low"
+        },
+        "dc1x": {
+          "winLikelihood": 0.44282965618692316,
+          "bttsLikelihood": 0.4846686778780929,
+          "combined": 0.25687324676340584,
           "confidence": "low"
         },
         "sampleHome": 7,
@@ -10984,6 +11692,12 @@
           "combined": 0.07652601981838944,
           "confidence": "ok"
         },
+        "dc1x": {
+          "winLikelihood": 0.8395433606658839,
+          "bttsLikelihood": 0.16784352735059466,
+          "combined": 0.1478265695395965,
+          "confidence": "ok"
+        },
         "sampleHome": 7,
         "sampleAway": 6,
         "expectedGoals": {
@@ -11084,6 +11798,12 @@
           "winLikelihood": 0.9565052240124122,
           "bttsLikelihood": 0.8943829218016923,
           "combined": 0.8795279084915817,
+          "confidence": "ok"
+        },
+        "dc1x": {
+          "winLikelihood": 0.80766028455905,
+          "bttsLikelihood": 0.8943829218016923,
+          "combined": 0.717628826721663,
           "confidence": "ok"
         },
         "sampleHome": 5,
@@ -11188,6 +11908,12 @@
           "combined": 0.6268931226129782,
           "confidence": "ok"
         },
+        "dc1x": {
+          "winLikelihood": 0.7177711388245885,
+          "bttsLikelihood": 0.7066868901676213,
+          "combined": 0.5144880758812974,
+          "confidence": "ok"
+        },
         "sampleHome": 7,
         "sampleAway": 7,
         "expectedGoals": {
@@ -11288,6 +12014,12 @@
           "winLikelihood": 0.6989525478639076,
           "bttsLikelihood": 0.6373672873691163,
           "combined": 0.5589071465656259,
+          "confidence": "ok"
+        },
+        "dc1x": {
+          "winLikelihood": 0.3617448898800747,
+          "bttsLikelihood": 0.6373672873691163,
+          "combined": 0.2713171564557619,
           "confidence": "ok"
         },
         "sampleHome": 7,
@@ -11392,6 +12124,12 @@
           "combined": 0.340504672415195,
           "confidence": "ok"
         },
+        "dc1x": {
+          "winLikelihood": 0.4003221870329602,
+          "bttsLikelihood": 0.4500941974227799,
+          "combined": 0.22445778441693826,
+          "confidence": "ok"
+        },
         "sampleHome": 7,
         "sampleAway": 6,
         "expectedGoals": {
@@ -11492,6 +12230,12 @@
           "winLikelihood": 0.46326722855034547,
           "bttsLikelihood": 0.24289513655149464,
           "combined": 0.18669524303553525,
+          "confidence": "ok"
+        },
+        "dc1x": {
+          "winLikelihood": 0.9588453819488966,
+          "bttsLikelihood": 0.24289513655149464,
+          "combined": 0.23170206760512788,
           "confidence": "ok"
         },
         "sampleHome": 5,
@@ -11596,6 +12340,12 @@
           "combined": 0.7774938180888431,
           "confidence": "ok"
         },
+        "dc1x": {
+          "winLikelihood": 0.5945753594946882,
+          "bttsLikelihood": 0.8253725347396367,
+          "combined": 0.5029213437067116,
+          "confidence": "ok"
+        },
         "sampleHome": 6,
         "sampleAway": 7,
         "expectedGoals": {
@@ -11696,6 +12446,12 @@
           "winLikelihood": 0.41216580679613807,
           "bttsLikelihood": 0.3661787084616385,
           "combined": 0.26673529405497354,
+          "confidence": "ok"
+        },
+        "dc1x": {
+          "winLikelihood": 0.3447901641908305,
+          "bttsLikelihood": 0.3661787084616385,
+          "combined": 0.17006626792263707,
           "confidence": "ok"
         },
         "sampleHome": 6,
@@ -11800,6 +12556,12 @@
           "combined": 0.695532260237818,
           "confidence": "ok"
         },
+        "dc1x": {
+          "winLikelihood": 0.6361476940747155,
+          "bttsLikelihood": 0.7633462505989561,
+          "combined": 0.4982835604341341,
+          "confidence": "ok"
+        },
         "sampleHome": 7,
         "sampleAway": 7,
         "expectedGoals": {
@@ -11900,6 +12662,12 @@
           "winLikelihood": 0.13329879337081546,
           "bttsLikelihood": 0.187483166965908,
           "combined": 0.09120389087174913,
+          "confidence": "ok"
+        },
+        "dc1x": {
+          "winLikelihood": 0.5475039288401233,
+          "bttsLikelihood": 0.187483166965908,
+          "combined": 0.12745520697652346,
           "confidence": "ok"
         },
         "sampleHome": 6,
@@ -12004,6 +12772,12 @@
           "combined": 0.6010519831215797,
           "confidence": "ok"
         },
+        "dc1x": {
+          "winLikelihood": 0.25341079123846716,
+          "bttsLikelihood": 0.6545238616484186,
+          "combined": 0.20472597407693643,
+          "confidence": "ok"
+        },
         "sampleHome": 6,
         "sampleAway": 7,
         "expectedGoals": {
@@ -12106,6 +12880,12 @@
           "combined": 0.5558163282974412,
           "confidence": "ok"
         },
+        "dc1x": {
+          "winLikelihood": 0.9807613735293298,
+          "bttsLikelihood": 0.5677877939502459,
+          "combined": 0.5544187495417083,
+          "confidence": "ok"
+        },
         "sampleHome": 7,
         "sampleAway": 6,
         "expectedGoals": {
@@ -12203,6 +12983,12 @@
           "combined": 0.08865600598250593,
           "confidence": "low"
         },
+        "dc1x": {
+          "winLikelihood": 0.9799809978862264,
+          "bttsLikelihood": 0.12204712611133096,
+          "combined": 0.11927331119519534,
+          "confidence": "low"
+        },
         "sampleHome": 7,
         "sampleAway": 2,
         "expectedGoals": {
@@ -12297,6 +13083,12 @@
           "winLikelihood": 0.532117133691613,
           "bttsLikelihood": 0.26248112302550763,
           "combined": 0.2120820234748467,
+          "confidence": "low"
+        },
+        "dc1x": {
+          "winLikelihood": 0.9647629072053465,
+          "bttsLikelihood": 0.26248112302550763,
+          "combined": 0.25153530907603544,
           "confidence": "low"
         },
         "sampleHome": 2,
@@ -12401,6 +13193,12 @@
           "combined": 0.3321844564621308,
           "confidence": "ok"
         },
+        "dc1x": {
+          "winLikelihood": 0.9253175008323958,
+          "bttsLikelihood": 0.4047179708485702,
+          "combined": 0.37177592616191113,
+          "confidence": "ok"
+        },
         "sampleHome": 6,
         "sampleAway": 8,
         "expectedGoals": {
@@ -12501,6 +13299,12 @@
           "winLikelihood": 0.5150446709610524,
           "bttsLikelihood": 0.4980685015277544,
           "combined": 0.39109376432883924,
+          "confidence": "ok"
+        },
+        "dc1x": {
+          "winLikelihood": 0.8203920598569241,
+          "bttsLikelihood": 0.4980685015277544,
+          "combined": 0.41268091846907534,
           "confidence": "ok"
         },
         "sampleHome": 7,
@@ -12605,6 +13409,12 @@
           "combined": 0.2987854791342053,
           "confidence": "ok"
         },
+        "dc1x": {
+          "winLikelihood": 0.9343742118702396,
+          "bttsLikelihood": 0.36845250645574273,
+          "combined": 0.341851270048027,
+          "confidence": "ok"
+        },
         "sampleHome": 6,
         "sampleAway": 6,
         "expectedGoals": {
@@ -12699,6 +13509,12 @@
           "winLikelihood": 0.426780217096768,
           "bttsLikelihood": 0.475395006950465,
           "combined": 0.3475279037126041,
+          "confidence": "low"
+        },
+        "dc1x": {
+          "winLikelihood": 0.5477669134485387,
+          "bttsLikelihood": 0.475395006950465,
+          "combined": 0.29507319874792864,
           "confidence": "low"
         },
         "sampleHome": 7,
@@ -12803,6 +13619,12 @@
           "combined": 0.11827141249401654,
           "confidence": "ok"
         },
+        "dc1x": {
+          "winLikelihood": 0.5146463177216262,
+          "bttsLikelihood": 0.22187696932597298,
+          "combined": 0.14341005705410195,
+          "confidence": "ok"
+        },
         "sampleHome": 7,
         "sampleAway": 6,
         "expectedGoals": {
@@ -12903,6 +13725,12 @@
           "winLikelihood": 0.35522334501796293,
           "bttsLikelihood": 0.4242629551210469,
           "combined": 0.29021245664997064,
+          "confidence": "ok"
+        },
+        "dc1x": {
+          "winLikelihood": 0.6908116145042524,
+          "bttsLikelihood": 0.4242629551210469,
+          "combined": 0.31392377417626266,
           "confidence": "ok"
         },
         "sampleHome": 8,
@@ -13007,6 +13835,12 @@
           "combined": 0.6591411515436075,
           "confidence": "ok"
         },
+        "dc1x": {
+          "winLikelihood": 0.43919818794742727,
+          "bttsLikelihood": 0.7281267369920281,
+          "combined": 0.35139164224479114,
+          "confidence": "ok"
+        },
         "sampleHome": 7,
         "sampleAway": 7,
         "expectedGoals": {
@@ -13099,6 +13933,12 @@
           "winLikelihood": 0.8656105001742254,
           "bttsLikelihood": 0.7993049247704493,
           "combined": 0.7572099854642523,
+          "confidence": "low"
+        },
+        "dc1x": {
+          "winLikelihood": 0.37121916170526403,
+          "bttsLikelihood": 0.7993049247704493,
+          "combined": 0.32460022023049667,
           "confidence": "low"
         },
         "sampleHome": 1,
@@ -13194,6 +14034,12 @@
           "winLikelihood": 0.8614133188976297,
           "bttsLikelihood": 0.8298023014506916,
           "combined": 0.7835954758351934,
+          "confidence": "low"
+        },
+        "dc1x": {
+          "winLikelihood": 0.6179978831909774,
+          "bttsLikelihood": 0.8298023014506916,
+          "combined": 0.5227000845089792,
           "confidence": "low"
         },
         "sampleHome": 1,
@@ -13298,6 +14144,12 @@
           "combined": 0.2750171255850785,
           "confidence": "ok"
         },
+        "dc1x": {
+          "winLikelihood": 0.2821345709869463,
+          "bttsLikelihood": 0.36081822659497337,
+          "combined": 0.1451374373307712,
+          "confidence": "ok"
+        },
         "sampleHome": 7,
         "sampleAway": 8,
         "expectedGoals": {
@@ -13398,6 +14250,12 @@
           "winLikelihood": 0.6565773140300156,
           "bttsLikelihood": 0.6527882859611397,
           "combined": 0.5578527579124803,
+          "confidence": "ok"
+        },
+        "dc1x": {
+          "winLikelihood": 0.5032878948829412,
+          "bttsLikelihood": 0.6527882859611397,
+          "combined": 0.36083363050679207,
           "confidence": "ok"
         },
         "sampleHome": 6,
@@ -13502,6 +14360,12 @@
           "combined": 0.49377125254852366,
           "confidence": "ok"
         },
+        "dc1x": {
+          "winLikelihood": 0.6040411891218782,
+          "bttsLikelihood": 0.6052682610045726,
+          "combined": 0.3907135848278312,
+          "confidence": "ok"
+        },
         "sampleHome": 7,
         "sampleAway": 6,
         "expectedGoals": {
@@ -13602,6 +14466,12 @@
           "winLikelihood": 0.3718479801364253,
           "bttsLikelihood": 0.3420028240979169,
           "combined": 0.24005366992133995,
+          "confidence": "ok"
+        },
+        "dc1x": {
+          "winLikelihood": 0.876504612751162,
+          "bttsLikelihood": 0.3420028240979169,
+          "combined": 0.3023825856340269,
           "confidence": "ok"
         },
         "sampleHome": 6,
@@ -13706,6 +14576,12 @@
           "combined": 0.3329532908951697,
           "confidence": "ok"
         },
+        "dc1x": {
+          "winLikelihood": 0.9595829029382662,
+          "bttsLikelihood": 0.38112947665089647,
+          "combined": 0.36224029380095957,
+          "confidence": "ok"
+        },
         "sampleHome": 7,
         "sampleAway": 7,
         "expectedGoals": {
@@ -13799,6 +14675,12 @@
           "winLikelihood": 0.14543343281626994,
           "bttsLikelihood": 0.09567053815699726,
           "combined": 0.048728489480107676,
+          "confidence": "low"
+        },
+        "dc1x": {
+          "winLikelihood": 0.366002690585443,
+          "bttsLikelihood": 0.09567053815699726,
+          "combined": 0.05283698127043939,
           "confidence": "low"
         },
         "sampleHome": 1,
@@ -13896,6 +14778,12 @@
           "combined": 0.3599133651191982,
           "confidence": "low"
         },
+        "dc1x": {
+          "winLikelihood": 0.6214776529202584,
+          "bttsLikelihood": 0.49021166884562223,
+          "combined": 0.3318389007569719,
+          "confidence": "low"
+        },
         "sampleHome": 6,
         "sampleAway": 2,
         "expectedGoals": {
@@ -13989,6 +14877,12 @@
           "winLikelihood": 0.31940603839195586,
           "bttsLikelihood": 0.3788187786205916,
           "combined": 0.2499082743543111,
+          "confidence": "low"
+        },
+        "dc1x": {
+          "winLikelihood": 0.5373774025663047,
+          "bttsLikelihood": 0.3788187786205916,
+          "combined": 0.23886841093449127,
           "confidence": "low"
         },
         "sampleHome": 7,
@@ -14093,6 +14987,12 @@
           "combined": 0.3383408696658876,
           "confidence": "ok"
         },
+        "dc1x": {
+          "winLikelihood": 0.799671393280848,
+          "bttsLikelihood": 0.4560944130982978,
+          "combined": 0.37242470840955066,
+          "confidence": "ok"
+        },
         "sampleHome": 7,
         "sampleAway": 7,
         "expectedGoals": {
@@ -14187,6 +15087,12 @@
           "winLikelihood": 0.38107061791884994,
           "bttsLikelihood": 0.12161171742756453,
           "combined": 0.0877861333724926,
+          "confidence": "low"
+        },
+        "dc1x": {
+          "winLikelihood": 0.9795112634635641,
+          "bttsLikelihood": 0.12161171742756453,
+          "combined": 0.11880354063801775,
           "confidence": "low"
         },
         "sampleHome": 6,
@@ -14285,6 +15191,12 @@
           "combined": 0.8850115015338293,
           "confidence": "low"
         },
+        "dc1x": {
+          "winLikelihood": 0.7495701274926041,
+          "bttsLikelihood": 0.9022681309868177,
+          "combined": 0.6737322714383643,
+          "confidence": "low"
+        },
         "sampleHome": 2,
         "sampleAway": 7,
         "expectedGoals": {
@@ -14381,6 +15293,12 @@
           "combined": 0.9161770384167887,
           "confidence": "low"
         },
+        "dc1x": {
+          "winLikelihood": 0.7580148124208294,
+          "bttsLikelihood": 0.9268109797522979,
+          "combined": 0.6997113980205505,
+          "confidence": "low"
+        },
         "sampleHome": 8,
         "sampleAway": 2,
         "expectedGoals": {
@@ -14475,6 +15393,12 @@
           "winLikelihood": 0.771464343577021,
           "bttsLikelihood": 0.6995927369818624,
           "combined": 0.6357916640188428,
+          "confidence": "low"
+        },
+        "dc1x": {
+          "winLikelihood": 0.3525775130523669,
+          "bttsLikelihood": 0.6995927369818624,
+          "combined": 0.2836381739944689,
           "confidence": "low"
         },
         "sampleHome": 2,
@@ -14579,6 +15503,12 @@
           "combined": 0.14320090050536063,
           "confidence": "ok"
         },
+        "dc1x": {
+          "winLikelihood": 0.9867488667278363,
+          "bttsLikelihood": 0.1696103118677329,
+          "combined": 0.1665378498603836,
+          "confidence": "ok"
+        },
         "sampleHome": 6,
         "sampleAway": 7,
         "expectedGoals": {
@@ -14674,6 +15604,12 @@
           "winLikelihood": 0.9563596438361259,
           "bttsLikelihood": 0.8974585541767878,
           "combined": 0.8824301399675601,
+          "confidence": "low"
+        },
+        "dc1x": {
+          "winLikelihood": 0.3359433733564266,
+          "bttsLikelihood": 0.8974585541767878,
+          "combined": 0.31832938326175003,
           "confidence": "low"
         },
         "sampleHome": 8,
@@ -14778,6 +15714,12 @@
           "combined": 0.5910626352734388,
           "confidence": "ok"
         },
+        "dc1x": {
+          "winLikelihood": 0.8014036747863411,
+          "bttsLikelihood": 0.6674947220329941,
+          "combined": 0.5350249559538982,
+          "confidence": "ok"
+        },
         "sampleHome": 6,
         "sampleAway": 6,
         "expectedGoals": {
@@ -14873,6 +15815,12 @@
           "winLikelihood": 0.1363743590435168,
           "bttsLikelihood": 0.09391175979394205,
           "combined": 0.04673964756757002,
+          "confidence": "low"
+        },
+        "dc1x": {
+          "winLikelihood": 0.3788118393957446,
+          "bttsLikelihood": 0.09391175979394205,
+          "combined": 0.053019575193133425,
           "confidence": "low"
         },
         "sampleHome": 2,
@@ -14977,6 +15925,12 @@
           "combined": 0.1297004209832725,
           "confidence": "ok"
         },
+        "dc1x": {
+          "winLikelihood": 0.32013737255036095,
+          "bttsLikelihood": 0.20495104174365425,
+          "combined": 0.09812664213656858,
+          "confidence": "ok"
+        },
         "sampleHome": 6,
         "sampleAway": 6,
         "expectedGoals": {
@@ -15079,6 +16033,12 @@
           "combined": 0.525886950462593,
           "confidence": "ok"
         },
+        "dc1x": {
+          "winLikelihood": 0.9370858314722609,
+          "bttsLikelihood": 0.5690957580310028,
+          "combined": 0.5270972101147267,
+          "confidence": "ok"
+        },
         "sampleHome": 6,
         "sampleAway": 6,
         "expectedGoals": {
@@ -15174,6 +16134,12 @@
           "winLikelihood": 0.9392046681786604,
           "bttsLikelihood": 0.46431034273720145,
           "combined": 0.4567610185727297,
+          "confidence": "low"
+        },
+        "dc1x": {
+          "winLikelihood": 0.026508114937482487,
+          "bttsLikelihood": 0.46431034273720145,
+          "combined": 0.022421343499019353,
           "confidence": "low"
         },
         "sampleHome": 3,
@@ -15278,6 +16244,12 @@
           "combined": 0.1086804082107077,
           "confidence": "ok"
         },
+        "dc1x": {
+          "winLikelihood": 0.8265345881351661,
+          "bttsLikelihood": 0.212747652901024,
+          "combined": 0.18413396605139398,
+          "confidence": "ok"
+        },
         "sampleHome": 7,
         "sampleAway": 6,
         "expectedGoals": {
@@ -15378,6 +16350,12 @@
           "winLikelihood": 0.2897634717675891,
           "bttsLikelihood": 0.26288062427982084,
           "combined": 0.1692257753194484,
+          "confidence": "ok"
+        },
+        "dc1x": {
+          "winLikelihood": 0.8950061259175757,
+          "bttsLikelihood": 0.26288062427982084,
+          "combined": 0.23781219322916916,
           "confidence": "ok"
         },
         "sampleHome": 6,
@@ -15482,6 +16460,12 @@
           "combined": 0.33817723231805036,
           "confidence": "ok"
         },
+        "dc1x": {
+          "winLikelihood": 0.6445675139633863,
+          "bttsLikelihood": 0.4704778998693843,
+          "combined": 0.32836927636103447,
+          "confidence": "ok"
+        },
         "sampleHome": 7,
         "sampleAway": 7,
         "expectedGoals": {
@@ -15582,6 +16566,12 @@
           "winLikelihood": 0.7810074969584988,
           "bttsLikelihood": 0.7628293932311387,
           "combined": 0.6944430686763421,
+          "confidence": "ok"
+        },
+        "dc1x": {
+          "winLikelihood": 0.6151693840118122,
+          "bttsLikelihood": 0.7628293932311387,
+          "combined": 0.4840591437135833,
           "confidence": "ok"
         },
         "sampleHome": 7,
@@ -15686,6 +16676,12 @@
           "combined": 0.25560082598990164,
           "confidence": "ok"
         },
+        "dc1x": {
+          "winLikelihood": 0.8711269878215425,
+          "bttsLikelihood": 0.35906220319855436,
+          "combined": 0.31551583268405775,
+          "confidence": "ok"
+        },
         "sampleHome": 7,
         "sampleAway": 6,
         "expectedGoals": {
@@ -15788,6 +16784,12 @@
           "combined": 0.4634609670610409,
           "confidence": "ok"
         },
+        "dc1x": {
+          "winLikelihood": 0.21024293545851278,
+          "bttsLikelihood": 0.5235165678339562,
+          "combined": 0.15146692365632256,
+          "confidence": "ok"
+        },
         "sampleHome": 6,
         "sampleAway": 7,
         "expectedGoals": {
@@ -15885,6 +16887,12 @@
           "combined": 0.04535585387981912,
           "confidence": "low"
         },
+        "dc1x": {
+          "winLikelihood": 0.8635139700542983,
+          "bttsLikelihood": 0.11707345434145242,
+          "combined": 0.10580555753304784,
+          "confidence": "low"
+        },
         "sampleHome": 6,
         "sampleAway": 2,
         "expectedGoals": {
@@ -15973,6 +16981,12 @@
           "winLikelihood": 0.6863059698653136,
           "bttsLikelihood": 0.39122470756841693,
           "combined": 0.3448938656292908,
+          "confidence": "low"
+        },
+        "dc1x": {
+          "winLikelihood": 0.1368331819748474,
+          "bttsLikelihood": 0.39122470756841693,
+          "combined": 0.08748450584585292,
           "confidence": "low"
         },
         "sampleHome": 2,
@@ -16077,6 +17091,12 @@
           "combined": 0.0979943774437922,
           "confidence": "ok"
         },
+        "dc1x": {
+          "winLikelihood": 0.1258873142513026,
+          "bttsLikelihood": 0.12641447313606458,
+          "combined": 0.033438704786446435,
+          "confidence": "ok"
+        },
         "sampleHome": 7,
         "sampleAway": 6,
         "expectedGoals": {
@@ -16177,6 +17197,12 @@
           "winLikelihood": 0.612998126790022,
           "bttsLikelihood": 0.5506664747290714,
           "combined": 0.46107463334527543,
+          "confidence": "ok"
+        },
+        "dc1x": {
+          "winLikelihood": 0.8465594258408343,
+          "bttsLikelihood": 0.5506664747290714,
+          "combined": 0.4657969411140944,
           "confidence": "ok"
         },
         "sampleHome": 6,
@@ -16281,6 +17307,12 @@
           "combined": 0.27939649412434286,
           "confidence": "ok"
         },
+        "dc1x": {
+          "winLikelihood": 0.4994007313414937,
+          "bttsLikelihood": 0.4048153430157638,
+          "combined": 0.24062939032409209,
+          "confidence": "ok"
+        },
         "sampleHome": 6,
         "sampleAway": 7,
         "expectedGoals": {
@@ -16381,6 +17413,12 @@
           "winLikelihood": 0.602484576669254,
           "bttsLikelihood": 0.17227880187027853,
           "combined": 0.14631062939526324,
+          "confidence": "ok"
+        },
+        "dc1x": {
+          "winLikelihood": 0.08726433248335688,
+          "bttsLikelihood": 0.17227880187027853,
+          "combined": 0.033108405167051436,
           "confidence": "ok"
         },
         "sampleHome": 7,
@@ -16485,6 +17523,12 @@
           "combined": 0.6751183095596855,
           "confidence": "ok"
         },
+        "dc1x": {
+          "winLikelihood": 0.85509096067433,
+          "bttsLikelihood": 0.723284905432394,
+          "combined": 0.6127343331331686,
+          "confidence": "ok"
+        },
         "sampleHome": 7,
         "sampleAway": 6,
         "expectedGoals": {
@@ -16585,6 +17629,12 @@
           "winLikelihood": 0.5322763335188487,
           "bttsLikelihood": 0.5248044647793971,
           "combined": 0.41655615873245155,
+          "confidence": "ok"
+        },
+        "dc1x": {
+          "winLikelihood": 0.42872802271310845,
+          "bttsLikelihood": 0.5248044647793971,
+          "combined": 0.2674240087647524,
           "confidence": "ok"
         },
         "sampleHome": 6,
@@ -16689,6 +17739,12 @@
           "combined": 0.4052226898720218,
           "confidence": "ok"
         },
+        "dc1x": {
+          "winLikelihood": 0.6701158100206784,
+          "bttsLikelihood": 0.5298564267921703,
+          "combined": 0.3756920640331247,
+          "confidence": "ok"
+        },
         "sampleHome": 7,
         "sampleAway": 6,
         "expectedGoals": {
@@ -16789,6 +17845,12 @@
           "winLikelihood": 0.6904054548982862,
           "bttsLikelihood": 0.6910989097620043,
           "combined": 0.6011083254444004,
+          "confidence": "ok"
+        },
+        "dc1x": {
+          "winLikelihood": 0.6272612832949747,
+          "bttsLikelihood": 0.6910989097620043,
+          "combined": 0.45156087089046126,
           "confidence": "ok"
         },
         "sampleHome": 7,
@@ -16893,6 +17955,12 @@
           "combined": 0.680111958360727,
           "confidence": "ok"
         },
+        "dc1x": {
+          "winLikelihood": 0.060059739524701665,
+          "bttsLikelihood": 0.6882559664954592,
+          "combined": 0.05597296808822347,
+          "confidence": "ok"
+        },
         "sampleHome": 6,
         "sampleAway": 6,
         "expectedGoals": {
@@ -16993,6 +18061,12 @@
           "winLikelihood": 0.27566658485921147,
           "bttsLikelihood": 0.3543747361212745,
           "combined": 0.2215341188571236,
+          "confidence": "ok"
+        },
+        "dc1x": {
+          "winLikelihood": 0.7122816264850729,
+          "bttsLikelihood": 0.3543747361212745,
+          "combined": 0.2715578814362183,
           "confidence": "ok"
         },
         "sampleHome": 7,
@@ -17097,6 +18171,12 @@
           "combined": 0.7710401504633396,
           "confidence": "ok"
         },
+        "dc1x": {
+          "winLikelihood": 0.5247769596853291,
+          "bttsLikelihood": 0.8194331093288841,
+          "combined": 0.44816716947435487,
+          "confidence": "ok"
+        },
         "sampleHome": 7,
         "sampleAway": 8,
         "expectedGoals": {
@@ -17192,6 +18272,12 @@
           "winLikelihood": 0.5334643117131014,
           "bttsLikelihood": 0.3524976348158012,
           "combined": 0.2834797619311642,
+          "confidence": "low"
+        },
+        "dc1x": {
+          "winLikelihood": 0.9369852520308022,
+          "bttsLikelihood": 0.3524976348158012,
+          "combined": 0.3280626062322622,
           "confidence": "low"
         },
         "sampleHome": 6,
@@ -17296,6 +18382,12 @@
           "combined": 0.20626382217885736,
           "confidence": "ok"
         },
+        "dc1x": {
+          "winLikelihood": 0.8903727772566574,
+          "bttsLikelihood": 0.30299764755292746,
+          "combined": 0.2719858173143792,
+          "confidence": "ok"
+        },
         "sampleHome": 7,
         "sampleAway": 7,
         "expectedGoals": {
@@ -17396,6 +18488,12 @@
           "winLikelihood": 0.34943717889699244,
           "bttsLikelihood": 0.4157510511193656,
           "combined": 0.28283697572126737,
+          "confidence": "ok"
+        },
+        "dc1x": {
+          "winLikelihood": 0.7153628444451615,
+          "bttsLikelihood": 0.4157510511193656,
+          "combined": 0.31566700615117205,
           "confidence": "ok"
         },
         "sampleHome": 7,
@@ -17500,6 +18598,12 @@
           "combined": 0.12321477949239194,
           "confidence": "ok"
         },
+        "dc1x": {
+          "winLikelihood": 0.8753047752801725,
+          "bttsLikelihood": 0.2189549178436799,
+          "combined": 0.19621884296362202,
+          "confidence": "ok"
+        },
         "sampleHome": 7,
         "sampleAway": 6,
         "expectedGoals": {
@@ -17602,6 +18706,12 @@
           "combined": 0.8231798672424624,
           "confidence": "ok"
         },
+        "dc1x": {
+          "winLikelihood": 0.26701045241564714,
+          "bttsLikelihood": 0.8436455047947796,
+          "combined": 0.2483369508886065,
+          "confidence": "ok"
+        },
         "sampleHome": 6,
         "sampleAway": 7,
         "expectedGoals": {
@@ -17697,6 +18807,12 @@
           "combined": 0.06716570507261414,
           "confidence": "low"
         },
+        "dc1x": {
+          "winLikelihood": 0.2611859260416205,
+          "bttsLikelihood": 0.10966928494071747,
+          "combined": 0.04851949829193153,
+          "confidence": "low"
+        },
         "sampleHome": 6,
         "sampleAway": 1,
         "expectedGoals": {
@@ -17790,6 +18906,12 @@
           "winLikelihood": 0.9264568138857379,
           "bttsLikelihood": 0.8729427457682702,
           "combined": 0.8478201145000005,
+          "confidence": "low"
+        },
+        "dc1x": {
+          "winLikelihood": 0.753246898184564,
+          "bttsLikelihood": 0.8729427457682702,
+          "combined": 0.6551804167341537,
           "confidence": "low"
         },
         "sampleHome": 6,
@@ -17894,6 +19016,12 @@
           "combined": 0.07458154012825471,
           "confidence": "ok"
         },
+        "dc1x": {
+          "winLikelihood": 0.9717816524055892,
+          "bttsLikelihood": 0.11434708075246383,
+          "combined": 0.11107370845615676,
+          "confidence": "ok"
+        },
         "sampleHome": 7,
         "sampleAway": 6,
         "expectedGoals": {
@@ -17994,6 +19122,12 @@
           "winLikelihood": 0.18843334223678357,
           "bttsLikelihood": 0.2555055603800149,
           "combined": 0.1400077386600866,
+          "confidence": "ok"
+        },
+        "dc1x": {
+          "winLikelihood": 0.5584787506697175,
+          "bttsLikelihood": 0.2555055603800149,
+          "combined": 0.1718796459858878,
           "confidence": "ok"
         },
         "sampleHome": 7,
@@ -18098,6 +19232,12 @@
           "combined": 0.4739796050055372,
           "confidence": "ok"
         },
+        "dc1x": {
+          "winLikelihood": 0.6318103896579828,
+          "bttsLikelihood": 0.5890019049953733,
+          "combined": 0.39490560777627,
+          "confidence": "ok"
+        },
         "sampleHome": 8,
         "sampleAway": 7,
         "expectedGoals": {
@@ -18200,6 +19340,12 @@
           "combined": 0.3552555013046095,
           "confidence": "ok"
         },
+        "dc1x": {
+          "winLikelihood": 0.8124614651240507,
+          "bttsLikelihood": 0.4684610269059292,
+          "combined": 0.3864933711540575,
+          "confidence": "ok"
+        },
         "sampleHome": 6,
         "sampleAway": 7,
         "expectedGoals": {
@@ -18295,6 +19441,12 @@
           "winLikelihood": 0.44600444514526993,
           "bttsLikelihood": 0.45380831531311344,
           "combined": 0.3381580122444322,
+          "confidence": "low"
+        },
+        "dc1x": {
+          "winLikelihood": 0.43709603516421186,
+          "bttsLikelihood": 0.45380831531311344,
+          "combined": 0.24100977615440144,
           "confidence": "low"
         },
         "sampleHome": 7,
@@ -18399,6 +19551,12 @@
           "combined": 0.6357301207257494,
           "confidence": "ok"
         },
+        "dc1x": {
+          "winLikelihood": 0.7376184820094857,
+          "bttsLikelihood": 0.7116204351901412,
+          "combined": 0.5297845224285475,
+          "confidence": "ok"
+        },
         "sampleHome": 8,
         "sampleAway": 7,
         "expectedGoals": {
@@ -18495,6 +19653,12 @@
           "winLikelihood": 0.554351310844261,
           "bttsLikelihood": 0.5213751605458558,
           "combined": 0.42057908961131935,
+          "confidence": "low"
+        },
+        "dc1x": {
+          "winLikelihood": 0.8285924945206269,
+          "bttsLikelihood": 0.5213751605458558,
+          "combined": 0.43442208752397987,
           "confidence": "low"
         },
         "sampleHome": 7,
@@ -18599,6 +19763,12 @@
           "combined": 0.3107678571142695,
           "confidence": "ok"
         },
+        "dc1x": {
+          "winLikelihood": 0.8156715692464699,
+          "bttsLikelihood": 0.42741080173540547,
+          "combined": 0.3553407299250837,
+          "confidence": "ok"
+        },
         "sampleHome": 6,
         "sampleAway": 7,
         "expectedGoals": {
@@ -18701,6 +19871,12 @@
           "combined": 0.23207087340476915,
           "confidence": "ok"
         },
+        "dc1x": {
+          "winLikelihood": 0.8477929174447436,
+          "bttsLikelihood": 0.3437285215155047,
+          "combined": 0.296726604354993,
+          "confidence": "ok"
+        },
         "sampleHome": 7,
         "sampleAway": 7,
         "expectedGoals": {
@@ -18795,6 +19971,12 @@
           "winLikelihood": 0.9791563090102681,
           "bttsLikelihood": 0.893919010154046,
           "combined": 0.8884263749468646,
+          "confidence": "low"
+        },
+        "dc1x": {
+          "winLikelihood": 0.9043172276950918,
+          "bttsLikelihood": 0.893919010154046,
+          "combined": 0.8061743548583804,
           "confidence": "low"
         },
         "sampleHome": 7,
@@ -18894,6 +20076,12 @@
           "combined": 0.08661366078737472,
           "confidence": "low"
         },
+        "dc1x": {
+          "winLikelihood": 0.978870794905374,
+          "bttsLikelihood": 0.12101682492699277,
+          "combined": 0.1181630303631746,
+          "confidence": "low"
+        },
         "sampleHome": 2,
         "sampleAway": 6,
         "expectedGoals": {
@@ -18986,6 +20174,12 @@
           "winLikelihood": 0.0035994931830894716,
           "bttsLikelihood": 0.019402267831602257,
           "combined": 0.0027338578662636005,
+          "confidence": "low"
+        },
+        "dc1x": {
+          "winLikelihood": 0.8787903125912745,
+          "bttsLikelihood": 0.019402267831602257,
+          "combined": 0.01808233616621612,
           "confidence": "low"
         },
         "sampleHome": 7,
@@ -19090,6 +20284,12 @@
           "combined": 0.6538656691016679,
           "confidence": "ok"
         },
+        "dc1x": {
+          "winLikelihood": 0.6773018064490586,
+          "bttsLikelihood": 0.7301968260360783,
+          "combined": 0.5049637426322071,
+          "confidence": "ok"
+        },
         "sampleHome": 6,
         "sampleAway": 7,
         "expectedGoals": {
@@ -19190,6 +20390,12 @@
           "winLikelihood": 0.5699863514129332,
           "bttsLikelihood": 0.5876858165258924,
           "combined": 0.47692212856612787,
+          "confidence": "ok"
+        },
+        "dc1x": {
+          "winLikelihood": 0.5246303492696054,
+          "bttsLikelihood": 0.5876858165258924,
+          "combined": 0.34200727959040833,
           "confidence": "ok"
         },
         "sampleHome": 7,
@@ -19294,6 +20500,12 @@
           "combined": 0.45569341726506696,
           "confidence": "ok"
         },
+        "dc1x": {
+          "winLikelihood": 0.9149234776104593,
+          "bttsLikelihood": 0.5197101414654827,
+          "combined": 0.47074452986160215,
+          "confidence": "ok"
+        },
         "sampleHome": 8,
         "sampleAway": 7,
         "expectedGoals": {
@@ -19396,6 +20608,12 @@
           "combined": 0.781033325886499,
           "confidence": "ok"
         },
+        "dc1x": {
+          "winLikelihood": 0.5448847537646921,
+          "bttsLikelihood": 0.8274960215930411,
+          "combined": 0.46684191127366975,
+          "confidence": "ok"
+        },
         "sampleHome": 7,
         "sampleAway": 7,
         "expectedGoals": {
@@ -19489,6 +20707,12 @@
           "winLikelihood": 0.8377655356017354,
           "bttsLikelihood": 0.1375791174972668,
           "combined": 0.13092566218500823,
+          "confidence": "low"
+        },
+        "dc1x": {
+          "winLikelihood": 0.01999150335018122,
+          "bttsLikelihood": 0.1375791174972668,
+          "combined": 0.008438789813946041,
           "confidence": "low"
         },
         "sampleHome": 7,
@@ -19587,6 +20811,12 @@
           "combined": 0.7185077590264229,
           "confidence": "low"
         },
+        "dc1x": {
+          "winLikelihood": 0.565049363480536,
+          "bttsLikelihood": 0.7807514842389903,
+          "combined": 0.45930981367291795,
+          "confidence": "low"
+        },
         "sampleHome": 2,
         "sampleAway": 5,
         "expectedGoals": {
@@ -19679,6 +20909,12 @@
           "winLikelihood": 0.5948751849415689,
           "bttsLikelihood": 0.610283057719161,
           "combined": 0.5028932382183979,
+          "confidence": "low"
+        },
+        "dc1x": {
+          "winLikelihood": 0.6967504068507937,
+          "bttsLikelihood": 0.610283057719161,
+          "combined": 0.4394901983253484,
           "confidence": "low"
         },
         "sampleHome": 3,
@@ -19783,6 +21019,12 @@
           "combined": 0.16037270128525108,
           "confidence": "ok"
         },
+        "dc1x": {
+          "winLikelihood": 0.6637430837921504,
+          "bttsLikelihood": 0.2871723506270247,
+          "combined": 0.21350367298149195,
+          "confidence": "ok"
+        },
         "sampleHome": 7,
         "sampleAway": 7,
         "expectedGoals": {
@@ -19883,6 +21125,12 @@
           "winLikelihood": 0.24197946434561346,
           "bttsLikelihood": 0.2635497659382309,
           "combined": 0.15851092702325895,
+          "confidence": "ok"
+        },
+        "dc1x": {
+          "winLikelihood": 0.8598922530394829,
+          "bttsLikelihood": 0.2635497659382309,
+          "combined": 0.23206227958315334,
           "confidence": "ok"
         },
         "sampleHome": 7,
@@ -19987,6 +21235,12 @@
           "combined": 0.20081657378826406,
           "confidence": "ok"
         },
+        "dc1x": {
+          "winLikelihood": 0.7928750777681485,
+          "bttsLikelihood": 0.3240928669997123,
+          "combined": 0.26808259151953545,
+          "confidence": "ok"
+        },
         "sampleHome": 7,
         "sampleAway": 8,
         "expectedGoals": {
@@ -20087,6 +21341,12 @@
           "winLikelihood": 0.6591112391117064,
           "bttsLikelihood": 0.6644326710580485,
           "combined": 0.5682389472800222,
+          "confidence": "ok"
+        },
+        "dc1x": {
+          "winLikelihood": 0.6627269961824707,
+          "bttsLikelihood": 0.6644326710580485,
+          "combined": 0.45593904302937255,
           "confidence": "ok"
         },
         "sampleHome": 6,
@@ -20191,6 +21451,12 @@
           "combined": 0.4719316537035436,
           "confidence": "ok"
         },
+        "dc1x": {
+          "winLikelihood": 0.7069867328038766,
+          "bttsLikelihood": 0.584126285583437,
+          "combined": 0.4271600708490854,
+          "confidence": "ok"
+        },
         "sampleHome": 7,
         "sampleAway": 6,
         "expectedGoals": {
@@ -20287,6 +21553,12 @@
           "winLikelihood": 0.6400245138278763,
           "bttsLikelihood": 0.635962462175912,
           "combined": 0.5385711342055122,
+          "confidence": "low"
+        },
+        "dc1x": {
+          "winLikelihood": 0.7314768148905288,
+          "bttsLikelihood": 0.635962462175912,
+          "combined": 0.47421663423318383,
           "confidence": "low"
         },
         "sampleHome": 3,
@@ -20391,6 +21663,12 @@
           "combined": 0.3964342878237824,
           "confidence": "ok"
         },
+        "dc1x": {
+          "winLikelihood": 0.6204773452654174,
+          "bttsLikelihood": 0.5227938780268387,
+          "combined": 0.35082434456336936,
+          "confidence": "ok"
+        },
         "sampleHome": 6,
         "sampleAway": 5,
         "expectedGoals": {
@@ -20484,6 +21762,12 @@
           "winLikelihood": 0.359161660677002,
           "bttsLikelihood": 0.1201098635616411,
           "combined": 0.0848604910540973,
+          "confidence": "low"
+        },
+        "dc1x": {
+          "winLikelihood": 0.17859043172263508,
+          "bttsLikelihood": 0.1201098635616411,
+          "combined": 0.04087878588604655,
           "confidence": "low"
         },
         "sampleHome": 1,
@@ -20588,6 +21872,12 @@
           "combined": 0.18063059456117414,
           "confidence": "ok"
         },
+        "dc1x": {
+          "winLikelihood": 0.9161881823628659,
+          "bttsLikelihood": 0.2649621982159382,
+          "combined": 0.24364466337131532,
+          "confidence": "ok"
+        },
         "sampleHome": 8,
         "sampleAway": 6,
         "expectedGoals": {
@@ -20690,6 +21980,12 @@
           "combined": 0.44068254436048204,
           "confidence": "ok"
         },
+        "dc1x": {
+          "winLikelihood": 0.6805414133921205,
+          "bttsLikelihood": 0.5597444634762059,
+          "combined": 0.39925257799994046,
+          "confidence": "ok"
+        },
         "sampleHome": 7,
         "sampleAway": 6,
         "expectedGoals": {
@@ -20782,6 +22078,12 @@
           "winLikelihood": 0.6484512289160538,
           "bttsLikelihood": 0.13355111387974417,
           "combined": 0.1165908797493015,
+          "confidence": "low"
+        },
+        "dc1x": {
+          "winLikelihood": 0.9927854480147356,
+          "bttsLikelihood": 0.13355111387974417,
+          "combined": 0.1321034133145836,
           "confidence": "low"
         },
         "sampleHome": 6,
@@ -20880,6 +22182,12 @@
           "combined": 0.4373815588607727,
           "confidence": "low"
         },
+        "dc1x": {
+          "winLikelihood": 0.9891743359536351,
+          "bttsLikelihood": 0.4447595173834097,
+          "combined": 0.44021801830501656,
+          "confidence": "low"
+        },
         "sampleHome": 7,
         "sampleAway": 1,
         "expectedGoals": {
@@ -20974,6 +22282,12 @@
           "winLikelihood": 0.538464656700572,
           "bttsLikelihood": 0.3362315513041429,
           "combined": 0.2716308615382824,
+          "confidence": "low"
+        },
+        "dc1x": {
+          "winLikelihood": 0.9443629173482718,
+          "bttsLikelihood": 0.3362315513041429,
+          "combined": 0.31527182574014395,
           "confidence": "low"
         },
         "sampleHome": 7,
@@ -21078,6 +22392,12 @@
           "combined": 0.21339352460818972,
           "confidence": "ok"
         },
+        "dc1x": {
+          "winLikelihood": 0.8087831920308155,
+          "bttsLikelihood": 0.3343334261123039,
+          "combined": 0.2797967377062578,
+          "confidence": "ok"
+        },
         "sampleHome": 7,
         "sampleAway": 6,
         "expectedGoals": {
@@ -21178,6 +22498,12 @@
           "winLikelihood": 0.4788855616892927,
           "bttsLikelihood": 0.5257900285810622,
           "combined": 0.40031571119351506,
+          "confidence": "ok"
+        },
+        "dc1x": {
+          "winLikelihood": 0.66418519435619,
+          "bttsLikelihood": 0.5257900285810622,
+          "combined": 0.37066988339551343,
           "confidence": "ok"
         },
         "sampleHome": 6,

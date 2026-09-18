@@ -23,17 +23,24 @@ and the table — to one day (Friday, Saturday, Sunday, ...) or back to
 **All weekend**; within whatever's selected, the most likely "away win +
 BTTS yes" match is still first.
 A **Rank by** toggle switches the whole view — table columns, top matches,
-and sort order — between three modes, all read off the same underlying
-score matrix: **Away win + BTTS**, **Home win + BTTS**, and **BTTS + Over
-2.5** (both teams score *and* the match produces 3+ goals total — not tied
-to either team winning). Backtested against a week of played matches,
-BTTS + Over 2.5 hits noticeably more often (~48%) than either win-based mode
-(~17–21%) — a higher bar clears less often than an easier one, not a flaw
-in the away/home modes, but if hit rate is what you're optimizing for, it's
-the one to pick. Your choice is remembered locally. Alerts always stay tied
-to away win + BTTS regardless of which mode you're viewing. A "low sample"
-tag marks fixtures where either team has fewer than 5 recent matches on
-record, since the underlying rate is noisier with less data.
+and sort order — between four modes, all read off the same underlying score
+matrix:
+
+| Mode | What it needs | Backtested hit rate |
+|---|---|---|
+| Away win + BTTS | Away team wins, both teams score | ~17% |
+| Home win + BTTS | Home team wins, both teams score | ~21% |
+| Home/Draw + BTTS | Home team avoids defeat (double chance), both teams score | ~42% |
+| BTTS + Over 2.5 | Both teams score, 3+ total goals — not tied to either team winning | ~48% |
+
+A higher bar (an outright win) clears less often than an easier one (avoiding
+defeat, or just goals happening) — that's not a flaw in the win-based modes,
+it's what backtesting is for: if hit rate is what you're optimizing for, pick
+one of the easier bars; if you specifically want an away or home win, that's
+what those modes are for. Your choice is remembered locally. Alerts always
+stay tied to away win + BTTS regardless of which mode you're viewing. A
+"low sample" tag marks fixtures where either team has fewer than 5 recent
+matches on record, since the underlying rate is noisier with less data.
 
 Below "Top matches", a **Legs** selector (1–5, defaults to 3) picks how many
 of the ranked fixtures to focus on — it controls both how many cards show
