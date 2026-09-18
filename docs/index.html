@@ -100,18 +100,24 @@
 
   <footer>
     <p id="methodology">
-      <strong>Methodology.</strong> The <strong>Rank by</strong> control switches which
-      outcome is ranked: <em>away-win likelihood</em> is the average of the home team's
-      home-loss rate and the away team's away-win rate over their recent matches;
-      <em>home-win likelihood</em> is the average of the home team's home-win rate and the
-      away team's away-loss rate. Either way, <em>BTTS likelihood</em> is the average of
-      the home team's home-BTTS rate and the away team's away-BTTS rate, and
-      <em>Combined</em> multiplies the win likelihood by it, treating them as independent —
-      a simplification, not a true joint probability. Fixtures where either team has fewer
-      than 5 recent matches on record are flagged "low sample". Alerts are always based on
-      away win + BTTS, regardless of the selected ranking. The <strong>Home</strong>/<strong>Away</strong>
-      form badges on each row are exactly the matches those rates come from — the home
-      team's own home matches, oldest to newest, and the away team's own away matches.
+      <strong>Methodology.</strong> Each team gets an attack and defense strength (their
+      recent goals scored/conceded, split by home/away venue, relative to their league's
+      own average), which combine into an <em>expected goal count</em> for each side of a
+      fixture. From those two expected counts, a full score-probability matrix (0&ndash;0,
+      1&ndash;0, 0&ndash;1, ...) gives properly joint win/BTTS/combined probabilities &mdash;
+      unlike just multiplying two unrelated historical rates, this correctly links the two:
+      a big mismatch predicts both a likely win <em>and</em> a correspondingly lower BTTS
+      chance, because the weaker side's expected goals are genuinely low. The two teams'
+      goal counts are still treated as statistically independent of each other, a known,
+      accepted simplification of this model (not a true joint distribution). The
+      <strong>Rank by</strong> control switches which side's win probability is shown and
+      ranked by &mdash; away or home &mdash; both computed from the same underlying model.
+      Fixtures where either team has fewer than 5 recent matches on record are flagged
+      "low sample", since a small sample makes for a noisy goal-scoring average. Alerts are
+      always based on away win + BTTS, regardless of the selected ranking. The
+      <strong>Home</strong>/<strong>Away</strong> form badges on each row are the matches
+      that average comes from — the home team's own home matches, oldest to newest, and
+      the away team's own away matches.
       The <strong>Results</strong> view backtests the last week of already-played matches:
       each prediction there is computed from only the matches that came <em>before</em> that
       kickoff, so it's the call the model would actually have made going in, checked against

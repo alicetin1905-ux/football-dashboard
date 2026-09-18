@@ -70,37 +70,15 @@ function writeStore(key, value) {
   try { localStorage.setItem(key, JSON.stringify(value)); } catch { /* storage unavailable */ }
 }
 
-const MIN_SAMPLE_FOR_CONFIDENCE = 5;
-const avg = (arr) => arr.reduce((a, b) => a + b, 0) / arr.length;
-
 /**
- * Same combining logic as scripts/lib/stats.mjs's scoreFixture, just with
- * the win side picked by `mode` — mirrors it rather than importing it,
- * since that module lives outside docs/ (Node-only) and this is the one
- * place the browser needs it. Every fixture already carries both teams'
- * full home/away splits (f.stats), so no extra data or refetch is needed
- * to rank by the other side.
+ * The server (scripts/lib/stats.mjs) now computes both modes' probabilities
+ * up front — a proper joint Poisson goal-expectancy model, not something
+ * cheap enough to duplicate per-keystroke in the browser — and ships them
+ * as `f.modes.away` / `f.modes.home`. Picking a mode client-side is just a
+ * lookup.
  */
 function computeScore(f, mode) {
-  const home = f.stats.home;
-  const away = f.stats.away;
-  const winSignals = (mode === 'home'
-    ? [home.homeWinPct, away.awayLossPct]
-    : [home.homeLossPct, away.awayWinPct]
-  ).filter((v) => v != null);
-  const bttsSignals = [home.homeBttsPct, away.awayBttsPct].filter((v) => v != null);
-  if (!winSignals.length || !bttsSignals.length) return null;
-
-  const winLikelihood = avg(winSignals);
-  const bttsLikelihood = avg(bttsSignals);
-  const minSample = Math.min(home.homeSample, away.awaySample);
-
-  return {
-    winLikelihood,
-    bttsLikelihood,
-    combined: winLikelihood * bttsLikelihood,
-    confidence: minSample >= MIN_SAMPLE_FOR_CONFIDENCE ? 'ok' : 'low',
-  };
+  return f.modes ? f.modes[mode] : null;
 }
 
 function formBadges(letters, title) {

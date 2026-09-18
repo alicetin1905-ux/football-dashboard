@@ -8,7 +8,7 @@
  * on the next — reproducible for testing, but not frozen forever.
  */
 
-import { summarizeTeamForm } from './stats.mjs';
+import { summarizeTeamForm, computeLeagueAverages } from './stats.mjs';
 
 const LEAGUES = [
   {
@@ -149,6 +149,11 @@ export function generateMockSeason(dateKey = new Date().toISOString().slice(0, 1
   const forms = new Map();
   for (const t of teams) forms.set(t.id, summarizeTeamForm(matchesByTeam.get(t.id)));
 
+  const leagueAverages = new Map();
+  for (const [leagueName, group] of byLeague) {
+    leagueAverages.set(leagueName, computeLeagueAverages(group.map((t) => forms.get(t.id))));
+  }
+
   // Upcoming: one matchday per league, spread over the next week.
   const fixtures = [];
   const now = new Date();
@@ -172,5 +177,5 @@ export function generateMockSeason(dateKey = new Date().toISOString().slice(0, 1
     }
   }
 
-  return { fixtures, forms };
+  return { fixtures, forms, leagueAverages };
 }

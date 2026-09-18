@@ -88,20 +88,34 @@ locally so it survives a reload.
 
 ## How the score is computed
 
-Nothing here comes from an odds feed. Each team's recent home and away
-matches are split, and from that:
+Nothing here comes from an odds feed. It's a **Poisson goal-expectancy
+model** — the standard approach football analytics use, not a bookmaker's
+proprietary model, but a real step up from just averaging historical rates:
 
 ```
-away-win likelihood = average(home team's home-loss rate, away team's away-win rate)
-BTTS likelihood      = average(home team's home-BTTS rate, away team's away-BTTS rate)
-combined             = away-win likelihood × BTTS likelihood
+homeAttack  = home team's recent home goals-for average  ÷ league's home-goals average
+awayDefense = away team's recent away goals-against avg  ÷ league's home-goals average
+expectedHomeGoals = league's home-goals average × homeAttack × awayDefense
+  (mirrored for expectedAwayGoals, using away attack / home defense)
+
+score matrix  = P(home scores i) × P(away scores j), for every i, j — via the
+                Poisson distribution at each side's expected goal count
+win / BTTS / combined = the matching cells of that matrix summed up
 ```
 
-Multiplying the two treats them as independent, which is a simplification —
-real matches correlate them (a high-scoring away win is not the product of
-two unrelated coin flips). The tradeoff is that the score stays auditable
-from the two numbers shown beside it in the table, rather than hidden inside
-an opaque model. See `scripts/lib/stats.mjs` for the exact logic.
+Deriving win likelihood and BTTS likelihood from the *same* expected-goals
+pair, rather than two separately-averaged historical rates, is what fixes
+the old model's biggest blind spot: a lopsided matchup (strong attack vs. a
+side that's shipped goals all season) now correctly predicts both a likely
+win *and* a lower BTTS chance, because the weaker side's expected goals are
+genuinely low — not averaged in from unrelated matches. The two sides'
+goal counts are still treated as statistically independent of each other,
+a known, accepted simplification of this model family (not a true joint
+distribution — real matches correlate the two somewhat, e.g. a team
+protecting a lead sits back). Both ranking modes (away win + BTTS, home
+win + BTTS) come from the same underlying expected-goals pair. See
+`scripts/lib/stats.mjs` for the exact logic, and the Results view (below)
+for an ongoing, honest check of how well it's actually calibrated.
 
 ## Data source
 
@@ -170,7 +184,8 @@ scripts/lib/mock.mjs     deterministic demo data generator
 
 ## Caveats
 
-- Team-level rates, not a joint model — see "How the score is computed" above.
+- A Poisson goal model still isn't a true joint distribution — see "How the
+  score is computed" above for what it does and doesn't capture.
 - Demo mode generates plausible-looking but entirely synthetic results; it is
   clearly labelled "Demo data" in the UI and is not real fixture history.
 - ESPN's site API is undocumented — it could change shape or start rate
