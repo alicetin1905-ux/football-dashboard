@@ -21,6 +21,8 @@ const storedLegs = readStore('btts-legs', DEFAULT_LEGS);
 
 const state = {
   fixtures: [],
+  results: [],
+  view: 'upcoming', // 'upcoming' | 'results'
   league: '',
   day: '',
   hideLowSample: false,
@@ -33,11 +35,15 @@ const state = {
 
 const els = {
   metaRow: document.getElementById('metaRow'),
+  viewUpcomingBtn: document.getElementById('viewUpcomingBtn'),
+  viewResultsBtn: document.getElementById('viewResultsBtn'),
+  resultsStats: document.getElementById('resultsStats'),
   hero: document.getElementById('hero'),
   heroCards: document.getElementById('heroCards'),
   betSlip: document.getElementById('betSlip'),
   legsSelect: document.getElementById('legsSelect'),
   leagueFilter: document.getElementById('leagueFilter'),
+  dayFilterLabel: document.getElementById('dayFilterLabel'),
   dayFilter: document.getElementById('dayFilter'),
   hideLowSample: document.getElementById('hideLowSample'),
   teamSearch: document.getElementById('teamSearch'),
@@ -256,25 +262,66 @@ function applyFilters() {
   return filtered.map(({ f, view }) => ({ ...f, _view: view }));
 }
 
-function syncModeUi() {
-  const mode = MODES[state.mode];
-  if (els.modeSelect) els.modeSelect.value = state.mode;
-  if (els.winHeader) els.winHeader.textContent = mode.winLabel;
+/** Whether a backtested result's actual outcome matches the currently selected bet (mode-aware). */
+function isHit(f, mode) {
+  const won = mode === 'home' ? f.actual.homeWin : f.actual.awayWin;
+  return won && f.actual.btts;
 }
 
-function render() {
-  syncModeUi();
-  const mode = MODES[state.mode];
-  const filtered = applyFilters();
-  renderHero(filtered);
+/**
+ * Same shape as applyFilters(), but over the played-match backtest and
+ * without the day filter — results carry past dates, not the upcoming
+ * window the day filter's options are built from. Kept in the same
+ * highest-confidence-first order as the upcoming list, rather than
+ * reordering by hit/miss, so a glance at the top rows shows both how
+ * confident the model was and whether it was right.
+ */
+function applyResultFilters() {
+  const viewed = state.results
+    .map((f) => ({ f, view: computeScore(f, state.mode) }))
+    .filter(({ view }) => view != null);
 
-  els.emptyState.hidden = filtered.length > 0;
-  els.rows.innerHTML = filtered.map((f) => `
+  const filtered = viewed.filter(({ f, view }) => {
+    if (state.league && f.league !== state.league) return false;
+    if (state.hideLowSample && view.confidence === 'low') return false;
+    if (state.search) {
+      const q = state.search.toLowerCase();
+      if (!f.home.name.toLowerCase().includes(q) && !f.away.name.toLowerCase().includes(q)) return false;
+    }
+    return true;
+  });
+
+  filtered.sort((a, b) => b.view.combined - a.view.combined);
+  return filtered.map(({ f, view }) => ({ ...f, _view: view }));
+}
+
+function renderResultsStats(results, mode) {
+  if (!els.resultsStats) return;
+  if (!results.length) { els.resultsStats.hidden = true; return; }
+
+  const graded = results.filter((f) => f._view.confidence === 'ok');
+  const hits = graded.filter((f) => isHit(f, mode.key)).length;
+
+  els.resultsStats.hidden = false;
+  els.resultsStats.innerHTML = graded.length
+    ? `<strong>${hits}/${graded.length}</strong> ok-confidence calls correct
+       (<strong>${pct(hits / graded.length)}</strong>) for ${mode.label.toLowerCase()}
+       over the last week &mdash; ${results.length - graded.length} more shown below are low-sample.`
+    : `No ok-confidence backtested results yet for ${mode.label.toLowerCase()}.`;
+}
+
+function matchRowHtml(f, mode, isResult) {
+  const scoreBadge = isResult
+    ? `<span class="final-score">${f.finalScore.home}&ndash;${f.finalScore.away}</span>
+       <span class="result-badge ${isHit(f, mode.key) ? 'result-hit' : 'result-miss'}">${isHit(f, mode.key) ? '✓ Hit' : '✗ Miss'}</span>`
+    : '';
+  return `
     <tr>
       <td class="kickoff" data-label="Kickoff">${kickoff(f.date)}</td>
       <td class="league" data-label="League">${f.league}</td>
       <td class="fixture" data-label="Fixture">
         <span class="home">${f.home.name}</span><span class="vs">vs</span>${f.away.name}
+        ${scoreBadge}
         ${f._view.confidence === 'low' ? '<span class="confidence-low" title="Fewer than 5 recent matches on record for one side">low sample</span>' : ''}
         <div class="form-row">
           <span class="form-label">Home</span>
@@ -287,7 +334,46 @@ function render() {
       <td data-label="BTTS">${meter(f._view.bttsLikelihood)}</td>
       <td data-label="Combined">${meter(f._view.combined, 'combined')}</td>
     </tr>
-  `).join('');
+  `;
+}
+
+function syncModeUi() {
+  const mode = MODES[state.mode];
+  if (els.modeSelect) els.modeSelect.value = state.mode;
+  if (els.winHeader) els.winHeader.textContent = mode.winLabel;
+}
+
+function syncViewUi() {
+  const isResults = state.view === 'results';
+  els.viewUpcomingBtn.setAttribute('aria-pressed', String(!isResults));
+  els.viewResultsBtn.setAttribute('aria-pressed', String(isResults));
+  // renderHero() will correct this back to false when there's data to show —
+  // this only needs to force it shut for the results view, which skips renderHero entirely.
+  if (isResults) els.hero.hidden = true;
+  els.dayFilterLabel.hidden = isResults;
+  els.emptyState.textContent = isResults
+    ? 'No recent results match these filters.'
+    : 'No fixtures match these filters.';
+}
+
+function render() {
+  syncModeUi();
+  syncViewUi();
+  const mode = { ...MODES[state.mode], key: state.mode };
+
+  if (state.view === 'results') {
+    const filtered = applyResultFilters();
+    renderResultsStats(filtered, mode);
+    els.emptyState.hidden = filtered.length > 0;
+    els.rows.innerHTML = filtered.map((f) => matchRowHtml(f, mode, true)).join('');
+    return;
+  }
+
+  els.resultsStats.hidden = true;
+  const filtered = applyFilters();
+  renderHero(filtered);
+  els.emptyState.hidden = filtered.length > 0;
+  els.rows.innerHTML = filtered.map((f) => matchRowHtml(f, mode, false)).join('');
 }
 
 /* ------------------------------- PWA + alerts ------------------------------ */
@@ -410,6 +496,7 @@ async function refreshData() {
   const res = await fetch('./data/fixtures.json', { cache: 'no-store' });
   const payload = await res.json();
   state.fixtures = payload.fixtures;
+  state.results = payload.results || [];
   renderMeta(payload);
   populateLeagues(state.fixtures);
   populateDays(state.fixtures);
@@ -440,6 +527,8 @@ async function main() {
   });
   els.notifyBtn.addEventListener('click', toggleNotifications);
   els.installHintClose.addEventListener('click', () => { els.installHint.hidden = true; });
+  els.viewUpcomingBtn.addEventListener('click', () => { state.view = 'upcoming'; render(); });
+  els.viewResultsBtn.addEventListener('click', () => { state.view = 'results'; render(); });
 
   // Alerts only fire while the page is open — refetch periodically (and
   // immediately on return to the tab) so a long-open tab still catches new

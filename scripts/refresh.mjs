@@ -37,30 +37,81 @@ function scoreAll(fixtures, formById) {
   return scored;
 }
 
+/**
+ * Backtests already-played fixtures: each team's form is summarized from
+ * only the matches strictly before that fixture's kickoff (rawMatchesByTeam
+ * carries `date` for exactly this), so the prediction shown is the one the
+ * model would actually have made going in — not one peeking at the result.
+ * Shaped like a scored fixture (stats.home/away, same score fields) so the
+ * client can reuse the same per-mode scoring it already has, plus the real
+ * final score and outcome to grade it against.
+ */
+function scoreResults(results, rawMatchesByTeam) {
+  const scored = [];
+  for (const r of results) {
+    const homeMatches = rawMatchesByTeam.get(r.home.id);
+    const awayMatches = rawMatchesByTeam.get(r.away.id);
+    if (!homeMatches || !awayMatches || homeMatches.__error || awayMatches.__error) continue;
+
+    const cutoff = new Date(r.date).getTime();
+    const homeForm = summarizeTeamForm(homeMatches.filter((m) => new Date(m.date).getTime() < cutoff));
+    const awayForm = summarizeTeamForm(awayMatches.filter((m) => new Date(m.date).getTime() < cutoff));
+    const score = scoreFixture(homeForm, awayForm);
+    if (!score) continue;
+
+    scored.push({
+      id: r.id,
+      date: r.date,
+      league: r.league,
+      leagueCountry: r.leagueCountry,
+      home: { id: r.home.id, name: r.home.name },
+      away: { id: r.away.id, name: r.away.name },
+      stats: { home: homeForm, away: awayForm },
+      score,
+      finalScore: { home: r.home.score, away: r.away.score },
+      actual: {
+        homeWin: r.home.score > r.away.score,
+        awayWin: r.away.score > r.home.score,
+        btts: r.home.score > 0 && r.away.score > 0,
+      },
+    });
+  }
+  scored.sort((a, b) => new Date(b.date) - new Date(a.date));
+  return scored;
+}
+
 async function buildFromApi() {
   const allFixtures = [];
+  const allResults = [];
   const formById = new Map();
+  const rawMatchesByTeam = new Map();
 
   for (const league of LEAGUES) {
-    const { fixtures, matchesByTeam } = await fetchLeagueWindow(league);
-    log(`  ${league.name}: ${fixtures.length} upcoming fixtures, ${matchesByTeam.size} teams with recent matches`);
+    const { fixtures, results, matchesByTeam } = await fetchLeagueWindow(league);
+    log(`  ${league.name}: ${fixtures.length} upcoming, ${results.length} recent results, ${matchesByTeam.size} teams with recent matches`);
     allFixtures.push(...fixtures);
+    allResults.push(...results);
     for (const [teamId, matches] of matchesByTeam) {
       formById.set(teamId, summarizeTeamForm(matches));
+      rawMatchesByTeam.set(teamId, matches);
     }
   }
 
   if (!allFixtures.length) throw new Error('no upcoming fixtures returned for any league');
-  return scoreAll(allFixtures, formById);
+  return {
+    fixtures: scoreAll(allFixtures, formById),
+    results: scoreResults(allResults, rawMatchesByTeam),
+  };
 }
 
 async function main() {
   await mkdir(OUT, { recursive: true });
 
   let fixtures;
+  let results;
   let source;
   try {
-    fixtures = await buildFromApi();
+    ({ fixtures, results } = await buildFromApi());
     source = 'espn';
   } catch (err) {
     log('live fetch failed, falling back to demo data:', err.message || err);
@@ -69,6 +120,7 @@ async function main() {
     log('using demo data (live fetch unavailable)');
     const { fixtures: mockFixtures, forms } = generateMockSeason();
     fixtures = scoreAll(mockFixtures, forms);
+    results = []; // demo mode has no play-by-play history to backtest against
     source = 'mock';
   }
 
@@ -77,9 +129,10 @@ async function main() {
     source,
     disclaimer: 'Public/derived football statistics shown for information only — not betting advice.',
     fixtures,
+    results,
   };
   await writeFile(resolve(OUT, 'fixtures.json'), JSON.stringify(payload, null, 2));
-  log(`wrote ${fixtures.length} fixtures (source: ${source})`);
+  log(`wrote ${fixtures.length} fixtures, ${results.length} recent results (source: ${source})`);
 }
 
 main().catch((err) => {

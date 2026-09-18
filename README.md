@@ -44,6 +44,20 @@ so treat it as illustrative, not a real price.
 **This is not a bookmaker probability or betting advice** — it's a simplified
 estimate from public/derived match data, shown for information only.
 
+## Results — checking the model against what actually happened
+
+An **Upcoming / Results** toggle switches the whole page to a backtest of
+the last week's already-played matches across the same leagues. Each one is
+scored the same way as an upcoming fixture, except every team's form is
+computed from only the matches strictly *before* that kickoff — so it's the
+prediction the model would actually have made going in, not one with the
+benefit of hindsight. Every row shows the final score and a **Hit**/**Miss**
+badge (mode-aware — graded against away win + BTTS or home win + BTTS,
+whichever is selected), sorted the same way as the upcoming list — most
+confident call first — so a glance at the top tells you both how sure the
+model was and whether it was right. A summary line above the table gives the
+overall hit rate among ok-confidence calls for the selected mode.
+
 ## Install it, and get alerted
 
 The dashboard is a PWA: a manifest, a service worker (network-first, so a

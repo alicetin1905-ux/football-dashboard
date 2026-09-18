@@ -125,6 +125,60 @@ header.top .crumbs {
   border-radius: 0 6px 6px 0;
 }
 
+.view-toggle {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.view-btn {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  color: var(--text-2);
+  border-radius: 6px;
+  padding: 6px 14px;
+  font-size: 0.82rem;
+  font-family: var(--sans);
+  cursor: pointer;
+}
+
+.view-btn:hover { background: var(--surface-3); }
+
+.view-btn[aria-pressed="true"] {
+  background: var(--series-1);
+  border-color: var(--series-1);
+  color: #fff;
+}
+
+.results-stats {
+  font-size: 0.82rem;
+  color: var(--text-2);
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 10px 14px;
+  margin-bottom: 12px;
+}
+
+.results-stats strong { color: var(--text); }
+
+.final-score {
+  font-weight: 600;
+  color: var(--text-2);
+  margin-left: 6px;
+}
+
+.result-badge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  border-radius: 999px;
+  padding: 1px 8px;
+  margin-left: 6px;
+}
+
+.result-badge.result-hit { color: var(--good); background: rgba(12, 163, 12, 0.12); }
+.result-badge.result-miss { color: var(--bad); background: rgba(230, 103, 103, 0.12); }
+
 .hero {
   margin-bottom: 16px;
 }

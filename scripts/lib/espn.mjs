@@ -4,11 +4,12 @@
  * Unlike SofaScore, it doesn't block datacenter/CI IPs.
  *
  * Upcoming fixtures come from a day-by-day scoreboard sweep (there's no
- * "next N" endpoint). Recent team form comes from each team's own schedule
- * endpoint instead of a wider day sweep — early in a season that endpoint
- * alone doesn't have enough finished matches, so it falls back to the
- * previous season and bridges the two, rather than reporting everything as
- * "low sample" for the first couple of months.
+ * "next N" endpoint). Recent past results come from the same sweep, run
+ * backwards instead of forwards. Recent team form comes from each team's own
+ * schedule endpoint instead of a wider day sweep — early in a season that
+ * endpoint alone doesn't have enough finished matches, so it falls back to
+ * the previous season and bridges the two, rather than reporting everything
+ * as "low sample" for the first couple of months.
  */
 
 const BASE = 'https://site.api.espn.com/apis/site/v2/sports/soccer';
@@ -93,6 +94,43 @@ async function fetchUpcomingFixtures(league, futureDays, concurrency) {
   return fixtures;
 }
 
+/** Finished matches for a league over a recent past window — same sweep as fetchUpcomingFixtures, but 'post' events with a final score. */
+async function fetchRecentResults(league, pastDays, concurrency) {
+  const today = new Date();
+  today.setUTCHours(0, 0, 0, 0);
+  const dates = Array.from({ length: pastDays + 1 }, (_, d) => new Date(today.getTime() - d * 86_400_000));
+
+  const days = await pool(dates, (date) => apiGet(`/${league.slug}/scoreboard?dates=${yyyymmdd(date)}`), concurrency);
+
+  const results = [];
+  const seen = new Set();
+  for (const day of days) {
+    if (!Array.isArray(day?.events)) continue;
+    for (const event of day.events) {
+      if (seen.has(event.id)) continue;
+      const comp = event.competitions?.[0];
+      if (comp?.status?.type?.state !== 'post') continue;
+      const competitors = comp.competitors || [];
+      const home = competitors.find((c) => c.homeAway === 'home');
+      const away = competitors.find((c) => c.homeAway === 'away');
+      if (!home || !away) continue;
+      const gh = Number(home.score?.value ?? home.score);
+      const ga = Number(away.score?.value ?? away.score);
+      if (!Number.isFinite(gh) || !Number.isFinite(ga)) continue;
+      seen.add(event.id);
+      results.push({
+        id: event.id,
+        date: event.date,
+        league: league.name,
+        leagueCountry: league.country,
+        home: { id: home.team.id, name: home.team.displayName, score: gh },
+        away: { id: away.team.id, name: away.team.displayName, score: ga },
+      });
+    }
+  }
+  return results;
+}
+
 function parseFinishedMatches(events, teamId) {
   const out = [];
   for (const event of events) {
@@ -130,24 +168,30 @@ async function fetchTeamForm(leagueSlug, teamId, season, minMatches = 10, keep =
   }
 
   matches.sort((a, b) => new Date(a.date) - new Date(b.date));
-  return matches.slice(-keep).map(({ venue, gf, ga }) => ({ venue, gf, ga }));
+  // Keeps `date` (unlike the other summarized fields) — refresh.mjs needs it
+  // to filter each team's matches down to "before this result" when scoring
+  // already-played fixtures, so that backtest doesn't peek at the future.
+  return matches.slice(-keep);
 }
 
 /**
  * @param {{slug: string, name: string, country: string}} league
- * @returns {{ fixtures: object[], matchesByTeam: Map<string, {venue, gf, ga}[]> }}
+ * @returns {{ fixtures: object[], results: object[], matchesByTeam: Map<string, {date, venue, gf, ga}[]> }}
  */
-export async function fetchLeagueWindow(league, { futureDays = 10, concurrency = 6 } = {}) {
-  const fixtures = await fetchUpcomingFixtures(league, futureDays, concurrency);
+export async function fetchLeagueWindow(league, { futureDays = 10, pastDays = 7, concurrency = 6 } = {}) {
+  const [fixtures, results] = await Promise.all([
+    fetchUpcomingFixtures(league, futureDays, concurrency),
+    fetchRecentResults(league, pastDays, concurrency),
+  ]);
   const season = currentSeasonYear();
 
-  const teamIds = [...new Set(fixtures.flatMap((f) => [f.home.id, f.away.id]))];
-  const results = await pool(teamIds, (id) => fetchTeamForm(league.slug, id, season), concurrency);
+  const teamIds = [...new Set([...fixtures, ...results].flatMap((f) => [f.home.id, f.away.id]))];
+  const formResults = await pool(teamIds, (id) => fetchTeamForm(league.slug, id, season), concurrency);
 
   const matchesByTeam = new Map();
   teamIds.forEach((id, i) => {
-    if (Array.isArray(results[i])) matchesByTeam.set(id, results[i]);
+    if (Array.isArray(formResults[i])) matchesByTeam.set(id, formResults[i]);
   });
 
-  return { fixtures, matchesByTeam };
+  return { fixtures, results, matchesByTeam };
 }

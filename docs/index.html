@@ -29,6 +29,11 @@
     <a href="#methodology">methodology</a>), not a bookmaker probability.
   </div>
 
+  <div class="view-toggle" role="group" aria-label="View">
+    <button type="button" class="view-btn" id="viewUpcomingBtn" aria-pressed="true">Upcoming</button>
+    <button type="button" class="view-btn" id="viewResultsBtn" aria-pressed="false">Results</button>
+  </div>
+
   <section class="hero" id="hero" hidden>
     <div class="hero-label-row">
       <div class="hero-label">Top matches</div>
@@ -46,6 +51,8 @@
     <div class="bet-slip" id="betSlip"></div>
   </section>
 
+  <div class="results-stats" id="resultsStats" hidden></div>
+
   <div class="controls">
     <label>Rank by
       <select id="modeSelect">
@@ -56,7 +63,7 @@
     <label>League
       <select id="leagueFilter"><option value="">All leagues</option></select>
     </label>
-    <label>Day
+    <label id="dayFilterLabel">Day
       <select id="dayFilter"><option value="">All weekend</option></select>
     </label>
     <label>
@@ -105,6 +112,10 @@
       away win + BTTS, regardless of the selected ranking. The <strong>Home</strong>/<strong>Away</strong>
       form badges on each row are exactly the matches those rates come from — the home
       team's own home matches, oldest to newest, and the away team's own away matches.
+      The <strong>Results</strong> view backtests the last week of already-played matches:
+      each prediction there is computed from only the matches that came <em>before</em> that
+      kickoff, so it's the call the model would actually have made going in, checked against
+      what really happened.
     </p>
     <p>Public/derived match data, shown for information only. Not betting advice.</p>
   </footer>
