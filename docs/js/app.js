@@ -15,6 +15,7 @@ const MODES = {
   dc1x: { label: 'Home/Draw + BTTS', winLabel: 'Home/Draw' },
   homeWin: { label: 'Home win', winLabel: 'Home win' },
   awayWin: { label: 'Away win', winLabel: 'Away win' },
+  draw: { label: 'Draw', winLabel: 'Draw' },
 };
 
 const clampLegs = (n) => Math.min(MAX_LEGS, Math.max(MIN_LEGS, Math.round(n)));
@@ -250,6 +251,7 @@ function isHit(f, mode) {
   if (mode === 'dc1x') return !f.actual.awayWin && f.actual.btts;
   if (mode === 'homeWin') return f.actual.homeWin;
   if (mode === 'awayWin') return f.actual.awayWin;
+  if (mode === 'draw') return f.actual.draw;
   const won = mode === 'home' ? f.actual.homeWin : f.actual.awayWin;
   return won && f.actual.btts;
 }

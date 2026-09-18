@@ -83,6 +83,7 @@ function scoreResults(results, rawMatchesByTeam, leagueAvgByName) {
       actual: {
         homeWin: r.home.score > r.away.score,
         awayWin: r.away.score > r.home.score,
+        draw: r.home.score === r.away.score,
         btts: r.home.score > 0 && r.away.score > 0,
         over25: r.home.score + r.away.score > 2.5,
       },

@@ -96,6 +96,7 @@ function outcomeProbs(expectedHome, expectedAway) {
 
   let homeWin = 0;
   let awayWin = 0;
+  let draw = 0;
   let btts = 0;
   let homeWinBtts = 0;
   let awayWinBtts = 0;
@@ -108,7 +109,7 @@ function outcomeProbs(expectedHome, expectedAway) {
     for (let j = 0; j <= MAX_GOALS; j++) {
       const p = home[i] * away[j];
       const bothScored = i > 0 && j > 0;
-      if (i > j) homeWin += p; else if (i < j) awayWin += p;
+      if (i > j) homeWin += p; else if (i < j) awayWin += p; else draw += p;
       if (i >= j) homeOrDraw += p;
       if (bothScored) {
         btts += p;
@@ -122,14 +123,14 @@ function outcomeProbs(expectedHome, expectedAway) {
       }
     }
   }
-  return { homeWin, awayWin, btts, homeWinBtts, awayWinBtts, over25, bttsOver25, homeOrDraw, homeOrDrawBtts };
+  return { homeWin, awayWin, draw, btts, homeWinBtts, awayWinBtts, over25, bttsOver25, homeOrDraw, homeOrDrawBtts };
 }
 
 /**
  * @param {ReturnType<typeof summarizeTeamForm>} homeForm
  * @param {ReturnType<typeof summarizeTeamForm>} awayForm
  * @param {{home: number, away: number}} leagueAvg
- * @returns {{ away: object, home: object, goals: object, dc1x: object, homeWin: object, awayWin: object, sampleHome: number, sampleAway: number, expectedGoals: {home: number, away: number} }}
+ * @returns {{ away: object, home: object, goals: object, dc1x: object, homeWin: object, awayWin: object, draw: object, sampleHome: number, sampleAway: number, expectedGoals: {home: number, away: number} }}
  */
 export function scoreFixture(homeForm, awayForm, leagueAvg) {
   const minSample = Math.min(homeForm.homeSample, awayForm.awaySample);
@@ -143,7 +144,7 @@ export function scoreFixture(homeForm, awayForm, leagueAvg) {
   const expectedHomeGoals = clamp(leagueAvg.home * homeAttack * awayDefense, ...EXPECTED_GOALS_RANGE);
   const expectedAwayGoals = clamp(leagueAvg.away * awayAttack * homeDefense, ...EXPECTED_GOALS_RANGE);
 
-  const { homeWin, awayWin, btts, homeWinBtts, awayWinBtts, over25, bttsOver25, homeOrDraw, homeOrDrawBtts } =
+  const { homeWin, awayWin, draw, btts, homeWinBtts, awayWinBtts, over25, bttsOver25, homeOrDraw, homeOrDrawBtts } =
     outcomeProbs(expectedHomeGoals, expectedAwayGoals);
 
   return {
@@ -160,6 +161,7 @@ export function scoreFixture(homeForm, awayForm, leagueAvg) {
     // joint one.
     homeWin: { winLikelihood: homeWin, bttsLikelihood: null, combined: homeWin, confidence },
     awayWin: { winLikelihood: awayWin, bttsLikelihood: null, combined: awayWin, confidence },
+    draw: { winLikelihood: draw, bttsLikelihood: null, combined: draw, confidence },
     sampleHome: homeForm.homeSample,
     sampleAway: awayForm.awaySample,
     expectedGoals: { home: expectedHomeGoals, away: expectedAwayGoals },

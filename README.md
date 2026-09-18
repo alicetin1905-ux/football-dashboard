@@ -23,13 +23,14 @@ and the table — to one day (Friday, Saturday, Sunday, ...) or back to
 **All weekend**; within whatever's selected, the most likely "away win +
 BTTS yes" match is still first.
 A **Rank by** toggle switches the whole view — table columns, top matches,
-and sort order — between six modes, all read off the same underlying score
-matrix:
+and sort order — between seven modes, all read off the same underlying
+score matrix:
 
 | Mode | What it needs | Backtested hit rate |
 |---|---|---|
 | Away win + BTTS | Away team wins, both teams score | ~17% |
 | Home win + BTTS | Home team wins, both teams score | ~21% |
+| Draw | Match ends level — no BTTS attached | ~30% |
 | Away win | Away team wins — no BTTS attached | ~30% |
 | Home win | Home team wins — no BTTS attached | ~40% |
 | Home/Draw + BTTS | Home team avoids defeat (double chance), both teams score | ~42% |
@@ -40,11 +41,16 @@ than an easier one (avoiding defeat, dropping the BTTS requirement, or just
 goals happening) — that's not a flaw in the stricter modes, it's what
 backtesting is for: if hit rate is what you're optimizing for, pick one of
 the easier bars; if you specifically want the BTTS angle, that's what the
-combo modes are for. The plain **Home win**/**Away win** modes have no
-second leg, so their BTTS column shows "—" and Combined is just the win
-probability itself. Your choice is remembered locally. Alerts always stay
-tied to away win + BTTS regardless of which mode you're viewing. A "low
-sample" tag marks fixtures where either team has fewer than 5 recent
+combo modes are for. The plain **Home win**/**Away win**/**Draw** modes have
+no second leg, so their BTTS column shows "—" and Combined is just the win
+probability itself. Note the model runs a bit conservative on **Draw**
+specifically (~22% average predicted vs. ~30% actual in the backtest) — a
+known tendency of this model family to underestimate draws slightly, since
+it treats the two teams' goal counts as independent when real matches
+correlate low-scoring outcomes somewhat more than that. Your choice is
+remembered locally. Alerts always stay tied to away win + BTTS regardless
+of which mode you're viewing. A "low sample" tag marks fixtures where
+either team has fewer than 5 recent
 matches on record, since the underlying rate is noisier with less data.
 
 Below "Top matches", a **Legs** selector (1–5, defaults to 3) picks how many
