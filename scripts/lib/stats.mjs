@@ -129,7 +129,7 @@ function outcomeProbs(expectedHome, expectedAway) {
  * @param {ReturnType<typeof summarizeTeamForm>} homeForm
  * @param {ReturnType<typeof summarizeTeamForm>} awayForm
  * @param {{home: number, away: number}} leagueAvg
- * @returns {{ away: object, home: object, goals: object, dc1x: object, sampleHome: number, sampleAway: number, expectedGoals: {home: number, away: number} }}
+ * @returns {{ away: object, home: object, goals: object, dc1x: object, homeWin: object, awayWin: object, sampleHome: number, sampleAway: number, expectedGoals: {home: number, away: number} }}
  */
 export function scoreFixture(homeForm, awayForm, leagueAvg) {
   const minSample = Math.min(homeForm.homeSample, awayForm.awaySample);
@@ -155,6 +155,11 @@ export function scoreFixture(homeForm, awayForm, leagueAvg) {
     // figure, a BTTS figure, and their joint "combined" probability).
     goals: { winLikelihood: over25, bttsLikelihood: btts, combined: bttsOver25, confidence },
     dc1x: { winLikelihood: homeOrDraw, bttsLikelihood: btts, combined: homeOrDrawBtts, confidence },
+    // Single-outcome, no second leg — bttsLikelihood is null (nothing to
+    // show there) and combined is just the win probability itself, not a
+    // joint one.
+    homeWin: { winLikelihood: homeWin, bttsLikelihood: null, combined: homeWin, confidence },
+    awayWin: { winLikelihood: awayWin, bttsLikelihood: null, combined: awayWin, confidence },
     sampleHome: homeForm.homeSample,
     sampleAway: awayForm.awaySample,
     expectedGoals: { home: expectedHomeGoals, away: expectedAwayGoals },
