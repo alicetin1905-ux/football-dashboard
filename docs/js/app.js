@@ -11,6 +11,7 @@ const MAX_LEGS = 5;
 const MODES = {
   away: { label: 'Away win + BTTS', winLabel: 'Away win' },
   home: { label: 'Home win + BTTS', winLabel: 'Home win' },
+  goals: { label: 'BTTS + Over 2.5', winLabel: 'Over 2.5' },
 };
 
 const clampLegs = (n) => Math.min(MAX_LEGS, Math.max(MIN_LEGS, Math.round(n)));
@@ -242,6 +243,7 @@ function applyFilters() {
 
 /** Whether a backtested result's actual outcome matches the currently selected bet (mode-aware). */
 function isHit(f, mode) {
+  if (mode === 'goals') return f.actual.over25 && f.actual.btts;
   const won = mode === 'home' ? f.actual.homeWin : f.actual.awayWin;
   return won && f.actual.btts;
 }

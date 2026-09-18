@@ -58,6 +58,7 @@
       <select id="modeSelect">
         <option value="away">Away win + BTTS</option>
         <option value="home">Home win + BTTS</option>
+        <option value="goals">BTTS + Over 2.5</option>
       </select>
     </label>
     <label>League
@@ -110,9 +111,11 @@
       chance, because the weaker side's expected goals are genuinely low. The two teams'
       goal counts are still treated as statistically independent of each other, a known,
       accepted simplification of this model (not a true joint distribution). The
-      <strong>Rank by</strong> control switches which side's win probability is shown and
-      ranked by &mdash; away or home &mdash; both computed from the same underlying model.
-      Fixtures where either team has fewer than 5 recent matches on record are flagged
+      <strong>Rank by</strong> control switches what's ranked: away win, home win, or
+      &mdash; the one that isn't tied to either team winning &mdash; <strong>BTTS + Over
+      2.5</strong>, both teams scoring and the match producing three or more goals total.
+      All three come from the same underlying score matrix. Fixtures where either team has
+      fewer than 5 recent matches on record are flagged
       "low sample", since a small sample makes for a noisy goal-scoring average. Alerts are
       always based on away win + BTTS, regardless of the selected ranking. The
       <strong>Home</strong>/<strong>Away</strong> form badges on each row are the matches

@@ -23,13 +23,17 @@ and the table — to one day (Friday, Saturday, Sunday, ...) or back to
 **All weekend**; within whatever's selected, the most likely "away win +
 BTTS yes" match is still first.
 A **Rank by** toggle switches the whole view — table columns, top matches,
-and sort order — to **Home win + BTTS** instead, reusing the same scoring
-logic with the win side swapped (home team's home-win rate and away team's
-away-loss rate, rather than the reverse). Your choice is remembered locally.
-Alerts always stay tied to away win + BTTS regardless of which mode you're
-viewing. A "low sample" tag marks fixtures where either team has fewer than
-5 recent matches on record, since the underlying rate is noisier with less
-data.
+and sort order — between three modes, all read off the same underlying
+score matrix: **Away win + BTTS**, **Home win + BTTS**, and **BTTS + Over
+2.5** (both teams score *and* the match produces 3+ goals total — not tied
+to either team winning). Backtested against a week of played matches,
+BTTS + Over 2.5 hits noticeably more often (~48%) than either win-based mode
+(~17–21%) — a higher bar clears less often than an easier one, not a flaw
+in the away/home modes, but if hit rate is what you're optimizing for, it's
+the one to pick. Your choice is remembered locally. Alerts always stay tied
+to away win + BTTS regardless of which mode you're viewing. A "low sample"
+tag marks fixtures where either team has fewer than 5 recent matches on
+record, since the underlying rate is noisier with less data.
 
 Below "Top matches", a **Legs** selector (1–5, defaults to 3) picks how many
 of the ranked fixtures to focus on — it controls both how many cards show

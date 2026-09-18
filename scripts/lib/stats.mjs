@@ -99,26 +99,33 @@ function outcomeProbs(expectedHome, expectedAway) {
   let btts = 0;
   let homeWinBtts = 0;
   let awayWinBtts = 0;
+  let over25 = 0;
+  let bttsOver25 = 0;
 
   for (let i = 0; i <= MAX_GOALS; i++) {
     for (let j = 0; j <= MAX_GOALS; j++) {
       const p = home[i] * away[j];
+      const bothScored = i > 0 && j > 0;
       if (i > j) homeWin += p; else if (i < j) awayWin += p;
-      if (i > 0 && j > 0) {
+      if (bothScored) {
         btts += p;
         if (i > j) homeWinBtts += p;
         else if (i < j) awayWinBtts += p;
       }
+      if (i + j >= 3) {
+        over25 += p;
+        if (bothScored) bttsOver25 += p;
+      }
     }
   }
-  return { homeWin, awayWin, btts, homeWinBtts, awayWinBtts };
+  return { homeWin, awayWin, btts, homeWinBtts, awayWinBtts, over25, bttsOver25 };
 }
 
 /**
  * @param {ReturnType<typeof summarizeTeamForm>} homeForm
  * @param {ReturnType<typeof summarizeTeamForm>} awayForm
  * @param {{home: number, away: number}} leagueAvg
- * @returns {{ away: object, home: object, sampleHome: number, sampleAway: number, expectedGoals: {home: number, away: number} }}
+ * @returns {{ away: object, home: object, goals: object, sampleHome: number, sampleAway: number, expectedGoals: {home: number, away: number} }}
  */
 export function scoreFixture(homeForm, awayForm, leagueAvg) {
   const minSample = Math.min(homeForm.homeSample, awayForm.awaySample);
@@ -132,11 +139,16 @@ export function scoreFixture(homeForm, awayForm, leagueAvg) {
   const expectedHomeGoals = clamp(leagueAvg.home * homeAttack * awayDefense, ...EXPECTED_GOALS_RANGE);
   const expectedAwayGoals = clamp(leagueAvg.away * awayAttack * homeDefense, ...EXPECTED_GOALS_RANGE);
 
-  const { homeWin, awayWin, btts, homeWinBtts, awayWinBtts } = outcomeProbs(expectedHomeGoals, expectedAwayGoals);
+  const { homeWin, awayWin, btts, homeWinBtts, awayWinBtts, over25, bttsOver25 } =
+    outcomeProbs(expectedHomeGoals, expectedAwayGoals);
 
   return {
     away: { winLikelihood: awayWin, bttsLikelihood: btts, combined: awayWinBtts, confidence },
     home: { winLikelihood: homeWin, bttsLikelihood: btts, combined: homeWinBtts, confidence },
+    // Not a team-win bet — winLikelihood here is P(Over 2.5) instead, so the
+    // client can treat all three modes the same way (a "win-like" figure, a
+    // BTTS figure, and their joint "combined" probability).
+    goals: { winLikelihood: over25, bttsLikelihood: btts, combined: bttsOver25, confidence },
     sampleHome: homeForm.homeSample,
     sampleAway: awayForm.awaySample,
     expectedGoals: { home: expectedHomeGoals, away: expectedAwayGoals },

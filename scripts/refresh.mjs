@@ -84,6 +84,7 @@ function scoreResults(results, rawMatchesByTeam, leagueAvgByName) {
         homeWin: r.home.score > r.away.score,
         awayWin: r.away.score > r.home.score,
         btts: r.home.score > 0 && r.away.score > 0,
+        over25: r.home.score + r.away.score > 2.5,
       },
     });
   }
