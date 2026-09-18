@@ -4,14 +4,20 @@ const ALERT_THRESHOLD = 0.5;
 const ALERT_WINDOW_HOURS = 48;
 const REFRESH_INTERVAL_MS = 5 * 60 * 1000;
 const DEFAULT_STAKE = 10;
+const DEFAULT_LEGS = 3;
+const MIN_LEGS = 1;
+const MAX_LEGS = 5;
 
 const MODES = {
   away: { label: 'Away win + BTTS', winLabel: 'Away win' },
   home: { label: 'Home win + BTTS', winLabel: 'Home win' },
 };
 
+const clampLegs = (n) => Math.min(MAX_LEGS, Math.max(MIN_LEGS, Math.round(n)));
+
 const storedMode = readStore('btts-mode', 'away');
 const storedStake = readStore('btts-stake', DEFAULT_STAKE);
+const storedLegs = readStore('btts-legs', DEFAULT_LEGS);
 
 const state = {
   fixtures: [],
@@ -21,6 +27,7 @@ const state = {
   notify: false,
   mode: MODES[storedMode] ? storedMode : 'away',
   stake: Number.isFinite(storedStake) && storedStake >= 0 ? storedStake : DEFAULT_STAKE,
+  legs: Number.isFinite(storedLegs) ? clampLegs(storedLegs) : DEFAULT_LEGS,
 };
 
 const els = {
@@ -28,6 +35,7 @@ const els = {
   hero: document.getElementById('hero'),
   heroCards: document.getElementById('heroCards'),
   betSlip: document.getElementById('betSlip'),
+  legsSelect: document.getElementById('legsSelect'),
   leagueFilter: document.getElementById('leagueFilter'),
   hideLowSample: document.getElementById('hideLowSample'),
   teamSearch: document.getElementById('teamSearch'),
@@ -113,7 +121,8 @@ function renderMeta(payload) {
 
 function renderHero(fixtures) {
   const mode = MODES[state.mode];
-  const top = fixtures.slice(0, 3);
+  if (els.legsSelect) els.legsSelect.value = state.legs;
+  const top = fixtures.slice(0, state.legs);
   if (!top.length) { els.hero.hidden = true; return; }
   els.hero.hidden = false;
   els.heroCards.innerHTML = top.map((f, i) => `
@@ -403,6 +412,11 @@ async function main() {
   els.modeSelect.addEventListener('change', (e) => {
     state.mode = MODES[e.target.value] ? e.target.value : 'away';
     writeStore('btts-mode', state.mode);
+    render();
+  });
+  els.legsSelect.addEventListener('change', (e) => {
+    state.legs = clampLegs(parseInt(e.target.value, 10) || DEFAULT_LEGS);
+    writeStore('btts-legs', state.legs);
     render();
   });
   els.notifyBtn.addEventListener('click', toggleNotifications);

@@ -30,7 +30,18 @@
   </div>
 
   <section class="hero" id="hero" hidden>
-    <div class="hero-label">Top matches</div>
+    <div class="hero-label-row">
+      <div class="hero-label">Top matches</div>
+      <label class="legs-control">Legs
+        <select id="legsSelect">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3" selected>3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+      </label>
+    </div>
     <div class="hero-cards" id="heroCards"></div>
     <div class="bet-slip" id="betSlip"></div>
   </section>
