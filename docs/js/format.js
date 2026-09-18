@@ -13,13 +13,7 @@ export function kickoff(iso) {
   }).format(d);
 }
 
-/** Just the time — for rows grouped under a day heading that already shows the date. */
-export function kickoffTime(iso) {
-  const d = new Date(iso);
-  return new Intl.DateTimeFormat(undefined, { hour: 'numeric', minute: '2-digit' }).format(d);
-}
-
-/** Zero-padded local-date key (YYYY-MM-DD) — string-sortable, for grouping fixtures by day. */
+/** Zero-padded local-date key (YYYY-MM-DD) — string-sortable, used by the day filter. */
 export function dayKey(iso) {
   const d = new Date(iso);
   const y = d.getFullYear();

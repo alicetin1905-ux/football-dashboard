@@ -1,4 +1,4 @@
-import { pct, kickoff, kickoffTime, relativeAgo, dayKey, dayHeading } from './format.js';
+import { pct, kickoff, relativeAgo, dayKey, dayHeading } from './format.js';
 
 const ALERT_THRESHOLD = 0.5;
 const ALERT_WINDOW_HOURS = 48;
@@ -22,6 +22,7 @@ const storedLegs = readStore('btts-legs', DEFAULT_LEGS);
 const state = {
   fixtures: [],
   league: '',
+  day: '',
   hideLowSample: false,
   search: '',
   notify: false,
@@ -37,6 +38,7 @@ const els = {
   betSlip: document.getElementById('betSlip'),
   legsSelect: document.getElementById('legsSelect'),
   leagueFilter: document.getElementById('leagueFilter'),
+  dayFilter: document.getElementById('dayFilter'),
   hideLowSample: document.getElementById('hideLowSample'),
   teamSearch: document.getElementById('teamSearch'),
   modeSelect: document.getElementById('modeSelect'),
@@ -213,6 +215,20 @@ function populateLeagues(fixtures) {
   const leagues = [...new Set(fixtures.map((f) => f.league))].sort();
   els.leagueFilter.innerHTML = '<option value="">All leagues</option>' +
     leagues.map((l) => `<option value="${l}">${l}</option>`).join('');
+  els.leagueFilter.value = state.league;
+}
+
+/** Unique fixture days, chronological, as <option>s — "All weekend" plus one per day. */
+function populateDays(fixtures) {
+  const seen = new Map();
+  for (const f of fixtures) {
+    const key = dayKey(f.date);
+    if (!seen.has(key)) seen.set(key, f.date);
+  }
+  const keys = [...seen.keys()].sort();
+  els.dayFilter.innerHTML = '<option value="">All weekend</option>' +
+    keys.map((k) => `<option value="${k}">${dayHeading(seen.get(k))}</option>`).join('');
+  els.dayFilter.value = state.day;
 }
 
 /**
@@ -227,6 +243,7 @@ function applyFilters() {
 
   const filtered = viewed.filter(({ f, view }) => {
     if (state.league && f.league !== state.league) return false;
+    if (state.day && dayKey(f.date) !== state.day) return false;
     if (state.hideLowSample && view.confidence === 'low') return false;
     if (state.search) {
       const q = state.search.toLowerCase();
@@ -245,10 +262,16 @@ function syncModeUi() {
   if (els.winHeader) els.winHeader.textContent = mode.winLabel;
 }
 
-function rowHtml(f, mode) {
-  return `
+function render() {
+  syncModeUi();
+  const mode = MODES[state.mode];
+  const filtered = applyFilters();
+  renderHero(filtered);
+
+  els.emptyState.hidden = filtered.length > 0;
+  els.rows.innerHTML = filtered.map((f) => `
     <tr>
-      <td class="kickoff" data-label="Kickoff">${kickoffTime(f.date)}</td>
+      <td class="kickoff" data-label="Kickoff">${kickoff(f.date)}</td>
       <td class="league" data-label="League">${f.league}</td>
       <td class="fixture" data-label="Fixture">
         <span class="home">${f.home.name}</span><span class="vs">vs</span>${f.away.name}
@@ -264,30 +287,6 @@ function rowHtml(f, mode) {
       <td data-label="BTTS">${meter(f._view.bttsLikelihood)}</td>
       <td data-label="Combined">${meter(f._view.combined, 'combined')}</td>
     </tr>
-  `;
-}
-
-/** Buckets fixtures by local calendar day, day order chronological, fixtures within a day keeping their incoming (combined-desc) order. */
-function groupByDay(fixtures) {
-  const groups = new Map();
-  for (const f of fixtures) {
-    const key = dayKey(f.date);
-    if (!groups.has(key)) groups.set(key, []);
-    groups.get(key).push(f);
-  }
-  return [...groups.entries()].sort(([a], [b]) => (a < b ? -1 : a > b ? 1 : 0));
-}
-
-function render() {
-  syncModeUi();
-  const mode = MODES[state.mode];
-  const filtered = applyFilters();
-  renderHero(filtered);
-
-  els.emptyState.hidden = filtered.length > 0;
-  els.rows.innerHTML = groupByDay(filtered).map(([, dayFixtures]) => `
-    <tr class="day-divider"><td colspan="6">${dayHeading(dayFixtures[0].date)}</td></tr>
-    ${dayFixtures.map((f) => rowHtml(f, mode)).join('')}
   `).join('');
 }
 
@@ -413,6 +412,7 @@ async function refreshData() {
   state.fixtures = payload.fixtures;
   renderMeta(payload);
   populateLeagues(state.fixtures);
+  populateDays(state.fixtures);
   render();
   maybeNotifyFixtures(state.fixtures);
 }
@@ -425,6 +425,7 @@ async function main() {
   await refreshData();
 
   els.leagueFilter.addEventListener('change', (e) => { state.league = e.target.value; render(); });
+  els.dayFilter.addEventListener('change', (e) => { state.day = e.target.value; render(); });
   els.hideLowSample.addEventListener('change', (e) => { state.hideLowSample = e.target.checked; render(); });
   els.teamSearch.addEventListener('input', (e) => { state.search = e.target.value; render(); });
   els.modeSelect.addEventListener('change', (e) => {
