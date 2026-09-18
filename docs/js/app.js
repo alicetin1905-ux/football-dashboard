@@ -1,4 +1,4 @@
-import { pct, kickoff, relativeAgo } from './format.js';
+import { pct, kickoff, kickoffTime, relativeAgo, dayKey, dayHeading } from './format.js';
 
 const ALERT_THRESHOLD = 0.5;
 const ALERT_WINDOW_HOURS = 48;
@@ -245,16 +245,10 @@ function syncModeUi() {
   if (els.winHeader) els.winHeader.textContent = mode.winLabel;
 }
 
-function render() {
-  syncModeUi();
-  const mode = MODES[state.mode];
-  const filtered = applyFilters();
-  renderHero(filtered);
-
-  els.emptyState.hidden = filtered.length > 0;
-  els.rows.innerHTML = filtered.map((f) => `
+function rowHtml(f, mode) {
+  return `
     <tr>
-      <td class="kickoff" data-label="Kickoff">${kickoff(f.date)}</td>
+      <td class="kickoff" data-label="Kickoff">${kickoffTime(f.date)}</td>
       <td class="league" data-label="League">${f.league}</td>
       <td class="fixture" data-label="Fixture">
         <span class="home">${f.home.name}</span><span class="vs">vs</span>${f.away.name}
@@ -270,6 +264,30 @@ function render() {
       <td data-label="BTTS">${meter(f._view.bttsLikelihood)}</td>
       <td data-label="Combined">${meter(f._view.combined, 'combined')}</td>
     </tr>
+  `;
+}
+
+/** Buckets fixtures by local calendar day, day order chronological, fixtures within a day keeping their incoming (combined-desc) order. */
+function groupByDay(fixtures) {
+  const groups = new Map();
+  for (const f of fixtures) {
+    const key = dayKey(f.date);
+    if (!groups.has(key)) groups.set(key, []);
+    groups.get(key).push(f);
+  }
+  return [...groups.entries()].sort(([a], [b]) => (a < b ? -1 : a > b ? 1 : 0));
+}
+
+function render() {
+  syncModeUi();
+  const mode = MODES[state.mode];
+  const filtered = applyFilters();
+  renderHero(filtered);
+
+  els.emptyState.hidden = filtered.length > 0;
+  els.rows.innerHTML = groupByDay(filtered).map(([, dayFixtures]) => `
+    <tr class="day-divider"><td colspan="6">${dayHeading(dayFixtures[0].date)}</td></tr>
+    ${dayFixtures.map((f) => rowHtml(f, mode)).join('')}
   `).join('');
 }
 

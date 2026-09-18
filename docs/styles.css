@@ -440,6 +440,19 @@ tbody td {
   vertical-align: middle;
 }
 
+.day-divider td {
+  padding: 14px 10px 6px;
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  border-bottom: 1px solid var(--axis);
+}
+
+.day-divider:first-child td { padding-top: 4px; }
+.day-divider:hover { background: none; }
+
 td.kickoff { color: var(--text-2); white-space: nowrap; }
 td.league { color: var(--muted); white-space: nowrap; }
 
@@ -573,6 +586,19 @@ footer p { margin: 6px 0; }
     padding: 2px 0 8px;
     border-bottom: 1px solid var(--grid);
     margin-bottom: 4px;
+  }
+
+  .day-divider {
+    border: none;
+    padding: 16px 0 4px;
+    margin-bottom: 4px;
+  }
+
+  .day-divider:first-child { padding-top: 0; }
+
+  .day-divider td {
+    display: block;
+    padding: 0;
   }
 
   td.fixture::before { display: block; margin-bottom: 2px; }

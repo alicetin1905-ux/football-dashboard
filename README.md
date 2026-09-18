@@ -18,7 +18,8 @@ Süper Lig, Eredivisie, Belgian Pro League, Primeira Liga):
 | BTTS | Likelihood both teams score |
 | Combined | Away win × BTTS — the headline ranking metric |
 
-Fixtures are sorted with the most likely "away win + BTTS yes" match first.
+The main list is grouped by day — Friday, Saturday, Sunday, and so on — with
+the most likely "away win + BTTS yes" match first within each day.
 A **Rank by** toggle switches the whole view — table columns, top matches,
 and sort order — to **Home win + BTTS** instead, reusing the same scoring
 logic with the win side swapped (home team's home-win rate and away team's
