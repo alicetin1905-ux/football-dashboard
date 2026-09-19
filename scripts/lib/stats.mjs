@@ -171,6 +171,9 @@ export function scoreFixture(homeForm, awayForm, leagueAvg) {
 /** Modes `pickBestMode` chooses from — every mode `scoreFixture` returns except `best` itself. */
 export const REAL_MODE_KEYS = ['away', 'home', 'goals', 'dc1x', 'homeWin', 'awayWin', 'draw'];
 
+/** The no-op curve: returned when there isn't enough backtest data yet to calibrate against. */
+const IDENTITY_CURVE = { points: [], apply: (p) => p };
+
 /**
  * Picks whichever of the real modes has the single highest `combined`
  * probability for this fixture, tagged with which one (`sourceMode`). Not a
@@ -180,10 +183,12 @@ export const REAL_MODE_KEYS = ['away', 'home', 'goals', 'dc1x', 'homeWin', 'away
  * This selection is a known source of a "winner's curse": picking the max
  * of several correlated-but-imperfect estimates systematically favors
  * whichever one has the most positive noise, not necessarily the genuinely
- * best bet. `calibration` (see calibrateBestMode below) corrects for that,
- * measured empirically rather than assumed.
+ * best bet. `applyCurve` (see buildCalibrationCurve below) corrects for
+ * that, measured empirically rather than assumed. Callers should pass modes
+ * that have already had their own per-mode calibration applied, so this
+ * only has to correct the residual bias from the selection itself.
  */
-export function pickBestMode(modes, calibration = 1) {
+export function pickBestMode(modes, applyCurve = (p) => p) {
   let best = null;
   let bestKey = null;
   for (const key of REAL_MODE_KEYS) {
@@ -192,14 +197,14 @@ export function pickBestMode(modes, calibration = 1) {
     if (!best || m.combined > best.combined) { best = m; bestKey = key; }
   }
   if (!best) return null;
-  return { ...best, combined: best.combined * calibration, sourceMode: bestKey };
+  return { ...best, combined: applyCurve(best.combined), sourceMode: bestKey };
 }
 
 /**
  * Whether a backtested fixture's actual outcome matches a given mode's bet.
  * Mirrored (not shared) in docs/js/app.js, which can't import this Node
  * module — that copy grades the Results view live in the browser; this one
- * only feeds calibrateBestMode below.
+ * only feeds calibrateMode below.
  */
 export function isHit(actual, mode) {
   if (mode === 'goals') return actual.over25 && actual.btts;
@@ -212,20 +217,86 @@ export function isHit(actual, mode) {
 }
 
 /**
- * The shrinkage factor `pickBestMode` needs to correct its winner's-curse
- * overconfidence, measured from the backtest itself: actual hit rate ÷
- * average predicted probability, over ok-confidence graded picks. A ratio
- * below 1 means the raw picks were overconfident (the common case, per the
- * conversation this was added from); it's clamped to a sane range and left
- * at 1 (no correction) when there isn't enough backtest data yet to trust
- * the measurement.
+ * Fits a monotonic calibration curve mapping a mode's raw `combined` to an
+ * empirically-observed hit rate, via binning + isotonic regression
+ * (pool-adjacent-violators) rather than a single-parameter formula.
+ *
+ * Two earlier versions of this were tried and rejected, both because they
+ * assumed the miscalibration had one fixed *shape* everywhere:
+ *
+ * - A flat multiplicative correction (`hitRate ÷ avgPredicted`, applied as
+ *   `combined *= factor`) tuned to the backtest's average made the rare but
+ *   important high-confidence picks *worse* — it only has one direction to
+ *   push.
+ * - A "shrink toward 50% in proportion to distance from it" formula
+ *   (`0.5 + (p−0.5)·k`, k fit by least squares) was a step up, but the least
+ *   squares fit weights each pick by its *squared* distance from 0.5 — so a
+ *   handful of confident picks dominate k even when the bulk of the backtest
+ *   sits near a coin flip. On `goals` specifically, 55 of 116 backtested
+ *   picks landed in the 0–35% bucket (predicted ~22%, actual ~42% — badly
+ *   *under*confident) and that bucket alone supplied 80% of the fit's
+ *   weight, so the single k it produced (0.15, clamped near the floor) also
+ *   flattened the 50–65% range toward 50% even though that range was
+ *   already close to calibrated (predicted ~53–61%, actual ~50–67%) —
+ *   pulling genuinely fine mid-confidence picks down to match a correction
+ *   that only the low end needed.
+ *
+ * This version fixes that by not assuming a shape at all: it bins the
+ * backtest by predicted probability (each bin ≥`MIN_BIN` picks, oldest/
+ * lowest-first), reads off each bin's own actual hit rate, then runs
+ * pool-adjacent-violators to merge any bins where hit rate doesn't
+ * increase with predicted probability (guaranteeing the corrected curve
+ * stays monotonic — a fixture the raw model rates more likely never comes
+ * out *less* likely after calibration). The result is a piecewise-linear
+ * lookup: interpolated between bin midpoints, held flat past the ends of
+ * the observed range rather than extrapolated. Left as the identity
+ * (no correction) when there isn't enough backtest data yet to trust it.
  * @param {{combined: number, hit: boolean}[]} gradedPicks
+ * @returns {{ points: {x: number, y: number}[], apply: (p: number) => number }}
  */
-export function calibrateBestMode(gradedPicks) {
-  const MIN_SAMPLE = 20;
-  if (gradedPicks.length < MIN_SAMPLE) return 1;
-  const avgPredicted = avg(gradedPicks.map((p) => p.combined));
-  const hitRate = gradedPicks.filter((p) => p.hit).length / gradedPicks.length;
-  if (avgPredicted <= 0) return 1;
-  return clamp(hitRate / avgPredicted, 0.5, 1);
+export function buildCalibrationCurve(gradedPicks) {
+  const MIN_SAMPLE = 40;
+  const MIN_BIN = 15;
+  if (gradedPicks.length < MIN_SAMPLE) return IDENTITY_CURVE;
+
+  const sorted = [...gradedPicks].sort((a, b) => a.combined - b.combined);
+  const bins = [];
+  let i = 0;
+  while (i < sorted.length) {
+    let end = Math.min(i + MIN_BIN, sorted.length);
+    if (sorted.length - end < MIN_BIN) end = sorted.length; // fold a too-small remainder into the last bin
+    const chunk = sorted.slice(i, end);
+    bins.push({ avgPred: avg(chunk.map((c) => c.combined)), hitRate: avg(chunk.map((c) => (c.hit ? 1 : 0))), n: chunk.length });
+    i = end;
+  }
+
+  // Pool-adjacent-violators: merge backwards whenever hit rate dips versus the previous (lower-predicted) bin.
+  const pooled = [];
+  for (const b of bins) {
+    pooled.push({ ...b });
+    while (pooled.length > 1 && pooled[pooled.length - 2].hitRate > pooled[pooled.length - 1].hitRate) {
+      const b2 = pooled.pop();
+      const b1 = pooled.pop();
+      const n = b1.n + b2.n;
+      pooled.push({ avgPred: (b1.avgPred * b1.n + b2.avgPred * b2.n) / n, hitRate: (b1.hitRate * b1.n + b2.hitRate * b2.n) / n, n });
+    }
+  }
+
+  const points = pooled.map((b) => ({ x: b.avgPred, y: clamp(b.hitRate, 0.02, 0.98) }));
+
+  const apply = (p) => {
+    if (p <= points[0].x) return points[0].y;
+    if (p >= points[points.length - 1].x) return points[points.length - 1].y;
+    for (let j = 0; j < points.length - 1; j++) {
+      const a = points[j];
+      const b = points[j + 1];
+      if (p >= a.x && p <= b.x) {
+        const t = b.x === a.x ? 0 : (p - a.x) / (b.x - a.x);
+        return a.y + t * (b.y - a.y);
+      }
+    }
+    return p;
+  };
+
+  return { points, apply };
 }

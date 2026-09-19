@@ -14,7 +14,7 @@ import { writeFile, mkdir } from 'node:fs/promises';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-import { scoreFixture, summarizeTeamForm, computeLeagueAverages, pickBestMode, calibrateBestMode, isHit } from './lib/stats.mjs';
+import { scoreFixture, summarizeTeamForm, computeLeagueAverages, pickBestMode, buildCalibrationCurve, isHit, REAL_MODE_KEYS } from './lib/stats.mjs';
 import { generateMockSeason } from './lib/mock.mjs';
 import { LEAGUES, fetchLeagueWindow } from './lib/espn.mjs';
 
@@ -94,31 +94,50 @@ function scoreResults(results, rawMatchesByTeam, leagueAvgByName) {
 }
 
 /**
- * Adds `modes.best` to every fixture and result, calibrated against the
- * backtest itself: raw best-mode picks on the results are graded, the
- * shrinkage factor that would make their average predicted probability
- * match their actual hit rate is derived, and that same factor is applied
- * to both results and upcoming fixtures — so the number shown for "Best of
- * all modes" is corrected for its winner's-curse overconfidence rather
- * than shipped raw.
+ * Calibrates every mode's `combined` against the backtest, in two stages.
+ * First each of the 7 real modes gets its own calibration curve — binned by
+ * predicted probability, isotonic-regressed against the backtest's own
+ * observed hit rate per bin (see `buildCalibrationCurve` in stats.mjs for
+ * why a single global shrink factor couldn't fix this: the miscalibration
+ * shape differs by probability range, not just by mode). Applied *in place*
+ * so `score` (an alias of `modes.away`, used for sorting and alerts) stays
+ * in sync without a second assignment. Then `modes.best` is picked from
+ * those now-calibrated modes and gets its own additional curve for
+ * whatever selection bias remains from picking a max across several modes
+ * at once. Both stages measure their curve from `results` — the actual
+ * outcomes — then apply it to both `results` and `fixtures`, so upcoming
+ * predictions use the same correction just validated against what really
+ * happened.
  */
-function applyBestMode(fixtures, results) {
-  const gradedPicks = results
-    .map((r) => ({ actual: r.actual, pick: pickBestMode(r.modes, 1) }))
+function applyCalibration(fixtures, results) {
+  const modeCurves = {};
+
+  for (const key of REAL_MODE_KEYS) {
+    const gradedPicks = results
+      .filter((r) => r.modes[key] && r.modes[key].confidence === 'ok')
+      .map((r) => ({ combined: r.modes[key].combined, hit: isHit(r.actual, key) }));
+    const curve = buildCalibrationCurve(gradedPicks);
+    modeCurves[key] = curve.points;
+    for (const r of results) { if (r.modes[key]) r.modes[key].combined = curve.apply(r.modes[key].combined); }
+    for (const f of fixtures) { if (f.modes[key]) f.modes[key].combined = curve.apply(f.modes[key].combined); }
+  }
+
+  const bestGradedPicks = results
+    .map((r) => ({ actual: r.actual, pick: pickBestMode(r.modes) }))
     .filter(({ pick }) => pick && pick.confidence === 'ok')
     .map(({ actual, pick }) => ({ combined: pick.combined, hit: isHit(actual, pick.sourceMode) }));
-
-  const calibration = calibrateBestMode(gradedPicks);
+  const bestCurve = buildCalibrationCurve(bestGradedPicks);
 
   for (const r of results) {
-    const pick = pickBestMode(r.modes, calibration);
+    const pick = pickBestMode(r.modes, bestCurve.apply);
     if (pick) r.modes.best = pick;
   }
   for (const f of fixtures) {
-    const pick = pickBestMode(f.modes, calibration);
+    const pick = pickBestMode(f.modes, bestCurve.apply);
     if (pick) f.modes.best = pick;
   }
-  return calibration;
+
+  return { modes: modeCurves, best: bestCurve.points };
 }
 
 async function buildFromApi() {
@@ -147,8 +166,8 @@ async function buildFromApi() {
   if (!allFixtures.length) throw new Error('no upcoming fixtures returned for any league');
   const fixtures = scoreAll(allFixtures, formById, leagueAvgByName);
   const results = scoreResults(allResults, rawMatchesByTeam, leagueAvgByName);
-  const bestModeCalibration = applyBestMode(fixtures, results);
-  return { fixtures, results, bestModeCalibration };
+  const calibration = applyCalibration(fixtures, results);
+  return { fixtures, results, calibration };
 }
 
 async function main() {
@@ -156,10 +175,10 @@ async function main() {
 
   let fixtures;
   let results;
-  let bestModeCalibration;
+  let calibration;
   let source;
   try {
-    ({ fixtures, results, bestModeCalibration } = await buildFromApi());
+    ({ fixtures, results, calibration } = await buildFromApi());
     source = 'espn';
   } catch (err) {
     log('live fetch failed, falling back to demo data:', err.message || err);
@@ -169,7 +188,7 @@ async function main() {
     const { fixtures: mockFixtures, forms, leagueAverages } = generateMockSeason();
     fixtures = scoreAll(mockFixtures, forms, leagueAverages);
     results = []; // demo mode has no play-by-play history to backtest against
-    bestModeCalibration = applyBestMode(fixtures, results); // no results to calibrate from, so this is 1 (uncorrected)
+    calibration = applyCalibration(fixtures, results); // no results to calibrate from, so every factor is 1 (uncorrected)
     source = 'mock';
   }
 
@@ -179,10 +198,12 @@ async function main() {
     disclaimer: 'Public/derived football statistics shown for information only — not betting advice.',
     fixtures,
     results,
-    bestModeCalibration,
+    calibration,
   };
   await writeFile(resolve(OUT, 'fixtures.json'), JSON.stringify(payload, null, 2));
-  log(`wrote ${fixtures.length} fixtures, ${results.length} recent results, best-mode calibration ${bestModeCalibration.toFixed(3)} (source: ${source})`);
+  const curveLog = (points) => (points.length ? `${points.length}pt` : 'off');
+  const factorsLog = Object.entries(calibration.modes).map(([k, v]) => `${k}=${curveLog(v)}`).join(' ');
+  log(`wrote ${fixtures.length} fixtures, ${results.length} recent results, calibration: ${factorsLog} best=${curveLog(calibration.best)} (source: ${source})`);
 }
 
 main().catch((err) => {

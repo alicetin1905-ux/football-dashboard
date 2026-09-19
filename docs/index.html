@@ -137,10 +137,16 @@
       match, across everything tracked here", not a comparison of unrelated things.
       Picking a maximum across several estimates this way has a well-known bias, though
       &mdash; a "winner's curse" that favors whichever estimate got the luckiest noise, not
-      necessarily the genuinely best bet &mdash; so its combined probability is shrunk by a
-      factor measured from the Results backtest each refresh (actual hit rate &divide;
-      average predicted probability among its own past picks), rather than shown raw.
-      Fixtures where either team has fewer than 5 recent matches on record are flagged
+      necessarily the genuinely best bet. Every mode's raw probability (not just Best of
+      all modes' selection) is calibrated against the Results backtest each refresh before
+      it's shown: predictions are binned by their own raw value, each bin is checked
+      against what actually happened in that bin, and a monotonic curve built from those
+      bins (via isotonic regression) replaces the raw number with the empirically-observed
+      rate &mdash; low/mid predictions and the rare high-confidence ones are corrected
+      independently, rather than by one flat factor applied to everything alike. Best of
+      all modes then gets its own additional curve on top, fit the same way, for whatever
+      selection bias remains from picking a max across several already-calibrated modes at
+      once. Fixtures where either team has fewer than 5 recent matches on record are flagged
       "low sample", since a small sample makes for a noisy goal-scoring average. Alerts are
       always based on away win + BTTS, regardless of the selected ranking. The
       <strong>Home</strong>/<strong>Away</strong> form badges on each row are the matches

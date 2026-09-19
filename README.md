@@ -59,13 +59,37 @@ the hard way: checking the app's top picks against real bookmaker odds
 showed the raw version running 15-35 points more confident than the
 market on every single match checked, and backtesting confirmed it —
 average predicted probability was 61.9% against a 50.0% actual hit rate.
-The fix: `scripts/lib/stats.mjs`'s `calibrateBestMode()` measures that
-same gap from the Results backtest every refresh (actual hit rate ÷
-average predicted probability among the mode's own past picks) and
-shrinks the combined probability by that factor before it's shown, so the
-number displayed already accounts for the bias rather than needing you to
-mentally discount it. The factor is recomputed from the rolling backtest
-window each time, so it adapts as more weeks of data accumulate.
+
+The first fix tried was a flat factor (actual hit rate ÷ average predicted
+probability among a mode's own past picks) multiplied into the combined
+probability. It worked in aggregate but broke down on individual matches:
+checking real bookmaker odds against specific fixtures — not just the
+aggregate — showed the miscalibration has a *shape*, not just a size. On
+`goals` (BTTS + Over 2.5), for example, 55 of 116 backtested picks sat in
+the 0–35% predicted range and were badly *under*confident there (~22%
+predicted vs ~42% actual), while the top end was noisy and mildly
+*over*confident. A single flat factor — or even a single "shrink toward
+50%" slope fit by least squares, which was tried next — can only push
+every prediction the same direction by an amount proportional to its
+distance from 50%, so fitting it to fix the (much larger) underconfident
+low end made the already-fine mid-range predictions worse, and fitting it
+to the rare overconfident high end barely touched the low end at all.
+
+The current fix, `buildCalibrationCurve()` in `scripts/lib/stats.mjs`, bins
+each mode's own backtested picks by predicted probability, reads off each
+bin's actual hit rate, and runs isotonic regression (pool-adjacent-
+violators) over the bins to get a monotonic step function — a prediction
+never comes out *less* likely after calibration than a lower raw
+prediction did. That curve becomes a piecewise-linear lookup applied to
+every fixture's raw combined probability for that mode, in place, so what
+you see already accounts for that mode's own measured bias — low, mid,
+and high predictions corrected independently instead of by one shared
+factor. `Best of all modes`' selection gets a second such curve fit on top
+of the now-calibrated modes, for whatever bias remains from picking a max
+across several of them at once. Both curves are rebuilt from the rolling
+backtest window each refresh (minimum sample sizes apply — a mode with too
+little backtest history yet is left uncalibrated rather than fit to noise),
+so they adapt as more weeks of data accumulate.
 
 A higher bar (an outright win, or a win stacked with BTTS) clears less often
 than an easier one (avoiding defeat, dropping the BTTS requirement, or just
