@@ -23,7 +23,7 @@ and the table — to one day (Friday, Saturday, Sunday, ...) or back to
 **All weekend**; within whatever's selected, the most likely "away win +
 BTTS yes" match is still first.
 A **Rank by** toggle switches the whole view — table columns, top matches,
-and sort order — between seven modes, all read off the same underlying
+and sort order — between eight modes, all read off the same underlying
 score matrix:
 
 | Mode | What it needs | Backtested hit rate |
@@ -35,6 +35,15 @@ score matrix:
 | Home win | Home team wins — no BTTS attached | ~40% |
 | Home/Draw + BTTS | Home team avoids defeat (double chance), both teams score | ~42% |
 | BTTS + Over 2.5 | Both teams score, 3+ total goals — not tied to either team winning | ~48% |
+| **Best of all modes** | Whichever of the other seven has the highest probability *for that specific fixture* | ~50% |
+
+**Best of all modes** doesn't apply one fixed bet to every match — for each
+fixture it compares all seven other modes' probabilities (all read off the
+same score matrix, so the comparison is coherent) and ranks by whichever
+one is highest, tagging each row with which mode won. It's the highest
+backtested hit rate of any mode here, which makes sense: it's always
+picking the easiest bar to clear for that particular match rather than
+committing to one bar for all of them.
 
 A higher bar (an outright win, or a win stacked with BTTS) clears less often
 than an easier one (avoiding defeat, dropping the BTTS requirement, or just

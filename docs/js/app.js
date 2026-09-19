@@ -16,7 +16,11 @@ const MODES = {
   homeWin: { label: 'Home win', winLabel: 'Home win' },
   awayWin: { label: 'Away win', winLabel: 'Away win' },
   draw: { label: 'Draw', winLabel: 'Draw' },
+  best: { label: 'Best of all modes', winLabel: 'Best %' },
 };
+
+/** The real, precomputed modes `best` picks from — everything except itself. */
+const REAL_MODE_KEYS = Object.keys(MODES).filter((k) => k !== 'best');
 
 const clampLegs = (n) => Math.min(MAX_LEGS, Math.max(MIN_LEGS, Math.round(n)));
 
@@ -76,14 +80,41 @@ function writeStore(key, value) {
 }
 
 /**
- * The server (scripts/lib/stats.mjs) now computes both modes' probabilities
- * up front — a proper joint Poisson goal-expectancy model, not something
- * cheap enough to duplicate per-keystroke in the browser — and ships them
- * as `f.modes.away` / `f.modes.home`. Picking a mode client-side is just a
- * lookup.
+ * `best` isn't a precomputed mode — it picks whichever of the real modes
+ * has the highest `combined` probability for this specific fixture, and
+ * tags the result with which one that was (`sourceMode`) so the UI can
+ * label it. All modes' probabilities come from the same score matrix, so
+ * comparing their raw magnitudes against each other is coherent — it's
+ * "what's the single most likely outcome for this match, across everything
+ * we track", not comparing apples to oranges.
+ */
+function bestMode(f) {
+  let best = null;
+  let bestKey = null;
+  for (const key of REAL_MODE_KEYS) {
+    const m = f.modes[key];
+    if (!m || m.combined == null) continue;
+    if (!best || m.combined > best.combined) { best = m; bestKey = key; }
+  }
+  return best ? { ...best, sourceMode: bestKey } : null;
+}
+
+/**
+ * The server (scripts/lib/stats.mjs) now computes every mode's
+ * probabilities up front — a proper joint Poisson goal-expectancy model,
+ * not something cheap enough to duplicate per-keystroke in the browser —
+ * and ships them as `f.modes.away` / `f.modes.home` / etc. Picking a mode
+ * client-side is just a lookup, except `best` which is derived (see above).
  */
 function computeScore(f, mode) {
-  return f.modes ? f.modes[mode] : null;
+  if (!f.modes) return null;
+  if (mode === 'best') return bestMode(f);
+  return f.modes[mode] || null;
+}
+
+/** The mode a row/card is actually graded and labeled against — `best`'s own per-fixture pick, or the selected mode itself. */
+function effectiveModeKey(f, mode) {
+  return mode.key === 'best' ? f._view.sourceMode : mode.key;
 }
 
 function formBadges(letters, title) {
@@ -111,12 +142,14 @@ function renderMeta(payload) {
 }
 
 function renderHero(fixtures) {
-  const mode = MODES[state.mode];
+  const mode = { ...MODES[state.mode], key: state.mode };
   if (els.legsSelect) els.legsSelect.value = state.legs;
   const top = fixtures.slice(0, state.legs);
   if (!top.length) { els.hero.hidden = true; return; }
   els.hero.hidden = false;
-  els.heroCards.innerHTML = top.map((f, i) => `
+  els.heroCards.innerHTML = top.map((f, i) => {
+    const rowMode = mode.key === 'best' ? MODES[effectiveModeKey(f, mode)] : mode;
+    return `
     <div class="hero-card">
       <div class="hero-card-head">
         <span class="hero-rank">#${i + 1}</span>
@@ -124,13 +157,14 @@ function renderHero(fixtures) {
       </div>
       <div class="hero-match"><span class="home">${f.home.name}</span><span class="vs">vs</span>${f.away.name}</div>
       <div class="hero-figures">
-        <div class="figure figure-combined"><div class="figure-value">${pct(f._view.combined)}</div><div class="figure-label">${mode.label}</div></div>
-        <div class="figure"><div class="figure-value">${pct(f._view.winLikelihood)}</div><div class="figure-label">${mode.winLabel}</div></div>
+        <div class="figure figure-combined"><div class="figure-value">${pct(f._view.combined)}</div><div class="figure-label">${rowMode.label}</div></div>
+        <div class="figure"><div class="figure-value">${pct(f._view.winLikelihood)}</div><div class="figure-label">${rowMode.winLabel}</div></div>
         <div class="figure"><div class="figure-value">${pct(f._view.bttsLikelihood)}</div><div class="figure-label">BTTS</div></div>
       </div>
       <div class="hero-kickoff">${kickoff(f.date)}</div>
     </div>
-  `).join('');
+  `;
+  }).join('');
   renderBetSlip(top, mode);
 }
 
@@ -168,7 +202,9 @@ function renderBetSlip(top, mode) {
     <div class="bet-slip-legs">
       ${legs.map((leg) => `
         <div class="bet-slip-leg">
-          <span class="leg-teams">${leg.f.home.name}<span class="vs">vs</span>${leg.f.away.name}</span>
+          <span class="leg-teams">${leg.f.home.name}<span class="vs">vs</span>${leg.f.away.name}${
+            mode.key === 'best' ? ` <span class="leg-mode">${MODES[effectiveModeKey(leg.f, mode)].label}</span>` : ''
+          }</span>
           <span class="leg-odds">${leg.odds.toFixed(2)}</span>
         </div>
       `).join('')}
@@ -186,9 +222,9 @@ function renderBetSlip(top, mode) {
       <span class="bet-slip-profit" id="betSlipProfit">(+&euro;${profit.toFixed(2)})</span>
     </div>
     <p class="bet-slip-disclaimer">
-      Odds implied from our own ${mode.label.toLowerCase()} estimate (1 &divide; probability) &mdash;
-      not a bookmaker price. Combining legs multiplies their uncertainty together, not just their
-      odds. Illustrative only, not betting advice.
+      Odds implied from our own ${mode.key === 'best' ? 'best-fit-mode-per-match' : mode.label.toLowerCase()}
+      estimate (1 &divide; probability) &mdash; not a bookmaker price. Combining legs multiplies their
+      uncertainty together, not just their odds. Illustrative only, not betting advice.
     </p>
   `;
 
@@ -288,27 +324,32 @@ function renderResultsStats(results, mode) {
   if (!results.length) { els.resultsStats.hidden = true; return; }
 
   const graded = results.filter((f) => f._view.confidence === 'ok');
-  const hits = graded.filter((f) => isHit(f, mode.key)).length;
+  const hits = graded.filter((f) => isHit(f, effectiveModeKey(f, mode))).length;
+  const forWhat = mode.key === 'best' ? 'whichever mode fit each match best' : mode.label.toLowerCase();
 
   els.resultsStats.hidden = false;
   els.resultsStats.innerHTML = graded.length
     ? `<strong>${hits}/${graded.length}</strong> ok-confidence calls correct
-       (<strong>${pct(hits / graded.length)}</strong>) for ${mode.label.toLowerCase()}
+       (<strong>${pct(hits / graded.length)}</strong>) for ${forWhat}
        over the last week &mdash; ${results.length - graded.length} more shown below are low-sample.`
-    : `No ok-confidence backtested results yet for ${mode.label.toLowerCase()}.`;
+    : `No ok-confidence backtested results yet for ${forWhat}.`;
 }
 
 function matchRowHtml(f, mode, isResult) {
+  const rowMode = mode.key === 'best' ? MODES[effectiveModeKey(f, mode)] : mode;
+  const hit = isResult ? isHit(f, effectiveModeKey(f, mode)) : null;
   const scoreBadge = isResult
     ? `<span class="final-score">${f.finalScore.home}&ndash;${f.finalScore.away}</span>
-       <span class="result-badge ${isHit(f, mode.key) ? 'result-hit' : 'result-miss'}">${isHit(f, mode.key) ? '✓ Hit' : '✗ Miss'}</span>`
+       <span class="result-badge ${hit ? 'result-hit' : 'result-miss'}">${hit ? '✓ Hit' : '✗ Miss'}</span>`
     : '';
+  const modeBadge = mode.key === 'best' ? `<span class="mode-badge">${rowMode.label}</span>` : '';
   return `
     <tr>
       <td class="kickoff" data-label="Kickoff">${kickoff(f.date)}</td>
       <td class="league" data-label="League">${f.league}</td>
       <td class="fixture" data-label="Fixture">
         <span class="home">${f.home.name}</span><span class="vs">vs</span>${f.away.name}
+        ${modeBadge}
         ${scoreBadge}
         ${f._view.confidence === 'low' ? '<span class="confidence-low" title="Fewer than 5 recent matches on record for one side">low sample</span>' : ''}
         <div class="form-row">
@@ -318,7 +359,7 @@ function matchRowHtml(f, mode, isResult) {
           ${formBadges(f.stats.away.awayForm, `${f.away.name}'s last away matches, oldest to newest`)}
         </div>
       </td>
-      <td data-label="${mode.winLabel}">${meter(f._view.winLikelihood)}</td>
+      <td data-label="${rowMode.winLabel}">${meter(f._view.winLikelihood)}</td>
       <td data-label="BTTS">${meter(f._view.bttsLikelihood)}</td>
       <td data-label="Combined">${meter(f._view.combined, 'combined')}</td>
     </tr>
