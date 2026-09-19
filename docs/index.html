@@ -127,11 +127,16 @@
       the cost of not carrying the BTTS angle at all (those three show &mdash; instead
       of a BTTS figure, since there isn't one) &mdash; or <strong>Best of all modes</strong>,
       which doesn't apply one fixed bet to every match: for each fixture it picks
-      whichever of the other six has the single highest probability, tags the row with
+      whichever of the other seven has the single highest probability, tags the row with
       which one that was, and ranks the whole list by that. Since every mode reads off
       the same score matrix, comparing their raw probabilities against each other this
       way is coherent &mdash; it answers "what's the single most likely outcome for this
       match, across everything tracked here", not a comparison of unrelated things.
+      Picking a maximum across several estimates this way has a well-known bias, though
+      &mdash; a "winner's curse" that favors whichever estimate got the luckiest noise, not
+      necessarily the genuinely best bet &mdash; so its combined probability is shrunk by a
+      factor measured from the Results backtest each refresh (actual hit rate &divide;
+      average predicted probability among its own past picks), rather than shown raw.
       Fixtures where either team has fewer than 5 recent matches on record are flagged
       "low sample", since a small sample makes for a noisy goal-scoring average. Alerts are
       always based on away win + BTTS, regardless of the selected ranking. The

@@ -14,7 +14,7 @@ import { writeFile, mkdir } from 'node:fs/promises';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-import { scoreFixture, summarizeTeamForm, computeLeagueAverages } from './lib/stats.mjs';
+import { scoreFixture, summarizeTeamForm, computeLeagueAverages, pickBestMode, calibrateBestMode, isHit } from './lib/stats.mjs';
 import { generateMockSeason } from './lib/mock.mjs';
 import { LEAGUES, fetchLeagueWindow } from './lib/espn.mjs';
 
@@ -93,6 +93,34 @@ function scoreResults(results, rawMatchesByTeam, leagueAvgByName) {
   return scored;
 }
 
+/**
+ * Adds `modes.best` to every fixture and result, calibrated against the
+ * backtest itself: raw best-mode picks on the results are graded, the
+ * shrinkage factor that would make their average predicted probability
+ * match their actual hit rate is derived, and that same factor is applied
+ * to both results and upcoming fixtures — so the number shown for "Best of
+ * all modes" is corrected for its winner's-curse overconfidence rather
+ * than shipped raw.
+ */
+function applyBestMode(fixtures, results) {
+  const gradedPicks = results
+    .map((r) => ({ actual: r.actual, pick: pickBestMode(r.modes, 1) }))
+    .filter(({ pick }) => pick && pick.confidence === 'ok')
+    .map(({ actual, pick }) => ({ combined: pick.combined, hit: isHit(actual, pick.sourceMode) }));
+
+  const calibration = calibrateBestMode(gradedPicks);
+
+  for (const r of results) {
+    const pick = pickBestMode(r.modes, calibration);
+    if (pick) r.modes.best = pick;
+  }
+  for (const f of fixtures) {
+    const pick = pickBestMode(f.modes, calibration);
+    if (pick) f.modes.best = pick;
+  }
+  return calibration;
+}
+
 async function buildFromApi() {
   const allFixtures = [];
   const allResults = [];
@@ -117,10 +145,10 @@ async function buildFromApi() {
   }
 
   if (!allFixtures.length) throw new Error('no upcoming fixtures returned for any league');
-  return {
-    fixtures: scoreAll(allFixtures, formById, leagueAvgByName),
-    results: scoreResults(allResults, rawMatchesByTeam, leagueAvgByName),
-  };
+  const fixtures = scoreAll(allFixtures, formById, leagueAvgByName);
+  const results = scoreResults(allResults, rawMatchesByTeam, leagueAvgByName);
+  const bestModeCalibration = applyBestMode(fixtures, results);
+  return { fixtures, results, bestModeCalibration };
 }
 
 async function main() {
@@ -128,9 +156,10 @@ async function main() {
 
   let fixtures;
   let results;
+  let bestModeCalibration;
   let source;
   try {
-    ({ fixtures, results } = await buildFromApi());
+    ({ fixtures, results, bestModeCalibration } = await buildFromApi());
     source = 'espn';
   } catch (err) {
     log('live fetch failed, falling back to demo data:', err.message || err);
@@ -140,6 +169,7 @@ async function main() {
     const { fixtures: mockFixtures, forms, leagueAverages } = generateMockSeason();
     fixtures = scoreAll(mockFixtures, forms, leagueAverages);
     results = []; // demo mode has no play-by-play history to backtest against
+    bestModeCalibration = applyBestMode(fixtures, results); // no results to calibrate from, so this is 1 (uncorrected)
     source = 'mock';
   }
 
@@ -149,9 +179,10 @@ async function main() {
     disclaimer: 'Public/derived football statistics shown for information only — not betting advice.',
     fixtures,
     results,
+    bestModeCalibration,
   };
   await writeFile(resolve(OUT, 'fixtures.json'), JSON.stringify(payload, null, 2));
-  log(`wrote ${fixtures.length} fixtures, ${results.length} recent results (source: ${source})`);
+  log(`wrote ${fixtures.length} fixtures, ${results.length} recent results, best-mode calibration ${bestModeCalibration.toFixed(3)} (source: ${source})`);
 }
 
 main().catch((err) => {

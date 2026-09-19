@@ -167,3 +167,65 @@ export function scoreFixture(homeForm, awayForm, leagueAvg) {
     expectedGoals: { home: expectedHomeGoals, away: expectedAwayGoals },
   };
 }
+
+/** Modes `pickBestMode` chooses from — every mode `scoreFixture` returns except `best` itself. */
+export const REAL_MODE_KEYS = ['away', 'home', 'goals', 'dc1x', 'homeWin', 'awayWin', 'draw'];
+
+/**
+ * Picks whichever of the real modes has the single highest `combined`
+ * probability for this fixture, tagged with which one (`sourceMode`). Not a
+ * separate model — just comparing numbers already on the same 0–1 scale
+ * from the same score matrix, so the comparison is coherent.
+ *
+ * This selection is a known source of a "winner's curse": picking the max
+ * of several correlated-but-imperfect estimates systematically favors
+ * whichever one has the most positive noise, not necessarily the genuinely
+ * best bet. `calibration` (see calibrateBestMode below) corrects for that,
+ * measured empirically rather than assumed.
+ */
+export function pickBestMode(modes, calibration = 1) {
+  let best = null;
+  let bestKey = null;
+  for (const key of REAL_MODE_KEYS) {
+    const m = modes[key];
+    if (!m || m.combined == null) continue;
+    if (!best || m.combined > best.combined) { best = m; bestKey = key; }
+  }
+  if (!best) return null;
+  return { ...best, combined: best.combined * calibration, sourceMode: bestKey };
+}
+
+/**
+ * Whether a backtested fixture's actual outcome matches a given mode's bet.
+ * Mirrored (not shared) in docs/js/app.js, which can't import this Node
+ * module — that copy grades the Results view live in the browser; this one
+ * only feeds calibrateBestMode below.
+ */
+export function isHit(actual, mode) {
+  if (mode === 'goals') return actual.over25 && actual.btts;
+  if (mode === 'dc1x') return !actual.awayWin && actual.btts;
+  if (mode === 'homeWin') return actual.homeWin;
+  if (mode === 'awayWin') return actual.awayWin;
+  if (mode === 'draw') return actual.draw;
+  const won = mode === 'home' ? actual.homeWin : actual.awayWin;
+  return won && actual.btts;
+}
+
+/**
+ * The shrinkage factor `pickBestMode` needs to correct its winner's-curse
+ * overconfidence, measured from the backtest itself: actual hit rate ÷
+ * average predicted probability, over ok-confidence graded picks. A ratio
+ * below 1 means the raw picks were overconfident (the common case, per the
+ * conversation this was added from); it's clamped to a sane range and left
+ * at 1 (no correction) when there isn't enough backtest data yet to trust
+ * the measurement.
+ * @param {{combined: number, hit: boolean}[]} gradedPicks
+ */
+export function calibrateBestMode(gradedPicks) {
+  const MIN_SAMPLE = 20;
+  if (gradedPicks.length < MIN_SAMPLE) return 1;
+  const avgPredicted = avg(gradedPicks.map((p) => p.combined));
+  const hitRate = gradedPicks.filter((p) => p.hit).length / gradedPicks.length;
+  if (avgPredicted <= 0) return 1;
+  return clamp(hitRate / avgPredicted, 0.5, 1);
+}

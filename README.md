@@ -45,6 +45,21 @@ backtested hit rate of any mode here, which makes sense: it's always
 picking the easiest bar to clear for that particular match rather than
 committing to one bar for all of them.
 
+Picking a maximum across several estimates like this has a well-known bias
+— a "winner's curse" that favors whichever estimate happened to get the
+most positive noise, not necessarily the genuinely best bet. We found this
+the hard way: checking the app's top picks against real bookmaker odds
+showed the raw version running 15-35 points more confident than the
+market on every single match checked, and backtesting confirmed it —
+average predicted probability was 61.9% against a 50.0% actual hit rate.
+The fix: `scripts/lib/stats.mjs`'s `calibrateBestMode()` measures that
+same gap from the Results backtest every refresh (actual hit rate ÷
+average predicted probability among the mode's own past picks) and
+shrinks the combined probability by that factor before it's shown, so the
+number displayed already accounts for the bias rather than needing you to
+mentally discount it. The factor is recomputed from the rolling backtest
+window each time, so it adapts as more weeks of data accumulate.
+
 A higher bar (an outright win, or a win stacked with BTTS) clears less often
 than an easier one (avoiding defeat, dropping the BTTS requirement, or just
 goals happening) — that's not a flaw in the stricter modes, it's what

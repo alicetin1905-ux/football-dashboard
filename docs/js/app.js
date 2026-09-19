@@ -19,9 +19,6 @@ const MODES = {
   best: { label: 'Best of all modes', winLabel: 'Best %' },
 };
 
-/** The real, precomputed modes `best` picks from — everything except itself. */
-const REAL_MODE_KEYS = Object.keys(MODES).filter((k) => k !== 'best');
-
 const clampLegs = (n) => Math.min(MAX_LEGS, Math.max(MIN_LEGS, Math.round(n)));
 
 const storedMode = readStore('btts-mode', 'away');
@@ -80,36 +77,17 @@ function writeStore(key, value) {
 }
 
 /**
- * `best` isn't a precomputed mode — it picks whichever of the real modes
- * has the highest `combined` probability for this specific fixture, and
- * tags the result with which one that was (`sourceMode`) so the UI can
- * label it. All modes' probabilities come from the same score matrix, so
- * comparing their raw magnitudes against each other is coherent — it's
- * "what's the single most likely outcome for this match, across everything
- * we track", not comparing apples to oranges.
- */
-function bestMode(f) {
-  let best = null;
-  let bestKey = null;
-  for (const key of REAL_MODE_KEYS) {
-    const m = f.modes[key];
-    if (!m || m.combined == null) continue;
-    if (!best || m.combined > best.combined) { best = m; bestKey = key; }
-  }
-  return best ? { ...best, sourceMode: bestKey } : null;
-}
-
-/**
  * The server (scripts/lib/stats.mjs) now computes every mode's
  * probabilities up front — a proper joint Poisson goal-expectancy model,
  * not something cheap enough to duplicate per-keystroke in the browser —
- * and ships them as `f.modes.away` / `f.modes.home` / etc. Picking a mode
- * client-side is just a lookup, except `best` which is derived (see above).
+ * and ships them as `f.modes.away` / `f.modes.home` / etc, including
+ * `f.modes.best` (whichever mode had the top probability for that fixture,
+ * calibrated against the backtest to correct its winner's-curse
+ * overconfidence — see calibrateBestMode in stats.mjs). Picking a mode
+ * client-side is just a lookup.
  */
 function computeScore(f, mode) {
-  if (!f.modes) return null;
-  if (mode === 'best') return bestMode(f);
-  return f.modes[mode] || null;
+  return f.modes ? f.modes[mode] || null : null;
 }
 
 /** The mode a row/card is actually graded and labeled against — `best`'s own per-fixture pick, or the selected mode itself. */
