@@ -6,6 +6,13 @@ outcomes stacked together.
 
 **Live site:** https://alicetin1905-ux.github.io/football-dashboard/
 
+A dark, gradient-and-glow "HUD" look: cyan/violet accents (validated with the
+dataviz six-checks palette validator against this page's own dark surface),
+gradient meter bars and headline numbers, and Orbitron for headings/figures
+over the system sans for body and table text — kept to headings and short
+labels specifically so dense text (team names, the methodology footer)
+stays in a legible face rather than a display one throughout.
+
 ## What it shows
 
 For every upcoming fixture across eleven European leagues (Premier League,
