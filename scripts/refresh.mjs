@@ -163,7 +163,15 @@ async function buildFromApi() {
     leagueAvgByName.set(league.name, computeLeagueAverages(forms));
   }
 
-  if (!allFixtures.length) throw new Error('no upcoming fixtures returned for any league');
+  // Only bail to demo data on a true outage (nothing at all, from any league).
+  // An empty *upcoming* list on its own is a real state worth showing live —
+  // ESPN's day-by-day sweep has come back with genuinely no "pre" events for
+  // the whole 11-day window before (a schedule-data gap on ESPN's end, not
+  // ours: verified directly against the endpoint, same result for every
+  // league) while still returning real recent results — and forcing a full
+  // mock fallback in that case would throw away a perfectly good backtest
+  // just because the upcoming list happened to be empty that refresh.
+  if (!allFixtures.length && !allResults.length) throw new Error('no live data returned for any league');
   const fixtures = scoreAll(allFixtures, formById, leagueAvgByName);
   const results = scoreResults(allResults, rawMatchesByTeam, leagueAvgByName);
   const calibration = applyCalibration(fixtures, results);
