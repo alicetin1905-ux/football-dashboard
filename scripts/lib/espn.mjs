@@ -26,6 +26,7 @@ export const LEAGUES = [
   { slug: 'ned.1', name: 'Eredivisie', country: 'Netherlands' },
   { slug: 'bel.1', name: 'Belgian Pro League', country: 'Belgium' },
   { slug: 'por.1', name: 'Primeira Liga', country: 'Portugal' },
+  { slug: 'uefa.nations', name: 'UEFA Nations League', country: 'Europe' },
 ];
 
 /** European season labels run by start year (e.g. 2026 for the 2026-27 season). */
@@ -155,16 +156,21 @@ function parseFinishedMatches(events, teamId) {
 }
 
 /**
- * A team's most recent finished matches, bridging into the previous season
- * when the current one doesn't have enough played yet.
+ * A team's most recent finished matches, bridging into earlier seasons when
+ * the current one doesn't have enough played yet. Walks back one season at
+ * a time (rather than a single fixed step) because how far back "enough"
+ * data sits isn't the same for every competition: a club league is usually
+ * one season-1 bridge away in its first weeks, but a biennial competition
+ * like UEFA Nations League can need two — its schedule endpoint returns
+ * zero events for the just-started current edition (`season`) *and* the
+ * off-year in between (`season - 1`, when the competition didn't run at
+ * all), with the real previous edition sitting at `season - 2`.
  */
-async function fetchTeamForm(leagueSlug, teamId, season, minMatches = 10, keep = 15) {
-  const current = await apiGet(`/${leagueSlug}/teams/${teamId}/schedule?season=${season}`);
-  let matches = parseFinishedMatches(current.events || [], teamId);
-
-  if (matches.length < minMatches) {
-    const previous = await apiGet(`/${leagueSlug}/teams/${teamId}/schedule?season=${season - 1}`);
-    matches = [...parseFinishedMatches(previous.events || [], teamId), ...matches];
+async function fetchTeamForm(leagueSlug, teamId, season, minMatches = 10, keep = 15, maxSeasonsBack = 3) {
+  let matches = [];
+  for (let back = 0; back < maxSeasonsBack && matches.length < minMatches; back++) {
+    const resp = await apiGet(`/${leagueSlug}/teams/${teamId}/schedule?season=${season - back}`);
+    matches = [...parseFinishedMatches(resp.events || [], teamId), ...matches];
   }
 
   matches.sort((a, b) => new Date(a.date) - new Date(b.date));

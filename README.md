@@ -15,9 +15,10 @@ stays in a legible face rather than a display one throughout.
 
 ## What it shows
 
-For every upcoming fixture across eleven European leagues (Premier League,
-Championship, La Liga, Bundesliga, 2. Bundesliga, Serie A, Ligue 1, Turkish
-Süper Lig, Eredivisie, Belgian Pro League, Primeira Liga):
+For every upcoming fixture across eleven European club leagues (Premier
+League, Championship, La Liga, Bundesliga, 2. Bundesliga, Serie A, Ligue 1,
+Turkish Süper Lig, Eredivisie, Belgian Pro League, Primeira Liga) plus the
+UEFA Nations League:
 
 | Column | Meaning |
 |---|---|
@@ -272,6 +273,20 @@ scripts/lib/mock.mjs     deterministic demo data generator
   the previous-season bridge — mainly newly promoted/relegated teams, whose
   "previous season" was in a different division and so isn't queried under
   the current league's slug. This is a real data gap, not a bug.
+- The **UEFA Nations League** only plays during a handful of international
+  windows a year (not every week like a club league), so its upcoming list
+  is often empty between them — that's real, not a fetch failure. Its
+  matches are genuine home-and-away fixtures, so the model applies the same
+  way it does to a club league; `fetchTeamForm` bridges back up to two
+  seasons rather than one to find a team's most recent games, since the
+  competition itself only runs every other year.
+- **Africa Cup of Nations was deliberately left out.** Its next edition is
+  roughly two years off, and — more fundamentally — it's played entirely in
+  one host country: ESPN's home/away labels don't reflect real home
+  advantage there (its most recent final was labelled "Morocco at Senegal"
+  but played in Rabat, Morocco), which this model's home/away split
+  assumes. Adding it would need a neutral-venue variant of the scoring, not
+  just another `LEAGUES` entry.
 - Extending to more leagues means adding an entry to `LEAGUES` in
   `scripts/lib/espn.mjs` with that league's ESPN slug (and to the mock
   generator if you want it in demo mode too).
