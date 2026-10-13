@@ -863,3 +863,17 @@ footer p { margin: 6px 0; }
   tbody tr.detail-row > td { display: block; }
   tbody tr.detail-row > td::before { content: none; }
 }
+
+.value-view { margin-top: 18px; }
+.value-warning {
+  background: rgba(230, 103, 103, 0.10); border: 1px solid rgba(230, 103, 103, 0.35); border-left-width: 3px;
+  border-radius: var(--radius); padding: 10px 14px; margin: 0 0 12px; font-size: 0.85rem; color: var(--text-2);
+}
+.value-warning strong { color: var(--text); }
+.value-row { grid-template-columns: 12.5em minmax(0, 1fr) auto auto; }
+.value-nums { font-family: var(--mono); font-size: 0.78rem; color: var(--muted); white-space: nowrap; }
+.value-ev { color: var(--warn); font-weight: 700; margin-left: 6px; }
+@media (max-width: 640px) {
+  .value-row { grid-template-columns: minmax(0, 1fr) auto; }
+  .value-nums { grid-column: 1 / -1; }
+}

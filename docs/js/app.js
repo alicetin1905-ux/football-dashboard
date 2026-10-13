@@ -24,6 +24,7 @@ const state = {
   fixtures: [],
   results: [],
   record: null, // data/history.json — Best picks as shown, graded once played
+  valueThreshold: [0, 0.05, 0.1, 0.15].includes(readStore('btts-value-threshold', 0.1)) ? readStore('btts-value-threshold', 0.1) : 0.1,
   mySlip: readStore('btts-my-slip', []), // [{id, mode}] — one leg per match
   openDetails: new Set(), // fixture ids whose detail row is expanded
   view: 'upcoming', // 'upcoming' | 'results'
@@ -40,6 +41,12 @@ const els = {
   metaRow: document.getElementById('metaRow'),
   viewUpcomingBtn: document.getElementById('viewUpcomingBtn'),
   viewResultsBtn: document.getElementById('viewResultsBtn'),
+  viewValueBtn: document.getElementById('viewValueBtn'),
+  valueView: document.getElementById('valueView'),
+  valueBody: document.getElementById('valueBody'),
+  valueThreshold: document.getElementById('valueThreshold'),
+  controls: document.querySelector('.controls'),
+  table: document.querySelector('table'),
   resultsStats: document.getElementById('resultsStats'),
   bestPicks: document.getElementById('bestPicks'),
   bestPicksCards: document.getElementById('bestPicksCards'),
@@ -581,10 +588,59 @@ function syncModeUi() {
   if (els.winHeader) els.winHeader.textContent = mode.winLabel;
 }
 
+/**
+ * Matches bwin has priced where our own model's probability for an outcome
+ * is above bwin's price — expected value = our probability × bwin's odds − 1.
+ * Home/draw/away only (the feed has no other markets). Uses `modelModes`,
+ * our model's numbers, since a bwin-priced fixture's headline numbers are
+ * bwin's own and would show no edge by construction. Ok-sample matches only,
+ * as in the backtest quoted on the tab.
+ */
+function valueSelections(threshold) {
+  const now = Date.now();
+  const rows = [];
+  let priced = 0;
+  for (const f of state.fixtures) {
+    if (!f.odds?.bwin || !f.modelModes || new Date(f.date).getTime() <= now) continue;
+    priced++;
+    if (f.modelModes.away.confidence !== 'ok') continue;
+    const inv = ['home', 'draw', 'away'].map((s) => 1 / f.odds.bwin[s]);
+    const margin = inv[0] + inv[1] + inv[2];
+    [['homeWin', 'home', 'Home win'], ['draw', 'draw', 'Draw'], ['awayWin', 'away', 'Away win']].forEach(([mode, side, label], i) => {
+      const ours = f.modelModes[mode].combined;
+      const odds = f.odds.bwin[side];
+      const ev = ours * odds - 1;
+      if (ev > threshold) rows.push({ f, label, ours, market: inv[i] / margin, odds, ev });
+    });
+  }
+  return { rows: rows.sort((a, b) => b.ev - a.ev), priced };
+}
+
+function renderValue() {
+  els.valueView.hidden = state.view !== 'value';
+  if (state.view !== 'value') return;
+  els.valueThreshold.value = String(state.valueThreshold);
+  const { rows, priced } = valueSelections(state.valueThreshold);
+  els.valueBody.innerHTML = rows.length
+    ? `<div class="track-list">${rows.map((r) => `
+        <div class="track-row value-row">
+          <span class="track-when">${kickoff(r.f.date)}</span>
+          <span class="track-match"><span class="home">${r.f.home.name}</span><span class="vs">vs</span>${r.f.away.name} <span class="leg-mode">${r.label}</span></span>
+          <span class="value-nums">ours ${pct(r.ours)} &middot; bwin ${pct(r.market)}</span>
+          <span class="track-odds"><span class="leg-book">bwin</span>${r.odds.toFixed(2)} <span class="value-ev">${r.ev >= 0 ? '+' : ''}${(r.ev * 100).toFixed(0)}%</span></span>
+        </div>`).join('')}</div>`
+    : `<p class="track-note">No bwin-priced match clears a ${pct(state.valueThreshold)} edge right now (${priced} upcoming match${priced === 1 ? '' : 'es'} priced by bwin). bwin lists matches only a few days ahead.</p>`;
+}
+
 function syncViewUi() {
   const isResults = state.view === 'results';
-  els.viewUpcomingBtn.setAttribute('aria-pressed', String(!isResults));
+  const isValue = state.view === 'value';
+  els.viewUpcomingBtn.setAttribute('aria-pressed', String(state.view === 'upcoming'));
   els.viewResultsBtn.setAttribute('aria-pressed', String(isResults));
+  els.viewValueBtn.setAttribute('aria-pressed', String(isValue));
+  els.controls.hidden = isValue;
+  els.table.hidden = isValue;
+  if (isValue) { els.emptyState.hidden = true; els.resultsStats.hidden = true; }
   els.dayFilterLabel.hidden = isResults;
   els.emptyState.textContent = isResults
     ? 'No recent results match these filters.'
@@ -597,6 +653,8 @@ function render() {
   renderBestPicks();
   renderTrackRecord();
   renderMySlip();
+  renderValue();
+  if (state.view === 'value') return;
   const mode = { ...MODES[state.mode], key: state.mode };
 
   if (state.view === 'results') {
@@ -811,6 +869,12 @@ async function main() {
   els.installHintClose.addEventListener('click', () => { els.installHint.hidden = true; });
   els.viewUpcomingBtn.addEventListener('click', () => { state.view = 'upcoming'; render(); });
   els.viewResultsBtn.addEventListener('click', () => { state.view = 'results'; render(); });
+  els.viewValueBtn.addEventListener('click', () => { state.view = 'value'; render(); });
+  els.valueThreshold.addEventListener('change', (e) => {
+    state.valueThreshold = Number(e.target.value);
+    writeStore('btts-value-threshold', state.valueThreshold);
+    render();
+  });
 
   // Alerts only fire while the page is open — refetch periodically (and
   // immediately on return to the tab) so a long-open tab still catches new

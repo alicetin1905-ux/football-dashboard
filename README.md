@@ -220,6 +220,35 @@ confident call first — so a glance at the top tells you both how sure the
 model was and whether it was right. A summary line above the table gives the
 overall hit rate among ok-confidence calls for the selected mode.
 
+## Value tab — and why it carries a warning
+
+A third view next to Upcoming and Results lists every home / draw / away
+outcome where **our own model's** probability is above bwin's price —
+expected value = our probability × bwin's odds − 1 — with an adjustable
+edge threshold (0–15%, default 10%). It only covers matches bwin has
+priced (a few days ahead, club leagues) and ok-sample fixtures, and it
+uses the model's numbers rather than the headline ones, which for these
+matches are bwin's own and would show no edge by construction.
+
+It was built on request, but the backtest says it loses. On 3,431 past
+matches with real bwin odds (each predicted from earlier matches only),
+flat-staking every outcome with edge above a threshold:
+
+| Edge over bwin's price | Bets | Hit rate | ROI |
+|---|---|---|---|
+| Every outcome (the bookmaker margin) | 10,293 | — | −7.3% |
+| > 0% | 3,743 | 32.4% | −12.1% |
+| > 10% | 2,479 | 31.2% | −13.9% |
+| > 20% | 1,613 | 28.3% | −18.4% |
+| > 30% | 1,036 | 25.7% | −20.3% |
+
+Worse than betting blindly, and monotonically worse the bigger the
+claimed edge, the same in each half of the data (−13.3% / −14.5%; ±2.9
+points standard error). That is what you'd expect given bwin beat our
+model on every market tested: a big gap is mostly our model's mistake.
+The tab says so at the top. It's there to compare, and a candidate for a
+real forward test through the track record if you want one.
+
 ## Tried and rejected
 
 - **Weighting recent matches more.** On the 3,442-match backtest, an

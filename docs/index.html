@@ -51,7 +51,31 @@
   <div class="view-toggle" role="group" aria-label="View">
     <button type="button" class="view-btn" id="viewUpcomingBtn" aria-pressed="true">Upcoming</button>
     <button type="button" class="view-btn" id="viewResultsBtn" aria-pressed="false">Results</button>
+    <button type="button" class="view-btn" id="viewValueBtn" aria-pressed="false">Value</button>
   </div>
+
+  <section class="hero value-view" id="valueView" hidden>
+    <div class="hero-label-row">
+      <div class="hero-label">Value &middot; our model vs bwin&rsquo;s price</div>
+      <label class="legs-control">Edge over
+        <select id="valueThreshold">
+          <option value="0">0%</option>
+          <option value="0.05">5%</option>
+          <option value="0.1" selected>10%</option>
+          <option value="0.15">15%</option>
+        </select>
+      </label>
+    </div>
+    <div class="value-warning">
+      <strong>Backtest: this loses money.</strong> On 3,431 past matches with real bwin odds, betting every
+      outcome where our model beat bwin&rsquo;s price lost <strong>12&ndash;20%</strong> of the stake &mdash; worse
+      than betting blindly on everything (&minus;7%, the bookmaker&rsquo;s margin) &mdash; and the bigger the
+      &ldquo;edge&rdquo;, the worse it did (&gt;10%: &minus;14%; &gt;30%: &minus;20%). bwin has been more accurate than
+      our model in every test, so a large gap is far more likely our model&rsquo;s mistake than bwin&rsquo;s. Shown
+      for comparison, not as tips.
+    </div>
+    <div id="valueBody"></div>
+  </section>
 
 
   <div class="results-stats" id="resultsStats" hidden></div>
