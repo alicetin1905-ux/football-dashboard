@@ -249,6 +249,42 @@ model on every market tested: a big gap is mostly our model's mistake.
 The tab says so at the top. It's there to compare, and a candidate for a
 real forward test through the track record if you want one.
 
+## Odds tab — comparing bookmakers
+
+A fourth view lists, for every match the odds feed has priced, each
+bookmaker's home / draw / away price side by side — Bet365, Paddy Power,
+bwin, Betfred, BetVictor and the Betfair Exchange — with the best price
+highlighted, the best price anywhere in the market (the feed samples more
+bookmakers than these six), and how far that sits above the market's fair
+price (its average, margin removed). At the top, each bookmaker's average
+margin across the listed matches (Betfair Exchange prices exclude its
+commission, typically 2–5% of winnings). Same limits as the bwin odds: club
+leagues only, a few days before kickoff, refreshed Tuesdays and Fridays,
+and not live prices. The free feed has no Pinnacle (the usual "sharp"
+reference) for the current season, so the exchange and the market average
+stand in for it.
+
+Built on the idea that a big difference between bookmakers marks a bet.
+Backtested on 4,584 matches (flat 1 unit, vig-free consensus from the
+market average), it doesn't:
+
+| Strategy | Bets | Hit rate | ROI |
+|---|---|---|---|
+| One bookmaker (Bet365 / bwin), every outcome | ~13,700 | 33.3% | −7.8% |
+| **Best price in the market**, every outcome | 13,752 | 33.3% | **−4.3%** |
+| Betfair Exchange, every outcome (before commission) | 12,981 | 33.3% | −3.1% |
+| Best price > fair by 5% | 459 | 8.5% | −38.6% |
+| Best price > fair by 8% | 223 | 8.1% | −42.0% |
+| Best price > exchange fair by 6% | 180 | 26.1% | −6.8% |
+
+A standout price is mostly a long shot (average odds 9–15) or a stale
+quote, and it loses badly. The part that works is price shopping: for a
+bet you've already decided on, the best of several prices is worth about
+3.5 points of ROI over a single bookmaker. The tab's warning flags any gap
+over 5% for that reason, and the page says so. It shows one snapshot, not
+price movement: the feed changes twice a week, so a history would have
+at most a point or two per match.
+
 ## Tried and rejected
 
 - **Weighting recent matches more.** On the 3,442-match backtest, an

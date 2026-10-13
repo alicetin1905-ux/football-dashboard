@@ -141,10 +141,20 @@ function oddsOf(g) {
   };
   const over = num(g('Avg>2.5'));
   const under = num(g('Avg<2.5'));
+  // Every bookmaker the feed lists with a complete home/draw/away price, for
+  // the Odds comparison tab: Bet365, Paddy Power, bwin, Betfred, BetVictor
+  // and the Betfair Exchange, plus the best (Max) and average price across the
+  // whole market it samples.
+  const books = {};
+  for (const key of ['B365', 'PP', 'BW', 'BFD', 'BV', 'BFE', 'Max', 'Avg']) {
+    const t = triple(`${key}H`, `${key}D`, `${key}A`);
+    if (t) books[key] = t;
+  }
   return {
     bwin: triple('BWH', 'BWD', 'BWA'),
     market: triple('AvgH', 'AvgD', 'AvgA'),
     over25: over && under ? { over, under } : null,
+    books,
   };
 }
 

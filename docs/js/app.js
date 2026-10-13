@@ -42,6 +42,9 @@ const els = {
   viewUpcomingBtn: document.getElementById('viewUpcomingBtn'),
   viewResultsBtn: document.getElementById('viewResultsBtn'),
   viewValueBtn: document.getElementById('viewValueBtn'),
+  viewOddsBtn: document.getElementById('viewOddsBtn'),
+  oddsView: document.getElementById('oddsView'),
+  oddsBody: document.getElementById('oddsBody'),
   valueView: document.getElementById('valueView'),
   valueBody: document.getElementById('valueBody'),
   valueThreshold: document.getElementById('valueThreshold'),
@@ -632,12 +635,86 @@ function renderValue() {
     : `<p class="track-note">No bwin-priced match clears a ${pct(state.valueThreshold)} edge right now (${priced} upcoming match${priced === 1 ? '' : 'es'} priced by bwin). bwin lists matches only a few days ahead.</p>`;
 }
 
+const ODDS_BOOKS = [
+  ['B365', 'Bet365'], ['PP', 'Paddy Power'], ['BW', 'bwin'], ['BFD', 'Betfred'], ['BV', 'BetVictor'], ['BFE', 'Betfair Exch.'],
+];
+const ODDS_WARN_GAP = 0.05;
+
+/** The market's fair probabilities from its average price, with the bookmakers' margin taken out. */
+function fairFrom(odds) {
+  const inv = [1 / odds[0], 1 / odds[1], 1 / odds[2]];
+  const z = inv[0] + inv[1] + inv[2];
+  return inv.map((x) => x / z);
+}
+
+const overround = (t) => 1 / t[0] + 1 / t[1] + 1 / t[2] - 1;
+const triple = (o) => (o ? [o.home, o.draw, o.away] : null);
+
+/**
+ * Every bookmaker's price for the matches the odds feed lists. The best
+ * price among the named bookmakers is highlighted; "market gap" is the best
+ * price anywhere in the market against the market's fair price, and a large
+ * one is flagged because a backtest found such outliers lose.
+ */
+function renderOdds() {
+  els.oddsView.hidden = state.view !== 'odds';
+  if (state.view !== 'odds') return;
+  const now = Date.now();
+  const matches = state.fixtures
+    .filter((f) => f.odds?.books?.Avg && new Date(f.date).getTime() > now)
+    .sort((a, b) => new Date(a.date) - new Date(b.date));
+  if (!matches.length) {
+    els.oddsBody.innerHTML = '<p class="track-note">No matches with bookmaker prices right now. The feed lists matches a few days before kickoff and refreshes on Tuesdays and Fridays.</p>';
+    return;
+  }
+
+  const margins = ODDS_BOOKS.map(([key, label]) => {
+    const ms = matches.map((f) => triple(f.odds.books[key])).filter(Boolean).map(overround);
+    return { label, margin: ms.length ? ms.reduce((a, b) => a + b, 0) / ms.length : null, n: ms.length };
+  }).filter((m) => m.margin != null).sort((a, b) => a.margin - b.margin);
+
+  const card = (f) => {
+    const books = f.odds.books;
+    const fair = fairFrom(triple(books.Avg));
+    const max = triple(books.Max);
+    const labels = ['Home', 'Draw', 'Away'];
+    const rows = labels.map((label, k) => {
+      const prices = ODDS_BOOKS.map(([key]) => triple(books[key])?.[k] ?? null);
+      const best = Math.max(...prices.filter(Boolean));
+      const gap = max ? max[k] * fair[k] - 1 : 0;
+      const warn = gap > ODDS_WARN_GAP;
+      return `<tr>
+        <th>${label}</th>
+        ${prices.map((p) => `<td class="${p && p === best ? 'odds-best' : ''}">${p ? p.toFixed(2) : '&mdash;'}</td>`).join('')}
+        <td class="odds-market">${max ? max[k].toFixed(2) : '&mdash;'}</td>
+        <td class="odds-gap${warn ? ' odds-warn' : ''}" ${warn ? 'title="Far above the market\'s fair price. In backtests, bets like this lost 39% — usually a long shot or a stale quote."' : ''}>${gap >= 0 ? '+' : ''}${(gap * 100).toFixed(1)}%${warn ? ' ⚠' : ''}</td>
+      </tr>`;
+    }).join('');
+    return `
+      <div class="odds-card">
+        <div class="odds-head"><span class="track-match"><span class="home">${f.home.name}</span><span class="vs">vs</span>${f.away.name}</span>
+          <span class="track-when">${f.league} &middot; ${kickoff(f.date)}</span></div>
+        <div class="odds-scroll"><table class="odds-table">
+          <thead><tr><th></th>${ODDS_BOOKS.map(([, l]) => `<th>${l}</th>`).join('')}<th>Best in market</th><th>vs fair</th></tr></thead>
+          <tbody>${rows}</tbody>
+        </table></div>
+      </div>`;
+  };
+
+  els.oddsBody.innerHTML = `
+    <div class="detail-sub">Average margin (lower is better) &middot; ${matches.length} match${matches.length === 1 ? '' : 'es'}</div>
+    <div class="odds-margins">${margins.map((m, i) => `<span class="odds-margin${i === 0 ? ' odds-best' : ''}">${m.label} <strong>${(m.margin * 100).toFixed(1)}%</strong></span>`).join('')}</div>
+    ${matches.map(card).join('')}
+    <p class="bet-slip-disclaimer">Green is the best price among these bookmakers. &ldquo;Best in market&rdquo; is the highest price anywhere the feed samples (more bookmakers than the six shown), &ldquo;vs fair&rdquo; compares it with the market&rsquo;s average price with the margin removed. Betfair Exchange prices exclude the exchange&rsquo;s commission on winnings (typically 2&ndash;5%), so its margin looks smaller than what you&rsquo;d actually pay. Prices are as of the feed&rsquo;s last update, not live. Not betting advice.</p>`;
+}
+
 function syncViewUi() {
   const isResults = state.view === 'results';
-  const isValue = state.view === 'value';
+  const isValue = state.view === 'value' || state.view === 'odds';
   els.viewUpcomingBtn.setAttribute('aria-pressed', String(state.view === 'upcoming'));
   els.viewResultsBtn.setAttribute('aria-pressed', String(isResults));
-  els.viewValueBtn.setAttribute('aria-pressed', String(isValue));
+  els.viewValueBtn.setAttribute('aria-pressed', String(state.view === 'value'));
+  els.viewOddsBtn.setAttribute('aria-pressed', String(state.view === 'odds'));
   els.controls.hidden = isValue;
   els.table.hidden = isValue;
   if (isValue) { els.emptyState.hidden = true; els.resultsStats.hidden = true; }
@@ -654,7 +731,8 @@ function render() {
   renderTrackRecord();
   renderMySlip();
   renderValue();
-  if (state.view === 'value') return;
+  renderOdds();
+  if (state.view === 'value' || state.view === 'odds') return;
   const mode = { ...MODES[state.mode], key: state.mode };
 
   if (state.view === 'results') {
@@ -870,6 +948,7 @@ async function main() {
   els.viewUpcomingBtn.addEventListener('click', () => { state.view = 'upcoming'; render(); });
   els.viewResultsBtn.addEventListener('click', () => { state.view = 'results'; render(); });
   els.viewValueBtn.addEventListener('click', () => { state.view = 'value'; render(); });
+  els.viewOddsBtn.addEventListener('click', () => { state.view = 'odds'; render(); });
   els.valueThreshold.addEventListener('change', (e) => {
     state.valueThreshold = Number(e.target.value);
     writeStore('btts-value-threshold', state.valueThreshold);

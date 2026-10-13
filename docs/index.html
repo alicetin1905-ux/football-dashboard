@@ -52,7 +52,22 @@
     <button type="button" class="view-btn" id="viewUpcomingBtn" aria-pressed="true">Upcoming</button>
     <button type="button" class="view-btn" id="viewResultsBtn" aria-pressed="false">Results</button>
     <button type="button" class="view-btn" id="viewValueBtn" aria-pressed="false">Value</button>
+    <button type="button" class="view-btn" id="viewOddsBtn" aria-pressed="false">Odds</button>
   </div>
+
+  <section class="hero odds-view" id="oddsView" hidden>
+    <div class="hero-label-row">
+      <div class="hero-label">Odds &middot; bookmakers compared</div>
+    </div>
+    <div class="value-warning">
+      <strong>A big price gap is not a tip.</strong> Backtested on 4,584 past matches: betting any outcome
+      priced more than 5% above the market&rsquo;s fair price lost <strong>39%</strong> of the stake (those are mostly
+      long shots at odds of 10+). What does pay is <strong>shopping for the best price</strong>: always taking the best
+      available price cut the loss from &minus;7.8% with a single bookmaker to &minus;4.3%, and the Betfair Exchange
+      (&minus;3.1%, before its commission) has the lowest margin. Use this tab to find the best price for a bet you&rsquo;ve already chosen.
+    </div>
+    <div id="oddsBody"></div>
+  </section>
 
   <section class="hero value-view" id="valueView" hidden>
     <div class="hero-label-row">

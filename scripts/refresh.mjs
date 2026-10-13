@@ -381,7 +381,7 @@ async function buildFromApi() {
       }
       for (const r of results) {
         const row = findMatch(history, fdNameById.get(r.home.id), fdNameById.get(r.away.id), r.date);
-        if (row) r.odds = row.odds;
+        if (row) { const { books, ...rest } = row.odds; r.odds = rest; } // the all-bookmaker comparison is for upcoming matches only
       }
     }
 
