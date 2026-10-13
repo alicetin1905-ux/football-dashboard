@@ -44,6 +44,12 @@ bookmaker margin, so real returns on those legs would be lower. A pick
 still ungraded 10 days after kickoff (postponed, or missing from the
 results feed) is voided.
 
+It also records each bet type's own top 3 every refresh (ok-sample,
+ranked as the Top matches row ranks them when that type is selected),
+graded the same way, so a **By bet type** table shows which ones actually
+pay — hit rate alone can mislead, since a bet that wins often at short
+odds can still lose money.
+
 The site has no database, so the record lives in the deployed site itself
 (`data/history.json`, built by `scripts/lib/trackrecord.mjs`): each refresh
 downloads the live copy, adds to it, grades what finished, and publishes it
@@ -55,6 +61,21 @@ truth. It ignores the filters and ranking below, so it always
 answers "what are the strongest picks right now", and it skips "low
 sample" fixtures, since the highest raw numbers tend to come from teams
 with too little history to trust.
+
+Every upcoming row has two buttons:
+
+- **+ Slip** adds that match, with the bet type currently selected, to
+  **My slip** — your own accumulator, shown above the table with a
+  floating "My slip" button to jump to it. One leg per match: adding the
+  same match under another bet type offers to swap its leg instead. Legs
+  use bwin's real price where it has one (1 ÷ probability otherwise),
+  finished matches drop off on their own, and the slip is remembered on
+  this device. The stake is shared with the other slips.
+- **Details** opens the match: our model's numbers next to bwin's (home /
+  draw / away, Over 2.5, BTTS, expected goals) with bwin's prices, each
+  team's last 6 matches (score and xG; a promoted/relegated side's
+  borrowed previous-division matches are marked), and the two sides'
+  meetings over the last two seasons.
 
 A **Day** filter narrows everything — top matches, the combined bet slip,
 and the table — to one day (Friday, Saturday, Sunday, ...) or back to
@@ -202,6 +223,18 @@ confident call first — so a glance at the top tells you both how sure the
 model was and whether it was right. A summary line above the table gives the
 overall hit rate among ok-confidence calls for the selected mode.
 
+## Tried and rejected
+
+- **Weighting recent matches more.** On the 3,442-match backtest, an
+  exponential decay on match age made 1X2 predictions worse at every
+  half-life tried (equal weights 1.0631; 365 days 1.0640; 150 days 1.0672;
+  90 days 1.0734), with no meaningful gain elsewhere. The 38-match window
+  is already short; down-weighting its older half mostly throws data away.
+- **Injuries and suspensions.** No free source tried has them: ESPN's
+  injury endpoint returns zero entries for every Premier League club and
+  its match summaries carry none. Matches bwin has priced already reflect
+  them, since bookmakers price them in.
+
 ## Install it, and get alerted
 
 The dashboard is a PWA: a manifest, a service worker (network-first, so a
@@ -209,6 +242,10 @@ deploy is never masked by a stale cache) and icons rendered straight from the
 app's own meter-bar visual language. On iOS, **Share → Add to Home Screen**
 gives it a real app icon, standalone chrome and offline access to the last
 data you loaded.
+
+Alerts also fire when a new match enters the **Best picks** row (the
+first time alerts run on a device they just note the current picks, so
+switching them on doesn't fire three at once).
 
 Tap **Alerts** to be notified when a fixture clears **50% combined
 likelihood** with an "ok"-confidence sample (low-sample fixtures are

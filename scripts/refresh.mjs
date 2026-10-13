@@ -65,7 +65,40 @@ function withBwinModes(scored, odds) {
   const over = odds.over25 ? (1 / odds.over25.over) / (1 / odds.over25.over + 1 / odds.over25.under) : null;
   const xg = impliedExpectedGoals(odds.bwin, over);
   const modes = { ...scoreFromExpectedGoals(xg.home, xg.away, 'ok'), sampleHome: scored.modes.sampleHome, sampleAway: scored.modes.sampleAway };
-  return { ...scored, score: modes.away, modes, probSource: 'bwin' };
+  // Our own model's numbers are kept as `modelModes` for the match-detail comparison.
+  return { ...scored, score: modes.away, modes, modelModes: scored.modes, probSource: 'bwin' };
+}
+
+const DETAIL_RECENT = 6;
+const DETAIL_H2H = 5;
+
+/** One past match, compactly, for the match-detail view (a borrowed other-division match has no comparable xG). */
+const recentEntry = (m) => ({
+  d: m.date.slice(0, 10),
+  v: m.venue === 'home' ? 'H' : 'A',
+  o: m.opp,
+  s: `${m.gf}-${m.ga}`,
+  ...(m.xgf != null && m.xga != null && !m.borrowed ? { x: `${m.xgf.toFixed(1)}-${m.xga.toFixed(1)}` } : {}),
+  ...(m.borrowed ? { b: 1 } : {}),
+});
+
+/**
+ * Each team's last few matches and the two sides' recent meetings, for the
+ * match-detail view. Meetings come from the full football-data.co.uk
+ * history where the league has one (both seasons, team names in that
+ * source's spelling), otherwise from the home side's own match list.
+ */
+function fixtureDetail(f, homeMatches, awayMatches, history, fdHome, fdAway) {
+  const h2h = history && fdHome && fdAway
+    ? history.filter((m) => (m.home === fdHome && m.away === fdAway) || (m.home === fdAway && m.away === fdHome))
+      .map((m) => ({ d: m.date.toISOString().slice(0, 10), h: m.home, a: m.away, s: `${m.hg}-${m.ag}` }))
+    : (homeMatches || []).filter((m) => m.opp === f.away.name && !m.borrowed)
+      .map((m) => ({ d: m.date.slice(0, 10), h: m.venue === 'home' ? f.home.name : f.away.name, a: m.venue === 'home' ? f.away.name : f.home.name, s: m.venue === 'home' ? `${m.gf}-${m.ga}` : `${m.ga}-${m.gf}` }));
+  return {
+    home: (homeMatches || []).slice(-DETAIL_RECENT).reverse().map(recentEntry),
+    away: (awayMatches || []).slice(-DETAIL_RECENT).reverse().map(recentEntry),
+    h2h: h2h.slice(-DETAIL_H2H).reverse(),
+  };
 }
 
 /** Teams in a league's most recent stretch of matches — this season's lineup, not relegated sides. */
@@ -356,6 +389,9 @@ async function buildFromApi() {
     log(`  ${league.name}: ${fixtures.length} upcoming (${withOdds} with odds), ${results.length} recent results, ${matchesByTeam.size} teams` +
       (history ? `, ${history.length} football-data matches` : league.tsdbId ? ', TheSportsDB form' : ', ESPN form only') +
       (unmatched.size ? ` — unmatched: ${[...unmatched].join(', ')}` : ''));
+    for (const f of fixtures) {
+      f.detail = fixtureDetail(f, rawMatchesByTeam.get(teamKey(league.name, f.home.id)), rawMatchesByTeam.get(teamKey(league.name, f.away.id)), history, fdNameById.get(f.home.id), fdNameById.get(f.away.id));
+    }
     allFixtures.push(...fixtures);
     allResults.push(...results);
   }
@@ -374,11 +410,14 @@ async function buildFromApi() {
   // The curves correct our model's bias only; bwin-derived numbers are used as-is (see withBwinModes).
   const europeanLeagues = new Set(LEAGUES.filter((l) => l.formSlugs).map((l) => l.name));
   const group = (list, european) => list.filter((x) => x.probSource === 'model' && europeanLeagues.has(x.league) === european);
+  // bwin-sourced fixtures' own-model numbers get the same correction, so the detail comparison is like for like.
+  const modelViews = (european) => fixtures.filter((x) => x.probSource === 'bwin' && europeanLeagues.has(x.league) === european).map((x) => ({ modes: x.modelModes }));
+  for (const r of results) delete r.modelModes;
   const domesticResults = group(results, false);
   const europeanResults = group(results, true);
   const calibration = {
-    domestic: applyCalibration(group(fixtures, false), domesticResults, historyByLeague.size ? buildCalibrationSet(historyByLeague, adjacentByLeague, now) : domesticResults),
-    european: applyCalibration(group(fixtures, true), europeanResults, buildEuropeanCalibrationSet(europeanMatchesByTeam)),
+    domestic: applyCalibration([...group(fixtures, false), ...modelViews(false)], domesticResults, historyByLeague.size ? buildCalibrationSet(historyByLeague, adjacentByLeague, now) : domesticResults),
+    european: applyCalibration([...group(fixtures, true), ...modelViews(true)], europeanResults, buildEuropeanCalibrationSet(europeanMatchesByTeam)),
   };
   for (const x of [...fixtures, ...results]) {
     if (x.probSource === 'bwin') x.modes.best = pickBestMode(x.modes);
@@ -423,7 +462,7 @@ async function main() {
     results,
     calibration,
   };
-  await writeFile(resolve(OUT, 'fixtures.json'), JSON.stringify(payload, null, 2));
+  await writeFile(resolve(OUT, 'fixtures.json'), JSON.stringify(payload));
 
   // Each deploy replaces the whole site, so the record is always republished —
   // updated from live data, or carried over untouched in demo mode.

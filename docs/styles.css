@@ -804,3 +804,63 @@ footer p { margin: 6px 0; }
   .track-row { grid-template-columns: minmax(0, 1fr) auto; }
   .track-when { grid-column: 1 / -1; }
 }
+
+/* row actions, my slip */
+.row-actions { display: flex; gap: 6px; margin-top: 6px; }
+.row-btn {
+  font: inherit; font-size: 11px; padding: 2px 8px; border-radius: 999px; cursor: pointer;
+  background: transparent; color: var(--series-1); border: 1px solid var(--border);
+}
+.row-btn:hover { border-color: var(--series-1); }
+.row-btn[aria-pressed="true"] { background: var(--series-1); color: var(--page); border-color: var(--series-1); }
+.leg-remove {
+  margin-left: 8px; font: inherit; line-height: 1; padding: 0 6px; border-radius: 999px; cursor: pointer;
+  background: transparent; color: var(--muted); border: 1px solid var(--border);
+}
+.leg-remove:hover { color: var(--bad); border-color: var(--bad); }
+.my-slip { margin-top: 18px; }
+.my-slip-fab {
+  position: fixed; right: 16px; bottom: 16px; z-index: 20; padding: 10px 14px; border-radius: 999px;
+  background: var(--series-1); color: var(--page); font-weight: 700; text-decoration: none;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+}
+/* match details */
+.detail-row > td { padding: 0 !important; }
+.detail { padding: 12px 14px 16px; background: var(--surface); border-top: 1px dashed var(--border); }
+.detail-probs { margin-bottom: 12px; }
+.detail-table { width: auto; border-collapse: collapse; font-size: 0.85rem; }
+.detail-table th, .detail-table td { padding: 4px 0 4px 22px; text-align: right; font-family: var(--mono); border: 0; white-space: nowrap; }
+.detail-table th:first-child { padding-left: 0; }
+.detail-table th:first-child { text-align: left; font-family: var(--sans); color: var(--muted); font-weight: 500; }
+.detail-table thead th { color: var(--muted); font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.04em; }
+.detail-table .pos { color: var(--good); }
+.detail-table .neg { color: var(--bad); }
+.detail-note { font-size: 12px; color: var(--muted); margin: 6px 0 0; }
+.detail-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 10px; }
+.detail-sub { font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--series-1); margin: 6px 0; }
+.detail-match { display: grid; grid-template-columns: 22px 3.2em 1.4em minmax(0, 1fr) 2.6em 6.5em; gap: 6px; align-items: center; font-size: 0.82rem; padding: 2px 0; }
+.detail-borrowed { opacity: 0.7; }
+.detail-tag { font-size: 10px; color: var(--muted); border: 1px solid var(--border); border-radius: 999px; padding: 0 5px; }
+.detail-date, .detail-venue, .detail-xg { font-family: var(--mono); color: var(--muted); font-size: 0.75rem; }
+.detail-score { font-family: var(--mono); font-weight: 600; text-align: right; }
+.detail-opp { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.detail-h2h { font-size: 0.82rem; padding: 2px 0; }
+.detail-none { font-size: 12px; color: var(--muted); margin: 2px 0; }
+.track-types { margin-bottom: 12px; }
+@media (max-width: 640px) {
+  .detail-cols { grid-template-columns: 1fr; }
+  .detail-match { grid-template-columns: 22px 3.2em 1.4em minmax(0, 1fr) 2.6em; }
+  .detail-xg { display: none; }
+}
+@media (max-width: 640px) {
+  /* The main table stacks into cards on phones; the small tables inside the detail view and track record must not. */
+  .detail-table { display: table; width: auto; }
+  .detail-table thead { display: table-header-group; }
+  .detail-table tbody { display: table-row-group; }
+  .detail-table tr { display: table-row; border: 0; padding: 0; margin: 0; background: none; border-radius: 0; }
+  .detail-table th, .detail-table td { display: table-cell; width: auto; padding: 3px 10px 3px 0; }
+  .detail-table td::before { content: none; }
+  tbody tr.detail-row { padding: 0; margin-top: -10px; border-top: 0; border-radius: 0 0 var(--radius) var(--radius); }
+  tbody tr.detail-row > td { display: block; }
+  tbody tr.detail-row > td::before { content: none; }
+}

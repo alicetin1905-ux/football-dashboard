@@ -118,7 +118,7 @@ export async function fetchTsdbLeagueWindow(league, { futureDays = 10, pastDays 
   for (const e of unique.filter((x) => x.finished).sort((a, b) => new Date(a.date) - new Date(b.date))) {
     for (const [side, other, isHome] of [[e.home, e.away, true], [e.away, e.home, false]]) {
       if (!matchesByTeam.has(side.id)) matchesByTeam.set(side.id, []);
-      matchesByTeam.get(side.id).push({ id: e.id, date: e.date, venue: isHome ? 'home' : 'away', gf: side.score, ga: other.score });
+      matchesByTeam.get(side.id).push({ id: e.id, date: e.date, venue: isHome ? 'home' : 'away', opp: other.name, gf: side.score, ga: other.score });
     }
   }
   for (const [id, matches] of matchesByTeam) matchesByTeam.set(id, matches.slice(-formMatches));

@@ -6,7 +6,7 @@
  * copy, adds to it, grades what finished, and publishes it again.
  */
 
-import { isHit } from './stats.mjs';
+import { isHit, REAL_MODE_KEYS } from './stats.mjs';
 
 export const BEST_PICKS = 3;
 const KEEP_DAYS = 365;
@@ -43,12 +43,27 @@ export async function loadTrackRecord(siteUrl) {
   return { picks: json.picks || [], slips: json.slips || [] };
 }
 
-function pickEntry(f, now) {
-  const best = f.modes.best;
+/**
+ * Each bet type's own top 3, ranked the way the Top matches row ranks them
+ * when that type is selected (ok-sample only, like Best picks) — recorded
+ * so the record can say which bet types actually pay, not just which hit.
+ */
+function selectTopForMode(fixtures, mode, now, n = BEST_PICKS) {
+  return fixtures
+    .filter((f) => f.modes?.[mode] && f.modes[mode].confidence === 'ok' && new Date(f.date) > now)
+    .sort((a, b) => b.modes[mode].combined - a.modes[mode].combined || new Date(a.date) - new Date(b.date))
+    .slice(0, n);
+}
+
+/** `list` is which ranking showed the pick: 'best' (the Best picks row) or a bet type's own top 3. */
+function pickEntry(f, now, list = 'best') {
+  const best = list === 'best' ? f.modes.best : { ...f.modes[list], sourceMode: list };
   const side = BOOK_SIDE[best.sourceMode];
   const bwin = side && f.odds?.bwin ? f.odds.bwin[side] : null;
   return {
-    key: `${f.id}|${best.sourceMode}`,
+    // Best picks keep the original key format, so records from before per-type lists still match.
+    key: list === 'best' ? `${f.id}|${best.sourceMode}` : `${list}:${f.id}`,
+    list,
     fixtureId: f.id,
     date: f.date,
     league: f.league,
@@ -76,7 +91,8 @@ export function updateTrackRecord(record, { fixtures, results, now }) {
   const byKey = new Map(picks.map((p) => [p.key, p]));
 
   const shown = selectBestPicks(fixtures, now).map((f) => pickEntry(f, now));
-  for (const p of shown) {
+  const perType = REAL_MODE_KEYS.flatMap((mode) => selectTopForMode(fixtures, mode, now).map((f) => pickEntry(f, now, mode)));
+  for (const p of [...shown, ...perType]) {
     if (!byKey.has(p.key)) { picks.push(p); byKey.set(p.key, p); }
   }
 

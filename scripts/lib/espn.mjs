@@ -162,6 +162,7 @@ function parseFinishedMatches(events, teamId) {
       id: event.id,
       date: event.date,
       venue: isHome ? 'home' : 'away',
+      opp: (isHome ? away : home).team.displayName,
       gf: isHome ? gh : ga,
       ga: isHome ? ga : gh,
     });

@@ -290,8 +290,10 @@ export function teamMatchesBefore(history, team, before, keep = 38, adjacent = n
       out.push({
         date: m.date.toISOString(),
         venue: isHome ? 'home' : 'away',
+        opp: isHome ? m.away : m.home,
         gf,
         ga,
+        ...(scale ? { borrowed: true } : {}),
         // Another division's matches only feed strength, rescaled to this one.
         xgf: scale ? (xgf ?? gf) * m.attack : xgf,
         xga: scale ? (xga ?? ga) * m.defense : xga,

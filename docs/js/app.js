@@ -29,6 +29,8 @@ const state = {
   fixtures: [],
   results: [],
   record: null, // data/history.json — Best picks as shown, graded once played
+  mySlip: readStore('btts-my-slip', []), // [{id, mode}] — one leg per match
+  openDetails: new Set(), // fixture ids whose detail row is expanded
   view: 'upcoming', // 'upcoming' | 'results'
   league: '',
   day: '',
@@ -50,6 +52,10 @@ const els = {
   bestPicksCards: document.getElementById('bestPicksCards'),
   bestPicksSlip: document.getElementById('bestPicksSlip'),
   trackRecord: document.getElementById('trackRecord'),
+  mySlip: document.getElementById('mySlip'),
+  mySlipBody: document.getElementById('mySlipBody'),
+  mySlipClear: document.getElementById('mySlipClear'),
+  mySlipFab: document.getElementById('mySlipFab'),
   trackRecordBody: document.getElementById('trackRecordBody'),
   heroCards: document.getElementById('heroCards'),
   betSlip: document.getElementById('betSlip'),
@@ -161,12 +167,16 @@ const BEST_PICKS = 3;
  * low-sample fixtures — the biggest raw numbers tend to come from teams
  * with too little history to trust.
  */
-function renderBestPicks() {
+function bestPicksNow() {
   const now = Date.now();
-  const picks = state.fixtures
+  return state.fixtures
     .filter((f) => f.modes?.best && f.modes.best.confidence === 'ok' && new Date(f.date).getTime() > now)
     .sort((a, b) => b.modes.best.combined - a.modes.best.combined || new Date(a.date) - new Date(b.date))
     .slice(0, BEST_PICKS);
+}
+
+function renderBestPicks() {
+  const picks = bestPicksNow();
   els.bestPicks.hidden = state.view !== 'upcoming' || !picks.length;
   els.bestPicksCards.innerHTML = picks.map((f, i) => {
     const best = f.modes.best;
@@ -212,11 +222,28 @@ function renderTrackRecord() {
   if (state.view !== 'upcoming' || !record?.picks?.length) { els.trackRecord.hidden = true; return; }
   els.trackRecord.hidden = false;
 
-  const decided = record.picks.filter((p) => p.outcome === 'won' || p.outcome === 'lost');
+  const allDecided = record.picks.filter((p) => p.outcome === 'won' || p.outcome === 'lost');
+  const listOf = (p) => p.list || 'best';
+  const bestPicks = record.picks.filter((p) => listOf(p) === 'best');
+  const decided = allDecided.filter((p) => listOf(p) === 'best');
   const won = decided.filter((p) => p.outcome === 'won');
-  const pending = record.picks.filter((p) => !p.outcome).length;
+  const pending = bestPicks.filter((p) => !p.outcome).length;
   const slips = record.slips.filter((s) => s.outcome === 'won' || s.outcome === 'lost');
   const since = record.picks.reduce((min, p) => (p.firstShown < min ? p.firstShown : min), record.picks[0].firstShown);
+  const byType = ['best', 'away', 'home', 'goals', 'dc1x', 'homeWin', 'awayWin', 'draw'].map((list) => {
+    const ps = allDecided.filter((p) => listOf(p) === list);
+    const w = ps.filter((p) => p.outcome === 'won').length;
+    return { list, n: ps.length, w, avg: ps.length ? ps.reduce((a, p) => a + p.probability, 0) / ps.length : null, profit: ps.reduce((a, p) => a + profitOf(p.outcome, p.odds), 0) };
+  });
+  const typeTable = allDecided.length
+    ? `<div class="detail-sub">By bet type &middot; each one&rsquo;s own top 3, €${TRACK_STAKE} a pick</div>
+      <table class="detail-table track-types">
+        <thead><tr><th></th><th>Won</th><th>Hit rate</th><th>Predicted</th><th>Profit</th></tr></thead>
+        <tbody>${byType.map((t) => `<tr><th>${t.list === 'best' ? 'Best picks' : MODES[t.list].label}</th>${t.n
+          ? `<td>${t.w}/${t.n}</td><td>${pct(t.w / t.n)}</td><td>${pct(t.avg)}</td><td class="${t.profit >= 0 ? 'pos' : 'neg'}">${euros(t.profit)}</td>`
+          : '<td colspan="4" class="detail-none">no results yet</td>'}</tr>`).join('')}</tbody>
+      </table>`
+    : '';
 
   const summary = decided.length
     ? `<div class="track-stats">
@@ -225,11 +252,12 @@ function renderTrackRecord() {
         <div class="track-stat"><div class="track-stat-value">${euros(decided.reduce((a, p) => a + profitOf(p.outcome, p.odds), 0))}</div><div class="track-stat-label">€${TRACK_STAKE} on each pick</div></div>
         <div class="track-stat"><div class="track-stat-value">${slips.length ? `${slips.filter((s) => s.outcome === 'won').length}/${slips.length}` : '—'}</div><div class="track-stat-label">daily 3-leg slips won${slips.length ? ` (${euros(slips.reduce((a, s) => a + profitOf(s.outcome, s.odds), 0))} at €${TRACK_STAKE})` : ''}</div></div>
       </div>`
-    : `<p class="track-note">Tracking since ${kickoff(since)}: ${record.picks.length} pick${record.picks.length === 1 ? '' : 's'} recorded so far. Results appear here once those matches are played.</p>`;
+    : `<p class="track-note">Tracking since ${kickoff(since)}: ${bestPicks.length} Best pick${bestPicks.length === 1 ? '' : 's'}, plus each bet type&rsquo;s own top 3 (${record.picks.length - bestPicks.length} more), recorded so far. Results appear here once those matches are played.</p>`;
 
-  const recent = [...record.picks].sort((a, b) => new Date(b.date) - new Date(a.date)).slice(0, TRACK_RECENT);
+  const recent = [...bestPicks].sort((a, b) => new Date(b.date) - new Date(a.date)).slice(0, TRACK_RECENT);
   els.trackRecordBody.innerHTML = `
     ${summary}
+    ${typeTable}
     <div class="track-list">
       ${recent.map((p) => `
         <div class="track-row">
@@ -271,7 +299,7 @@ function bookOddsHtml(f, modeKey, cls) {
   return odds ? `<span class="${cls}" title="bwin's price for this outcome — a real bookmaker quote">bwin ${odds.toFixed(2)}</span>` : '';
 }
 
-const slipContainers = () => [els.betSlip, els.bestPicksSlip].filter(Boolean);
+const slipContainers = () => [els.betSlip, els.bestPicksSlip, els.mySlipBody].filter(Boolean);
 
 /** Recomputes just the return/profit figures for the current stake — leaves the rest of the card, and the stake input's focus, untouched. */
 function updateBetSlipReturn(container) {
@@ -307,7 +335,7 @@ function slipLeg(f, modeKey, probability) {
  * @param {{f: object, modeKey: string, odds: number, real: boolean}[]} legs
  * @param {{showModes: boolean}} options show each leg's bet type (when legs differ)
  */
-function renderBetSlip(container, legs, { showModes }) {
+function renderBetSlip(container, legs, { showModes, removable = false }) {
   if (!container) return;
   legs = legs.filter((leg) => leg.odds != null);
   if (!legs.length) { container.innerHTML = ''; return; }
@@ -328,7 +356,9 @@ function renderBetSlip(container, legs, { showModes }) {
           <span class="leg-teams">${leg.f.home.name}<span class="vs">vs</span>${leg.f.away.name}${
             showModes ? ` <span class="leg-mode">${MODES[leg.modeKey].label}</span>` : ''
           }</span>
-          <span class="leg-odds">${leg.real ? '<span class="leg-book">bwin</span>' : ''}${leg.odds.toFixed(2)}</span>
+          <span class="leg-odds">${leg.real ? '<span class="leg-book">bwin</span>' : ''}${leg.odds.toFixed(2)}${
+            removable ? `<button type="button" class="leg-remove" data-id="${leg.f.id}" aria-label="Remove ${leg.f.home.name} vs ${leg.f.away.name}">&times;</button>` : ''
+          }</span>
         </div>
       `).join('')}
     </div>
@@ -463,6 +493,15 @@ function matchRowHtml(f, mode, isResult) {
        <span class="result-badge ${hit ? 'result-hit' : 'result-miss'}">${hit ? '✓ Hit' : '✗ Miss'}</span>`
     : '';
   const modeBadge = mode.key === 'best' ? `<span class="mode-badge">${rowMode.label}</span>` : '';
+  const modeKey = effectiveModeKey(f, mode);
+  const slipLegNow = state.mySlip.find((l) => l.id === f.id);
+  const inSlip = slipLegNow?.mode === modeKey;
+  const actions = isResult ? '' : `
+        <div class="row-actions">
+          <button type="button" class="row-btn slip-toggle" data-id="${f.id}" data-mode="${modeKey}" aria-pressed="${inSlip}"
+            title="${slipLegNow && !inSlip ? `Swap this match's leg in My slip to ${rowMode.label}` : 'Add this bet to My slip'}">${inSlip ? '✓ In slip' : slipLegNow ? '↻ Swap in slip' : '+ Slip'}</button>
+          <button type="button" class="row-btn detail-toggle" data-id="${f.id}" aria-expanded="${state.openDetails.has(f.id)}">${state.openDetails.has(f.id) ? 'Hide details' : 'Details'}</button>
+        </div>`;
   return `
     <tr>
       <td class="kickoff" data-label="Kickoff">${kickoff(f.date)}</td>
@@ -478,13 +517,99 @@ function matchRowHtml(f, mode, isResult) {
           ${formBadges(f.stats.home.homeForm, `${f.home.name}'s last home matches, oldest to newest`)}
           <span class="form-label">Away</span>
           ${formBadges(f.stats.away.awayForm, `${f.away.name}'s last away matches, oldest to newest`)}
-        </div>
+        </div>${actions}
       </td>
       <td data-label="${rowMode.winLabel}">${meter(f._view.winLikelihood)}</td>
       <td data-label="BTTS">${meter(f._view.bttsLikelihood)}</td>
       <td data-label="Combined">${meter(f._view.combined, 'combined')}${bookOddsHtml(f, effectiveModeKey(f, mode), 'row-book')}</td>
     </tr>
+    ${!isResult && state.openDetails.has(f.id) ? detailRowHtml(f) : ''}
   `;
+}
+
+/* ------------------------------ match details ------------------------------ */
+
+const resultLetter = (score) => { const [a, b] = score.split('-').map(Number); return a > b ? 'w' : a < b ? 'l' : 'd'; };
+
+function recentListHtml(team, entries) {
+  if (!entries?.length) return `<div class="detail-col"><div class="detail-sub">${team}</div><p class="detail-none">No recent matches on record.</p></div>`;
+  return `<div class="detail-col">
+    <div class="detail-sub">${team} &middot; last ${entries.length}</div>
+    ${entries.map((m) => `
+      <div class="detail-match${m.b ? ' detail-borrowed' : ''}" ${m.b ? 'title="Last season, in the division this team came from"' : ''}>
+        <span class="form-badge form-${resultLetter(m.s)}">${resultLetter(m.s).toUpperCase()}</span>
+        <span class="detail-date">${m.d.slice(5).replace('-', '/')}</span>
+        <span class="detail-venue">${m.v === 'H' ? 'vs' : '@'}</span>
+        <span class="detail-opp">${m.o}${m.b ? ' <span class="detail-tag">prev. div.</span>' : ''}</span>
+        <span class="detail-score">${m.s.replace('-', '&ndash;')}</span>
+        <span class="detail-xg">${m.x ? `xG ${m.x.replace('-', '&ndash;')}` : ''}</span>
+      </div>`).join('')}
+  </div>`;
+}
+
+/** Our model's numbers next to bwin's (where bwin has priced the match), plus form and meetings. */
+function detailRowHtml(f) {
+  const model = f.modelModes || f.modes;
+  const bwin = f.probSource === 'bwin' ? f.modes : null;
+  const rows = [
+    ['Home win', (m) => m.homeWin.combined, 'home'],
+    ['Draw', (m) => m.draw.combined, 'draw'],
+    ['Away win', (m) => m.awayWin.combined, 'away'],
+    ['Over 2.5', (m) => m.goals.winLikelihood, null],
+    ['BTTS', (m) => m.goals.bttsLikelihood, null],
+  ];
+  const xg = (m) => `${m.expectedGoals.home.toFixed(2)} &ndash; ${m.expectedGoals.away.toFixed(2)}`;
+  const d = f.detail || { home: [], away: [], h2h: [] };
+  return `
+    <tr class="detail-row"><td colspan="6"><div class="detail">
+      <div class="detail-probs">
+        <table class="detail-table">
+          <thead><tr><th></th><th>Our model</th>${bwin ? '<th>From bwin</th>' : ''}<th>bwin price</th></tr></thead>
+          <tbody>
+            ${rows.map(([label, get, side]) => `<tr><th>${label}</th><td>${pct(get(model))}</td>${bwin ? `<td>${pct(get(bwin))}</td>` : ''}<td>${side && f.odds?.bwin ? f.odds.bwin[side].toFixed(2) : '&mdash;'}</td></tr>`).join('')}
+            <tr><th>Expected goals</th><td>${xg(model)}</td>${bwin ? `<td>${xg(bwin)}</td>` : ''}<td></td></tr>
+          </tbody>
+        </table>
+        <p class="detail-note">${bwin
+          ? 'The page uses bwin&rsquo;s numbers for this match &mdash; they beat our model in every backtest. Over 2.5 and BTTS &ldquo;from bwin&rdquo; are read off bwin&rsquo;s implied expected goals.'
+          : 'bwin hasn&rsquo;t priced this match yet (or doesn&rsquo;t cover this competition), so these are our model&rsquo;s numbers.'}</p>
+      </div>
+      <div class="detail-cols">
+        ${recentListHtml(f.home.name, d.home)}
+        ${recentListHtml(f.away.name, d.away)}
+      </div>
+      <div class="detail-sub">Head to head</div>
+      ${d.h2h.length
+        ? d.h2h.map((m) => `<div class="detail-h2h"><span class="detail-date">${m.d}</span> ${m.h} <strong>${m.s.replace('-', '&ndash;')}</strong> ${m.a}</div>`).join('')
+        : '<p class="detail-none">No meetings in the last two seasons on record.</p>'}
+    </div></td></tr>`;
+}
+
+/* --------------------------------- my slip --------------------------------- */
+
+function saveMySlip() { writeStore('btts-my-slip', state.mySlip); }
+
+function toggleSlipLeg(id, mode) {
+  const existing = state.mySlip.find((l) => l.id === id);
+  if (existing?.mode === mode) state.mySlip = state.mySlip.filter((l) => l.id !== id);
+  else if (existing) existing.mode = mode; // one leg per match: swap its bet type
+  else state.mySlip.push({ id, mode });
+  saveMySlip();
+  render();
+}
+
+/** Your own picks from the table — one leg per match, bwin's real price where it has one. */
+function renderMySlip() {
+  const now = Date.now();
+  const byId = new Map(state.fixtures.map((f) => [f.id, f]));
+  const kept = state.mySlip.filter((l) => byId.has(l.id) && new Date(byId.get(l.id).date).getTime() > now && byId.get(l.id).modes[l.mode]);
+  if (kept.length !== state.mySlip.length) { state.mySlip = kept; saveMySlip(); }
+  const show = state.view === 'upcoming' && kept.length > 0;
+  els.mySlip.hidden = !show;
+  els.mySlipFab.hidden = !show;
+  if (!show) return;
+  els.mySlipFab.querySelector('span').textContent = String(kept.length);
+  renderBetSlip(els.mySlipBody, kept.map((l) => slipLeg(byId.get(l.id), l.mode, byId.get(l.id).modes[l.mode].combined)), { showModes: true, removable: true });
 }
 
 function syncModeUi() {
@@ -511,6 +636,7 @@ function render() {
   syncViewUi();
   renderBestPicks();
   renderTrackRecord();
+  renderMySlip();
   const mode = { ...MODES[state.mode], key: state.mode };
 
   if (state.view === 'results') {
@@ -589,8 +715,9 @@ async function enableNotifications() {
     state.notify = false;
   } else {
     state.notify = true;
-    notify('Alerts on', `You'll be told when a fixture clears ${pct(ALERT_THRESHOLD)} away win + BTTS.`);
+    notify('Alerts on', `You'll be told when a fixture clears ${pct(ALERT_THRESHOLD)} away win + BTTS, and when a new match enters Best picks.`);
     maybeNotifyFixtures(state.fixtures);
+    maybeNotifyBestPicks();
   }
   writeStore('btts-notify', state.notify);
   syncNotifyButton();
@@ -637,6 +764,32 @@ function maybeNotifyFixtures(fixtures) {
   if (changed) writeStore('btts-notified-ids', [...notifiedIds].slice(-300));
 }
 
+/**
+ * Alert when a match enters the Best picks row. The first time this runs
+ * on a device it only remembers the current picks, so turning alerts on
+ * doesn't fire three notifications for picks already on screen.
+ */
+function maybeNotifyBestPicks() {
+  if (!state.notify) return;
+  const stored = readStore('btts-best-seen', null);
+  const seen = new Set(stored || []);
+  const picks = bestPicksNow();
+  for (const f of picks) {
+    const key = `${f.id}|${f.modes.best.sourceMode}`;
+    if (seen.has(key)) continue;
+    seen.add(key);
+    if (stored) {
+      const odds = bwinOdds(f, f.modes.best.sourceMode);
+      notify(
+        `New best pick: ${f.home.name} vs ${f.away.name}`,
+        `${MODES[f.modes.best.sourceMode].label} ${pct(f.modes.best.combined)}${odds ? ` · bwin ${odds.toFixed(2)}` : ''} · ${f.league} · ${kickoff(f.date)}`,
+        `best-${key}`,
+      );
+    }
+  }
+  writeStore('btts-best-seen', [...seen].slice(-200));
+}
+
 function registerServiceWorker() {
   if (!('serviceWorker' in navigator)) return;
   navigator.serviceWorker.register('./sw.js').catch(() => { /* offline support is optional */ });
@@ -658,6 +811,7 @@ async function refreshData() {
   populateDays(state.fixtures);
   render();
   maybeNotifyFixtures(state.fixtures);
+  maybeNotifyBestPicks();
 }
 
 async function main() {
@@ -668,6 +822,24 @@ async function main() {
   await refreshData();
 
   els.leagueFilter.addEventListener('change', (e) => { state.league = e.target.value; render(); });
+  els.rows.addEventListener('click', (e) => {
+    const slipBtn = e.target.closest('.slip-toggle');
+    if (slipBtn) { toggleSlipLeg(slipBtn.dataset.id, slipBtn.dataset.mode); return; }
+    const detailBtn = e.target.closest('.detail-toggle');
+    if (detailBtn) {
+      const id = detailBtn.dataset.id;
+      if (state.openDetails.has(id)) state.openDetails.delete(id); else state.openDetails.add(id);
+      render();
+    }
+  });
+  els.mySlipBody.addEventListener('click', (e) => {
+    const btn = e.target.closest('.leg-remove');
+    if (!btn) return;
+    state.mySlip = state.mySlip.filter((l) => l.id !== btn.dataset.id);
+    saveMySlip();
+    render();
+  });
+  els.mySlipClear.addEventListener('click', () => { state.mySlip = []; saveMySlip(); render(); });
   els.dayFilter.addEventListener('change', (e) => { state.day = e.target.value; render(); });
   els.hideLowSample.addEventListener('change', (e) => { state.hideLowSample = e.target.checked; render(); });
   els.teamSearch.addEventListener('input', (e) => { state.search = e.target.value; render(); });
