@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-13T14:38:29.507Z",
+  "generatedAt": "2026-10-13T14:43:42.165Z",
   "source": "espn",
   "sourceLabel": "ESPN + football-data.co.uk + TheSportsDB",
   "disclaimer": "Public/derived football statistics shown for information only — not betting advice.",
@@ -9007,64 +9007,64 @@
         }
       },
       "score": {
-        "winLikelihood": 0.4635181320726271,
-        "bttsLikelihood": 0.5268158274252794,
-        "combined": 0.17918504765654367,
+        "winLikelihood": 0.4641509216778342,
+        "bttsLikelihood": 0.5271653920569604,
+        "combined": 0.17956007606600416,
         "confidence": "ok"
       },
       "modes": {
         "away": {
-          "winLikelihood": 0.4635181320726271,
-          "bttsLikelihood": 0.5268158274252794,
-          "combined": 0.17918504765654367,
+          "winLikelihood": 0.4641509216778342,
+          "bttsLikelihood": 0.5271653920569604,
+          "combined": 0.17956007606600416,
           "confidence": "ok"
         },
         "home": {
-          "winLikelihood": 0.26577843527813855,
-          "bttsLikelihood": 0.5268158274252794,
-          "combined": 0.19363680907753789,
+          "winLikelihood": 0.26537362580174545,
+          "bttsLikelihood": 0.5271653920569604,
+          "combined": 0.19363057929426677,
           "confidence": "ok"
         },
         "goals": {
-          "winLikelihood": 0.48491439607170417,
-          "bttsLikelihood": 0.5268158274252794,
-          "combined": 0.467675310221999,
+          "winLikelihood": 0.4855268985609068,
+          "bttsLikelihood": 0.5271653920569604,
+          "combined": 0.46784931518701317,
           "confidence": "ok"
         },
         "dc1x": {
-          "winLikelihood": 0.5364818586555615,
-          "bttsLikelihood": 0.5268158274252794,
-          "combined": 0.41288161042820104,
+          "winLikelihood": 0.5358490688791527,
+          "bttsLikelihood": 0.5271653920569604,
+          "combined": 0.4128650106233803,
           "confidence": "ok"
         },
         "homeWin": {
-          "winLikelihood": 0.29231025904421265,
+          "winLikelihood": 0.29211087954659654,
           "bttsLikelihood": null,
-          "combined": 0.29231025904421265,
+          "combined": 0.29211087954659654,
           "confidence": "ok"
         },
         "awayWin": {
-          "winLikelihood": 0.3705710456412091,
+          "winLikelihood": 0.3706762107227323,
           "bttsLikelihood": null,
-          "combined": 0.3705710456412091,
+          "combined": 0.3706762107227323,
           "confidence": "ok"
         },
         "draw": {
-          "winLikelihood": 0.27677155426476074,
+          "winLikelihood": 0.2764487774797688,
           "bttsLikelihood": null,
-          "combined": 0.27677155426476074,
+          "combined": 0.2764487774797688,
           "confidence": "ok"
         },
         "expectedGoals": {
           "home": 1.0935580780424639,
-          "away": 1.5197828162068283
+          "away": 1.5222309224483475
         },
         "sampleHome": 5,
         "sampleAway": 19,
         "best": {
-          "winLikelihood": 0.48491439607170417,
-          "bttsLikelihood": 0.5268158274252794,
-          "combined": 0.45908170462646225,
+          "winLikelihood": 0.4855268985609068,
+          "bttsLikelihood": 0.5271653920569604,
+          "combined": 0.45923155525967696,
           "confidence": "ok",
           "sourceMode": "goals"
         }
@@ -10307,64 +10307,64 @@
         }
       },
       "score": {
-        "winLikelihood": 0.5036826205690359,
-        "bttsLikelihood": 0.46338751439793524,
+        "winLikelihood": 0.5043173011144884,
+        "bttsLikelihood": 0.46370077484795624,
         "combined": 0.16666666666666666,
         "confidence": "low"
       },
       "modes": {
         "away": {
-          "winLikelihood": 0.5036826205690359,
-          "bttsLikelihood": 0.46338751439793524,
+          "winLikelihood": 0.5043173011144884,
+          "bttsLikelihood": 0.46370077484795624,
           "combined": 0.16666666666666666,
           "confidence": "low"
         },
         "home": {
-          "winLikelihood": 0.21852498175823795,
-          "bttsLikelihood": 0.46338751439793524,
-          "combined": 0.17844024324337265,
+          "winLikelihood": 0.21816979694837016,
+          "bttsLikelihood": 0.46370077484795624,
+          "combined": 0.17837028569534977,
           "confidence": "low"
         },
         "goals": {
-          "winLikelihood": 0.4238809040666989,
-          "bttsLikelihood": 0.46338751439793524,
-          "combined": 0.45865283104112764,
+          "winLikelihood": 0.42450826658822943,
+          "bttsLikelihood": 0.46370077484795624,
+          "combined": 0.4588973239534793,
           "confidence": "low"
         },
         "dc1x": {
-          "winLikelihood": 0.4963173724700889,
-          "bttsLikelihood": 0.46338751439793524,
-          "combined": 0.4047600886997804,
+          "winLikelihood": 0.4956826917933983,
+          "bttsLikelihood": 0.46370077484795624,
+          "combined": 0.40474423046688773,
           "confidence": "low"
         },
         "homeWin": {
-          "winLikelihood": 0.26903666894111095,
+          "winLikelihood": 0.2688617309194438,
           "bttsLikelihood": null,
-          "combined": 0.26903666894111095,
+          "combined": 0.2688617309194438,
           "confidence": "low"
         },
         "awayWin": {
-          "winLikelihood": 0.3772460947765082,
+          "winLikelihood": 0.37735157411870107,
           "bttsLikelihood": null,
-          "combined": 0.3772460947765082,
+          "combined": 0.37735157411870107,
           "confidence": "low"
         },
         "draw": {
-          "winLikelihood": 0.28680818499541955,
+          "winLikelihood": 0.2864124719565932,
           "bttsLikelihood": null,
-          "combined": 0.28680818499541955,
+          "combined": 0.2864124719565932,
           "confidence": "low"
         },
         "expectedGoals": {
           "home": 0.8904687206917207,
-          "away": 1.4850449232649579
+          "away": 1.4874370727923854
         },
         "sampleHome": 4,
         "sampleAway": 5,
         "best": {
-          "winLikelihood": 0.4238809040666989,
-          "bttsLikelihood": 0.46338751439793524,
-          "combined": 0.4513116722120991,
+          "winLikelihood": 0.42450826658822943,
+          "bttsLikelihood": 0.46370077484795624,
+          "combined": 0.4515222260760617,
           "confidence": "low",
           "sourceMode": "goals"
         }
@@ -10744,6 +10744,129 @@
       "probSource": "model"
     },
     {
+      "id": "tsdb-2528910",
+      "date": "2026-10-14T11:30:00.000Z",
+      "league": "TFF 1. Lig",
+      "leagueCountry": "Turkey",
+      "home": {
+        "id": "tsdb-146459",
+        "name": "Batman Petrolspor"
+      },
+      "away": {
+        "id": "tsdb-134238",
+        "name": "İstanbulspor"
+      },
+      "stats": {
+        "home": {
+          "homeSample": 4,
+          "awaySample": 5,
+          "homeGoalsForAvg": 2.25,
+          "homeGoalsAgainstAvg": 1.5,
+          "awayGoalsForAvg": 1.4,
+          "awayGoalsAgainstAvg": 1.8,
+          "homeForm": [
+            "W",
+            "W",
+            "W",
+            "L"
+          ],
+          "awayForm": [
+            "D",
+            "W",
+            "W",
+            "L",
+            "L"
+          ]
+        },
+        "away": {
+          "homeSample": 17,
+          "awaySample": 20,
+          "homeGoalsForAvg": 1.5294117647058822,
+          "homeGoalsAgainstAvg": 1.7058823529411764,
+          "awayGoalsForAvg": 1.3,
+          "awayGoalsAgainstAvg": 1.7,
+          "homeForm": [
+            "W",
+            "D",
+            "D",
+            "L",
+            "L"
+          ],
+          "awayForm": [
+            "L",
+            "L",
+            "L",
+            "L",
+            "W"
+          ]
+        }
+      },
+      "score": {
+        "winLikelihood": 0.2681126340903047,
+        "bttsLikelihood": 0.7222810129530136,
+        "combined": 0.16666666666666666,
+        "confidence": "low"
+      },
+      "modes": {
+        "away": {
+          "winLikelihood": 0.2681126340903047,
+          "bttsLikelihood": 0.7222810129530136,
+          "combined": 0.16666666666666666,
+          "confidence": "low"
+        },
+        "home": {
+          "winLikelihood": 0.5223557163622912,
+          "bttsLikelihood": 0.7222810129530136,
+          "combined": 0.2995482346468385,
+          "confidence": "low"
+        },
+        "goals": {
+          "winLikelihood": 0.7441042184978437,
+          "bttsLikelihood": 0.7222810129530136,
+          "combined": 0.5799216675857419,
+          "confidence": "low"
+        },
+        "dc1x": {
+          "winLikelihood": 0.7318865057537649,
+          "bttsLikelihood": 0.7222810129530136,
+          "combined": 0.6334518682056608,
+          "confidence": "low"
+        },
+        "homeWin": {
+          "winLikelihood": 0.47966003544957897,
+          "bttsLikelihood": null,
+          "combined": 0.47966003544957897,
+          "confidence": "low"
+        },
+        "awayWin": {
+          "winLikelihood": 0.29144783338193997,
+          "bttsLikelihood": null,
+          "combined": 0.29144783338193997,
+          "confidence": "low"
+        },
+        "draw": {
+          "winLikelihood": 0.23828748750657447,
+          "bttsLikelihood": null,
+          "combined": 0.23828748750657447,
+          "confidence": "low"
+        },
+        "expectedGoals": {
+          "home": 2.2706952377638876,
+          "away": 1.6113901621917506
+        },
+        "sampleHome": 4,
+        "sampleAway": 20,
+        "best": {
+          "winLikelihood": 0.7318865057537649,
+          "bttsLikelihood": 0.7222810129530136,
+          "combined": 0.6074161289182126,
+          "confidence": "low",
+          "sourceMode": "dc1x"
+        }
+      },
+      "probSource": "model"
+    },
+    {
       "id": "401874957",
       "date": "2026-10-23T18:45Z",
       "league": "Serie A",
@@ -10863,129 +10986,6 @@
           "combined": 0.49909933655100513,
           "confidence": "ok",
           "sourceMode": "goals"
-        }
-      },
-      "probSource": "model"
-    },
-    {
-      "id": "tsdb-2528910",
-      "date": "2026-10-14T11:30:00.000Z",
-      "league": "TFF 1. Lig",
-      "leagueCountry": "Turkey",
-      "home": {
-        "id": "tsdb-146459",
-        "name": "Batman Petrolspor"
-      },
-      "away": {
-        "id": "tsdb-134238",
-        "name": "İstanbulspor"
-      },
-      "stats": {
-        "home": {
-          "homeSample": 4,
-          "awaySample": 5,
-          "homeGoalsForAvg": 2.25,
-          "homeGoalsAgainstAvg": 1.5,
-          "awayGoalsForAvg": 1.4,
-          "awayGoalsAgainstAvg": 1.8,
-          "homeForm": [
-            "W",
-            "W",
-            "W",
-            "L"
-          ],
-          "awayForm": [
-            "D",
-            "W",
-            "W",
-            "L",
-            "L"
-          ]
-        },
-        "away": {
-          "homeSample": 17,
-          "awaySample": 20,
-          "homeGoalsForAvg": 1.5294117647058822,
-          "homeGoalsAgainstAvg": 1.7058823529411764,
-          "awayGoalsForAvg": 1.3,
-          "awayGoalsAgainstAvg": 1.7,
-          "homeForm": [
-            "W",
-            "D",
-            "D",
-            "L",
-            "L"
-          ],
-          "awayForm": [
-            "L",
-            "L",
-            "L",
-            "L",
-            "W"
-          ]
-        }
-      },
-      "score": {
-        "winLikelihood": 0.26758865187677344,
-        "bttsLikelihood": 0.7218209737115574,
-        "combined": 0.16666666666666666,
-        "confidence": "low"
-      },
-      "modes": {
-        "away": {
-          "winLikelihood": 0.26758865187677344,
-          "bttsLikelihood": 0.7218209737115574,
-          "combined": 0.16666666666666666,
-          "confidence": "low"
-        },
-        "home": {
-          "winLikelihood": 0.5228796550020166,
-          "bttsLikelihood": 0.7218209737115574,
-          "combined": 0.2996766054678052,
-          "confidence": "low"
-        },
-        "goals": {
-          "winLikelihood": 0.7437015434048303,
-          "bttsLikelihood": 0.7218209737115574,
-          "combined": 0.5783466733209754,
-          "confidence": "low"
-        },
-        "dc1x": {
-          "winLikelihood": 0.7324104882955261,
-          "bttsLikelihood": 0.7218209737115574,
-          "combined": 0.6334519431510321,
-          "confidence": "low"
-        },
-        "homeWin": {
-          "winLikelihood": 0.47994968195321164,
-          "bttsLikelihood": null,
-          "combined": 0.47994968195321164,
-          "confidence": "low"
-        },
-        "awayWin": {
-          "winLikelihood": 0.29131568809057146,
-          "bttsLikelihood": null,
-          "combined": 0.29131568809057146,
-          "confidence": "low"
-        },
-        "draw": {
-          "winLikelihood": 0.2382875574754526,
-          "bttsLikelihood": null,
-          "combined": 0.2382875574754526,
-          "confidence": "low"
-        },
-        "expectedGoals": {
-          "home": 2.2706952377638876,
-          "away": 1.608798666870371
-        },
-        "sampleHome": 4,
-        "sampleAway": 20,
-        "best": {
-          "winLikelihood": 0.7324104882955261,
-          "bttsLikelihood": 0.7218209737115574,
-          "combined": 0.6074161681910639,
-          "confidence": "low",
-          "sourceMode": "dc1x"
         }
       },
       "probSource": "model"
@@ -11857,6 +11857,129 @@
       "probSource": "model"
     },
     {
+      "id": "tsdb-2528915",
+      "date": "2026-10-18T16:00:00.000Z",
+      "league": "TFF 1. Lig",
+      "leagueCountry": "Turkey",
+      "home": {
+        "id": "tsdb-134238",
+        "name": "İstanbulspor"
+      },
+      "away": {
+        "id": "tsdb-133799",
+        "name": "Antalyaspor"
+      },
+      "stats": {
+        "home": {
+          "homeSample": 17,
+          "awaySample": 20,
+          "homeGoalsForAvg": 1.5294117647058822,
+          "homeGoalsAgainstAvg": 1.7058823529411764,
+          "awayGoalsForAvg": 1.3,
+          "awayGoalsAgainstAvg": 1.7,
+          "homeForm": [
+            "W",
+            "D",
+            "D",
+            "L",
+            "L"
+          ],
+          "awayForm": [
+            "L",
+            "L",
+            "L",
+            "L",
+            "W"
+          ]
+        },
+        "away": {
+          "homeSample": 5,
+          "awaySample": 4,
+          "homeGoalsForAvg": 2.2,
+          "homeGoalsAgainstAvg": 2,
+          "awayGoalsForAvg": 1,
+          "awayGoalsAgainstAvg": 0.75,
+          "homeForm": [
+            "W",
+            "L",
+            "L",
+            "L",
+            "W"
+          ],
+          "awayForm": [
+            "L",
+            "W",
+            "W",
+            "W"
+          ]
+        }
+      },
+      "score": {
+        "winLikelihood": 0.5385719991576029,
+        "bttsLikelihood": 0.3803678401144886,
+        "combined": 0.16666666666666666,
+        "confidence": "low"
+      },
+      "modes": {
+        "away": {
+          "winLikelihood": 0.5385719991576029,
+          "bttsLikelihood": 0.3803678401144886,
+          "combined": 0.16666666666666666,
+          "confidence": "low"
+        },
+        "home": {
+          "winLikelihood": 0.17322103791654958,
+          "bttsLikelihood": 0.3803678401144886,
+          "combined": 0.11005161922346614,
+          "confidence": "low"
+        },
+        "goals": {
+          "winLikelihood": 0.347832438618609,
+          "bttsLikelihood": 0.3803678401144886,
+          "combined": 0.4124986532507822,
+          "confidence": "low"
+        },
+        "dc1x": {
+          "winLikelihood": 0.4614279970596031,
+          "bttsLikelihood": 0.3803678401144886,
+          "combined": 0.36077350064715574,
+          "confidence": "low"
+        },
+        "homeWin": {
+          "winLikelihood": 0.24672326451276916,
+          "bttsLikelihood": null,
+          "combined": 0.24672326451276916,
+          "confidence": "low"
+        },
+        "awayWin": {
+          "winLikelihood": 0.4,
+          "bttsLikelihood": null,
+          "combined": 0.4,
+          "confidence": "low"
+        },
+        "draw": {
+          "winLikelihood": 0.30155323496278474,
+          "bttsLikelihood": null,
+          "combined": 0.30155323496278474,
+          "confidence": "low"
+        },
+        "expectedGoals": {
+          "home": 0.6809466687642569,
+          "away": 1.4096625853261167
+        },
+        "sampleHome": 17,
+        "sampleAway": 4,
+        "best": {
+          "winLikelihood": 0.347832438618609,
+          "bttsLikelihood": 0.3803678401144886,
+          "combined": 0.44,
+          "confidence": "low",
+          "sourceMode": "goals"
+        }
+      },
+      "probSource": "model"
+    },
+    {
       "id": "401879262",
       "date": "2026-10-17T14:00Z",
       "league": "Premier League",
@@ -11981,129 +12104,6 @@
       "probSource": "model"
     },
     {
-      "id": "tsdb-2528915",
-      "date": "2026-10-18T16:00:00.000Z",
-      "league": "TFF 1. Lig",
-      "leagueCountry": "Turkey",
-      "home": {
-        "id": "tsdb-134238",
-        "name": "İstanbulspor"
-      },
-      "away": {
-        "id": "tsdb-133799",
-        "name": "Antalyaspor"
-      },
-      "stats": {
-        "home": {
-          "homeSample": 17,
-          "awaySample": 20,
-          "homeGoalsForAvg": 1.5294117647058822,
-          "homeGoalsAgainstAvg": 1.7058823529411764,
-          "awayGoalsForAvg": 1.3,
-          "awayGoalsAgainstAvg": 1.7,
-          "homeForm": [
-            "W",
-            "D",
-            "D",
-            "L",
-            "L"
-          ],
-          "awayForm": [
-            "L",
-            "L",
-            "L",
-            "L",
-            "W"
-          ]
-        },
-        "away": {
-          "homeSample": 5,
-          "awaySample": 4,
-          "homeGoalsForAvg": 2.2,
-          "homeGoalsAgainstAvg": 2,
-          "awayGoalsForAvg": 1,
-          "awayGoalsAgainstAvg": 0.75,
-          "homeForm": [
-            "W",
-            "L",
-            "L",
-            "L",
-            "W"
-          ],
-          "awayForm": [
-            "L",
-            "W",
-            "W",
-            "W"
-          ]
-        }
-      },
-      "score": {
-        "winLikelihood": 0.5379458451972813,
-        "bttsLikelihood": 0.38009877267440867,
-        "combined": 0.16666666666666666,
-        "confidence": "low"
-      },
-      "modes": {
-        "away": {
-          "winLikelihood": 0.5379458451972813,
-          "bttsLikelihood": 0.38009877267440867,
-          "combined": 0.16666666666666666,
-          "confidence": "low"
-        },
-        "home": {
-          "winLikelihood": 0.17351488955972086,
-          "bttsLikelihood": 0.38009877267440867,
-          "combined": 0.11011506360710088,
-          "confidence": "low"
-        },
-        "goals": {
-          "winLikelihood": 0.347220001240224,
-          "bttsLikelihood": 0.38009877267440867,
-          "combined": 0.4122919732451071,
-          "confidence": "low"
-        },
-        "dc1x": {
-          "winLikelihood": 0.4620541510904922,
-          "bttsLikelihood": 0.38009877267440867,
-          "combined": 0.3608883033145342,
-          "confidence": "low"
-        },
-        "homeWin": {
-          "winLikelihood": 0.24686799430889741,
-          "bttsLikelihood": null,
-          "combined": 0.24686799430889741,
-          "confidence": "low"
-        },
-        "awayWin": {
-          "winLikelihood": 0.4,
-          "bttsLikelihood": null,
-          "combined": 0.4,
-          "confidence": "low"
-        },
-        "draw": {
-          "winLikelihood": 0.30202371200113154,
-          "bttsLikelihood": null,
-          "combined": 0.30202371200113154,
-          "confidence": "low"
-        },
-        "expectedGoals": {
-          "home": 0.6809466687642569,
-          "away": 1.4073955155125415
-        },
-        "sampleHome": 17,
-        "sampleAway": 4,
-        "best": {
-          "winLikelihood": 0.347220001240224,
-          "bttsLikelihood": 0.38009877267440867,
-          "combined": 0.44,
-          "confidence": "low",
-          "sourceMode": "goals"
-        }
-      },
-      "probSource": "model"
-    },
-    {
       "id": "tsdb-2528902",
       "date": "2026-10-14T17:00:00.000Z",
       "league": "TFF 1. Lig",
@@ -12161,33 +12161,33 @@
         }
       },
       "score": {
-        "winLikelihood": 0.8753617377883693,
-        "bttsLikelihood": 0.21574610664023802,
+        "winLikelihood": 0.8757918060168776,
+        "bttsLikelihood": 0.2158096968060729,
         "combined": 0.16666666666666666,
         "confidence": "ok"
       },
       "modes": {
         "away": {
-          "winLikelihood": 0.8753617377883693,
-          "bttsLikelihood": 0.21574610664023802,
+          "winLikelihood": 0.8757918060168776,
+          "bttsLikelihood": 0.2158096968060729,
           "combined": 0.16666666666666666,
           "confidence": "ok"
         },
         "home": {
-          "winLikelihood": 0.02018271887318048,
-          "bttsLikelihood": 0.21574610664023802,
+          "winLikelihood": 0.020104226092550834,
+          "bttsLikelihood": 0.2158096968060729,
           "combined": 0.06666666666666667,
           "confidence": "ok"
         },
         "goals": {
-          "winLikelihood": 0.5543295692973474,
-          "bttsLikelihood": 0.21574610664023802,
+          "winLikelihood": 0.5553124145853668,
+          "bttsLikelihood": 0.2158096968060729,
           "combined": 0.4,
           "confidence": "ok"
         },
         "dc1x": {
-          "winLikelihood": 0.12463400179100985,
-          "bttsLikelihood": 0.21574610664023802,
+          "winLikelihood": 0.12420386037493271,
+          "bttsLikelihood": 0.2158096968060729,
           "combined": 0.23333333333333334,
           "confidence": "ok"
         },
@@ -12211,7 +12211,7 @@
         },
         "expectedGoals": {
           "home": 0.2612041580695714,
-          "away": 2.6400798635821476
+          "away": 2.6443325738531294
         },
         "sampleHome": 5,
         "sampleAway": 5,
@@ -12657,63 +12657,63 @@
         }
       },
       "score": {
-        "winLikelihood": 0.4429807191664519,
-        "bttsLikelihood": 0.4340592958102511,
+        "winLikelihood": 0.4435718695737789,
+        "bttsLikelihood": 0.43439561802438736,
         "combined": 0.16666666666666666,
         "confidence": "ok"
       },
       "modes": {
         "away": {
-          "winLikelihood": 0.4429807191664519,
-          "bttsLikelihood": 0.4340592958102511,
+          "winLikelihood": 0.4435718695737789,
+          "bttsLikelihood": 0.43439561802438736,
           "combined": 0.16666666666666666,
           "confidence": "ok"
         },
         "home": {
-          "winLikelihood": 0.2544006188937864,
-          "bttsLikelihood": 0.4340592958102511,
-          "combined": 0.18486273508989431,
+          "winLikelihood": 0.2540492884718076,
+          "bttsLikelihood": 0.43439561802438736,
+          "combined": 0.18483769145263618,
           "confidence": "ok"
         },
         "goals": {
-          "winLikelihood": 0.3689567827143544,
-          "bttsLikelihood": 0.4340592958102511,
-          "combined": 0.4367231659204197,
+          "winLikelihood": 0.3695075607419286,
+          "bttsLikelihood": 0.43439561802438736,
+          "combined": 0.4369564233315334,
           "confidence": "ok"
         },
         "dc1x": {
-          "winLikelihood": 0.5570192796883603,
-          "bttsLikelihood": 0.4340592958102511,
-          "combined": 0.40592994332621335,
+          "winLikelihood": 0.5564281292593546,
+          "bttsLikelihood": 0.43439561802438736,
+          "combined": 0.40592698253258225,
           "confidence": "ok"
         },
         "homeWin": {
-          "winLikelihood": 0.28670638006664234,
+          "winLikelihood": 0.2865333404341329,
           "bttsLikelihood": null,
-          "combined": 0.28670638006664234,
+          "combined": 0.2865333404341329,
           "confidence": "ok"
         },
         "awayWin": {
-          "winLikelihood": 0.3671578753160622,
+          "winLikelihood": 0.3672561202623563,
           "bttsLikelihood": null,
-          "combined": 0.3671578753160622,
+          "combined": 0.3672561202623563,
           "confidence": "ok"
         },
         "draw": {
-          "winLikelihood": 0.3219574660521649,
+          "winLikelihood": 0.32161792649177406,
           "bttsLikelihood": null,
-          "combined": 0.3219574660521649,
+          "combined": 0.32161792649177406,
           "confidence": "ok"
         },
         "expectedGoals": {
           "home": 0.8970647852894372,
-          "away": 1.2719134759445243
+          "away": 1.2739623077157005
         },
         "sampleHome": 18,
         "sampleAway": 20,
         "best": {
-          "winLikelihood": 0.3689567827143544,
-          "bttsLikelihood": 0.4340592958102511,
+          "winLikelihood": 0.3695075607419286,
+          "bttsLikelihood": 0.43439561802438736,
           "combined": 0.44,
           "confidence": "ok",
           "sourceMode": "goals"
@@ -15220,63 +15220,63 @@
         }
       },
       "score": {
-        "winLikelihood": 0.4897894064504765,
-        "bttsLikelihood": 0.31111947457375333,
-        "combined": 0.15643534533937087,
+        "winLikelihood": 0.49037818092637586,
+        "bttsLikelihood": 0.3113775950356545,
+        "combined": 0.15650547236162743,
         "confidence": "ok"
       },
       "modes": {
         "away": {
-          "winLikelihood": 0.4897894064504765,
-          "bttsLikelihood": 0.31111947457375333,
-          "combined": 0.15643534533937087,
+          "winLikelihood": 0.49037818092637586,
+          "bttsLikelihood": 0.3113775950356545,
+          "combined": 0.15650547236162743,
           "confidence": "ok"
         },
         "home": {
-          "winLikelihood": 0.1803119063129543,
-          "bttsLikelihood": 0.31111947457375333,
+          "winLikelihood": 0.18005006967908202,
+          "bttsLikelihood": 0.3113775950356545,
           "combined": 0.1,
           "confidence": "ok"
         },
         "goals": {
-          "winLikelihood": 0.2538221906205247,
-          "bttsLikelihood": 0.31111947457375333,
+          "winLikelihood": 0.25431673969878055,
+          "bttsLikelihood": 0.3113775950356545,
           "combined": 0.4,
           "confidence": "ok"
         },
         "dc1x": {
-          "winLikelihood": 0.5102105931905127,
-          "bttsLikelihood": 0.31111947457375333,
-          "combined": 0.28623928596606607,
+          "winLikelihood": 0.5096218187076533,
+          "bttsLikelihood": 0.3113775950356545,
+          "combined": 0.2862276318261934,
           "confidence": "ok"
         },
         "homeWin": {
-          "winLikelihood": 0.25021570691094136,
+          "winLikelihood": 0.25008674536343983,
           "bttsLikelihood": null,
-          "combined": 0.25021570691094136,
+          "combined": 0.25008674536343983,
           "confidence": "ok"
         },
         "awayWin": {
-          "winLikelihood": 0.37493714250647225,
+          "winLikelihood": 0.3750349925900502,
           "bttsLikelihood": null,
-          "combined": 0.37493714250647225,
+          "combined": 0.3750349925900502,
           "confidence": "ok"
         },
         "draw": {
-          "winLikelihood": 0.3352617230022443,
+          "winLikelihood": 0.33522896338279845,
           "bttsLikelihood": null,
-          "combined": 0.3352617230022443,
+          "combined": 0.33522896338279845,
           "confidence": "ok"
         },
         "expectedGoals": {
           "home": 0.5866617453968984,
-          "away": 1.1550349403171896
+          "away": 1.1568955010607442
         },
         "sampleHome": 17,
         "sampleAway": 5,
         "best": {
-          "winLikelihood": 0.2538221906205247,
-          "bttsLikelihood": 0.31111947457375333,
+          "winLikelihood": 0.25431673969878055,
+          "bttsLikelihood": 0.3113775950356545,
           "combined": 0.44,
           "confidence": "ok",
           "sourceMode": "goals"
@@ -15343,64 +15343,64 @@
         }
       },
       "score": {
-        "winLikelihood": 0.21652225647113926,
-        "bttsLikelihood": 0.5483723828983594,
-        "combined": 0.15574041702478542,
+        "winLikelihood": 0.21691823219073283,
+        "bttsLikelihood": 0.5488634315552381,
+        "combined": 0.15581980376018964,
         "confidence": "low"
       },
       "modes": {
         "away": {
-          "winLikelihood": 0.21652225647113926,
-          "bttsLikelihood": 0.5483723828983594,
-          "combined": 0.15574041702478542,
+          "winLikelihood": 0.21691823219073283,
+          "bttsLikelihood": 0.5488634315552381,
+          "combined": 0.15581980376018964,
           "confidence": "low"
         },
         "home": {
-          "winLikelihood": 0.5374171963943347,
-          "bttsLikelihood": 0.5483723828983594,
-          "combined": 0.22608591367218456,
+          "winLikelihood": 0.537012520968361,
+          "bttsLikelihood": 0.5488634315552381,
+          "combined": 0.22610474386617369,
           "confidence": "low"
         },
         "goals": {
-          "winLikelihood": 0.5388794856816798,
-          "bttsLikelihood": 0.5483723828983594,
-          "combined": 0.480533662935585,
+          "winLikelihood": 0.5392800722253333,
+          "bttsLikelihood": 0.5488634315552381,
+          "combined": 0.4807242439876804,
           "confidence": "low"
         },
         "dc1x": {
-          "winLikelihood": 0.7834776872781963,
-          "bttsLikelihood": 0.5483723828983594,
-          "combined": 0.4291799059591478,
+          "winLikelihood": 0.7830817115562547,
+          "bttsLikelihood": 0.5488634315552381,
+          "combined": 0.4293202052391558,
           "confidence": "low"
         },
         "homeWin": {
-          "winLikelihood": 0.48798640174525915,
+          "winLikelihood": 0.48776268695625113,
           "bttsLikelihood": null,
-          "combined": 0.48798640174525915,
+          "combined": 0.48776268695625113,
           "confidence": "low"
         },
         "awayWin": {
-          "winLikelihood": 0.2678225319485051,
+          "winLikelihood": 0.2681388837526239,
           "bttsLikelihood": null,
-          "combined": 0.2678225319485051,
+          "combined": 0.2681388837526239,
           "confidence": "low"
         },
         "draw": {
-          "winLikelihood": 0.2686948714019812,
+          "winLikelihood": 0.26869668793056134,
           "bttsLikelihood": null,
-          "combined": 0.2686948714019812,
+          "combined": 0.26869668793056134,
           "confidence": "low"
         },
         "expectedGoals": {
           "home": 1.7809374413834413,
-          "away": 1.0541985566387047
+          "away": 1.0558966874760758
         },
         "sampleHome": 4,
         "sampleAway": 18,
         "best": {
-          "winLikelihood": 0.47657333152225145,
+          "winLikelihood": 0.47638067148643226,
           "bttsLikelihood": null,
-          "combined": 0.47657333152225145,
+          "combined": 0.47638067148643226,
           "confidence": "low",
           "sourceMode": "homeWin"
         }
@@ -17135,63 +17135,63 @@
         }
       },
       "score": {
-        "winLikelihood": 0.3281409914431022,
-        "bttsLikelihood": 0.37892875400581855,
-        "combined": 0.1523307436331784,
+        "winLikelihood": 0.3286213831500981,
+        "bttsLikelihood": 0.3792908778947743,
+        "combined": 0.15239832290836466,
         "confidence": "ok"
       },
       "modes": {
         "away": {
-          "winLikelihood": 0.3281409914431022,
-          "bttsLikelihood": 0.37892875400581855,
-          "combined": 0.1523307436331784,
+          "winLikelihood": 0.3286213831500981,
+          "bttsLikelihood": 0.3792908778947743,
+          "combined": 0.15239832290836466,
           "confidence": "ok"
         },
         "home": {
-          "winLikelihood": 0.3351911164233688,
-          "bttsLikelihood": 0.37892875400581855,
-          "combined": 0.19081381289043378,
+          "winLikelihood": 0.33486237023215165,
+          "bttsLikelihood": 0.3792908778947743,
+          "combined": 0.19081757679373804,
           "confidence": "ok"
         },
         "goals": {
-          "winLikelihood": 0.2903428793828271,
-          "bttsLikelihood": 0.37892875400581855,
-          "combined": 0.40159639772983724,
+          "winLikelihood": 0.29074787087745735,
+          "bttsLikelihood": 0.3792908778947743,
+          "combined": 0.4018001170672666,
           "confidence": "ok"
         },
         "dc1x": {
-          "winLikelihood": 0.6718590084973298,
-          "bttsLikelihood": 0.37892875400581855,
-          "combined": 0.4061913407650713,
+          "winLikelihood": 0.6713786167897966,
+          "bttsLikelihood": 0.3792908778947743,
+          "combined": 0.40621005007344496,
           "confidence": "ok"
         },
         "homeWin": {
-          "winLikelihood": 0.3424977997311563,
+          "winLikelihood": 0.34220524830831445,
           "bttsLikelihood": null,
-          "combined": 0.3424977997311563,
+          "combined": 0.34220524830831445,
           "confidence": "ok"
         },
         "awayWin": {
-          "winLikelihood": 0.31099271978570453,
+          "winLikelihood": 0.3113087482040203,
           "bttsLikelihood": null,
-          "combined": 0.31099271978570453,
+          "combined": 0.3113087482040203,
           "confidence": "ok"
         },
         "draw": {
-          "winLikelihood": 0.33594000661753143,
+          "winLikelihood": 0.3359248115294724,
           "bttsLikelihood": null,
-          "combined": 0.33594000661753143,
+          "combined": 0.3359248115294724,
           "confidence": "ok"
         },
         "expectedGoals": {
           "home": 0.9455577366532584,
-          "away": 0.9324381789659939
+          "away": 0.9339401749758282
         },
         "sampleHome": 19,
         "sampleAway": 19,
         "best": {
-          "winLikelihood": 0.6718590084973298,
-          "bttsLikelihood": 0.37892875400581855,
+          "winLikelihood": 0.6713786167897966,
+          "bttsLikelihood": 0.3792908778947743,
           "combined": 0.44,
           "confidence": "ok",
           "sourceMode": "dc1x"
@@ -17961,64 +17961,64 @@
         }
       },
       "score": {
-        "winLikelihood": 0.1376864568499772,
-        "bttsLikelihood": 0.6416157851434587,
-        "combined": 0.15032520618591233,
+        "winLikelihood": 0.13798996079474304,
+        "bttsLikelihood": 0.6421598897687704,
+        "combined": 0.1504135717145355,
         "confidence": "low"
       },
       "modes": {
         "away": {
-          "winLikelihood": 0.1376864568499772,
-          "bttsLikelihood": 0.6416157851434587,
-          "combined": 0.15032520618591233,
+          "winLikelihood": 0.13798996079474304,
+          "bttsLikelihood": 0.6421598897687704,
+          "combined": 0.1504135717145355,
           "confidence": "low"
         },
         "home": {
-          "winLikelihood": 0.6917031654519408,
-          "bttsLikelihood": 0.6416157851434587,
-          "combined": 0.4037249439839123,
+          "winLikelihood": 0.6913170527573509,
+          "bttsLikelihood": 0.6421598897687704,
+          "combined": 0.40401928672799975,
           "confidence": "low"
         },
         "goals": {
-          "winLikelihood": 0.7353424812416708,
-          "bttsLikelihood": 0.6416157851434587,
-          "combined": 0.5375483280864611,
+          "winLikelihood": 0.7356391069526814,
+          "bttsLikelihood": 0.6421598897687704,
+          "combined": 0.5377908909224978,
           "confidence": "low"
         },
         "dc1x": {
-          "winLikelihood": 0.8623087166267538,
-          "bttsLikelihood": 0.6416157851434587,
-          "combined": 0.6336383254267776,
+          "winLikelihood": 0.862005212675027,
+          "bttsLikelihood": 0.6421598897687704,
+          "combined": 0.6336418352581186,
           "confidence": "low"
         },
         "homeWin": {
-          "winLikelihood": 0.670416854753533,
+          "winLikelihood": 0.6699048281501283,
           "bttsLikelihood": null,
-          "combined": 0.670416854753533,
+          "combined": 0.6699048281501283,
           "confidence": "low"
         },
         "awayWin": {
-          "winLikelihood": 0.17974327116389685,
+          "winLikelihood": 0.17979718014124998,
           "bttsLikelihood": null,
-          "combined": 0.17974327116389685,
+          "combined": 0.17979718014124998,
           "confidence": "low"
         },
         "draw": {
-          "winLikelihood": 0.21101084942260567,
+          "winLikelihood": 0.21103230316891405,
           "bttsLikelihood": null,
-          "combined": 0.21101084942260567,
+          "combined": 0.21103230316891405,
           "confidence": "low"
         },
         "expectedGoals": {
           "home": 2.6714061620751623,
-          "away": 1.1550349403171896
+          "away": 1.1568955010607442
         },
         "sampleHome": 4,
         "sampleAway": 5,
         "best": {
-          "winLikelihood": 0.6379808302272862,
+          "winLikelihood": 0.6370544592170183,
           "bttsLikelihood": null,
-          "combined": 0.6379808302272862,
+          "combined": 0.6370544592170183,
           "confidence": "low",
           "sourceMode": "homeWin"
         }
@@ -18541,64 +18541,64 @@
         }
       },
       "score": {
-        "winLikelihood": 0.20832890622631312,
-        "bttsLikelihood": 0.4837745832306645,
-        "combined": 0.15016457696428065,
+        "winLikelihood": 0.20869660261680897,
+        "bttsLikelihood": 0.48424545868939356,
+        "combined": 0.15024851165593905,
         "confidence": "ok"
       },
       "modes": {
         "away": {
-          "winLikelihood": 0.20832890622631312,
-          "bttsLikelihood": 0.4837745832306645,
-          "combined": 0.15016457696428065,
+          "winLikelihood": 0.20869660261680897,
+          "bttsLikelihood": 0.48424545868939356,
+          "combined": 0.15024851165593905,
           "confidence": "ok"
         },
         "home": {
-          "winLikelihood": 0.5264253684870474,
-          "bttsLikelihood": 0.4837745832306645,
-          "combined": 0.2171800788177658,
+          "winLikelihood": 0.5260565101817793,
+          "bttsLikelihood": 0.48424545868939356,
+          "combined": 0.21720231953670743,
           "confidence": "ok"
         },
         "goals": {
-          "winLikelihood": 0.45755593671531053,
-          "bttsLikelihood": 0.4837745832306645,
-          "combined": 0.4604079224040413,
+          "winLikelihood": 0.45793226350531846,
+          "bttsLikelihood": 0.48424545868939356,
+          "combined": 0.46042968861861205,
           "confidence": "ok"
         },
         "dc1x": {
-          "winLikelihood": 0.7916710780430478,
-          "bttsLikelihood": 0.4837745832306645,
-          "combined": 0.42063342841540435,
+          "winLikelihood": 0.7913033816521412,
+          "bttsLikelihood": 0.48424545868939356,
+          "combined": 0.4206543846458216,
           "confidence": "ok"
         },
         "homeWin": {
-          "winLikelihood": 0.4819098418573571,
+          "winLikelihood": 0.48170592767665693,
           "bttsLikelihood": null,
-          "combined": 0.4819098418573571,
+          "combined": 0.48170592767665693,
           "confidence": "ok"
         },
         "awayWin": {
-          "winLikelihood": 0.26127672369948324,
+          "winLikelihood": 0.26157048266182753,
           "bttsLikelihood": null,
-          "combined": 0.26127672369948324,
+          "combined": 0.26157048266182753,
           "confidence": "ok"
         },
         "draw": {
-          "winLikelihood": 0.27270081205299485,
+          "winLikelihood": 0.2727010546647708,
           "bttsLikelihood": null,
-          "combined": 0.27270081205299485,
+          "combined": 0.2727010546647708,
           "confidence": "ok"
         },
         "expectedGoals": {
           "home": 1.5934703422904475,
-          "away": 0.911869689724097
+          "away": 0.9133385534690084
         },
         "sampleHome": 19,
         "sampleAway": 18,
         "best": {
-          "winLikelihood": 0.4713402834486223,
+          "winLikelihood": 0.47116467541871987,
           "bttsLikelihood": null,
-          "combined": 0.4713402834486223,
+          "combined": 0.47116467541871987,
           "confidence": "ok",
           "sourceMode": "homeWin"
         }
@@ -19425,64 +19425,64 @@
         }
       },
       "score": {
-        "winLikelihood": 0.1699842643280865,
-        "bttsLikelihood": 0.5345434421479057,
-        "combined": 0.14897993952137562,
+        "winLikelihood": 0.17031098889505475,
+        "bttsLikelihood": 0.5350528319391256,
+        "combined": 0.14906246328139888,
         "confidence": "ok"
       },
       "modes": {
         "away": {
-          "winLikelihood": 0.1699842643280865,
-          "bttsLikelihood": 0.5345434421479057,
-          "combined": 0.14897993952137562,
+          "winLikelihood": 0.17031098889505475,
+          "bttsLikelihood": 0.5350528319391256,
+          "combined": 0.14906246328139888,
           "confidence": "ok"
         },
         "home": {
-          "winLikelihood": 0.6046432474266157,
-          "bttsLikelihood": 0.5345434421479057,
-          "combined": 0.2325977661061874,
+          "winLikelihood": 0.604271790170341,
+          "bttsLikelihood": 0.5350528319391256,
+          "combined": 0.2326353661278463,
           "confidence": "ok"
         },
         "goals": {
-          "winLikelihood": 0.5591098046284743,
-          "bttsLikelihood": 0.5345434421479057,
-          "combined": 0.47900850788821625,
+          "winLikelihood": 0.5594622233462465,
+          "bttsLikelihood": 0.5350528319391256,
+          "combined": 0.4791990555138318,
           "confidence": "ok"
         },
         "dc1x": {
-          "winLikelihood": 0.8300155608550263,
-          "bttsLikelihood": 0.5345434421479057,
-          "combined": 0.4357710998693648,
+          "winLikelihood": 0.8296888362873646,
+          "bttsLikelihood": 0.5350528319391256,
+          "combined": 0.43596129347615464,
           "confidence": "ok"
         },
         "homeWin": {
-          "winLikelihood": 0.5243446698960929,
+          "winLikelihood": 0.5241468012305697,
           "bttsLikelihood": null,
-          "combined": 0.5243446698960929,
+          "combined": 0.5241468012305697,
           "confidence": "ok"
         },
         "awayWin": {
-          "winLikelihood": 0.2042289315150832,
+          "winLikelihood": 0.20479380880543396,
           "bttsLikelihood": null,
-          "combined": 0.2042289315150832,
+          "combined": 0.20479380880543396,
           "confidence": "ok"
         },
         "draw": {
-          "winLikelihood": 0.26353491948449304,
+          "winLikelihood": 0.2636062122155654,
           "bttsLikelihood": null,
-          "combined": 0.26353491948449304,
+          "combined": 0.2636062122155654,
           "confidence": "ok"
         },
         "expectedGoals": {
           "home": 1.9696581784847729,
-          "away": 0.9523436236301344
+          "away": 0.953877683855199
         },
         "sampleHome": 18,
         "sampleAway": 18,
         "best": {
-          "winLikelihood": 0.4958017559911972,
+          "winLikelihood": 0.4957283917433726,
           "bttsLikelihood": null,
-          "combined": 0.4958017559911972,
+          "combined": 0.4957283917433726,
           "confidence": "ok",
           "sourceMode": "homeWin"
         }
@@ -20503,64 +20503,64 @@
         }
       },
       "score": {
-        "winLikelihood": 0.14036523011473762,
-        "bttsLikelihood": 0.5426157784129557,
-        "combined": 0.1451405808118911,
+        "winLikelihood": 0.14064868817625703,
+        "bttsLikelihood": 0.5431416214208381,
+        "combined": 0.14521439183263973,
         "confidence": "ok"
       },
       "modes": {
         "away": {
-          "winLikelihood": 0.14036523011473762,
-          "bttsLikelihood": 0.5426157784129557,
-          "combined": 0.1451405808118911,
+          "winLikelihood": 0.14064868817625703,
+          "bttsLikelihood": 0.5431416214208381,
+          "combined": 0.14521439183263973,
           "confidence": "ok"
         },
         "home": {
-          "winLikelihood": 0.6585686829777261,
-          "bttsLikelihood": 0.5426157784129557,
-          "combined": 0.24931901666791698,
+          "winLikelihood": 0.6582182104400349,
+          "bttsLikelihood": 0.5431416214208381,
+          "combined": 0.24947247032927855,
           "confidence": "ok"
         },
         "goals": {
-          "winLikelihood": 0.6050988761148552,
-          "bttsLikelihood": 0.5426157784129557,
-          "combined": 0.4867819942327618,
+          "winLikelihood": 0.6054184452303109,
+          "bttsLikelihood": 0.5431416214208381,
+          "combined": 0.4869776440092138,
           "confidence": "ok"
         },
         "dc1x": {
-          "winLikelihood": 0.8596341659300973,
-          "bttsLikelihood": 0.5426157784129557,
-          "combined": 0.44974953233088344,
+          "winLikelihood": 0.8593507078680817,
+          "bttsLikelihood": 0.5431416214208381,
+          "combined": 0.4499701071644059,
           "confidence": "ok"
         },
         "homeWin": {
-          "winLikelihood": 0.6264769979330629,
+          "winLikelihood": 0.6260122339779403,
           "bttsLikelihood": null,
-          "combined": 0.6264769979330629,
+          "combined": 0.6260122339779403,
           "confidence": "ok"
         },
         "awayWin": {
-          "winLikelihood": 0.18021908022586985,
+          "winLikelihood": 0.1802694286133704,
           "bttsLikelihood": null,
-          "combined": 0.18021908022586985,
+          "combined": 0.1802694286133704,
           "confidence": "ok"
         },
         "draw": {
-          "winLikelihood": 0.2247959037425919,
+          "winLikelihood": 0.22490270807607665,
           "bttsLikelihood": null,
-          "combined": 0.2247959037425919,
+          "combined": 0.22490270807607665,
           "confidence": "ok"
         },
         "expectedGoals": {
           "home": 2.2027384143426776,
-          "away": 0.9263438117832096
+          "away": 0.9278359908256592
         },
         "sampleHome": 18,
         "sampleAway": 19,
         "best": {
-          "winLikelihood": 0.603761159462524,
+          "winLikelihood": 0.6035176139923305,
           "bttsLikelihood": null,
-          "combined": 0.603761159462524,
+          "combined": 0.6035176139923305,
           "confidence": "ok",
           "sourceMode": "homeWin"
         }
@@ -21573,7 +21573,7 @@
           "awaySample": 19,
           "homeGoalsForAvg": 1.631578947368421,
           "homeGoalsAgainstAvg": 0.8947368421052632,
-          "awayGoalsForAvg": 1.368421052631579,
+          "awayGoalsForAvg": 1.3157894736842106,
           "awayGoalsAgainstAvg": 1.105263157894737,
           "homeForm": [
             "L",
@@ -21614,46 +21614,46 @@
         }
       },
       "score": {
-        "winLikelihood": 0.2599383012923463,
-        "bttsLikelihood": 0.3316322205852164,
-        "combined": 0.14196108621817988,
+        "winLikelihood": 0.2603348589246839,
+        "bttsLikelihood": 0.3319878828112165,
+        "combined": 0.14202321271720467,
         "confidence": "ok"
       },
       "modes": {
         "away": {
-          "winLikelihood": 0.2599383012923463,
-          "bttsLikelihood": 0.3316322205852164,
-          "combined": 0.14196108621817988,
+          "winLikelihood": 0.2603348589246839,
+          "bttsLikelihood": 0.3319878828112165,
+          "combined": 0.14202321271720467,
           "confidence": "ok"
         },
         "home": {
-          "winLikelihood": 0.3881874639567342,
-          "bttsLikelihood": 0.3316322205852164,
-          "combined": 0.19023032869385706,
+          "winLikelihood": 0.38789114373797123,
+          "bttsLikelihood": 0.3319878828112165,
+          "combined": 0.19032935057514347,
           "confidence": "ok"
         },
         "goals": {
-          "winLikelihood": 0.24456240001477295,
-          "bttsLikelihood": 0.3316322205852164,
+          "winLikelihood": 0.24487669244085566,
+          "bttsLikelihood": 0.3319878828112165,
           "combined": 0.4,
           "confidence": "ok"
         },
         "dc1x": {
-          "winLikelihood": 0.7400616986628551,
-          "bttsLikelihood": 0.3316322205852164,
-          "combined": 0.40344658984228937,
+          "winLikelihood": 0.7396651410304869,
+          "bttsLikelihood": 0.3319878828112165,
+          "combined": 0.40347566360918014,
           "confidence": "ok"
         },
         "homeWin": {
-          "winLikelihood": 0.38871151815465016,
+          "winLikelihood": 0.38845869222101037,
           "bttsLikelihood": null,
-          "combined": 0.38871151815465016,
+          "combined": 0.38845869222101037,
           "confidence": "ok"
         },
         "awayWin": {
-          "winLikelihood": 0.28938631380849955,
+          "winLikelihood": 0.28948632335561086,
           "bttsLikelihood": null,
-          "combined": 0.28938631380849955,
+          "combined": 0.28948632335561086,
           "confidence": "ok"
         },
         "draw": {
@@ -21664,13 +21664,13 @@
         },
         "expectedGoals": {
           "home": 0.9685800119804681,
-          "away": 0.7381802250147451
+          "away": 0.7393693051891973
         },
         "sampleHome": 19,
         "sampleAway": 18,
         "best": {
-          "winLikelihood": 0.7400616986628551,
-          "bttsLikelihood": 0.3316322205852164,
+          "winLikelihood": 0.7396651410304869,
+          "bttsLikelihood": 0.3319878828112165,
           "combined": 0.44,
           "confidence": "ok",
           "sourceMode": "dc1x"
@@ -21858,7 +21858,7 @@
           "homeSample": 21,
           "awaySample": 17,
           "homeGoalsForAvg": 1.619047619047619,
-          "homeGoalsAgainstAvg": 0.8095238095238095,
+          "homeGoalsAgainstAvg": 0.7619047619047619,
           "awayGoalsForAvg": 0.7058823529411765,
           "awayGoalsAgainstAvg": 1.5294117647058822,
           "homeForm": [
@@ -21878,64 +21878,64 @@
         }
       },
       "score": {
-        "winLikelihood": 0.1925661548228626,
-        "bttsLikelihood": 0.39199656785608267,
-        "combined": 0.1412530641731011,
+        "winLikelihood": 0.19289162579115948,
+        "bttsLikelihood": 0.39242072699856606,
+        "combined": 0.14131502708614227,
         "confidence": "ok"
       },
       "modes": {
         "away": {
-          "winLikelihood": 0.1925661548228626,
-          "bttsLikelihood": 0.39199656785608267,
-          "combined": 0.1412530641731011,
+          "winLikelihood": 0.19289162579115948,
+          "bttsLikelihood": 0.39242072699856606,
+          "combined": 0.14131502708614227,
           "confidence": "ok"
         },
         "home": {
-          "winLikelihood": 0.5124084236715217,
-          "bttsLikelihood": 0.39199656785608267,
-          "combined": 0.20271927774080903,
+          "winLikelihood": 0.5120922126571349,
+          "bttsLikelihood": 0.39242072699856606,
+          "combined": 0.20275389766120527,
           "confidence": "ok"
         },
         "goals": {
-          "winLikelihood": 0.3476291032764501,
-          "bttsLikelihood": 0.39199656785608267,
-          "combined": 0.41684796097885823,
+          "winLikelihood": 0.34794586810319716,
+          "bttsLikelihood": 0.39242072699856606,
+          "combined": 0.4170637776621919,
           "confidence": "ok"
         },
         "dc1x": {
-          "winLikelihood": 0.8074338426509654,
-          "bttsLikelihood": 0.39199656785608267,
-          "combined": 0.41403799041506845,
+          "winLikelihood": 0.8071083716826418,
+          "bttsLikelihood": 0.39242072699856606,
+          "combined": 0.4140787608478544,
           "confidence": "ok"
         },
         "homeWin": {
-          "winLikelihood": 0.4741609209922031,
+          "winLikelihood": 0.4739861115626576,
           "bttsLikelihood": null,
-          "combined": 0.4741609209922031,
+          "combined": 0.4739861115626576,
           "confidence": "ok"
         },
         "awayWin": {
-          "winLikelihood": 0.24327098223092689,
+          "winLikelihood": 0.24383369216230846,
           "bttsLikelihood": null,
-          "combined": 0.24327098223092689,
+          "combined": 0.24383369216230846,
           "confidence": "ok"
         },
         "draw": {
-          "winLikelihood": 0.31120687847688583,
+          "winLikelihood": 0.3111937681416473,
           "bttsLikelihood": null,
-          "combined": 0.31120687847688583,
+          "combined": 0.3111937681416473,
           "confidence": "ok"
         },
         "expectedGoals": {
           "home": 1.3618933375285138,
-          "away": 0.7279631976789009
+          "away": 0.7291358199962674
         },
         "sampleHome": 20,
         "sampleAway": 17,
         "best": {
-          "winLikelihood": 0.4646670215777352,
+          "winLikelihood": 0.46451647815095903,
           "bttsLikelihood": null,
-          "combined": 0.4646670215777352,
+          "combined": 0.46451647815095903,
           "confidence": "ok",
           "sourceMode": "homeWin"
         }
@@ -22250,64 +22250,64 @@
         }
       },
       "score": {
-        "winLikelihood": 0.11523156650702997,
-        "bttsLikelihood": 0.5296315172661977,
-        "combined": 0.1406251566583122,
+        "winLikelihood": 0.11547149407999176,
+        "bttsLikelihood": 0.5301637367111177,
+        "combined": 0.14068782642573746,
         "confidence": "ok"
       },
       "modes": {
         "away": {
-          "winLikelihood": 0.11523156650702997,
-          "bttsLikelihood": 0.5296315172661977,
-          "combined": 0.1406251566583122,
+          "winLikelihood": 0.11547149407999176,
+          "bttsLikelihood": 0.5301637367111177,
+          "combined": 0.14068782642573746,
           "confidence": "ok"
         },
         "home": {
-          "winLikelihood": 0.702296314868445,
-          "bttsLikelihood": 0.5296315172661977,
-          "combined": 0.26185445994054196,
+          "winLikelihood": 0.7019771712728762,
+          "bttsLikelihood": 0.5301637367111177,
+          "combined": 0.262040906775881,
           "confidence": "ok"
         },
         "goals": {
-          "winLikelihood": 0.62618801107891,
-          "bttsLikelihood": 0.5296315172661977,
-          "combined": 0.48518616004741894,
+          "winLikelihood": 0.626475780509146,
+          "bttsLikelihood": 0.5301637367111177,
+          "combined": 0.48538144039979736,
           "confidence": "ok"
         },
         "dc1x": {
-          "winLikelihood": 0.8847671307945023,
-          "bttsLikelihood": 0.5296315172661977,
-          "combined": 0.4500393871454726,
+          "winLikelihood": 0.8845272032213215,
+          "bttsLikelihood": 0.5301637367111177,
+          "combined": 0.45028827647917613,
           "confidence": "ok"
         },
         "homeWin": {
-          "winLikelihood": 0.6845645554214812,
+          "winLikelihood": 0.6841350042662974,
           "bttsLikelihood": null,
-          "combined": 0.6845645554214812,
+          "combined": 0.6841350042662974,
           "confidence": "ok"
         },
         "awayWin": {
-          "winLikelihood": 0.17575478865537825,
+          "winLikelihood": 0.1757974050704867,
           "bttsLikelihood": null,
-          "combined": 0.17575478865537825,
+          "combined": 0.1757974050704867,
           "confidence": "ok"
         },
         "draw": {
-          "winLikelihood": 0.21409229541768382,
+          "winLikelihood": 0.21411286806397967,
           "bttsLikelihood": null,
-          "combined": 0.21409229541768382,
+          "combined": 0.21411286806397967,
           "confidence": "ok"
         },
         "expectedGoals": {
           "home": 2.3635898141817275,
-          "away": 0.8657669305728494
+          "away": 0.8671615307774536
         },
         "sampleHome": 18,
         "sampleAway": 18,
         "best": {
-          "winLikelihood": 0.66357719509112,
+          "winLikelihood": 0.6628000406719093,
           "bttsLikelihood": null,
-          "combined": 0.66357719509112,
+          "combined": 0.6628000406719093,
           "confidence": "ok",
           "sourceMode": "homeWin"
         }
@@ -23598,57 +23598,57 @@
         }
       },
       "score": {
-        "winLikelihood": 0.2080422580709251,
-        "bttsLikelihood": 0.30547947049490554,
-        "combined": 0.13608410822875305,
+        "winLikelihood": 0.2083708799356396,
+        "bttsLikelihood": 0.3058306859448816,
+        "combined": 0.13613242700766276,
         "confidence": "low"
       },
       "modes": {
         "away": {
-          "winLikelihood": 0.2080422580709251,
-          "bttsLikelihood": 0.30547947049490554,
-          "combined": 0.13608410822875305,
+          "winLikelihood": 0.2083708799356396,
+          "bttsLikelihood": 0.3058306859448816,
+          "combined": 0.13613242700766276,
           "confidence": "low"
         },
         "home": {
-          "winLikelihood": 0.4430023326892645,
-          "bttsLikelihood": 0.30547947049490554,
-          "combined": 0.19078559786873153,
+          "winLikelihood": 0.4427299459730532,
+          "bttsLikelihood": 0.3058306859448816,
+          "combined": 0.19079448714955893,
           "confidence": "low"
         },
         "goals": {
-          "winLikelihood": 0.23164104681736974,
-          "bttsLikelihood": 0.30547947049490554,
+          "winLikelihood": 0.23190206397908442,
+          "bttsLikelihood": 0.3058306859448816,
           "combined": 0.4,
           "confidence": "low"
         },
         "dc1x": {
-          "winLikelihood": 0.7919577418281601,
-          "bttsLikelihood": 0.30547947049490554,
-          "combined": 0.40196662187178656,
+          "winLikelihood": 0.7916291199634422,
+          "bttsLikelihood": 0.3058306859448816,
+          "combined": 0.40200188317693025,
           "confidence": "low"
         },
         "homeWin": {
-          "winLikelihood": 0.43548058582913357,
+          "winLikelihood": 0.4352481804059577,
           "bttsLikelihood": null,
-          "combined": 0.43548058582913357,
+          "combined": 0.4352481804059577,
           "confidence": "low"
         },
         "awayWin": {
-          "winLikelihood": 0.2610477155643446,
+          "winLikelihood": 0.261310257216853,
           "bttsLikelihood": null,
-          "combined": 0.2610477155643446,
+          "combined": 0.261310257216853,
           "confidence": "low"
         },
         "draw": {
-          "winLikelihood": 0.33717123262647786,
+          "winLikelihood": 0.3371655977877149,
           "bttsLikelihood": null,
-          "combined": 0.33717123262647786,
+          "combined": 0.3371655977877149,
           "confidence": "low"
         },
         "expectedGoals": {
           "home": 1.0388801741403408,
-          "away": 0.6187687180270658
+          "away": 0.6197654469968272
         },
         "sampleHome": 4,
         "sampleAway": 4,
@@ -29007,46 +29007,46 @@
         }
       },
       "score": {
-        "winLikelihood": 0.15704781668259657,
-        "bttsLikelihood": 0.20617777966518783,
+        "winLikelihood": 0.15729427160695528,
+        "bttsLikelihood": 0.20644387204954986,
         "combined": 0.02,
         "confidence": "ok"
       },
       "modes": {
         "away": {
-          "winLikelihood": 0.15704781668259657,
-          "bttsLikelihood": 0.20617777966518783,
+          "winLikelihood": 0.15729427160695528,
+          "bttsLikelihood": 0.20644387204954986,
           "combined": 0.02,
           "confidence": "ok"
         },
         "home": {
-          "winLikelihood": 0.45151219518792407,
-          "bttsLikelihood": 0.20617777966518783,
-          "combined": 0.12471524171791326,
+          "winLikelihood": 0.4513139960275445,
+          "bttsLikelihood": 0.20644387204954986,
+          "combined": 0.12488903991467906,
           "confidence": "ok"
         },
         "goals": {
-          "winLikelihood": 0.14509870978821104,
-          "bttsLikelihood": 0.20617777966518783,
+          "winLikelihood": 0.14525254364801396,
+          "bttsLikelihood": 0.20644387204954986,
           "combined": 0.4,
           "confidence": "ok"
         },
         "dc1x": {
-          "winLikelihood": 0.842952183300362,
-          "bttsLikelihood": 0.20617777966518783,
+          "winLikelihood": 0.8427057283760037,
+          "bttsLikelihood": 0.20644387204954986,
           "combined": 0.26666666666666666,
           "confidence": "ok"
         },
         "homeWin": {
-          "winLikelihood": 0.4404959489375895,
+          "winLikelihood": 0.44038637943941894,
           "bttsLikelihood": null,
-          "combined": 0.4404959489375895,
+          "combined": 0.44038637943941894,
           "confidence": "ok"
         },
         "awayWin": {
-          "winLikelihood": 0.18318227459941314,
+          "winLikelihood": 0.18322605041572443,
           "bttsLikelihood": null,
-          "combined": 0.18318227459941314,
+          "combined": 0.18322605041572443,
           "confidence": "ok"
         },
         "draw": {
@@ -29057,7 +29057,7 @@
         },
         "expectedGoals": {
           "home": 0.8970647852894372,
-          "away": 0.4125124786847105
+          "away": 0.41317696466455145
         },
         "sampleHome": 18,
         "sampleAway": 5,
@@ -29257,71 +29257,71 @@
         }
       },
       "score": {
-        "winLikelihood": 0.19824654032644842,
-        "bttsLikelihood": 0.34007129134847486,
-        "combined": 0.13790687200368057,
+        "winLikelihood": 0.1985690380797144,
+        "bttsLikelihood": 0.34045449383058907,
+        "combined": 0.1379600967053602,
         "confidence": "ok"
       },
       "modes": {
         "away": {
-          "winLikelihood": 0.19824654032644842,
-          "bttsLikelihood": 0.34007129134847486,
-          "combined": 0.13790687200368057,
+          "winLikelihood": 0.1985690380797144,
+          "bttsLikelihood": 0.34045449383058907,
+          "combined": 0.1379600967053602,
           "confidence": "ok"
         },
         "home": {
-          "winLikelihood": 0.4775794218250595,
-          "bttsLikelihood": 0.34007129134847486,
-          "combined": 0.1934240823807467,
+          "winLikelihood": 0.4772892941105384,
+          "bttsLikelihood": 0.34045449383058907,
+          "combined": 0.19343457814425316,
           "confidence": "ok"
         },
         "goals": {
-          "winLikelihood": 0.27818643554626127,
-          "bttsLikelihood": 0.34007129134847486,
+          "winLikelihood": 0.27847011428712226,
+          "bttsLikelihood": 0.34045449383058907,
           "combined": 0.4,
           "confidence": "ok"
         },
         "dc1x": {
-          "winLikelihood": 0.8017534592220671,
-          "bttsLikelihood": 0.34007129134847486,
-          "combined": 0.40691570017916723,
+          "winLikelihood": 0.8014309614687933,
+          "bttsLikelihood": 0.34045449383058907,
+          "combined": 0.40695391889823884,
           "confidence": "ok"
         },
         "homeWin": {
-          "winLikelihood": 0.4549065697286096,
+          "winLikelihood": 0.4547461798055415,
           "bttsLikelihood": null,
-          "combined": 0.4549065697286096,
+          "combined": 0.4547461798055415,
           "confidence": "ok"
         },
         "awayWin": {
-          "winLikelihood": 0.2530918561284354,
+          "winLikelihood": 0.2534793973904177,
           "bttsLikelihood": null,
-          "combined": 0.2530918561284354,
+          "combined": 0.2534793973904177,
           "confidence": "ok"
         },
         "draw": {
-          "winLikelihood": 0.33468810529776355,
+          "winLikelihood": 0.3346848617756254,
           "bttsLikelihood": null,
-          "combined": 0.33468810529776355,
+          "combined": 0.3346848617756254,
           "confidence": "ok"
         },
         "expectedGoals": {
           "home": 1.1773975306923863,
-          "away": 0.6554364939101515
+          "away": 0.6564922883003429
         },
         "sampleHome": 20,
         "sampleAway": 18,
         "best": {
-          "winLikelihood": 0.4480854445592104,
+          "winLikelihood": 0.44794731900899376,
           "bttsLikelihood": null,
-          "combined": 0.4480854445592104,
+          "combined": 0.44794731900899376,
           "confidence": "ok",
           "sourceMode": "homeWin"
         }
       },
       "finalScore": {
         "home": 0,
-        "away": 4
+        "away": 3
       },
       "actual": {
         "homeWin": false,
@@ -29392,64 +29392,64 @@
         }
       },
       "score": {
-        "winLikelihood": 0.12716277107911841,
-        "bttsLikelihood": 0.21952494636059894,
+        "winLikelihood": 0.1273693786838453,
+        "bttsLikelihood": 0.21981191174547493,
         "combined": 0.02,
         "confidence": "ok"
       },
       "modes": {
         "away": {
-          "winLikelihood": 0.12716277107911841,
-          "bttsLikelihood": 0.21952494636059894,
+          "winLikelihood": 0.1273693786838453,
+          "bttsLikelihood": 0.21981191174547493,
           "combined": 0.02,
           "confidence": "ok"
         },
         "home": {
-          "winLikelihood": 0.5239279965721138,
-          "bttsLikelihood": 0.21952494636059894,
-          "combined": 0.16248364357258932,
+          "winLikelihood": 0.5237307482967822,
+          "bttsLikelihood": 0.21981191174547493,
+          "combined": 0.1626333512987227,
           "confidence": "ok"
         },
         "goals": {
-          "winLikelihood": 0.18403230089742417,
-          "bttsLikelihood": 0.21952494636059894,
+          "winLikelihood": 0.18418878818609508,
+          "bttsLikelihood": 0.21981191174547493,
           "combined": 0.4,
           "confidence": "ok"
         },
         "dc1x": {
-          "winLikelihood": 0.8728372287589983,
-          "bttsLikelihood": 0.21952494636059894,
-          "combined": 0.29051730242613205,
+          "winLikelihood": 0.8726306211542715,
+          "bttsLikelihood": 0.21981191174547493,
+          "combined": 0.29132643305897116,
           "confidence": "ok"
         },
         "homeWin": {
-          "winLikelihood": 0.48052923163206435,
+          "winLikelihood": 0.48042018780714757,
           "bttsLikelihood": null,
-          "combined": 0.48052923163206435,
+          "combined": 0.48042018780714757,
           "confidence": "ok"
         },
         "awayWin": {
-          "winLikelihood": 0.1778740330611421,
+          "winLikelihood": 0.17791073111688832,
           "bttsLikelihood": null,
-          "combined": 0.1778740330611421,
+          "combined": 0.17791073111688832,
           "confidence": "ok"
         },
         "draw": {
-          "winLikelihood": 0.3371666056327549,
+          "winLikelihood": 0.33716566781515384,
           "bttsLikelihood": null,
-          "combined": 0.3371666056327549,
+          "combined": 0.33716566781515384,
           "confidence": "ok"
         },
         "expectedGoals": {
           "home": 1.0806926888890234,
-          "away": 0.3908012955960415
+          "away": 0.391430808629575
         },
         "sampleHome": 19,
         "sampleAway": 17,
         "best": {
-          "winLikelihood": 0.47015132130339854,
+          "winLikelihood": 0.470057414292121,
           "bttsLikelihood": null,
-          "combined": 0.47015132130339854,
+          "combined": 0.470057414292121,
           "confidence": "ok",
           "sourceMode": "homeWin"
         }
@@ -31939,57 +31939,57 @@
         }
       },
       "score": {
-        "winLikelihood": 0.23059015445442912,
-        "bttsLikelihood": 0.3288767141887367,
-        "combined": 0.13951057228326416,
+        "winLikelihood": 0.2309512861654109,
+        "bttsLikelihood": 0.3292401605058755,
+        "combined": 0.1395672435985277,
         "confidence": "low"
       },
       "modes": {
         "away": {
-          "winLikelihood": 0.23059015445442912,
-          "bttsLikelihood": 0.3288767141887367,
-          "combined": 0.13951057228326416,
+          "winLikelihood": 0.2309512861654109,
+          "bttsLikelihood": 0.3292401605058755,
+          "combined": 0.1395672435985277,
           "confidence": "low"
         },
         "home": {
-          "winLikelihood": 0.4245783234300646,
-          "bttsLikelihood": 0.3288767141887367,
-          "combined": 0.1913464146597692,
+          "winLikelihood": 0.424287525655731,
+          "bttsLikelihood": 0.3292401605058755,
+          "combined": 0.19135460701892437,
           "confidence": "low"
         },
         "goals": {
-          "winLikelihood": 0.24976176260370764,
-          "bttsLikelihood": 0.3288767141887367,
+          "winLikelihood": 0.2500554325859983,
+          "bttsLikelihood": 0.3292401605058755,
           "combined": 0.4,
           "confidence": "low"
         },
         "dc1x": {
-          "winLikelihood": 0.7694098454441821,
-          "bttsLikelihood": 0.3288767141887367,
-          "combined": 0.40421130666109445,
+          "winLikelihood": 0.7690487137331871,
+          "bttsLikelihood": 0.3292401605058755,
+          "combined": 0.40424444278694605,
           "confidence": "low"
         },
         "homeWin": {
-          "winLikelihood": 0.4197608777316213,
+          "winLikelihood": 0.4195127636504993,
           "bttsLikelihood": null,
-          "combined": 0.4197608777316213,
+          "combined": 0.4195127636504993,
           "confidence": "low"
         },
         "awayWin": {
-          "winLikelihood": 0.2790616172937906,
+          "winLikelihood": 0.27935013162090855,
           "bttsLikelihood": null,
-          "combined": 0.2790616172937906,
+          "combined": 0.27935013162090855,
           "confidence": "low"
         },
         "draw": {
-          "winLikelihood": 0.33675801349854867,
+          "winLikelihood": 0.33675096594193726,
           "bttsLikelihood": null,
-          "combined": 0.33675801349854867,
+          "combined": 0.33675096594193726,
           "confidence": "low"
         },
         "expectedGoals": {
           "home": 1.0388801741403408,
-          "away": 0.6875207978078508
+          "away": 0.688628274440919
         },
         "sampleHome": 3,
         "sampleAway": 4,
@@ -34180,46 +34180,46 @@
         }
       },
       "score": {
-        "winLikelihood": 0.19097338136247904,
-        "bttsLikelihood": 0.1702892599417997,
+        "winLikelihood": 0.191260168944548,
+        "bttsLikelihood": 0.17050879966754806,
         "combined": 0.02,
         "confidence": "low"
       },
       "modes": {
         "away": {
-          "winLikelihood": 0.19097338136247904,
-          "bttsLikelihood": 0.1702892599417997,
+          "winLikelihood": 0.191260168944548,
+          "bttsLikelihood": 0.17050879966754806,
           "combined": 0.02,
           "confidence": "low"
         },
         "home": {
-          "winLikelihood": 0.3581663629291954,
-          "bttsLikelihood": 0.1702892599417997,
+          "winLikelihood": 0.3579887193168768,
+          "bttsLikelihood": 0.17050879966754806,
           "combined": 0.1,
           "confidence": "low"
         },
         "goals": {
-          "winLikelihood": 0.09566130204985325,
-          "bttsLikelihood": 0.1702892599417997,
+          "winLikelihood": 0.09579298292190794,
+          "bttsLikelihood": 0.17050879966754806,
           "combined": 0.4,
           "confidence": "low"
         },
         "dc1x": {
-          "winLikelihood": 0.8090266186370652,
-          "bttsLikelihood": 0.1702892599417997,
-          "combined": 0.2506599026650578,
+          "winLikelihood": 0.8087398310549959,
+          "bttsLikelihood": 0.17050879966754806,
+          "combined": 0.25075504594306514,
           "confidence": "low"
         },
         "homeWin": {
-          "winLikelihood": 0.36294348468505977,
+          "winLikelihood": 0.3627853995332588,
           "bttsLikelihood": null,
-          "combined": 0.36294348468505977,
+          "combined": 0.3627853995332588,
           "confidence": "low"
         },
         "awayWin": {
-          "winLikelihood": 0.24051722066107384,
+          "winLikelihood": 0.2410130505087299,
           "bttsLikelihood": null,
-          "combined": 0.24051722066107384,
+          "combined": 0.2410130505087299,
           "confidence": "low"
         },
         "draw": {
@@ -34230,13 +34230,13 @@
         },
         "expectedGoals": {
           "home": 0.6678515405187905,
-          "away": 0.41251247868471047
+          "away": 0.41317696466455145
         },
         "sampleHome": 4,
         "sampleAway": 4,
         "best": {
-          "winLikelihood": 0.09566130204985325,
-          "bttsLikelihood": 0.1702892599417997,
+          "winLikelihood": 0.09579298292190794,
+          "bttsLikelihood": 0.17050879966754806,
           "combined": 0.44,
           "confidence": "low",
           "sourceMode": "goals"
@@ -39127,34 +39127,34 @@
         }
       },
       "score": {
-        "winLikelihood": 0.06849563725622837,
-        "bttsLikelihood": 0.44028570138437484,
+        "winLikelihood": 0.06864046146722973,
+        "bttsLikelihood": 0.44078896079322066,
         "combined": 0.02,
         "confidence": "low"
       },
       "modes": {
         "away": {
-          "winLikelihood": 0.06849563725622837,
-          "bttsLikelihood": 0.44028570138437484,
+          "winLikelihood": 0.06864046146722973,
+          "bttsLikelihood": 0.44078896079322066,
           "combined": 0.02,
           "confidence": "low"
         },
         "home": {
-          "winLikelihood": 0.781044809386335,
-          "bttsLikelihood": 0.44028570138437484,
-          "combined": 0.23930448168621923,
+          "winLikelihood": 0.7808169138718752,
+          "bttsLikelihood": 0.44078896079322066,
+          "combined": 0.23954543215894647,
           "confidence": "low"
         },
         "goals": {
-          "winLikelihood": 0.6161499094173498,
-          "bttsLikelihood": 0.44028570138437484,
-          "combined": 0.460913135432424,
+          "winLikelihood": 0.6163671130212646,
+          "bttsLikelihood": 0.44078896079322066,
+          "combined": 0.46093532163296264,
           "confidence": "low"
         },
         "dc1x": {
-          "winLikelihood": 0.9315015436311571,
-          "bttsLikelihood": 0.44028570138437484,
-          "combined": 0.42206816025067506,
+          "winLikelihood": 0.93135671942015,
+          "bttsLikelihood": 0.44078896079322066,
+          "combined": 0.4221058223297011,
           "confidence": "low"
         },
         "homeWin": {
@@ -39164,20 +39164,20 @@
           "confidence": "low"
         },
         "awayWin": {
-          "winLikelihood": 0.03246685901073593,
+          "winLikelihood": 0.03317821654797085,
           "bttsLikelihood": null,
-          "combined": 0.03246685901073593,
+          "combined": 0.03317821654797085,
           "confidence": "low"
         },
         "draw": {
-          "winLikelihood": 0.20577813927781327,
+          "winLikelihood": 0.20579971315253898,
           "bttsLikelihood": null,
-          "combined": 0.20577813927781327,
+          "combined": 0.20579971315253898,
           "confidence": "low"
         },
         "expectedGoals": {
           "home": 2.539484870120833,
-          "away": 0.6416860779539941
+          "away": 0.6427197228115245
         },
         "sampleHome": 3,
         "sampleAway": 18,
@@ -39262,40 +39262,40 @@
         }
       },
       "score": {
-        "winLikelihood": 0.7726734772348125,
-        "bttsLikelihood": 0.5239524590560005,
-        "combined": 0.26307658257899585,
+        "winLikelihood": 0.7732931838184626,
+        "bttsLikelihood": 0.5241002827150875,
+        "combined": 0.2631283906047307,
         "confidence": "ok"
       },
       "modes": {
         "away": {
-          "winLikelihood": 0.7726734772348125,
-          "bttsLikelihood": 0.5239524590560005,
-          "combined": 0.26307658257899585,
+          "winLikelihood": 0.7732931838184626,
+          "bttsLikelihood": 0.5241002827150875,
+          "combined": 0.2631283906047307,
           "confidence": "ok"
         },
         "home": {
-          "winLikelihood": 0.08125110565728783,
-          "bttsLikelihood": 0.5239524590560005,
+          "winLikelihood": 0.08099351329043586,
+          "bttsLikelihood": 0.5241002827150875,
           "combined": 0.1,
           "confidence": "ok"
         },
         "goals": {
-          "winLikelihood": 0.6879273274618108,
-          "bttsLikelihood": 0.5239524590560005,
-          "combined": 0.48989095045292647,
+          "winLikelihood": 0.6887247607865573,
+          "bttsLikelihood": 0.5241002827150875,
+          "combined": 0.49001912164020883,
           "confidence": "ok"
         },
         "dc1x": {
-          "winLikelihood": 0.22732032574712746,
-          "bttsLikelihood": 0.5239524590560005,
-          "combined": 0.2602548182919221,
+          "winLikelihood": 0.22670051357983825,
+          "bttsLikelihood": 0.5241002827150875,
+          "combined": 0.26004663994938565,
           "confidence": "ok"
         },
         "homeWin": {
-          "winLikelihood": 0.1979968719821874,
+          "winLikelihood": 0.19758755820760676,
           "bttsLikelihood": null,
-          "combined": 0.1979968719821874,
+          "combined": 0.19758755820760676,
           "confidence": "ok"
         },
         "awayWin": {
@@ -39305,14 +39305,14 @@
           "confidence": "ok"
         },
         "draw": {
-          "winLikelihood": 0.20463868826642298,
+          "winLikelihood": 0.20454461866268506,
           "bttsLikelihood": null,
-          "combined": 0.20463868826642298,
+          "combined": 0.20454461866268506,
           "confidence": "ok"
         },
         "expectedGoals": {
           "home": 0.8123574294029732,
-          "away": 2.7356090691722907
+          "away": 2.7400156604070247
         },
         "sampleHome": 16,
         "sampleAway": 19,
@@ -42864,64 +42864,64 @@
         }
       },
       "score": {
-        "winLikelihood": 0.39769572035018863,
-        "bttsLikelihood": 0.5979783057313106,
-        "combined": 0.1820288760569127,
+        "winLikelihood": 0.3983061434810758,
+        "bttsLikelihood": 0.5983749367424778,
+        "combined": 0.18242598552879005,
         "confidence": "low"
       },
       "modes": {
         "away": {
-          "winLikelihood": 0.39769572035018863,
-          "bttsLikelihood": 0.5979783057313106,
-          "combined": 0.1820288760569127,
+          "winLikelihood": 0.3983061434810758,
+          "bttsLikelihood": 0.5983749367424778,
+          "combined": 0.18242598552879005,
           "confidence": "low"
         },
         "home": {
-          "winLikelihood": 0.34301220508146846,
-          "bttsLikelihood": 0.5979783057313106,
-          "combined": 0.21094350582975052,
+          "winLikelihood": 0.3425516306975411,
+          "bttsLikelihood": 0.5983749367424778,
+          "combined": 0.2109229986683152,
           "confidence": "low"
         },
         "goals": {
-          "winLikelihood": 0.5619227426067013,
-          "bttsLikelihood": 0.5979783057313106,
-          "combined": 0.4977697886432257,
+          "winLikelihood": 0.5624861730777658,
+          "bttsLikelihood": 0.5983749367424778,
+          "combined": 0.49795979266556367,
           "confidence": "low"
         },
         "dc1x": {
-          "winLikelihood": 0.6023042662702909,
-          "bttsLikelihood": 0.5979783057313106,
-          "combined": 0.4202174636477441,
+          "winLikelihood": 0.6016938429562841,
+          "bttsLikelihood": 0.5983749367424778,
+          "combined": 0.4202101788661507,
           "confidence": "low"
         },
         "homeWin": {
-          "winLikelihood": 0.3494577909834591,
+          "winLikelihood": 0.3490479255768255,
           "bttsLikelihood": null,
-          "combined": 0.3494577909834591,
+          "combined": 0.3490479255768255,
           "confidence": "low"
         },
         "awayWin": {
-          "winLikelihood": 0.3567496940273106,
+          "winLikelihood": 0.3571512643578311,
           "bttsLikelihood": null,
-          "combined": 0.3567496940273106,
+          "combined": 0.3571512643578311,
           "confidence": "low"
         },
         "draw": {
-          "winLikelihood": 0.27145766948456773,
+          "winLikelihood": 0.27142638050471435,
           "bttsLikelihood": null,
-          "combined": 0.27145766948456773,
+          "combined": 0.27142638050471435,
           "confidence": "low"
         },
         "expectedGoals": {
           "home": 1.4055437650134024,
-          "away": 1.5287227151256921
+          "away": 1.5311852219921611
         },
         "sampleHome": 17,
         "sampleAway": 4,
         "best": {
-          "winLikelihood": 0.5619227426067013,
-          "bttsLikelihood": 0.5979783057313106,
-          "combined": 0.48499864698106904,
+          "winLikelihood": 0.5624861730777658,
+          "bttsLikelihood": 0.5983749367424778,
+          "combined": 0.4851622757778587,
           "confidence": "low",
           "sourceMode": "goals"
         }
@@ -44328,63 +44328,63 @@
         }
       },
       "score": {
-        "winLikelihood": 0.30703624155173703,
-        "bttsLikelihood": 0.39235120285123676,
-        "combined": 0.15194515175661827,
+        "winLikelihood": 0.30749831670329175,
+        "bttsLikelihood": 0.39273002195071993,
+        "combined": 0.1520124974501079,
         "confidence": "low"
       },
       "modes": {
         "away": {
-          "winLikelihood": 0.30703624155173703,
-          "bttsLikelihood": 0.39235120285123676,
-          "combined": 0.15194515175661827,
+          "winLikelihood": 0.30749831670329175,
+          "bttsLikelihood": 0.39273002195071993,
+          "combined": 0.1520124974501079,
           "confidence": "low"
         },
         "home": {
-          "winLikelihood": 0.3630712188594538,
-          "bttsLikelihood": 0.39235120285123676,
-          "combined": 0.19223172767260302,
+          "winLikelihood": 0.3627341789822129,
+          "bttsLikelihood": 0.39273002195071993,
+          "combined": 0.19223643899072276,
           "confidence": "low"
         },
         "goals": {
-          "winLikelihood": 0.3068407025418876,
-          "bttsLikelihood": 0.39235120285123676,
-          "combined": 0.40948154931132996,
+          "winLikelihood": 0.30724001519453037,
+          "bttsLikelihood": 0.39273002195071993,
+          "combined": 0.409692947738011,
           "confidence": "low"
         },
         "dc1x": {
-          "winLikelihood": 0.6929637583430159,
-          "bttsLikelihood": 0.39235120285123676,
-          "combined": 0.40871086456024536,
+          "winLikelihood": 0.6925016831910236,
+          "bttsLikelihood": 0.39273002195071993,
+          "combined": 0.4087325522944346,
           "confidence": "low"
         },
         "homeWin": {
-          "winLikelihood": 0.36728186970624466,
+          "winLikelihood": 0.3669943010010344,
           "bttsLikelihood": null,
-          "combined": 0.36728186970624466,
+          "combined": 0.3669943010010344,
           "confidence": "low"
         },
         "awayWin": {
-          "winLikelihood": 0.29913726930963963,
+          "winLikelihood": 0.2992279774714865,
           "bttsLikelihood": null,
-          "combined": 0.29913726930963963,
+          "combined": 0.2992279774714865,
           "confidence": "low"
         },
         "draw": {
-          "winLikelihood": 0.33526110702496137,
+          "winLikelihood": 0.3352485783194876,
           "bttsLikelihood": null,
-          "combined": 0.33526110702496137,
+          "combined": 0.3352485783194876,
           "confidence": "low"
         },
         "expectedGoals": {
           "home": 1.0223900126460497,
-          "away": 0.9166943970771345
+          "away": 0.9181710325878921
         },
         "sampleHome": 18,
         "sampleAway": 3,
         "best": {
-          "winLikelihood": 0.3068407025418876,
-          "bttsLikelihood": 0.39235120285123676,
+          "winLikelihood": 0.30724001519453037,
+          "bttsLikelihood": 0.39273002195071993,
           "combined": 0.44,
           "confidence": "low",
           "sourceMode": "goals"
@@ -45816,64 +45816,64 @@
         }
       },
       "score": {
-        "winLikelihood": 0.14065388443203597,
-        "bttsLikelihood": 0.3795804308483584,
-        "combined": 0.13561385627662645,
+        "winLikelihood": 0.14090435314868718,
+        "bttsLikelihood": 0.38001447532154975,
+        "combined": 0.1356621093915275,
         "confidence": "ok"
       },
       "modes": {
         "away": {
-          "winLikelihood": 0.14065388443203597,
-          "bttsLikelihood": 0.3795804308483584,
-          "combined": 0.13561385627662645,
+          "winLikelihood": 0.14090435314868718,
+          "bttsLikelihood": 0.38001447532154975,
+          "combined": 0.1356621093915275,
           "confidence": "ok"
         },
         "home": {
-          "winLikelihood": 0.5971763644899921,
-          "bttsLikelihood": 0.3795804308483584,
-          "combined": 0.20966989527472824,
+          "winLikelihood": 0.5968919841956873,
+          "bttsLikelihood": 0.38001447532154975,
+          "combined": 0.20971789390193732,
           "confidence": "ok"
         },
         "goals": {
-          "winLikelihood": 0.38164365122117894,
-          "bttsLikelihood": 0.3795804308483584,
-          "combined": 0.4178292805326645,
+          "winLikelihood": 0.3819170353846228,
+          "bttsLikelihood": 0.38001447532154975,
+          "combined": 0.4180442015083961,
           "confidence": "ok"
         },
         "dc1x": {
-          "winLikelihood": 0.8593461010796379,
-          "bttsLikelihood": 0.3795804308483584,
-          "combined": 0.41476768658782553,
+          "winLikelihood": 0.8590956323629809,
+          "bttsLikelihood": 0.38001447532154975,
+          "combined": 0.41481702550137256,
           "confidence": "ok"
         },
         "homeWin": {
-          "winLikelihood": 0.520367194325674,
+          "winLikelihood": 0.5202157100071295,
           "bttsLikelihood": null,
-          "combined": 0.520367194325674,
+          "combined": 0.5202157100071295,
           "confidence": "ok"
         },
         "awayWin": {
-          "winLikelihood": 0.1802703515827088,
+          "winLikelihood": 0.18031484033683037,
           "bttsLikelihood": null,
-          "combined": 0.1802703515827088,
+          "combined": 0.18031484033683037,
           "confidence": "ok"
         },
         "draw": {
-          "winLikelihood": 0.27205853815672526,
+          "winLikelihood": 0.2720656190125529,
           "bttsLikelihood": null,
-          "combined": 0.27205853815672526,
+          "combined": 0.2720656190125529,
           "confidence": "ok"
         },
         "expectedGoals": {
           "home": 1.5823279963271997,
-          "away": 0.6339346179787096
+          "away": 0.6349557765800828
         },
         "sampleHome": 17,
         "sampleAway": 16,
         "best": {
-          "winLikelihood": 0.49432701767074094,
+          "winLikelihood": 0.49427085146040206,
           "bttsLikelihood": null,
-          "combined": 0.49432701767074094,
+          "combined": 0.49427085146040206,
           "confidence": "ok",
           "sourceMode": "homeWin"
         }
@@ -45951,63 +45951,63 @@
         }
       },
       "score": {
-        "winLikelihood": 0.36583315668565153,
-        "bttsLikelihood": 0.34630210575047304,
-        "combined": 0.1519501185258412,
+        "winLikelihood": 0.36634140059834236,
+        "bttsLikelihood": 0.3466292216146008,
+        "combined": 0.1520156132447642,
         "confidence": "ok"
       },
       "modes": {
         "away": {
-          "winLikelihood": 0.36583315668565153,
-          "bttsLikelihood": 0.34630210575047304,
-          "combined": 0.1519501185258412,
+          "winLikelihood": 0.36634140059834236,
+          "bttsLikelihood": 0.3466292216146008,
+          "combined": 0.1520156132447642,
           "confidence": "ok"
         },
         "home": {
-          "winLikelihood": 0.28532926262285624,
-          "bttsLikelihood": 0.34630210575047304,
-          "combined": 0.1570201947198759,
+          "winLikelihood": 0.2850237490184971,
+          "bttsLikelihood": 0.3466292216146008,
+          "combined": 0.15705624163735687,
           "confidence": "ok"
         },
         "goals": {
-          "winLikelihood": 0.2566201046566328,
-          "bttsLikelihood": 0.34630210575047304,
+          "winLikelihood": 0.25702706439684025,
+          "bttsLikelihood": 0.3466292216146008,
           "combined": 0.4,
           "confidence": "ok"
         },
         "dc1x": {
-          "winLikelihood": 0.6341668432761551,
-          "bttsLikelihood": 0.34630210575047304,
-          "combined": 0.4008995818603618,
+          "winLikelihood": 0.633658599362799,
+          "bttsLikelihood": 0.3466292216146008,
+          "combined": 0.4009136720710398,
           "confidence": "ok"
         },
         "homeWin": {
-          "winLikelihood": 0.3019395645849356,
+          "winLikelihood": 0.3017890909609119,
           "bttsLikelihood": null,
-          "combined": 0.3019395645849356,
+          "combined": 0.3017890909609119,
           "confidence": "ok"
         },
         "awayWin": {
-          "winLikelihood": 0.33578872519344,
+          "winLikelihood": 0.33612307634377675,
           "bttsLikelihood": null,
-          "combined": 0.33578872519344,
+          "combined": 0.33612307634377675,
           "confidence": "ok"
         },
         "draw": {
-          "winLikelihood": 0.3371594260511303,
+          "winLikelihood": 0.3371391121970034,
           "bttsLikelihood": null,
-          "combined": 0.3371594260511303,
+          "combined": 0.3371391121970034,
           "confidence": "ok"
         },
         "expectedGoals": {
           "home": 0.8031678657219441,
-          "away": 0.9490483169739747
+          "away": 0.9505770690321707
         },
         "sampleHome": 18,
         "sampleAway": 17,
         "best": {
-          "winLikelihood": 0.6341668432761551,
-          "bttsLikelihood": 0.34630210575047304,
+          "winLikelihood": 0.633658599362799,
+          "bttsLikelihood": 0.3466292216146008,
           "combined": 0.44,
           "confidence": "ok",
           "sourceMode": "dc1x"
@@ -46388,64 +46388,64 @@
         }
       },
       "score": {
-        "winLikelihood": 0.41677074444988266,
-        "bttsLikelihood": 0.5014114209043343,
+        "winLikelihood": 0.4173631522503028,
+        "bttsLikelihood": 0.5017827338991486,
         "combined": 0.16666666666666666,
         "confidence": "ok"
       },
       "modes": {
         "away": {
-          "winLikelihood": 0.41677074444988266,
-          "bttsLikelihood": 0.5014114209043343,
+          "winLikelihood": 0.4173631522503028,
+          "bttsLikelihood": 0.5017827338991486,
           "combined": 0.16666666666666666,
           "confidence": "ok"
         },
         "home": {
-          "winLikelihood": 0.2970519261193193,
-          "bttsLikelihood": 0.5014114209043343,
-          "combined": 0.19409091479618787,
+          "winLikelihood": 0.29665408887939254,
+          "bttsLikelihood": 0.5017827338991486,
+          "combined": 0.19408792373953354,
           "confidence": "ok"
         },
         "goals": {
-          "winLikelihood": 0.44270773100068866,
-          "bttsLikelihood": 0.5014114209043343,
-          "combined": 0.4607680811073202,
+          "winLikelihood": 0.4432704907405641,
+          "bttsLikelihood": 0.5017827338991486,
+          "combined": 0.46078958807619946,
           "confidence": "ok"
         },
         "dc1x": {
-          "winLikelihood": 0.5832292531010229,
-          "bttsLikelihood": 0.5014114209043343,
-          "combined": 0.41388468339714773,
+          "winLikelihood": 0.582636845257608,
+          "bttsLikelihood": 0.5017827338991486,
+          "combined": 0.41387975346337097,
           "confidence": "ok"
         },
         "homeWin": {
-          "winLikelihood": 0.3085577125527309,
+          "winLikelihood": 0.3082036769662831,
           "bttsLikelihood": null,
-          "combined": 0.3085577125527309,
+          "combined": 0.3082036769662831,
           "confidence": "ok"
         },
         "awayWin": {
-          "winLikelihood": 0.36280196601365217,
+          "winLikelihood": 0.3629004199296355,
           "bttsLikelihood": null,
-          "combined": 0.36280196601365217,
+          "combined": 0.3629004199296355,
           "confidence": "ok"
         },
         "draw": {
-          "winLikelihood": 0.2986796614842314,
+          "winLikelihood": 0.29840418648115663,
           "bttsLikelihood": null,
-          "combined": 0.2986796614842314,
+          "combined": 0.29840418648115663,
           "confidence": "ok"
         },
         "expectedGoals": {
           "home": 1.0990718162510815,
-          "away": 1.3486476083314376
+          "away": 1.3508200454667687
         },
         "sampleHome": 19,
         "sampleAway": 17,
         "best": {
-          "winLikelihood": 0.44270773100068866,
-          "bttsLikelihood": 0.5014114209043343,
-          "combined": 0.4531332958755424,
+          "winLikelihood": 0.4432704907405641,
+          "bttsLikelihood": 0.5017827338991486,
+          "combined": 0.45315181737522964,
           "confidence": "ok",
           "sourceMode": "goals"
         }
@@ -46523,64 +46523,64 @@
         }
       },
       "score": {
-        "winLikelihood": 0.32664482984539756,
-        "bttsLikelihood": 0.5506502357033891,
+        "winLikelihood": 0.32717230079161247,
+        "bttsLikelihood": 0.5510832105760834,
         "combined": 0.16666666666666666,
         "confidence": "ok"
       },
       "modes": {
         "away": {
-          "winLikelihood": 0.32664482984539756,
-          "bttsLikelihood": 0.5506502357033891,
+          "winLikelihood": 0.32717230079161247,
+          "bttsLikelihood": 0.5510832105760834,
           "combined": 0.16666666666666666,
           "confidence": "ok"
         },
         "home": {
-          "winLikelihood": 0.4003264093655281,
-          "bttsLikelihood": 0.5506502357033891,
-          "combined": 0.21266180929343217,
+          "winLikelihood": 0.3998939255311683,
+          "bttsLikelihood": 0.5510832105760834,
+          "combined": 0.2126619163477262,
           "confidence": "ok"
         },
         "goals": {
-          "winLikelihood": 0.5015721485390783,
-          "bttsLikelihood": 0.5506502357033891,
-          "combined": 0.47638920849189464,
+          "winLikelihood": 0.5020718904480052,
+          "bttsLikelihood": 0.5510832105760834,
+          "combined": 0.47657457533395126,
           "confidence": "ok"
         },
         "dc1x": {
-          "winLikelihood": 0.6733551650218418,
-          "bttsLikelihood": 0.5506502357033891,
-          "combined": 0.42062694976854315,
+          "winLikelihood": 0.6728276940561319,
+          "bttsLikelihood": 0.5510832105760834,
+          "combined": 0.42063144334592606,
           "confidence": "ok"
         },
         "homeWin": {
-          "winLikelihood": 0.399068692630265,
+          "winLikelihood": 0.3986996893619002,
           "bttsLikelihood": null,
-          "combined": 0.399068692630265,
+          "combined": 0.3986996893619002,
           "confidence": "ok"
         },
         "awayWin": {
-          "winLikelihood": 0.3100084613641254,
+          "winLikelihood": 0.3103554611278854,
           "bttsLikelihood": null,
-          "combined": 0.3100084613641254,
+          "combined": 0.3103554611278854,
           "confidence": "ok"
         },
         "draw": {
-          "winLikelihood": 0.28006378292209416,
+          "winLikelihood": 0.2799292991931458,
           "bttsLikelihood": null,
-          "combined": 0.28006378292209416,
+          "combined": 0.2799292991931458,
           "confidence": "ok"
         },
         "expectedGoals": {
           "home": 1.419986128675069,
-          "away": 1.2604547959810597
+          "away": 1.2624851698083517
         },
         "sampleHome": 18,
         "sampleAway": 18,
         "best": {
-          "winLikelihood": 0.5015721485390783,
-          "bttsLikelihood": 0.5506502357033891,
-          "combined": 0.4665859914921054,
+          "winLikelihood": 0.5020718904480052,
+          "bttsLikelihood": 0.5510832105760834,
+          "combined": 0.4667456268143328,
           "confidence": "ok",
           "sourceMode": "goals"
         }

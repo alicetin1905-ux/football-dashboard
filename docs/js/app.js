@@ -28,6 +28,7 @@ const storedLegs = readStore('btts-legs', DEFAULT_LEGS);
 const state = {
   fixtures: [],
   results: [],
+  record: null, // data/history.json — Best picks as shown, graded once played
   view: 'upcoming', // 'upcoming' | 'results'
   league: '',
   day: '',
@@ -48,6 +49,8 @@ const els = {
   bestPicks: document.getElementById('bestPicks'),
   bestPicksCards: document.getElementById('bestPicksCards'),
   bestPicksSlip: document.getElementById('bestPicksSlip'),
+  trackRecord: document.getElementById('trackRecord'),
+  trackRecordBody: document.getElementById('trackRecordBody'),
   heroCards: document.getElementById('heroCards'),
   betSlip: document.getElementById('betSlip'),
   legsSelect: document.getElementById('legsSelect'),
@@ -184,6 +187,64 @@ function renderBestPicks() {
     </div>`;
   }).join('');
   renderBetSlip(els.bestPicksSlip, picks.map((f) => slipLeg(f, f.modes.best.sourceMode, f.modes.best.combined)), { showModes: true });
+}
+
+const TRACK_STAKE = 10;
+const TRACK_RECENT = 8;
+
+const euros = (x) => `${x >= 0 ? '+' : '−'}€${Math.abs(x).toFixed(2)}`;
+const profitOf = (outcome, odds) => (outcome === 'won' ? TRACK_STAKE * (odds - 1) : outcome === 'lost' ? -TRACK_STAKE : 0);
+
+const OUTCOME_BADGE = {
+  won: '<span class="result-badge result-hit">✓ Won</span>',
+  lost: '<span class="result-badge result-miss">✗ Lost</span>',
+  void: '<span class="result-badge result-void">Void</span>',
+  null: '<span class="result-badge result-pending">Pending</span>',
+};
+
+/**
+ * How the Best picks have actually done: every pick the row has shown
+ * (recorded with its probability and odds when it first appeared) and one
+ * 3-leg slip per day, graded against real results by each refresh.
+ */
+function renderTrackRecord() {
+  const record = state.record;
+  if (state.view !== 'upcoming' || !record?.picks?.length) { els.trackRecord.hidden = true; return; }
+  els.trackRecord.hidden = false;
+
+  const decided = record.picks.filter((p) => p.outcome === 'won' || p.outcome === 'lost');
+  const won = decided.filter((p) => p.outcome === 'won');
+  const pending = record.picks.filter((p) => !p.outcome).length;
+  const slips = record.slips.filter((s) => s.outcome === 'won' || s.outcome === 'lost');
+  const since = record.picks.reduce((min, p) => (p.firstShown < min ? p.firstShown : min), record.picks[0].firstShown);
+
+  const summary = decided.length
+    ? `<div class="track-stats">
+        <div class="track-stat"><div class="track-stat-value">${won.length}/${decided.length}</div><div class="track-stat-label">picks won (${pct(won.length / decided.length)})</div></div>
+        <div class="track-stat"><div class="track-stat-value">${pct(decided.reduce((a, p) => a + p.probability, 0) / decided.length)}</div><div class="track-stat-label">average predicted</div></div>
+        <div class="track-stat"><div class="track-stat-value">${euros(decided.reduce((a, p) => a + profitOf(p.outcome, p.odds), 0))}</div><div class="track-stat-label">€${TRACK_STAKE} on each pick</div></div>
+        <div class="track-stat"><div class="track-stat-value">${slips.length ? `${slips.filter((s) => s.outcome === 'won').length}/${slips.length}` : '—'}</div><div class="track-stat-label">daily 3-leg slips won${slips.length ? ` (${euros(slips.reduce((a, s) => a + profitOf(s.outcome, s.odds), 0))} at €${TRACK_STAKE})` : ''}</div></div>
+      </div>`
+    : `<p class="track-note">Tracking since ${kickoff(since)}: ${record.picks.length} pick${record.picks.length === 1 ? '' : 's'} recorded so far. Results appear here once those matches are played.</p>`;
+
+  const recent = [...record.picks].sort((a, b) => new Date(b.date) - new Date(a.date)).slice(0, TRACK_RECENT);
+  els.trackRecordBody.innerHTML = `
+    ${summary}
+    <div class="track-list">
+      ${recent.map((p) => `
+        <div class="track-row">
+          <span class="track-when">${kickoff(p.date)}</span>
+          <span class="track-match"><span class="home">${p.home}</span><span class="vs">vs</span>${p.away} <span class="leg-mode">${MODES[p.mode]?.label ?? p.mode}</span></span>
+          <span class="track-odds">${p.oddsSource === 'bwin' ? '<span class="leg-book">bwin</span>' : ''}${p.odds.toFixed(2)}</span>
+          <span class="track-outcome">${p.score ? `<span class="final-score">${p.score.replace('-', '&ndash;')}</span>` : ''}${OUTCOME_BADGE[p.outcome]}</span>
+        </div>`).join('')}
+    </div>
+    <p class="bet-slip-disclaimer">
+      Each pick is recorded once, with the probability and odds it had when it first appeared; one slip a
+      day is taken from that day's first 3 picks. Profit uses those odds: bwin&rsquo;s where it had priced the
+      match, otherwise 1 &divide; probability, which has no bookmaker margin, so real returns on those would be
+      lower.${pending ? ` ${pending} still to be played.` : ''} Not betting advice.
+    </p>`;
 }
 
 /** 1 ÷ probability — the decimal odds our own estimate implies, not a bookmaker price. */
@@ -449,6 +510,7 @@ function render() {
   syncModeUi();
   syncViewUi();
   renderBestPicks();
+  renderTrackRecord();
   const mode = { ...MODES[state.mode], key: state.mode };
 
   if (state.view === 'results') {
@@ -583,8 +645,12 @@ function registerServiceWorker() {
 /* ---------------------------------------------------------------------- */
 
 async function refreshData() {
-  const res = await fetch('./data/fixtures.json', { cache: 'no-store' });
+  const [res, record] = await Promise.all([
+    fetch('./data/fixtures.json', { cache: 'no-store' }),
+    fetch('./data/history.json', { cache: 'no-store' }).then((r) => (r.ok ? r.json() : null)).catch(() => null),
+  ]);
   const payload = await res.json();
+  state.record = record;
   state.fixtures = payload.fixtures;
   state.results = payload.results || [];
   renderMeta(payload);

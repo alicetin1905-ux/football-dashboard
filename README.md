@@ -31,7 +31,27 @@ At the very top, **Best picks · all leagues** shows the 3 upcoming matches
 whose single most likely bet — any of the seven bet types, any league —
 has the highest probability, with bwin's price when bwin has one (implied
 odds otherwise), plus its own combined bet slip for those 3 legs. The stake
-is shared with the Top matches slip — change it in either and both update. It ignores the filters and ranking below, so it always
+is shared with the Top matches slip — change it in either and both update.
+
+Under it, **Best picks · track record** shows how those picks have
+actually done: every pick the row has shown (recorded once, with the
+probability and odds it had when it first appeared) and one 3-leg slip a
+day (that day's first 3 picks), graded against the real result once the
+match is played — hit rate, average predicted probability, and profit at
+€10 a pick / €10 a slip. Profit uses the recorded odds: bwin's where it
+had priced the match, otherwise 1 ÷ probability, which carries no
+bookmaker margin, so real returns on those legs would be lower. A pick
+still ungraded 10 days after kickoff (postponed, or missing from the
+results feed) is voided.
+
+The site has no database, so the record lives in the deployed site itself
+(`data/history.json`, built by `scripts/lib/trackrecord.mjs`): each refresh
+downloads the live copy, adds to it, grades what finished, and publishes it
+again. If the live copy can't be read for any reason other than "doesn't
+exist yet", the refresh fails and the site keeps its previous version —
+a network blip can never publish an empty record over the real one. The
+copy in a local checkout is gitignored; the deployed one is the source of
+truth. It ignores the filters and ranking below, so it always
 answers "what are the strongest picks right now", and it skips "low
 sample" fixtures, since the highest raw numbers tend to come from teams
 with too little history to trust.
@@ -361,6 +381,7 @@ scripts/lib/stats.mjs    the scoring logic, shared by live and demo paths
 scripts/lib/espn.mjs     ESPN site-API client: fixture schedule, recent results, Nations League form
 scripts/lib/footballdata.mjs  football-data.co.uk CSV client: team history, xG, bookmaker odds
 scripts/lib/thesportsdb.mjs   TheSportsDB client: TFF 1. Lig fixtures, results and form
+scripts/lib/trackrecord.mjs   Best picks track record: record, grade, carry over via the live site
 scripts/lib/mock.mjs     deterministic demo data generator
 ```
 

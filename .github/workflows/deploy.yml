@@ -35,6 +35,8 @@ jobs:
         uses: actions/configure-pages@v5
 
       - name: Build fixtures
+        env:
+          SITE_URL: ${{ steps.pages.outputs.base_url }}
         run: node scripts/refresh.mjs
 
       - uses: actions/upload-pages-artifact@v3

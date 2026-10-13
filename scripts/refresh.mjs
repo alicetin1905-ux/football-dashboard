@@ -20,9 +20,11 @@ import { scoreFixture, scoreFromExpectedGoals, impliedExpectedGoals, summarizeTe
 import { generateMockSeason } from './lib/mock.mjs';
 import { LEAGUES, fetchLeagueWindow } from './lib/espn.mjs';
 import { TSDB_LEAGUES, fetchTsdbLeagueWindow } from './lib/thesportsdb.mjs';
+import { loadTrackRecord, updateTrackRecord } from './lib/trackrecord.mjs';
 import { FD_CODES, fetchLeagueHistory, fetchAdjacentHistory, fetchUpcomingOdds, matchTeamName, teamMatchesBefore, findMatch } from './lib/footballdata.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
+const SITE_URL = process.env.SITE_URL || 'https://alicetin1905-ux.github.io/football-dashboard/';
 const OUT = resolve(ROOT, 'docs/data');
 
 /** Matches per team the model reads — a point-in-time backtest of 3,442 matches found 38 beat 15 on every market. */
@@ -422,6 +424,14 @@ async function main() {
     calibration,
   };
   await writeFile(resolve(OUT, 'fixtures.json'), JSON.stringify(payload, null, 2));
+
+  // Each deploy replaces the whole site, so the record is always republished —
+  // updated from live data, or carried over untouched in demo mode.
+  const previous = await loadTrackRecord(SITE_URL);
+  const record = source === 'mock' ? previous : updateTrackRecord(previous, { fixtures, results, now: new Date() });
+  await writeFile(resolve(OUT, 'history.json'), JSON.stringify({ updatedAt: new Date().toISOString(), ...record }, null, 2));
+  const graded = record.picks.filter((p) => p.outcome && p.outcome !== 'void');
+  log(`track record: ${record.picks.length} picks (${graded.filter((p) => p.outcome === 'won').length}/${graded.length} won), ${record.slips.length} slips`);
   const curveLog = (points) => (points.length ? `${points.length}pt` : 'off');
   const groupLog = Object.entries(calibration).map(([name, c]) =>
     `${name} [${Object.entries(c.modes).map(([k, v]) => `${k}=${curveLog(v)}`).join(' ')} best=${curveLog(c.best)}, ${c.sampleSize} matches]`).join('; ');
