@@ -31,7 +31,7 @@ At the very top, **Best picks · all leagues** shows the 3 upcoming matches
 whose single most likely bet — any of the seven bet types, any league —
 has the highest probability, with bwin's price when bwin has one (implied
 odds otherwise), plus its own combined bet slip for those 3 legs. The stake
-is shared with the Top matches slip — change it in either and both update.
+is shared with My slip — change it in either and both update.
 
 Under it, **Best picks · track record** shows how those picks have
 actually done: every pick the row has shown (recorded once, with the
@@ -45,7 +45,7 @@ still ungraded 10 days after kickoff (postponed, or missing from the
 results feed) is voided.
 
 It also records each bet type's own top 3 every refresh (ok-sample,
-ranked as the Top matches row ranks them when that type is selected),
+ranked by that type's own probability),
 graded the same way, so a **By bet type** table shows which ones actually
 pay — hit rate alone can mislead, since a bet that wins often at short
 odds can still lose money.
@@ -77,12 +77,11 @@ Every upcoming row has two buttons:
   borrowed previous-division matches are marked), and the two sides'
   meetings over the last two seasons.
 
-A **Day** filter narrows everything — top matches, the combined bet slip,
-and the table — to one day (Friday, Saturday, Sunday, ...) or back to
-**All weekend**; within whatever's selected, the most likely "away win +
-BTTS yes" match is still first.
-A **Rank by** toggle switches the whole view — table columns, top matches,
-and sort order — between eight modes, all read off the same underlying
+A **Day** filter narrows the table to one day (Friday, Saturday, Sunday,
+...) or back to **All weekend**; within whatever's selected, the most
+likely "away win + BTTS yes" match is still first.
+A **Rank by** toggle switches the table — columns and sort order —
+between eight modes, all read off the same underlying
 score matrix:
 
 | Mode | What it needs | Backtested hit rate |
@@ -164,12 +163,10 @@ either team has fewer than 5 matches at that venue on record — mostly
 teams new to their division, whose previous season was in another league
 (see Caveats) — since the underlying rate is noisier with less data.
 
-Below "Top matches", a **Legs** selector (1–5, defaults to 3) picks how many
-of the ranked fixtures to focus on — it controls both how many cards show
-and how many go into the **Combined** card underneath: each leg's own
-likelihood is converted to implied decimal odds (1 ÷ probability), all of
-them are multiplied together, and that's shown against a stake you type in
-(defaults to €10) as a potential return. Legs and stake are both remembered
+The bet slips (under Best picks, and My slip) work the same way: each
+leg's likelihood is converted to implied decimal odds (1 ÷ probability),
+all of them are multiplied together, and that's shown against a stake you
+type in (defaults to €10) as a potential return. The stake is remembered
 locally. A leg marked **bwin** uses bwin's real price for that outcome
 (Home win, Draw or Away win, once bwin has priced the match); every other
 leg is 1 ÷ our probability — not a bookmaker price — and combining legs

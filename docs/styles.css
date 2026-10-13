@@ -413,7 +413,7 @@ header.top .crumbs {
 .bet-slip-leg .leg-teams { color: var(--text-2); }
 .bet-slip-leg .leg-teams .vs { color: var(--muted); margin: 0 4px; }
 .bet-slip-leg .leg-odds { font-weight: 600; font-family: var(--mono); flex-shrink: 0; }
-.leg-book, .hero-book, .row-book {
+.leg-book, .row-book {
   font-family: var(--mono);
   font-size: 11px;
   font-weight: 500;
@@ -421,7 +421,6 @@ header.top .crumbs {
   white-space: nowrap;
 }
 .leg-book { margin-right: 10px; }
-.hero-book { margin-left: 10px; }
 .row-book { display: block; text-align: right; margin-top: 2px; }
 .prob-bwin {
   display: inline-block;

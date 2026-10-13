@@ -44,8 +44,7 @@ export async function loadTrackRecord(siteUrl) {
 }
 
 /**
- * Each bet type's own top 3, ranked the way the Top matches row ranks them
- * when that type is selected (ok-sample only, like Best picks) — recorded
+ * Each bet type's own top 3, ranked by that type's own probability (ok-sample only, like Best picks) — recorded
  * so the record can say which bet types actually pay, not just which hit.
  */
 function selectTopForMode(fixtures, mode, now, n = BEST_PICKS) {

@@ -4,9 +4,6 @@ const ALERT_THRESHOLD = 0.5;
 const ALERT_WINDOW_HOURS = 48;
 const REFRESH_INTERVAL_MS = 5 * 60 * 1000;
 const DEFAULT_STAKE = 10;
-const DEFAULT_LEGS = 3;
-const MIN_LEGS = 1;
-const MAX_LEGS = 5;
 
 const MODES = {
   away: { label: 'Away win + BTTS', winLabel: 'Away win' },
@@ -19,11 +16,9 @@ const MODES = {
   best: { label: 'Best of all modes', winLabel: 'Best %' },
 };
 
-const clampLegs = (n) => Math.min(MAX_LEGS, Math.max(MIN_LEGS, Math.round(n)));
 
 const storedMode = readStore('btts-mode', 'away');
 const storedStake = readStore('btts-stake', DEFAULT_STAKE);
-const storedLegs = readStore('btts-legs', DEFAULT_LEGS);
 
 const state = {
   fixtures: [],
@@ -39,7 +34,6 @@ const state = {
   notify: false,
   mode: MODES[storedMode] ? storedMode : 'away',
   stake: Number.isFinite(storedStake) && storedStake >= 0 ? storedStake : DEFAULT_STAKE,
-  legs: Number.isFinite(storedLegs) ? clampLegs(storedLegs) : DEFAULT_LEGS,
 };
 
 const els = {
@@ -47,7 +41,6 @@ const els = {
   viewUpcomingBtn: document.getElementById('viewUpcomingBtn'),
   viewResultsBtn: document.getElementById('viewResultsBtn'),
   resultsStats: document.getElementById('resultsStats'),
-  hero: document.getElementById('hero'),
   bestPicks: document.getElementById('bestPicks'),
   bestPicksCards: document.getElementById('bestPicksCards'),
   bestPicksSlip: document.getElementById('bestPicksSlip'),
@@ -57,9 +50,6 @@ const els = {
   mySlipClear: document.getElementById('mySlipClear'),
   mySlipFab: document.getElementById('mySlipFab'),
   trackRecordBody: document.getElementById('trackRecordBody'),
-  heroCards: document.getElementById('heroCards'),
-  betSlip: document.getElementById('betSlip'),
-  legsSelect: document.getElementById('legsSelect'),
   leagueFilter: document.getElementById('leagueFilter'),
   dayFilterLabel: document.getElementById('dayFilterLabel'),
   dayFilter: document.getElementById('dayFilter'),
@@ -129,33 +119,6 @@ function renderMeta(payload) {
     <span class="badge ${isLive ? 'source-live' : 'source-mock'}">${sourceLabel}</span>
     <span>Refreshed ${relativeAgo(payload.generatedAt)}</span>
   `;
-}
-
-function renderHero(fixtures) {
-  const mode = { ...MODES[state.mode], key: state.mode };
-  if (els.legsSelect) els.legsSelect.value = state.legs;
-  const top = fixtures.slice(0, state.legs);
-  if (!top.length) { els.hero.hidden = true; return; }
-  els.hero.hidden = false;
-  els.heroCards.innerHTML = top.map((f, i) => {
-    const rowMode = mode.key === 'best' ? MODES[effectiveModeKey(f, mode)] : mode;
-    return `
-    <div class="hero-card">
-      <div class="hero-card-head">
-        <span class="hero-rank">#${i + 1}</span>
-        <span class="hero-league">${bwinTag(f)}${f.league}</span>
-      </div>
-      <div class="hero-match"><span class="home">${f.home.name}</span><span class="vs">vs</span>${f.away.name}</div>
-      <div class="hero-figures">
-        <div class="figure figure-combined"><div class="figure-value">${pct(f._view.combined)}</div><div class="figure-label">${rowMode.label}</div></div>
-        <div class="figure"><div class="figure-value">${pct(f._view.winLikelihood)}</div><div class="figure-label">${rowMode.winLabel}</div></div>
-        <div class="figure"><div class="figure-value">${pct(f._view.bttsLikelihood)}</div><div class="figure-label">BTTS</div></div>
-      </div>
-      <div class="hero-kickoff">${kickoff(f.date)}${bookOddsHtml(f, effectiveModeKey(f, mode), 'hero-book')}</div>
-    </div>
-  `;
-  }).join('');
-  renderBetSlip(els.betSlip, top.map((f) => slipLeg(f, effectiveModeKey(f, mode), f._view.combined)), { showModes: mode.key === 'best' });
 }
 
 const BEST_PICKS = 3;
@@ -299,7 +262,7 @@ function bookOddsHtml(f, modeKey, cls) {
   return odds ? `<span class="${cls}" title="bwin's price for this outcome — a real bookmaker quote">bwin ${odds.toFixed(2)}</span>` : '';
 }
 
-const slipContainers = () => [els.betSlip, els.bestPicksSlip, els.mySlipBody].filter(Boolean);
+const slipContainers = () => [els.bestPicksSlip, els.mySlipBody].filter(Boolean);
 
 /** Recomputes just the return/profit figures for the current stake — leaves the rest of the card, and the stake input's focus, untouched. */
 function updateBetSlipReturn(container) {
@@ -622,9 +585,6 @@ function syncViewUi() {
   const isResults = state.view === 'results';
   els.viewUpcomingBtn.setAttribute('aria-pressed', String(!isResults));
   els.viewResultsBtn.setAttribute('aria-pressed', String(isResults));
-  // renderHero() will correct this back to false when there's data to show —
-  // this only needs to force it shut for the results view, which skips renderHero entirely.
-  if (isResults) els.hero.hidden = true;
   els.dayFilterLabel.hidden = isResults;
   els.emptyState.textContent = isResults
     ? 'No recent results match these filters.'
@@ -649,7 +609,6 @@ function render() {
 
   els.resultsStats.hidden = true;
   const filtered = applyFilters();
-  renderHero(filtered);
   els.emptyState.hidden = filtered.length > 0;
   els.rows.innerHTML = filtered.map((f) => matchRowHtml(f, mode, false)).join('');
 }
@@ -846,11 +805,6 @@ async function main() {
   els.modeSelect.addEventListener('change', (e) => {
     state.mode = MODES[e.target.value] ? e.target.value : 'away';
     writeStore('btts-mode', state.mode);
-    render();
-  });
-  els.legsSelect.addEventListener('change', (e) => {
-    state.legs = clampLegs(parseInt(e.target.value, 10) || DEFAULT_LEGS);
-    writeStore('btts-legs', state.legs);
     render();
   });
   els.notifyBtn.addEventListener('click', toggleNotifications);
