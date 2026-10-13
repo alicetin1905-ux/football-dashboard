@@ -39,6 +39,7 @@ export const LEAGUES = [
   { slug: 'uefa.nations', name: 'UEFA Nations League', country: 'Europe' },
   { slug: 'uefa.champions', name: 'UEFA Champions League', country: 'Europe', formSlugs: UEFA_CLUB_SLUGS, formMatches: 38 },
   { slug: 'uefa.europa', name: 'UEFA Europa League', country: 'Europe', formSlugs: UEFA_CLUB_SLUGS, formMatches: 38 },
+  { slug: 'uefa.europa.conf', name: 'UEFA Conference League', country: 'Europe', formSlugs: UEFA_CLUB_SLUGS, formMatches: 38 },
 ];
 
 /** European season labels run by start year (e.g. 2026 for the 2026-27 season). */

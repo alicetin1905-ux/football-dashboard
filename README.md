@@ -18,7 +18,7 @@ stays in a legible face rather than a display one throughout.
 For every upcoming fixture across eleven European club leagues (Premier
 League, Championship, La Liga, Bundesliga, 2. Bundesliga, Serie A, Ligue 1,
 Turkish Süper Lig, Eredivisie, Belgian Pro League, Primeira Liga) plus the
-UEFA Champions League, UEFA Europa League and UEFA Nations League:
+UEFA Champions League, Europa League, Conference League and Nations League:
 
 | Column | Meaning |
 |---|---|
@@ -264,7 +264,7 @@ the average gap between our 1X2 probabilities and bwin's went from 8.9 to
   — the fixture schedule (a day-by-day scoreboard sweep, 10 days out —
   football-data.co.uk's own upcoming list only reaches a few days ahead),
   last week's results for the Results view, and team form for the
-  Champions League, Europa League and Nations League, which
+  three UEFA club competitions and the Nations League, which
   football-data.co.uk doesn't cover. If
   football-data.co.uk is ever unreachable, each league quietly falls back
   to ESPN form, as before.
@@ -356,10 +356,12 @@ scripts/lib/mock.mjs     deterministic demo data generator
   way it does to a club league; `fetchTeamForm` bridges back up to two
   seasons rather than one to find a team's most recent games, since the
   competition itself only runs every other year.
-- **Champions League and Europa League** form comes from each club's
+- **Champions League, Europa League and Conference League** form comes from each club's
   matches across all three UEFA club competitions (Champions, Europa and
   Conference League, up to three seasons back) — the Europa League alone
-  gave a median of 1 match per team, pooled it's 16 (Champions League: 23).
+  gave a median of 1 match per team, pooled it's 16 (Champions League: 23,
+  Conference League: 6 — many of its clubs are European newcomers from
+  smaller leagues, so roughly two-thirds of its fixtures are "low sample").
   Every match counted is against European-cup opposition, so strengths stay
   relative to that level, and the cups get their own calibration curves,
   fit each refresh on ~350 past cup matches rebuilt from those histories
