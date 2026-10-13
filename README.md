@@ -17,8 +17,9 @@ stays in a legible face rather than a display one throughout.
 
 For every upcoming fixture across eleven European club leagues (Premier
 League, Championship, La Liga, Bundesliga, 2. Bundesliga, Serie A, Ligue 1,
-Turkish Süper Lig, Eredivisie, Belgian Pro League, Primeira Liga) plus the
-UEFA Champions League, Europa League, Conference League and Nations League:
+Turkish Süper Lig, Eredivisie, Belgian Pro League, Primeira Liga), Turkey's
+second tier (TFF 1. Lig), plus the UEFA Champions League, Europa League,
+Conference League and Nations League:
 
 | Column | Meaning |
 |---|---|
@@ -265,7 +266,16 @@ the average gap between our 1X2 probabilities and bwin's went from 8.9 to
   football-data.co.uk's own upcoming list only reaches a few days ahead),
   last week's results for the Results view, and team form for the
   three UEFA club competitions and the Nations League, which
-  football-data.co.uk doesn't cover. If
+  football-data.co.uk doesn't cover.
+- **[TheSportsDB](https://www.thesportsdb.com)** (`scripts/lib/thesportsdb.mjs`)
+  — everything for the TFF 1. Lig (Turkey's second tier), which neither
+  other source actually carries: ESPN lists it (`tur.2`) but returns no
+  matches or teams for it on any date. The free key caps most endpoints at
+  1–15 matches, but a full matchday comes back per round, so the league is
+  fetched round by round (this season plus the tail of last season — about
+  40 requests), spaced to stay under the free key's 30 requests a minute.
+  That makes it the slow part of a refresh (~90 s). No odds or xG, so it
+  runs on our model; if TheSportsDB is down, just this league is skipped. If
   football-data.co.uk is ever unreachable, each league quietly falls back
   to ESPN form, as before.
 
@@ -329,6 +339,7 @@ scripts/make-icons.mjs   one-off icon renderer (headless Chromium) — run once,
 scripts/lib/stats.mjs    the scoring logic, shared by live and demo paths
 scripts/lib/espn.mjs     ESPN site-API client: fixture schedule, recent results, Nations League form
 scripts/lib/footballdata.mjs  football-data.co.uk CSV client: team history, xG, bookmaker odds
+scripts/lib/thesportsdb.mjs   TheSportsDB client: TFF 1. Lig fixtures, results and form
 scripts/lib/mock.mjs     deterministic demo data generator
 ```
 

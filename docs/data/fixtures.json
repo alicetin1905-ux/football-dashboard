@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-10-13T14:04:34.422Z",
+  "generatedAt": "2026-10-13T14:17:06.777Z",
   "source": "espn",
-  "sourceLabel": "ESPN + football-data.co.uk",
+  "sourceLabel": "ESPN + football-data.co.uk + TheSportsDB",
   "disclaimer": "Public/derived football statistics shown for information only — not betting advice.",
   "fixtures": [
     {
@@ -8331,6 +8331,129 @@
       "probSource": "model"
     },
     {
+      "id": "tsdb-2528917",
+      "date": "2026-10-19T14:00:00.000Z",
+      "league": "TFF 1. Lig",
+      "leagueCountry": "Turkey",
+      "home": {
+        "id": "tsdb-138983",
+        "name": "Fatih Karagümrük"
+      },
+      "away": {
+        "id": "tsdb-138941",
+        "name": "Ankara Keçiörengücü"
+      },
+      "stats": {
+        "home": {
+          "homeSample": 5,
+          "awaySample": 4,
+          "homeGoalsForAvg": 1.4,
+          "homeGoalsAgainstAvg": 1,
+          "awayGoalsForAvg": 1.5,
+          "awayGoalsAgainstAvg": 1.75,
+          "homeForm": [
+            "W",
+            "W",
+            "D",
+            "D",
+            "D"
+          ],
+          "awayForm": [
+            "L",
+            "D",
+            "L",
+            "W"
+          ]
+        },
+        "away": {
+          "homeSample": 18,
+          "awaySample": 19,
+          "homeGoalsForAvg": 2.611111111111111,
+          "homeGoalsAgainstAvg": 0.8888888888888888,
+          "awayGoalsForAvg": 1.8421052631578947,
+          "awayGoalsAgainstAvg": 1.3157894736842106,
+          "homeForm": [
+            "W",
+            "W",
+            "D",
+            "W",
+            "D"
+          ],
+          "awayForm": [
+            "L",
+            "D",
+            "W",
+            "D",
+            "W"
+          ]
+        }
+      },
+      "score": {
+        "winLikelihood": 0.47271088052021704,
+        "bttsLikelihood": 0.5205754412767445,
+        "combined": 0.20801221189836336,
+        "confidence": "ok"
+      },
+      "modes": {
+        "away": {
+          "winLikelihood": 0.47271088052021704,
+          "bttsLikelihood": 0.5205754412767445,
+          "combined": 0.20801221189836336,
+          "confidence": "ok"
+        },
+        "home": {
+          "winLikelihood": 0.27185162849647165,
+          "bttsLikelihood": 0.5205754412767445,
+          "combined": 0.18298031657258695,
+          "confidence": "ok"
+        },
+        "goals": {
+          "winLikelihood": 0.48675677434429837,
+          "bttsLikelihood": 0.5205754412767445,
+          "combined": 0.4719825425664695,
+          "confidence": "ok"
+        },
+        "dc1x": {
+          "winLikelihood": 0.527289109683864,
+          "bttsLikelihood": 0.5205754412767445,
+          "combined": 0.4070178634557226,
+          "confidence": "ok"
+        },
+        "homeWin": {
+          "winLikelihood": 0.2967082207979957,
+          "bttsLikelihood": null,
+          "combined": 0.2967082207979957,
+          "confidence": "ok"
+        },
+        "awayWin": {
+          "winLikelihood": 0.38701442826014837,
+          "bttsLikelihood": null,
+          "combined": 0.38701442826014837,
+          "confidence": "ok"
+        },
+        "draw": {
+          "winLikelihood": 0.2723579277758035,
+          "bttsLikelihood": null,
+          "combined": 0.2723579277758035,
+          "confidence": "ok"
+        },
+        "expectedGoals": {
+          "home": 1.0935580780424639,
+          "away": 1.5271508722493674
+        },
+        "sampleHome": 5,
+        "sampleAway": 19,
+        "best": {
+          "winLikelihood": 0.48675677434429837,
+          "bttsLikelihood": 0.5205754412767445,
+          "combined": 0.46411166519537117,
+          "confidence": "ok",
+          "sourceMode": "goals"
+        }
+      },
+      "probSource": "model"
+    },
+    {
       "id": "401915552",
       "date": "2026-10-22T19:00Z",
       "league": "UEFA Europa League",
@@ -10143,6 +10266,128 @@
       "probSource": "model"
     },
     {
+      "id": "tsdb-2528911",
+      "date": "2026-10-15T17:00:00.000Z",
+      "league": "TFF 1. Lig",
+      "leagueCountry": "Turkey",
+      "home": {
+        "id": "tsdb-149661",
+        "name": "Muğlaspor"
+      },
+      "away": {
+        "id": "tsdb-133801",
+        "name": "Bursaspor"
+      },
+      "stats": {
+        "home": {
+          "homeSample": 4,
+          "awaySample": 5,
+          "homeGoalsForAvg": 1.5,
+          "homeGoalsAgainstAvg": 1,
+          "awayGoalsForAvg": 0.6,
+          "awayGoalsAgainstAvg": 0.8,
+          "homeForm": [
+            "D",
+            "W",
+            "D",
+            "D"
+          ],
+          "awayForm": [
+            "L",
+            "D",
+            "W",
+            "D",
+            "D"
+          ]
+        },
+        "away": {
+          "homeSample": 4,
+          "awaySample": 5,
+          "homeGoalsForAvg": 2,
+          "homeGoalsAgainstAvg": 1,
+          "awayGoalsForAvg": 1.8,
+          "awayGoalsAgainstAvg": 1,
+          "homeForm": [
+            "W",
+            "W",
+            "D",
+            "L"
+          ],
+          "awayForm": [
+            "W",
+            "L",
+            "W",
+            "W",
+            "W"
+          ]
+        }
+      },
+      "score": {
+        "winLikelihood": 0.512949784675144,
+        "bttsLikelihood": 0.45696912331871437,
+        "combined": 0.17967322380993456,
+        "confidence": "low"
+      },
+      "modes": {
+        "away": {
+          "winLikelihood": 0.512949784675144,
+          "bttsLikelihood": 0.45696912331871437,
+          "combined": 0.17967322380993456,
+          "confidence": "low"
+        },
+        "home": {
+          "winLikelihood": 0.2248165302879759,
+          "bttsLikelihood": 0.45696912331871437,
+          "combined": 0.15623567174820474,
+          "confidence": "low"
+        },
+        "goals": {
+          "winLikelihood": 0.42576835228934573,
+          "bttsLikelihood": 0.45696912331871437,
+          "combined": 0.46021274081261393,
+          "confidence": "low"
+        },
+        "dc1x": {
+          "winLikelihood": 0.4870502079621908,
+          "bttsLikelihood": 0.45696912331871437,
+          "combined": 0.3895839542808379,
+          "confidence": "low"
+        },
+        "homeWin": {
+          "winLikelihood": 0.28848914234814915,
+          "bttsLikelihood": null,
+          "combined": 0.28848914234814915,
+          "confidence": "low"
+        },
+        "awayWin": {
+          "winLikelihood": 0.3991773211486667,
+          "bttsLikelihood": null,
+          "combined": 0.3991773211486667,
+          "confidence": "low"
+        },
+        "draw": {
+          "winLikelihood": 0.2788775529963576,
+          "bttsLikelihood": null,
+          "combined": 0.2788775529963576,
+          "confidence": "low"
+        },
+        "expectedGoals": {
+          "home": 0.8904687206917207,
+          "away": 1.4922445665979533
+        },
+        "sampleHome": 4,
+        "sampleAway": 5,
+        "best": {
+          "winLikelihood": 0.42576835228934573,
+          "bttsLikelihood": 0.45696912331871437,
+          "combined": 0.43476310898587783,
+          "confidence": "low",
+          "sourceMode": "goals"
+        }
+      },
+      "probSource": "model"
+    },
+    {
       "id": "401880218",
       "date": "2026-10-16T19:00Z",
       "league": "Championship",
@@ -10505,6 +10750,129 @@
           "combined": 0.43926333653239064,
           "confidence": "low",
           "sourceMode": "homeWin"
+        }
+      },
+      "probSource": "model"
+    },
+    {
+      "id": "tsdb-2528910",
+      "date": "2026-10-14T11:30:00.000Z",
+      "league": "TFF 1. Lig",
+      "leagueCountry": "Turkey",
+      "home": {
+        "id": "tsdb-146459",
+        "name": "Batman Petrolspor"
+      },
+      "away": {
+        "id": "tsdb-134238",
+        "name": "İstanbulspor"
+      },
+      "stats": {
+        "home": {
+          "homeSample": 4,
+          "awaySample": 5,
+          "homeGoalsForAvg": 2.25,
+          "homeGoalsAgainstAvg": 1.5,
+          "awayGoalsForAvg": 1.4,
+          "awayGoalsAgainstAvg": 1.8,
+          "homeForm": [
+            "W",
+            "W",
+            "W",
+            "L"
+          ],
+          "awayForm": [
+            "D",
+            "W",
+            "W",
+            "L",
+            "L"
+          ]
+        },
+        "away": {
+          "homeSample": 17,
+          "awaySample": 20,
+          "homeGoalsForAvg": 1.5294117647058822,
+          "homeGoalsAgainstAvg": 1.7058823529411764,
+          "awayGoalsForAvg": 1.3,
+          "awayGoalsAgainstAvg": 1.7,
+          "homeForm": [
+            "W",
+            "D",
+            "D",
+            "L",
+            "L"
+          ],
+          "awayForm": [
+            "L",
+            "L",
+            "L",
+            "L",
+            "W"
+          ]
+        }
+      },
+      "score": {
+        "winLikelihood": 0.273681021277467,
+        "bttsLikelihood": 0.7186866445018996,
+        "combined": 0.1732351255980237,
+        "confidence": "low"
+      },
+      "modes": {
+        "away": {
+          "winLikelihood": 0.273681021277467,
+          "bttsLikelihood": 0.7186866445018996,
+          "combined": 0.1732351255980237,
+          "confidence": "low"
+        },
+        "home": {
+          "winLikelihood": 0.5258190052886588,
+          "bttsLikelihood": 0.7186866445018996,
+          "combined": 0.31209557672857063,
+          "confidence": "low"
+        },
+        "goals": {
+          "winLikelihood": 0.744911944286444,
+          "bttsLikelihood": 0.7186866445018996,
+          "combined": 0.673335544262749,
+          "confidence": "low"
+        },
+        "dc1x": {
+          "winLikelihood": 0.726318117890152,
+          "bttsLikelihood": 0.7186866445018996,
+          "combined": 0.6078133666170308,
+          "confidence": "low"
+        },
+        "homeWin": {
+          "winLikelihood": 0.4652013744373219,
+          "bttsLikelihood": null,
+          "combined": 0.4652013744373219,
+          "confidence": "low"
+        },
+        "awayWin": {
+          "winLikelihood": 0.30666666666666664,
+          "bttsLikelihood": null,
+          "combined": 0.30666666666666664,
+          "confidence": "low"
+        },
+        "draw": {
+          "winLikelihood": 0.22651944076322322,
+          "bttsLikelihood": null,
+          "combined": 0.22651944076322322,
+          "confidence": "low"
+        },
+        "expectedGoals": {
+          "home": 2.2706952377638876,
+          "away": 1.6165982804811163
+        },
+        "sampleHome": 4,
+        "sampleAway": 20,
+        "best": {
+          "winLikelihood": 0.744911944286444,
+          "bttsLikelihood": 0.7186866445018996,
+          "combined": 0.6767490065621019,
+          "confidence": "low",
+          "sourceMode": "goals"
         }
       },
       "probSource": "model"
@@ -11685,6 +12053,129 @@
       "probSource": "model"
     },
     {
+      "id": "tsdb-2528915",
+      "date": "2026-10-18T16:00:00.000Z",
+      "league": "TFF 1. Lig",
+      "leagueCountry": "Turkey",
+      "home": {
+        "id": "tsdb-134238",
+        "name": "İstanbulspor"
+      },
+      "away": {
+        "id": "tsdb-133799",
+        "name": "Antalyaspor"
+      },
+      "stats": {
+        "home": {
+          "homeSample": 17,
+          "awaySample": 20,
+          "homeGoalsForAvg": 1.5294117647058822,
+          "homeGoalsAgainstAvg": 1.7058823529411764,
+          "awayGoalsForAvg": 1.3,
+          "awayGoalsAgainstAvg": 1.7,
+          "homeForm": [
+            "W",
+            "D",
+            "D",
+            "L",
+            "L"
+          ],
+          "awayForm": [
+            "L",
+            "L",
+            "L",
+            "L",
+            "W"
+          ]
+        },
+        "away": {
+          "homeSample": 5,
+          "awaySample": 4,
+          "homeGoalsForAvg": 2.2,
+          "homeGoalsAgainstAvg": 2,
+          "awayGoalsForAvg": 1,
+          "awayGoalsAgainstAvg": 0.75,
+          "homeForm": [
+            "W",
+            "L",
+            "L",
+            "L",
+            "W"
+          ],
+          "awayForm": [
+            "L",
+            "W",
+            "W",
+            "W"
+          ]
+        }
+      },
+      "score": {
+        "winLikelihood": 0.5469380902497315,
+        "bttsLikelihood": 0.3737967860349487,
+        "combined": 0.16547667619340226,
+        "confidence": "low"
+      },
+      "modes": {
+        "away": {
+          "winLikelihood": 0.5469380902497315,
+          "bttsLikelihood": 0.3737967860349487,
+          "combined": 0.16547667619340226,
+          "confidence": "low"
+        },
+        "home": {
+          "winLikelihood": 0.17974184815803487,
+          "bttsLikelihood": 0.3737967860349487,
+          "combined": 0.11730372733552236,
+          "confidence": "low"
+        },
+        "goals": {
+          "winLikelihood": 0.34906306824532957,
+          "bttsLikelihood": 0.3737967860349487,
+          "combined": 0.404874139356934,
+          "confidence": "low"
+        },
+        "dc1x": {
+          "winLikelihood": 0.45306190582196976,
+          "bttsLikelihood": 0.3737967860349487,
+          "combined": 0.3413370661895952,
+          "confidence": "low"
+        },
+        "homeWin": {
+          "winLikelihood": 0.2613308806718305,
+          "bttsLikelihood": null,
+          "combined": 0.2613308806718305,
+          "confidence": "low"
+        },
+        "awayWin": {
+          "winLikelihood": 0.4372637368098538,
+          "bttsLikelihood": null,
+          "combined": 0.4372637368098538,
+          "confidence": "low"
+        },
+        "draw": {
+          "winLikelihood": 0.2895127726704466,
+          "bttsLikelihood": null,
+          "combined": 0.2895127726704466,
+          "confidence": "low"
+        },
+        "expectedGoals": {
+          "home": 0.6809466687642569,
+          "away": 1.414218706906557
+        },
+        "sampleHome": 17,
+        "sampleAway": 4,
+        "best": {
+          "winLikelihood": 0.4176545369281305,
+          "bttsLikelihood": null,
+          "combined": 0.4176545369281305,
+          "confidence": "low",
+          "sourceMode": "awayWin"
+        }
+      },
+      "probSource": "model"
+    },
+    {
       "id": "401875579",
       "date": "2026-10-17T19:00Z",
       "league": "Eredivisie",
@@ -11801,6 +12292,252 @@
           "bttsLikelihood": 0.631891134409227,
           "combined": 0.48828137878222067,
           "confidence": "low",
+          "sourceMode": "goals"
+        }
+      },
+      "probSource": "model"
+    },
+    {
+      "id": "tsdb-2528902",
+      "date": "2026-10-14T17:00:00.000Z",
+      "league": "TFF 1. Lig",
+      "leagueCountry": "Turkey",
+      "home": {
+        "id": "tsdb-133799",
+        "name": "Antalyaspor"
+      },
+      "away": {
+        "id": "tsdb-133802",
+        "name": "Kayserispor"
+      },
+      "stats": {
+        "home": {
+          "homeSample": 5,
+          "awaySample": 4,
+          "homeGoalsForAvg": 2.2,
+          "homeGoalsAgainstAvg": 2,
+          "awayGoalsForAvg": 1,
+          "awayGoalsAgainstAvg": 0.75,
+          "homeForm": [
+            "W",
+            "L",
+            "L",
+            "L",
+            "W"
+          ],
+          "awayForm": [
+            "L",
+            "W",
+            "W",
+            "W"
+          ]
+        },
+        "away": {
+          "homeSample": 4,
+          "awaySample": 5,
+          "homeGoalsForAvg": 2.5,
+          "homeGoalsAgainstAvg": 1,
+          "awayGoalsForAvg": 1.6,
+          "awayGoalsAgainstAvg": 0.2,
+          "homeForm": [
+            "W",
+            "L",
+            "W",
+            "W"
+          ],
+          "awayForm": [
+            "W",
+            "W",
+            "D",
+            "W",
+            "W"
+          ]
+        }
+      },
+      "score": {
+        "winLikelihood": 0.8789074078283393,
+        "bttsLikelihood": 0.21368094594730647,
+        "combined": 0.16524486479601352,
+        "confidence": "ok"
+      },
+      "modes": {
+        "away": {
+          "winLikelihood": 0.8789074078283393,
+          "bttsLikelihood": 0.21368094594730647,
+          "combined": 0.16524486479601352,
+          "confidence": "ok"
+        },
+        "home": {
+          "winLikelihood": 0.022203090108541244,
+          "bttsLikelihood": 0.21368094594730647,
+          "combined": 0.06666666666666667,
+          "confidence": "ok"
+        },
+        "goals": {
+          "winLikelihood": 0.5572836918443648,
+          "bttsLikelihood": 0.21368094594730647,
+          "combined": 0.38333333333333336,
+          "confidence": "ok"
+        },
+        "dc1x": {
+          "winLikelihood": 0.12108810810846594,
+          "bttsLikelihood": 0.21368094594730647,
+          "combined": 0.23333333333333334,
+          "confidence": "ok"
+        },
+        "homeWin": {
+          "winLikelihood": 0.06666666666666667,
+          "bttsLikelihood": null,
+          "combined": 0.06666666666666667,
+          "confidence": "ok"
+        },
+        "awayWin": {
+          "winLikelihood": 0.6071428571428571,
+          "bttsLikelihood": null,
+          "combined": 0.6071428571428571,
+          "confidence": "ok"
+        },
+        "draw": {
+          "winLikelihood": 0.2037037037037037,
+          "bttsLikelihood": null,
+          "combined": 0.2037037037037037,
+          "confidence": "ok"
+        },
+        "expectedGoals": {
+          "home": 0.2612041580695714,
+          "away": 2.652879229507473
+        },
+        "sampleHome": 5,
+        "sampleAway": 5,
+        "best": {
+          "winLikelihood": 0.6480768196143711,
+          "bttsLikelihood": null,
+          "combined": 0.6480768196143711,
+          "confidence": "ok",
+          "sourceMode": "awayWin"
+        }
+      },
+      "probSource": "model"
+    },
+    {
+      "id": "tsdb-2528906",
+      "date": "2026-10-15T17:00:00.000Z",
+      "league": "TFF 1. Lig",
+      "leagueCountry": "Turkey",
+      "home": {
+        "id": "tsdb-138955",
+        "name": "Manisa"
+      },
+      "away": {
+        "id": "tsdb-146461",
+        "name": "Esenler Erokspor"
+      },
+      "stats": {
+        "home": {
+          "homeSample": 18,
+          "awaySample": 19,
+          "homeGoalsForAvg": 1.8888888888888888,
+          "homeGoalsAgainstAvg": 0.8333333333333334,
+          "awayGoalsForAvg": 1.2105263157894737,
+          "awayGoalsAgainstAvg": 1.894736842105263,
+          "homeForm": [
+            "W",
+            "W",
+            "D",
+            "L",
+            "L"
+          ],
+          "awayForm": [
+            "W",
+            "D",
+            "L",
+            "D",
+            "L"
+          ]
+        },
+        "away": {
+          "homeSample": 17,
+          "awaySample": 20,
+          "homeGoalsForAvg": 1.2352941176470589,
+          "homeGoalsAgainstAvg": 1,
+          "awayGoalsForAvg": 1.85,
+          "awayGoalsAgainstAvg": 0.8,
+          "homeForm": [
+            "D",
+            "D",
+            "L",
+            "L",
+            "L"
+          ],
+          "awayForm": [
+            "D",
+            "D",
+            "D",
+            "D",
+            "W"
+          ]
+        }
+      },
+      "score": {
+        "winLikelihood": 0.4525726294079466,
+        "bttsLikelihood": 0.4272552515068369,
+        "combined": 0.16391565470081887,
+        "confidence": "ok"
+      },
+      "modes": {
+        "away": {
+          "winLikelihood": 0.4525726294079466,
+          "bttsLikelihood": 0.4272552515068369,
+          "combined": 0.16391565470081887,
+          "confidence": "ok"
+        },
+        "home": {
+          "winLikelihood": 0.26115874893092866,
+          "bttsLikelihood": 0.4272552515068369,
+          "combined": 0.15797803360771517,
+          "confidence": "ok"
+        },
+        "goals": {
+          "winLikelihood": 0.37061418743985053,
+          "bttsLikelihood": 0.4272552515068369,
+          "combined": 0.42948583518444583,
+          "confidence": "ok"
+        },
+        "dc1x": {
+          "winLikelihood": 0.5474273693804724,
+          "bttsLikelihood": 0.4272552515068369,
+          "combined": 0.3968823274853276,
+          "confidence": "ok"
+        },
+        "homeWin": {
+          "winLikelihood": 0.2949051536760675,
+          "bttsLikelihood": null,
+          "combined": 0.2949051536760675,
+          "confidence": "ok"
+        },
+        "awayWin": {
+          "winLikelihood": 0.38092729948801357,
+          "bttsLikelihood": null,
+          "combined": 0.38092729948801357,
+          "confidence": "ok"
+        },
+        "draw": {
+          "winLikelihood": 0.30193439359778096,
+          "bttsLikelihood": null,
+          "combined": 0.30193439359778096,
+          "confidence": "ok"
+        },
+        "expectedGoals": {
+          "home": 0.8970647852894372,
+          "away": 1.2780798371325066
+        },
+        "sampleHome": 18,
+        "sampleAway": 20,
+        "best": {
+          "winLikelihood": 0.37061418743985053,
+          "bttsLikelihood": 0.4272552515068369,
+          "combined": 0.4147856394543396,
+          "confidence": "ok",
           "sourceMode": "goals"
         }
       },
@@ -14916,6 +15653,129 @@
       "probSource": "model"
     },
     {
+      "id": "tsdb-2528920",
+      "date": "2026-10-19T17:00:00.000Z",
+      "league": "TFF 1. Lig",
+      "leagueCountry": "Turkey",
+      "home": {
+        "id": "tsdb-146461",
+        "name": "Esenler Erokspor"
+      },
+      "away": {
+        "id": "tsdb-149636",
+        "name": "Mardin 1969"
+      },
+      "stats": {
+        "home": {
+          "homeSample": 17,
+          "awaySample": 20,
+          "homeGoalsForAvg": 1.2352941176470589,
+          "homeGoalsAgainstAvg": 1,
+          "awayGoalsForAvg": 1.85,
+          "awayGoalsAgainstAvg": 0.8,
+          "homeForm": [
+            "D",
+            "D",
+            "L",
+            "L",
+            "L"
+          ],
+          "awayForm": [
+            "D",
+            "D",
+            "D",
+            "D",
+            "W"
+          ]
+        },
+        "away": {
+          "homeSample": 4,
+          "awaySample": 5,
+          "homeGoalsForAvg": 1,
+          "homeGoalsAgainstAvg": 0.5,
+          "awayGoalsForAvg": 1.4,
+          "awayGoalsAgainstAvg": 0.8,
+          "homeForm": [
+            "W",
+            "D",
+            "W",
+            "L"
+          ],
+          "awayForm": [
+            "D",
+            "W",
+            "D",
+            "L",
+            "W"
+          ]
+        }
+      },
+      "score": {
+        "winLikelihood": 0.49867825461598486,
+        "bttsLikelihood": 0.3047762443032427,
+        "combined": 0.15198551569083765,
+        "confidence": "ok"
+      },
+      "modes": {
+        "away": {
+          "winLikelihood": 0.49867825461598486,
+          "bttsLikelihood": 0.3047762443032427,
+          "combined": 0.15198551569083765,
+          "confidence": "ok"
+        },
+        "home": {
+          "winLikelihood": 0.18664358101539855,
+          "bttsLikelihood": 0.3047762443032427,
+          "combined": 0.09744671010955261,
+          "confidence": "ok"
+        },
+        "goals": {
+          "winLikelihood": 0.2553110413375836,
+          "bttsLikelihood": 0.3047762443032427,
+          "combined": 0.38333333333333336,
+          "confidence": "ok"
+        },
+        "dc1x": {
+          "winLikelihood": 0.5013217450036843,
+          "bttsLikelihood": 0.3047762443032427,
+          "combined": 0.324428897735977,
+          "confidence": "ok"
+        },
+        "homeWin": {
+          "winLikelihood": 0.26548929195956805,
+          "bttsLikelihood": null,
+          "combined": 0.26548929195956805,
+          "confidence": "ok"
+        },
+        "awayWin": {
+          "winLikelihood": 0.3948635085558462,
+          "bttsLikelihood": null,
+          "combined": 0.3948635085558462,
+          "confidence": "ok"
+        },
+        "draw": {
+          "winLikelihood": 0.31913907203171205,
+          "bttsLikelihood": null,
+          "combined": 0.31913907203171205,
+          "confidence": "ok"
+        },
+        "expectedGoals": {
+          "home": 0.5866617453968984,
+          "away": 1.1606346629095192
+        },
+        "sampleHome": 17,
+        "sampleAway": 5,
+        "best": {
+          "winLikelihood": 0.4083333333333333,
+          "bttsLikelihood": null,
+          "combined": 0.4083333333333333,
+          "confidence": "ok",
+          "sourceMode": "awayWin"
+        }
+      },
+      "probSource": "model"
+    },
+    {
       "id": "401879257",
       "date": "2026-10-19T19:00Z",
       "league": "Premier League",
@@ -15247,6 +16107,129 @@
           "winLikelihood": 0.3233235836897413,
           "bttsLikelihood": 0.3995764008133253,
           "combined": 0.43333333333333335,
+          "confidence": "low",
+          "sourceMode": "goals"
+        }
+      },
+      "probSource": "model"
+    },
+    {
+      "id": "tsdb-2528914",
+      "date": "2026-10-19T17:00:00.000Z",
+      "league": "TFF 1. Lig",
+      "leagueCountry": "Turkey",
+      "home": {
+        "id": "tsdb-133801",
+        "name": "Bursaspor"
+      },
+      "away": {
+        "id": "tsdb-138957",
+        "name": "Pendikspor"
+      },
+      "stats": {
+        "home": {
+          "homeSample": 4,
+          "awaySample": 5,
+          "homeGoalsForAvg": 2,
+          "homeGoalsAgainstAvg": 1,
+          "awayGoalsForAvg": 1.8,
+          "awayGoalsAgainstAvg": 1,
+          "homeForm": [
+            "W",
+            "W",
+            "D",
+            "L"
+          ],
+          "awayForm": [
+            "W",
+            "L",
+            "W",
+            "W",
+            "W"
+          ]
+        },
+        "away": {
+          "homeSample": 19,
+          "awaySample": 18,
+          "homeGoalsForAvg": 1.4210526315789473,
+          "homeGoalsAgainstAvg": 0.7368421052631579,
+          "awayGoalsForAvg": 1.2777777777777777,
+          "awayGoalsAgainstAvg": 1.5,
+          "homeForm": [
+            "W",
+            "D",
+            "D",
+            "W",
+            "D"
+          ],
+          "awayForm": [
+            "L",
+            "W",
+            "L",
+            "D",
+            "L"
+          ]
+        }
+      },
+      "score": {
+        "winLikelihood": 0.22432591674605837,
+        "bttsLikelihood": 0.5432359249777077,
+        "combined": 0.15127392029242417,
+        "confidence": "low"
+      },
+      "modes": {
+        "away": {
+          "winLikelihood": 0.22432591674605837,
+          "bttsLikelihood": 0.5432359249777077,
+          "combined": 0.15127392029242417,
+          "confidence": "low"
+        },
+        "home": {
+          "winLikelihood": 0.5428117166397886,
+          "bttsLikelihood": 0.5432359249777077,
+          "combined": 0.2290513386518072,
+          "confidence": "low"
+        },
+        "goals": {
+          "winLikelihood": 0.5400845225702885,
+          "bttsLikelihood": 0.5432359249777077,
+          "combined": 0.4829582814384144,
+          "confidence": "low"
+        },
+        "dc1x": {
+          "winLikelihood": 0.775674026996084,
+          "bttsLikelihood": 0.5432359249777077,
+          "combined": 0.41889205674049207,
+          "confidence": "low"
+        },
+        "homeWin": {
+          "winLikelihood": 0.4824620480716166,
+          "bttsLikelihood": null,
+          "combined": 0.4824620480716166,
+          "confidence": "low"
+        },
+        "awayWin": {
+          "winLikelihood": 0.2645296001613462,
+          "bttsLikelihood": null,
+          "combined": 0.2645296001613462,
+          "confidence": "low"
+        },
+        "draw": {
+          "winLikelihood": 0.2681364509699649,
+          "bttsLikelihood": null,
+          "combined": 0.2681364509699649,
+          "confidence": "low"
+        },
+        "expectedGoals": {
+          "home": 1.7809374413834413,
+          "away": 1.0593094145602755
+        },
+        "sampleHome": 4,
+        "sampleAway": 18,
+        "best": {
+          "winLikelihood": 0.5400845225702885,
+          "bttsLikelihood": 0.5432359249777077,
+          "combined": 0.4734636577004422,
           "confidence": "low",
           "sourceMode": "goals"
         }
@@ -16677,6 +17660,130 @@
       "probSource": "bwin"
     },
     {
+      "id": "tsdb-2528919",
+      "date": "2026-10-18T13:00:00.000Z",
+      "league": "TFF 1. Lig",
+      "leagueCountry": "Turkey",
+      "home": {
+        "id": "tsdb-138969",
+        "name": "Vanspor"
+      },
+      "away": {
+        "id": "tsdb-138935",
+        "name": "Ümraniyespor"
+      },
+      "stats": {
+        "home": {
+          "homeSample": 19,
+          "awaySample": 18,
+          "homeGoalsForAvg": 1.2105263157894737,
+          "homeGoalsAgainstAvg": 1.263157894736842,
+          "awayGoalsForAvg": 1.5,
+          "awayGoalsAgainstAvg": 1.8888888888888888,
+          "homeForm": [
+            "L",
+            "W",
+            "L",
+            "D",
+            "L"
+          ],
+          "awayForm": [
+            "L",
+            "L",
+            "D",
+            "D",
+            "L"
+          ]
+        },
+        "away": {
+          "homeSample": 18,
+          "awaySample": 19,
+          "homeGoalsForAvg": 1.6666666666666667,
+          "homeGoalsAgainstAvg": 1.1111111111111112,
+          "awayGoalsForAvg": 0.8947368421052632,
+          "awayGoalsAgainstAvg": 1.3157894736842106,
+          "homeForm": [
+            "D",
+            "D",
+            "L",
+            "L",
+            "D"
+          ],
+          "awayForm": [
+            "W",
+            "L",
+            "D",
+            "L",
+            "W"
+          ]
+        }
+      },
+      "score": {
+        "winLikelihood": 0.33767702377188635,
+        "bttsLikelihood": 0.3719261017718513,
+        "combined": 0.1475978175095575,
+        "confidence": "ok"
+      },
+      "modes": {
+        "away": {
+          "winLikelihood": 0.33767702377188635,
+          "bttsLikelihood": 0.3719261017718513,
+          "combined": 0.1475978175095575,
+          "confidence": "ok"
+        },
+        "home": {
+          "winLikelihood": 0.3422934561935115,
+          "bttsLikelihood": 0.3719261017718513,
+          "combined": 0.16086154902601438,
+          "confidence": "ok"
+        },
+        "goals": {
+          "winLikelihood": 0.2915618981750682,
+          "bttsLikelihood": 0.3719261017718513,
+          "combined": 0.3945400227861946,
+          "confidence": "ok"
+        },
+        "dc1x": {
+          "winLikelihood": 0.6623229761668977,
+          "bttsLikelihood": 0.3719261017718513,
+          "combined": 0.3986866223536142,
+          "confidence": "ok"
+        },
+        "homeWin": {
+          "winLikelihood": 0.33308046254582624,
+          "bttsLikelihood": null,
+          "combined": 0.33308046254582624,
+          "confidence": "ok"
+        },
+        "awayWin": {
+          "winLikelihood": 0.3338883013479357,
+          "bttsLikelihood": null,
+          "combined": 0.3338883013479357,
+          "confidence": "ok"
+        },
+        "draw": {
+          "winLikelihood": 0.3214189240554279,
+          "bttsLikelihood": null,
+          "combined": 0.3214189240554279,
+          "confidence": "ok"
+        },
+        "expectedGoals": {
+          "home": 0.9455577366532584,
+          "away": 0.9369587306432209
+        },
+        "sampleHome": 19,
+        "sampleAway": 19,
+        "best": {
+          "winLikelihood": 0.6623229761668977,
+          "bttsLikelihood": 0.3719261017718513,
+          "combined": 0.4083333333333333,
+          "confidence": "ok",
+          "sourceMode": "dc1x"
+        }
+      },
+      "probSource": "model"
+    },
+    {
       "id": "401885090",
       "date": "2026-10-17T11:00Z",
       "league": "2. Bundesliga",
@@ -17409,6 +18516,252 @@
       "probSource": "model"
     },
     {
+      "id": "tsdb-2528912",
+      "date": "2026-10-18T13:00:00.000Z",
+      "league": "TFF 1. Lig",
+      "leagueCountry": "Turkey",
+      "home": {
+        "id": "tsdb-133802",
+        "name": "Kayserispor"
+      },
+      "away": {
+        "id": "tsdb-146459",
+        "name": "Batman Petrolspor"
+      },
+      "stats": {
+        "home": {
+          "homeSample": 4,
+          "awaySample": 5,
+          "homeGoalsForAvg": 2.5,
+          "homeGoalsAgainstAvg": 1,
+          "awayGoalsForAvg": 1.6,
+          "awayGoalsAgainstAvg": 0.2,
+          "homeForm": [
+            "W",
+            "L",
+            "W",
+            "W"
+          ],
+          "awayForm": [
+            "W",
+            "W",
+            "D",
+            "W",
+            "W"
+          ]
+        },
+        "away": {
+          "homeSample": 4,
+          "awaySample": 5,
+          "homeGoalsForAvg": 2.25,
+          "homeGoalsAgainstAvg": 1.5,
+          "awayGoalsForAvg": 1.4,
+          "awayGoalsAgainstAvg": 1.8,
+          "homeForm": [
+            "W",
+            "W",
+            "W",
+            "L"
+          ],
+          "awayForm": [
+            "D",
+            "W",
+            "W",
+            "L",
+            "L"
+          ]
+        }
+      },
+      "score": {
+        "winLikelihood": 0.14263085813051532,
+        "bttsLikelihood": 0.6392198408970838,
+        "combined": 0.1460487571429998,
+        "confidence": "low"
+      },
+      "modes": {
+        "away": {
+          "winLikelihood": 0.14263085813051532,
+          "bttsLikelihood": 0.6392198408970838,
+          "combined": 0.1460487571429998,
+          "confidence": "low"
+        },
+        "home": {
+          "winLikelihood": 0.694571684786064,
+          "bttsLikelihood": 0.6392198408970838,
+          "combined": 0.41448297238688686,
+          "confidence": "low"
+        },
+        "goals": {
+          "winLikelihood": 0.7362344378568454,
+          "bttsLikelihood": 0.6392198408970838,
+          "combined": 0.5272523079889474,
+          "confidence": "low"
+        },
+        "dc1x": {
+          "winLikelihood": 0.8573643153248949,
+          "bttsLikelihood": 0.6392198408970838,
+          "combined": 0.6335537246109681,
+          "confidence": "low"
+        },
+        "homeWin": {
+          "winLikelihood": 0.6585407465705622,
+          "bttsLikelihood": null,
+          "combined": 0.6585407465705622,
+          "confidence": "low"
+        },
+        "awayWin": {
+          "winLikelihood": 0.18056027400759034,
+          "bttsLikelihood": null,
+          "combined": 0.18056027400759034,
+          "confidence": "low"
+        },
+        "draw": {
+          "winLikelihood": 0.2037037037037037,
+          "bttsLikelihood": null,
+          "combined": 0.2037037037037037,
+          "confidence": "low"
+        },
+        "expectedGoals": {
+          "home": 2.6714061620751623,
+          "away": 1.1606346629095192
+        },
+        "sampleHome": 4,
+        "sampleAway": 5,
+        "best": {
+          "winLikelihood": 0.6737140486042709,
+          "bttsLikelihood": null,
+          "combined": 0.6737140486042709,
+          "confidence": "low",
+          "sourceMode": "homeWin"
+        }
+      },
+      "probSource": "model"
+    },
+    {
+      "id": "tsdb-2528907",
+      "date": "2026-10-13T17:00:00.000Z",
+      "league": "TFF 1. Lig",
+      "leagueCountry": "Turkey",
+      "home": {
+        "id": "tsdb-138957",
+        "name": "Pendikspor"
+      },
+      "away": {
+        "id": "tsdb-138969",
+        "name": "Vanspor"
+      },
+      "stats": {
+        "home": {
+          "homeSample": 19,
+          "awaySample": 18,
+          "homeGoalsForAvg": 1.4210526315789473,
+          "homeGoalsAgainstAvg": 0.7368421052631579,
+          "awayGoalsForAvg": 1.2777777777777777,
+          "awayGoalsAgainstAvg": 1.5,
+          "homeForm": [
+            "W",
+            "D",
+            "D",
+            "W",
+            "D"
+          ],
+          "awayForm": [
+            "L",
+            "W",
+            "L",
+            "D",
+            "L"
+          ]
+        },
+        "away": {
+          "homeSample": 19,
+          "awaySample": 18,
+          "homeGoalsForAvg": 1.2105263157894737,
+          "homeGoalsAgainstAvg": 1.263157894736842,
+          "awayGoalsForAvg": 1.5,
+          "awayGoalsAgainstAvg": 1.8888888888888888,
+          "homeForm": [
+            "L",
+            "W",
+            "L",
+            "D",
+            "L"
+          ],
+          "awayForm": [
+            "L",
+            "L",
+            "D",
+            "D",
+            "L"
+          ]
+        }
+      },
+      "score": {
+        "winLikelihood": 0.2165568106610985,
+        "bttsLikelihood": 0.4780684361331987,
+        "combined": 0.14592298160284928,
+        "confidence": "ok"
+      },
+      "modes": {
+        "away": {
+          "winLikelihood": 0.2165568106610985,
+          "bttsLikelihood": 0.4780684361331987,
+          "combined": 0.14592298160284928,
+          "confidence": "ok"
+        },
+        "home": {
+          "winLikelihood": 0.532437036394874,
+          "bttsLikelihood": 0.4780684361331987,
+          "combined": 0.2229434268633307,
+          "confidence": "ok"
+        },
+        "goals": {
+          "winLikelihood": 0.4586882278636174,
+          "bttsLikelihood": 0.4780684361331987,
+          "combined": 0.4635607089023426,
+          "confidence": "ok"
+        },
+        "dc1x": {
+          "winLikelihood": 0.7834431736070031,
+          "bttsLikelihood": 0.4780684361331987,
+          "combined": 0.41369268551550464,
+          "confidence": "ok"
+        },
+        "homeWin": {
+          "winLikelihood": 0.4687800104186193,
+          "bttsLikelihood": null,
+          "combined": 0.4687800104186193,
+          "confidence": "ok"
+        },
+        "awayWin": {
+          "winLikelihood": 0.25174183165469166,
+          "bttsLikelihood": null,
+          "combined": 0.25174183165469166,
+          "confidence": "ok"
+        },
+        "draw": {
+          "winLikelihood": 0.2699588579021457,
+          "bttsLikelihood": null,
+          "combined": 0.2699588579021457,
+          "confidence": "ok"
+        },
+        "expectedGoals": {
+          "home": 1.5934703422904475,
+          "away": 0.9162905233496204
+        },
+        "sampleHome": 19,
+        "sampleAway": 18,
+        "best": {
+          "winLikelihood": 0.45947523736731755,
+          "bttsLikelihood": null,
+          "combined": 0.45947523736731755,
+          "confidence": "ok",
+          "sourceMode": "homeWin"
+        }
+      },
+      "probSource": "model"
+    },
+    {
       "id": "401874784",
       "date": "2026-10-19T18:45Z",
       "league": "Serie A",
@@ -18011,6 +19364,130 @@
         "expectedGoals": {
           "home": 1.8242425436896466,
           "away": 0.9309951362081104
+        },
+        "sampleHome": 18,
+        "sampleAway": 18,
+        "best": {
+          "winLikelihood": 0.4888888888888889,
+          "bttsLikelihood": null,
+          "combined": 0.4888888888888889,
+          "confidence": "ok",
+          "sourceMode": "homeWin"
+        }
+      },
+      "probSource": "model"
+    },
+    {
+      "id": "tsdb-2528921",
+      "date": "2026-10-18T10:30:00.000Z",
+      "league": "TFF 1. Lig",
+      "leagueCountry": "Turkey",
+      "home": {
+        "id": "tsdb-147638",
+        "name": "Iğdır"
+      },
+      "away": {
+        "id": "tsdb-138939",
+        "name": "Boluspor"
+      },
+      "stats": {
+        "home": {
+          "homeSample": 18,
+          "awaySample": 19,
+          "homeGoalsForAvg": 1.3888888888888888,
+          "homeGoalsAgainstAvg": 1.2222222222222223,
+          "awayGoalsForAvg": 1.263157894736842,
+          "awayGoalsAgainstAvg": 1.4210526315789473,
+          "homeForm": [
+            "W",
+            "L",
+            "W",
+            "W",
+            "W"
+          ],
+          "awayForm": [
+            "L",
+            "L",
+            "W",
+            "W",
+            "D"
+          ]
+        },
+        "away": {
+          "homeSample": 19,
+          "awaySample": 18,
+          "homeGoalsForAvg": 1.631578947368421,
+          "homeGoalsAgainstAvg": 1.105263157894737,
+          "awayGoalsForAvg": 0.9444444444444444,
+          "awayGoalsAgainstAvg": 2.388888888888889,
+          "homeForm": [
+            "L",
+            "L",
+            "L",
+            "D",
+            "L"
+          ],
+          "awayForm": [
+            "L",
+            "L",
+            "L",
+            "L",
+            "L"
+          ]
+        }
+      },
+      "score": {
+        "winLikelihood": 0.17702714646085282,
+        "bttsLikelihood": 0.5300148546149476,
+        "combined": 0.1450637313375771,
+        "confidence": "ok"
+      },
+      "modes": {
+        "away": {
+          "winLikelihood": 0.17702714646085282,
+          "bttsLikelihood": 0.5300148546149476,
+          "combined": 0.1450637313375771,
+          "confidence": "ok"
+        },
+        "home": {
+          "winLikelihood": 0.6095850023088368,
+          "bttsLikelihood": 0.5300148546149476,
+          "combined": 0.23347667190305282,
+          "confidence": "ok"
+        },
+        "goals": {
+          "winLikelihood": 0.5601699614155181,
+          "bttsLikelihood": 0.5300148546149476,
+          "combined": 0.4816614132309316,
+          "confidence": "ok"
+        },
+        "dc1x": {
+          "winLikelihood": 0.8229726787201331,
+          "bttsLikelihood": 0.5300148546149476,
+          "combined": 0.4216274271024704,
+          "confidence": "ok"
+        },
+        "homeWin": {
+          "winLikelihood": 0.5333333333333333,
+          "bttsLikelihood": null,
+          "combined": 0.5333333333333333,
+          "confidence": "ok"
+        },
+        "awayWin": {
+          "winLikelihood": 0.2104498891214071,
+          "bttsLikelihood": null,
+          "combined": 0.2104498891214071,
+          "confidence": "ok"
+        },
+        "draw": {
+          "winLikelihood": 0.2429730309747906,
+          "bttsLikelihood": null,
+          "combined": 0.2429730309747906,
+          "confidence": "ok"
+        },
+        "expectedGoals": {
+          "home": 1.9696581784847729,
+          "away": 0.9569606788539687
         },
         "sampleHome": 18,
         "sampleAway": 18,
@@ -18886,6 +20363,130 @@
           "winLikelihood": 0.5912897390976253,
           "bttsLikelihood": null,
           "combined": 0.5912897390976253,
+          "confidence": "ok",
+          "sourceMode": "homeWin"
+        }
+      },
+      "probSource": "model"
+    },
+    {
+      "id": "tsdb-2528905",
+      "date": "2026-10-14T17:00:00.000Z",
+      "league": "TFF 1. Lig",
+      "leagueCountry": "Turkey",
+      "home": {
+        "id": "tsdb-138941",
+        "name": "Ankara Keçiörengücü"
+      },
+      "away": {
+        "id": "tsdb-147638",
+        "name": "Iğdır"
+      },
+      "stats": {
+        "home": {
+          "homeSample": 18,
+          "awaySample": 19,
+          "homeGoalsForAvg": 2.611111111111111,
+          "homeGoalsAgainstAvg": 0.8888888888888888,
+          "awayGoalsForAvg": 1.8421052631578947,
+          "awayGoalsAgainstAvg": 1.3157894736842106,
+          "homeForm": [
+            "W",
+            "W",
+            "D",
+            "W",
+            "D"
+          ],
+          "awayForm": [
+            "L",
+            "D",
+            "W",
+            "D",
+            "W"
+          ]
+        },
+        "away": {
+          "homeSample": 18,
+          "awaySample": 19,
+          "homeGoalsForAvg": 1.3888888888888888,
+          "homeGoalsAgainstAvg": 1.2222222222222223,
+          "awayGoalsForAvg": 1.263157894736842,
+          "awayGoalsAgainstAvg": 1.4210526315789473,
+          "homeForm": [
+            "W",
+            "L",
+            "W",
+            "W",
+            "W"
+          ],
+          "awayForm": [
+            "L",
+            "L",
+            "W",
+            "W",
+            "D"
+          ]
+        }
+      },
+      "score": {
+        "winLikelihood": 0.14657780742052148,
+        "bttsLikelihood": 0.5388368803201149,
+        "combined": 0.14226988874204297,
+        "confidence": "ok"
+      },
+      "modes": {
+        "away": {
+          "winLikelihood": 0.14657780742052148,
+          "bttsLikelihood": 0.5388368803201149,
+          "combined": 0.14226988874204297,
+          "confidence": "ok"
+        },
+        "home": {
+          "winLikelihood": 0.6628732616566866,
+          "bttsLikelihood": 0.5388368803201149,
+          "combined": 0.23995634641087768,
+          "confidence": "ok"
+        },
+        "goals": {
+          "winLikelihood": 0.6060601613376374,
+          "bttsLikelihood": 0.5388368803201149,
+          "combined": 0.48828409530741146,
+          "confidence": "ok"
+        },
+        "dc1x": {
+          "winLikelihood": 0.8534215886227909,
+          "bttsLikelihood": 0.5388368803201149,
+          "combined": 0.42721162085577213,
+          "confidence": "ok"
+        },
+        "homeWin": {
+          "winLikelihood": 0.5977662164442934,
+          "bttsLikelihood": null,
+          "combined": 0.5977662164442934,
+          "confidence": "ok"
+        },
+        "awayWin": {
+          "winLikelihood": 0.18399008579481113,
+          "bttsLikelihood": null,
+          "combined": 0.18399008579481113,
+          "confidence": "ok"
+        },
+        "draw": {
+          "winLikelihood": 0.22030964377713735,
+          "bttsLikelihood": null,
+          "combined": 0.22030964377713735,
+          "confidence": "ok"
+        },
+        "expectedGoals": {
+          "home": 2.2027384143426776,
+          "away": 0.9308348173710429
+        },
+        "sampleHome": 18,
+        "sampleAway": 19,
+        "best": {
+          "winLikelihood": 0.6399788863440531,
+          "bttsLikelihood": null,
+          "combined": 0.6399788863440531,
           "confidence": "ok",
           "sourceMode": "homeWin"
         }
@@ -19890,6 +21491,130 @@
       "probSource": "model"
     },
     {
+      "id": "tsdb-2528916",
+      "date": "2026-10-17T16:00:00.000Z",
+      "league": "TFF 1. Lig",
+      "leagueCountry": "Turkey",
+      "home": {
+        "id": "tsdb-138974",
+        "name": "Bodrum"
+      },
+      "away": {
+        "id": "tsdb-138970",
+        "name": "Bandırmaspor"
+      },
+      "stats": {
+        "home": {
+          "homeSample": 19,
+          "awaySample": 19,
+          "homeGoalsForAvg": 1.631578947368421,
+          "homeGoalsAgainstAvg": 0.8947368421052632,
+          "awayGoalsForAvg": 1.2105263157894737,
+          "awayGoalsAgainstAvg": 1.105263157894737,
+          "homeForm": [
+            "L",
+            "D",
+            "D",
+            "W",
+            "L"
+          ],
+          "awayForm": [
+            "D",
+            "D",
+            "L",
+            "D",
+            "W"
+          ]
+        },
+        "away": {
+          "homeSample": 20,
+          "awaySample": 18,
+          "homeGoalsForAvg": 1.45,
+          "homeGoalsAgainstAvg": 0.5,
+          "awayGoalsForAvg": 1,
+          "awayGoalsAgainstAvg": 1,
+          "homeForm": [
+            "D",
+            "L",
+            "W",
+            "L",
+            "D"
+          ],
+          "awayForm": [
+            "D",
+            "D",
+            "D",
+            "D",
+            "W"
+          ]
+        }
+      },
+      "score": {
+        "winLikelihood": 0.2689254627341484,
+        "bttsLikelihood": 0.3249073621975462,
+        "combined": 0.13994644771052875,
+        "confidence": "ok"
+      },
+      "modes": {
+        "away": {
+          "winLikelihood": 0.2689254627341484,
+          "bttsLikelihood": 0.3249073621975462,
+          "combined": 0.13994644771052875,
+          "confidence": "ok"
+        },
+        "home": {
+          "winLikelihood": 0.3950902526996194,
+          "bttsLikelihood": 0.3249073621975462,
+          "combined": 0.1595034699100169,
+          "confidence": "ok"
+        },
+        "goals": {
+          "winLikelihood": 0.24550851772111165,
+          "bttsLikelihood": 0.3249073621975462,
+          "combined": 0.38333333333333336,
+          "confidence": "ok"
+        },
+        "dc1x": {
+          "winLikelihood": 0.7310745372209576,
+          "bttsLikelihood": 0.3249073621975462,
+          "combined": 0.38150804455954584,
+          "confidence": "ok"
+        },
+        "homeWin": {
+          "winLikelihood": 0.3866445753454151,
+          "bttsLikelihood": null,
+          "combined": 0.3866445753454151,
+          "confidence": "ok"
+        },
+        "awayWin": {
+          "winLikelihood": 0.30666666666666664,
+          "bttsLikelihood": null,
+          "combined": 0.30666666666666664,
+          "confidence": "ok"
+        },
+        "draw": {
+          "winLikelihood": 0.3282161736392417,
+          "bttsLikelihood": null,
+          "combined": 0.3282161736392417,
+          "confidence": "ok"
+        },
+        "expectedGoals": {
+          "home": 0.9685800119804681,
+          "away": 0.7417589950925499
+        },
+        "sampleHome": 19,
+        "sampleAway": 18,
+        "best": {
+          "winLikelihood": 0.4083333333333333,
+          "bttsLikelihood": null,
+          "combined": 0.4083333333333333,
+          "confidence": "ok",
+          "sourceMode": "homeWin"
+        }
+      },
+      "probSource": "model"
+    },
+    {
       "id": "401915400",
       "date": "2026-10-20T19:00Z",
       "league": "UEFA Champions League",
@@ -20260,6 +21985,130 @@
       "probSource": "model"
     },
     {
+      "id": "tsdb-2528913",
+      "date": "2026-10-17T13:00:00.000Z",
+      "league": "TFF 1. Lig",
+      "leagueCountry": "Turkey",
+      "home": {
+        "id": "tsdb-133806",
+        "name": "Sivasspor"
+      },
+      "away": {
+        "id": "tsdb-138958",
+        "name": "Sarıyer"
+      },
+      "stats": {
+        "home": {
+          "homeSample": 20,
+          "awaySample": 18,
+          "homeGoalsForAvg": 1.5,
+          "homeGoalsAgainstAvg": 1.25,
+          "awayGoalsForAvg": 1,
+          "awayGoalsAgainstAvg": 1.2222222222222223,
+          "homeForm": [
+            "D",
+            "D",
+            "D",
+            "D",
+            "W"
+          ],
+          "awayForm": [
+            "L",
+            "L",
+            "W",
+            "D",
+            "D"
+          ]
+        },
+        "away": {
+          "homeSample": 21,
+          "awaySample": 17,
+          "homeGoalsForAvg": 1.619047619047619,
+          "homeGoalsAgainstAvg": 0.6666666666666666,
+          "awayGoalsForAvg": 0.7058823529411765,
+          "awayGoalsAgainstAvg": 1.5294117647058822,
+          "homeForm": [
+            "L",
+            "W",
+            "D",
+            "W",
+            "L"
+          ],
+          "awayForm": [
+            "W",
+            "D",
+            "W",
+            "L",
+            "D"
+          ]
+        }
+      },
+      "score": {
+        "winLikelihood": 0.20091386806913933,
+        "bttsLikelihood": 0.3859034661164695,
+        "combined": 0.1394343862298537,
+        "confidence": "ok"
+      },
+      "modes": {
+        "away": {
+          "winLikelihood": 0.20091386806913933,
+          "bttsLikelihood": 0.3859034661164695,
+          "combined": 0.1394343862298537,
+          "confidence": "ok"
+        },
+        "home": {
+          "winLikelihood": 0.5188253796609146,
+          "bttsLikelihood": 0.3859034661164695,
+          "combined": 0.20462724362114929,
+          "confidence": "ok"
+        },
+        "goals": {
+          "winLikelihood": 0.34858242006667683,
+          "bttsLikelihood": 0.3859034661164695,
+          "combined": 0.40929944749926395,
+          "confidence": "ok"
+        },
+        "dc1x": {
+          "winLikelihood": 0.7990861294046077,
+          "bttsLikelihood": 0.3859034661164695,
+          "combined": 0.4084350043922911,
+          "confidence": "ok"
+        },
+        "homeWin": {
+          "winLikelihood": 0.46315818593871905,
+          "bttsLikelihood": null,
+          "combined": 0.46315818593871905,
+          "confidence": "ok"
+        },
+        "awayWin": {
+          "winLikelihood": 0.23120692279741736,
+          "bttsLikelihood": null,
+          "combined": 0.23120692279741736,
+          "confidence": "ok"
+        },
+        "draw": {
+          "winLikelihood": 0.2961710132347142,
+          "bttsLikelihood": null,
+          "combined": 0.2961710132347142,
+          "confidence": "ok"
+        },
+        "expectedGoals": {
+          "home": 1.3618933375285138,
+          "away": 0.7314924346068399
+        },
+        "sampleHome": 20,
+        "sampleAway": 17,
+        "best": {
+          "winLikelihood": 0.44423928071511765,
+          "bttsLikelihood": null,
+          "combined": 0.44423928071511765,
+          "confidence": "ok",
+          "sourceMode": "homeWin"
+        }
+      },
+      "probSource": "model"
+    },
+    {
       "id": "401882837",
       "date": "2026-10-17T14:15Z",
       "league": "La Liga",
@@ -20503,6 +22352,130 @@
           "combined": 0.4083333333333333,
           "confidence": "ok",
           "sourceMode": "goals"
+        }
+      },
+      "probSource": "model"
+    },
+    {
+      "id": "tsdb-2528903",
+      "date": "2026-10-14T14:00:00.000Z",
+      "league": "TFF 1. Lig",
+      "leagueCountry": "Turkey",
+      "home": {
+        "id": "tsdb-138935",
+        "name": "Ümraniyespor"
+      },
+      "away": {
+        "id": "tsdb-138939",
+        "name": "Boluspor"
+      },
+      "stats": {
+        "home": {
+          "homeSample": 18,
+          "awaySample": 19,
+          "homeGoalsForAvg": 1.6666666666666667,
+          "homeGoalsAgainstAvg": 1.1111111111111112,
+          "awayGoalsForAvg": 0.8947368421052632,
+          "awayGoalsAgainstAvg": 1.3157894736842106,
+          "homeForm": [
+            "D",
+            "D",
+            "L",
+            "L",
+            "D"
+          ],
+          "awayForm": [
+            "W",
+            "L",
+            "D",
+            "L",
+            "W"
+          ]
+        },
+        "away": {
+          "homeSample": 19,
+          "awaySample": 18,
+          "homeGoalsForAvg": 1.631578947368421,
+          "homeGoalsAgainstAvg": 1.105263157894737,
+          "awayGoalsForAvg": 0.9444444444444444,
+          "awayGoalsAgainstAvg": 2.388888888888889,
+          "homeForm": [
+            "L",
+            "L",
+            "L",
+            "D",
+            "L"
+          ],
+          "awayForm": [
+            "L",
+            "L",
+            "L",
+            "L",
+            "L"
+          ]
+        }
+      },
+      "score": {
+        "winLikelihood": 0.12081710276632436,
+        "bttsLikelihood": 0.5263679960184544,
+        "combined": 0.1389821287604896,
+        "confidence": "ok"
+      },
+      "modes": {
+        "away": {
+          "winLikelihood": 0.12081710276632436,
+          "bttsLikelihood": 0.5263679960184544,
+          "combined": 0.1389821287604896,
+          "confidence": "ok"
+        },
+        "home": {
+          "winLikelihood": 0.7061990099037926,
+          "bttsLikelihood": 0.5263679960184544,
+          "combined": 0.2531434461814309,
+          "confidence": "ok"
+        },
+        "goals": {
+          "winLikelihood": 0.6270536473706355,
+          "bttsLikelihood": 0.5263679960184544,
+          "combined": 0.48692625879531237,
+          "confidence": "ok"
+        },
+        "dc1x": {
+          "winLikelihood": 0.8791815945345363,
+          "bttsLikelihood": 0.5263679960184544,
+          "combined": 0.4274919608095298,
+          "confidence": "ok"
+        },
+        "homeWin": {
+          "winLikelihood": 0.6805334670005714,
+          "bttsLikelihood": null,
+          "combined": 0.6805334670005714,
+          "confidence": "ok"
+        },
+        "awayWin": {
+          "winLikelihood": 0.14385391794324223,
+          "bttsLikelihood": null,
+          "combined": 0.14385391794324223,
+          "confidence": "ok"
+        },
+        "draw": {
+          "winLikelihood": 0.20934772601412618,
+          "bttsLikelihood": null,
+          "combined": 0.20934772601412618,
+          "confidence": "ok"
+        },
+        "expectedGoals": {
+          "home": 2.3635898141817275,
+          "away": 0.869964253503608
+        },
+        "sampleHome": 18,
+        "sampleAway": 18,
+        "best": {
+          "winLikelihood": 0.6782255656437137,
+          "bttsLikelihood": null,
+          "combined": 0.6782255656437137,
+          "confidence": "ok",
+          "sourceMode": "homeWin"
         }
       },
       "probSource": "model"
@@ -21475,6 +23448,128 @@
           "winLikelihood": 0.7586206896551724,
           "bttsLikelihood": null,
           "combined": 0.7586206896551724,
+          "confidence": "low",
+          "sourceMode": "homeWin"
+        }
+      },
+      "probSource": "model"
+    },
+    {
+      "id": "tsdb-2528909",
+      "date": "2026-10-15T14:00:00.000Z",
+      "league": "TFF 1. Lig",
+      "leagueCountry": "Turkey",
+      "home": {
+        "id": "tsdb-149636",
+        "name": "Mardin 1969"
+      },
+      "away": {
+        "id": "tsdb-138983",
+        "name": "Fatih Karagümrük"
+      },
+      "stats": {
+        "home": {
+          "homeSample": 4,
+          "awaySample": 5,
+          "homeGoalsForAvg": 1,
+          "homeGoalsAgainstAvg": 0.5,
+          "awayGoalsForAvg": 1.4,
+          "awayGoalsAgainstAvg": 0.8,
+          "homeForm": [
+            "W",
+            "D",
+            "W",
+            "L"
+          ],
+          "awayForm": [
+            "D",
+            "W",
+            "D",
+            "L",
+            "W"
+          ]
+        },
+        "away": {
+          "homeSample": 5,
+          "awaySample": 4,
+          "homeGoalsForAvg": 1.4,
+          "homeGoalsAgainstAvg": 1,
+          "awayGoalsForAvg": 1.5,
+          "awayGoalsAgainstAvg": 1.75,
+          "homeForm": [
+            "W",
+            "W",
+            "D",
+            "D",
+            "D"
+          ],
+          "awayForm": [
+            "L",
+            "D",
+            "L",
+            "W"
+          ]
+        }
+      },
+      "score": {
+        "winLikelihood": 0.2163955202784966,
+        "bttsLikelihood": 0.2991710709466112,
+        "combined": 0.13566883050836534,
+        "confidence": "low"
+      },
+      "modes": {
+        "away": {
+          "winLikelihood": 0.2163955202784966,
+          "bttsLikelihood": 0.2991710709466112,
+          "combined": 0.13566883050836534,
+          "confidence": "low"
+        },
+        "home": {
+          "winLikelihood": 0.44954736523587896,
+          "bttsLikelihood": 0.2991710709466112,
+          "combined": 0.16081133249571433,
+          "confidence": "low"
+        },
+        "goals": {
+          "winLikelihood": 0.23242679093974675,
+          "bttsLikelihood": 0.2991710709466112,
+          "combined": 0.38333333333333336,
+          "confidence": "low"
+        },
+        "dc1x": {
+          "winLikelihood": 0.783604479620578,
+          "bttsLikelihood": 0.2991710709466112,
+          "combined": 0.3725518805561629,
+          "confidence": "low"
+        },
+        "homeWin": {
+          "winLikelihood": 0.4418931341911142,
+          "bttsLikelihood": null,
+          "combined": 0.4418931341911142,
+          "confidence": "low"
+        },
+        "awayWin": {
+          "winLikelihood": 0.2514763514240824,
+          "bttsLikelihood": null,
+          "combined": 0.2514763514240824,
+          "confidence": "low"
+        },
+        "draw": {
+          "winLikelihood": 0.32739513636414797,
+          "bttsLikelihood": null,
+          "combined": 0.32739513636414797,
+          "confidence": "low"
+        },
+        "expectedGoals": {
+          "home": 1.0388801741403408,
+          "away": 0.6217685694158139
+        },
+        "sampleHome": 4,
+        "sampleAway": 4,
+        "best": {
+          "winLikelihood": 0.4193621011391364,
+          "bttsLikelihood": null,
+          "combined": 0.4193621011391364,
           "confidence": "low",
           "sourceMode": "homeWin"
         }
@@ -26881,9 +28976,402 @@
         }
       },
       "probSource": "model"
+    },
+    {
+      "id": "tsdb-2528918",
+      "date": "2026-10-19T14:00:00.000Z",
+      "league": "TFF 1. Lig",
+      "leagueCountry": "Turkey",
+      "home": {
+        "id": "tsdb-138955",
+        "name": "Manisa"
+      },
+      "away": {
+        "id": "tsdb-149661",
+        "name": "Muğlaspor"
+      },
+      "stats": {
+        "home": {
+          "homeSample": 18,
+          "awaySample": 19,
+          "homeGoalsForAvg": 1.8888888888888888,
+          "homeGoalsAgainstAvg": 0.8333333333333334,
+          "awayGoalsForAvg": 1.2105263157894737,
+          "awayGoalsAgainstAvg": 1.894736842105263,
+          "homeForm": [
+            "W",
+            "W",
+            "D",
+            "L",
+            "L"
+          ],
+          "awayForm": [
+            "W",
+            "D",
+            "L",
+            "D",
+            "L"
+          ]
+        },
+        "away": {
+          "homeSample": 4,
+          "awaySample": 5,
+          "homeGoalsForAvg": 1.5,
+          "homeGoalsAgainstAvg": 1,
+          "awayGoalsForAvg": 0.6,
+          "awayGoalsAgainstAvg": 0.8,
+          "homeForm": [
+            "D",
+            "W",
+            "D",
+            "D"
+          ],
+          "awayForm": [
+            "L",
+            "D",
+            "W",
+            "D",
+            "D"
+          ]
+        }
+      },
+      "score": {
+        "winLikelihood": 0.1637998608110545,
+        "bttsLikelihood": 0.2009677043547319,
+        "combined": 0.02,
+        "confidence": "ok"
+      },
+      "modes": {
+        "away": {
+          "winLikelihood": 0.1637998608110545,
+          "bttsLikelihood": 0.2009677043547319,
+          "combined": 0.02,
+          "confidence": "ok"
+        },
+        "home": {
+          "winLikelihood": 0.45692630853595945,
+          "bttsLikelihood": 0.2009677043547319,
+          "combined": 0.12787222396950207,
+          "confidence": "ok"
+        },
+        "goals": {
+          "winLikelihood": 0.14556186568245869,
+          "bttsLikelihood": 0.2009677043547319,
+          "combined": 0.38333333333333336,
+          "confidence": "ok"
+        },
+        "dc1x": {
+          "winLikelihood": 0.8362001391719045,
+          "bttsLikelihood": 0.2009677043547319,
+          "combined": 0.277925193374618,
+          "confidence": "ok"
+        },
+        "homeWin": {
+          "winLikelihood": 0.4450743654815609,
+          "bttsLikelihood": null,
+          "combined": 0.4450743654815609,
+          "confidence": "ok"
+        },
+        "awayWin": {
+          "winLikelihood": 0.1989556699406626,
+          "bttsLikelihood": null,
+          "combined": 0.1989556699406626,
+          "confidence": "ok"
+        },
+        "draw": {
+          "winLikelihood": 0.3287671232876712,
+          "bttsLikelihood": null,
+          "combined": 0.3287671232876712,
+          "confidence": "ok"
+        },
+        "expectedGoals": {
+          "home": 0.8970647852894372,
+          "away": 0.41451237961054266
+        },
+        "sampleHome": 18,
+        "sampleAway": 5,
+        "best": {
+          "winLikelihood": 0.42053550585061966,
+          "bttsLikelihood": null,
+          "combined": 0.42053550585061966,
+          "confidence": "ok",
+          "sourceMode": "homeWin"
+        }
+      },
+      "probSource": "model"
     }
   ],
   "results": [
+    {
+      "id": "tsdb-2528908",
+      "date": "2026-10-13T14:00:00.000Z",
+      "league": "TFF 1. Lig",
+      "leagueCountry": "Turkey",
+      "home": {
+        "id": "tsdb-138958",
+        "name": "Sarıyer"
+      },
+      "away": {
+        "id": "tsdb-138974",
+        "name": "Bodrum"
+      },
+      "stats": {
+        "home": {
+          "homeSample": 20,
+          "awaySample": 17,
+          "homeGoalsForAvg": 1.7,
+          "homeGoalsAgainstAvg": 0.65,
+          "awayGoalsForAvg": 0.7058823529411765,
+          "awayGoalsAgainstAvg": 1.5294117647058822,
+          "homeForm": [
+            "W",
+            "L",
+            "W",
+            "D",
+            "W"
+          ],
+          "awayForm": [
+            "W",
+            "D",
+            "W",
+            "L",
+            "D"
+          ]
+        },
+        "away": {
+          "homeSample": 19,
+          "awaySample": 18,
+          "homeGoalsForAvg": 1.631578947368421,
+          "homeGoalsAgainstAvg": 0.8947368421052632,
+          "awayGoalsForAvg": 1.2222222222222223,
+          "awayGoalsAgainstAvg": 1.1666666666666667,
+          "homeForm": [
+            "L",
+            "D",
+            "D",
+            "W",
+            "L"
+          ],
+          "awayForm": [
+            "D",
+            "D",
+            "D",
+            "L",
+            "D"
+          ]
+        }
+      },
+      "score": {
+        "winLikelihood": 0.20663591628132638,
+        "bttsLikelihood": 0.33380451947472434,
+        "combined": 0.13699691047381343,
+        "confidence": "ok"
+      },
+      "modes": {
+        "away": {
+          "winLikelihood": 0.20663591628132638,
+          "bttsLikelihood": 0.33380451947472434,
+          "combined": 0.13699691047381343,
+          "confidence": "ok"
+        },
+        "home": {
+          "winLikelihood": 0.48412554470550223,
+          "bttsLikelihood": 0.33380451947472434,
+          "combined": 0.18162642103165888,
+          "confidence": "ok"
+        },
+        "goals": {
+          "winLikelihood": 0.2790403042338209,
+          "bttsLikelihood": 0.33380451947472434,
+          "combined": 0.38333333333333336,
+          "confidence": "ok"
+        },
+        "dc1x": {
+          "winLikelihood": 0.7933640832671665,
+          "bttsLikelihood": 0.33380451947472434,
+          "combined": 0.4007468690077995,
+          "confidence": "ok"
+        },
+        "homeWin": {
+          "winLikelihood": 0.45302062532880366,
+          "bttsLikelihood": null,
+          "combined": 0.45302062532880366,
+          "confidence": "ok"
+        },
+        "awayWin": {
+          "winLikelihood": 0.236179256355109,
+          "bttsLikelihood": null,
+          "combined": 0.236179256355109,
+          "confidence": "ok"
+        },
+        "draw": {
+          "winLikelihood": 0.31682161434964584,
+          "bttsLikelihood": null,
+          "combined": 0.31682161434964584,
+          "confidence": "ok"
+        },
+        "expectedGoals": {
+          "home": 1.1773975306923863,
+          "away": 0.6586141142700843
+        },
+        "sampleHome": 20,
+        "sampleAway": 18,
+        "best": {
+          "winLikelihood": 0.42346650265409813,
+          "bttsLikelihood": null,
+          "combined": 0.42346650265409813,
+          "confidence": "ok",
+          "sourceMode": "homeWin"
+        }
+      },
+      "finalScore": {
+        "home": 0,
+        "away": 1
+      },
+      "actual": {
+        "homeWin": false,
+        "awayWin": true,
+        "draw": false,
+        "btts": false,
+        "over25": false
+      },
+      "probSource": "model"
+    },
+    {
+      "id": "tsdb-2528904",
+      "date": "2026-10-13T11:30:00.000Z",
+      "league": "TFF 1. Lig",
+      "leagueCountry": "Turkey",
+      "home": {
+        "id": "tsdb-138970",
+        "name": "Bandırmaspor"
+      },
+      "away": {
+        "id": "tsdb-133806",
+        "name": "Sivasspor"
+      },
+      "stats": {
+        "home": {
+          "homeSample": 19,
+          "awaySample": 18,
+          "homeGoalsForAvg": 1.4736842105263157,
+          "homeGoalsAgainstAvg": 0.47368421052631576,
+          "awayGoalsForAvg": 1,
+          "awayGoalsAgainstAvg": 1,
+          "homeForm": [
+            "W",
+            "D",
+            "L",
+            "W",
+            "L"
+          ],
+          "awayForm": [
+            "D",
+            "D",
+            "D",
+            "D",
+            "W"
+          ]
+        },
+        "away": {
+          "homeSample": 20,
+          "awaySample": 17,
+          "homeGoalsForAvg": 1.5,
+          "homeGoalsAgainstAvg": 1.25,
+          "awayGoalsForAvg": 1,
+          "awayGoalsAgainstAvg": 1.2352941176470589,
+          "homeForm": [
+            "D",
+            "D",
+            "D",
+            "D",
+            "W"
+          ],
+          "awayForm": [
+            "L",
+            "L",
+            "L",
+            "W",
+            "D"
+          ]
+        }
+      },
+      "score": {
+        "winLikelihood": 0.1336193775071466,
+        "bttsLikelihood": 0.21455326987848147,
+        "combined": 0.02,
+        "confidence": "ok"
+      },
+      "modes": {
+        "away": {
+          "winLikelihood": 0.1336193775071466,
+          "bttsLikelihood": 0.21455326987848147,
+          "combined": 0.02,
+          "confidence": "ok"
+        },
+        "home": {
+          "winLikelihood": 0.529169339258063,
+          "bttsLikelihood": 0.21455326987848147,
+          "combined": 0.15217174213708998,
+          "confidence": "ok"
+        },
+        "goals": {
+          "winLikelihood": 0.18450338688721618,
+          "bttsLikelihood": 0.21455326987848147,
+          "combined": 0.38333333333333336,
+          "confidence": "ok"
+        },
+        "dc1x": {
+          "winLikelihood": 0.8663806223309705,
+          "bttsLikelihood": 0.21455326987848147,
+          "combined": 0.3336282776931734,
+          "confidence": "ok"
+        },
+        "homeWin": {
+          "winLikelihood": 0.4661801748760541,
+          "bttsLikelihood": null,
+          "combined": 0.4661801748760541,
+          "confidence": "ok"
+        },
+        "awayWin": {
+          "winLikelihood": 0.17272949631287776,
+          "bttsLikelihood": null,
+          "combined": 0.17272949631287776,
+          "confidence": "ok"
+        },
+        "draw": {
+          "winLikelihood": 0.3287389150039875,
+          "bttsLikelihood": null,
+          "combined": 0.3287389150039875,
+          "confidence": "ok"
+        },
+        "expectedGoals": {
+          "home": 1.0806926888890234,
+          "away": 0.3926959385784088
+        },
+        "sampleHome": 19,
+        "sampleAway": 17,
+        "best": {
+          "winLikelihood": 0.453961711420156,
+          "bttsLikelihood": null,
+          "combined": 0.453961711420156,
+          "confidence": "ok",
+          "sourceMode": "homeWin"
+        }
+      },
+      "finalScore": {
+        "home": 1,
+        "away": 1
+      },
+      "actual": {
+        "homeWin": false,
+        "awayWin": false,
+        "draw": true,
+        "btts": true,
+        "over25": false
+      },
+      "probSource": "model"
+    },
     {
       "id": "401885425",
       "date": "2026-10-12T19:15Z",
@@ -29283,6 +31771,137 @@
       }
     },
     {
+      "id": "tsdb-2528894",
+      "date": "2026-10-11T16:00:00.000Z",
+      "league": "TFF 1. Lig",
+      "leagueCountry": "Turkey",
+      "home": {
+        "id": "tsdb-133801",
+        "name": "Bursaspor"
+      },
+      "away": {
+        "id": "tsdb-149636",
+        "name": "Mardin 1969"
+      },
+      "stats": {
+        "home": {
+          "homeSample": 3,
+          "awaySample": 5,
+          "homeGoalsForAvg": 2.3333333333333335,
+          "homeGoalsAgainstAvg": 0.6666666666666666,
+          "awayGoalsForAvg": 1.8,
+          "awayGoalsAgainstAvg": 1,
+          "homeForm": [
+            "W",
+            "W",
+            "D"
+          ],
+          "awayForm": [
+            "W",
+            "L",
+            "W",
+            "W",
+            "W"
+          ]
+        },
+        "away": {
+          "homeSample": 4,
+          "awaySample": 4,
+          "homeGoalsForAvg": 1,
+          "homeGoalsAgainstAvg": 0.5,
+          "awayGoalsForAvg": 1.25,
+          "awayGoalsAgainstAvg": 0.75,
+          "homeForm": [
+            "W",
+            "D",
+            "W",
+            "L"
+          ],
+          "awayForm": [
+            "D",
+            "W",
+            "D",
+            "L"
+          ]
+        }
+      },
+      "score": {
+        "winLikelihood": 0.23931324891080152,
+        "bttsLikelihood": 0.3223329146529172,
+        "combined": 0.1381634772957867,
+        "confidence": "low"
+      },
+      "modes": {
+        "away": {
+          "winLikelihood": 0.23931324891080152,
+          "bttsLikelihood": 0.3223329146529172,
+          "combined": 0.1381634772957867,
+          "confidence": "low"
+        },
+        "home": {
+          "winLikelihood": 0.43134008189309736,
+          "bttsLikelihood": 0.3223329146529172,
+          "combined": 0.16424454439813882,
+          "confidence": "low"
+        },
+        "goals": {
+          "winLikelihood": 0.2506457749587899,
+          "bttsLikelihood": 0.3223329146529172,
+          "combined": 0.38333333333333336,
+          "confidence": "low"
+        },
+        "dc1x": {
+          "winLikelihood": 0.760686750987769,
+          "bttsLikelihood": 0.3223329146529172,
+          "combined": 0.3866920700473329,
+          "confidence": "low"
+        },
+        "homeWin": {
+          "winLikelihood": 0.4234212373472592,
+          "bttsLikelihood": null,
+          "combined": 0.4234212373472592,
+          "confidence": "low"
+        },
+        "awayWin": {
+          "winLikelihood": 0.2891984014570442,
+          "bttsLikelihood": null,
+          "combined": 0.2891984014570442,
+          "confidence": "low"
+        },
+        "draw": {
+          "winLikelihood": 0.3253883331806236,
+          "bttsLikelihood": null,
+          "combined": 0.3253883331806236,
+          "confidence": "low"
+        },
+        "expectedGoals": {
+          "home": 1.0388801741403408,
+          "away": 0.690853966017571
+        },
+        "sampleHome": 3,
+        "sampleAway": 4,
+        "best": {
+          "winLikelihood": 0.4125486981490104,
+          "bttsLikelihood": null,
+          "combined": 0.4125486981490104,
+          "confidence": "low",
+          "sourceMode": "homeWin"
+        }
+      },
+      "finalScore": {
+        "home": 1,
+        "away": 2
+      },
+      "actual": {
+        "homeWin": false,
+        "awayWin": true,
+        "draw": false,
+        "btts": true,
+        "over25": true
+      },
+      "probSource": "model"
+    },
+    {
       "id": "401879264",
       "date": "2026-10-11T15:30Z",
       "league": "Premier League",
@@ -31372,6 +33991,137 @@
           "under": 1.86
         }
       }
+    },
+    {
+      "id": "tsdb-2528899",
+      "date": "2026-10-11T13:00:00.000Z",
+      "league": "TFF 1. Lig",
+      "leagueCountry": "Turkey",
+      "home": {
+        "id": "tsdb-138983",
+        "name": "Fatih Karagümrük"
+      },
+      "away": {
+        "id": "tsdb-149661",
+        "name": "Muğlaspor"
+      },
+      "stats": {
+        "home": {
+          "homeSample": 4,
+          "awaySample": 4,
+          "homeGoalsForAvg": 1.5,
+          "homeGoalsAgainstAvg": 1,
+          "awayGoalsForAvg": 1.5,
+          "awayGoalsAgainstAvg": 1.75,
+          "homeForm": [
+            "W",
+            "W",
+            "D",
+            "D"
+          ],
+          "awayForm": [
+            "L",
+            "D",
+            "L",
+            "W"
+          ]
+        },
+        "away": {
+          "homeSample": 4,
+          "awaySample": 4,
+          "homeGoalsForAvg": 1.5,
+          "homeGoalsAgainstAvg": 1,
+          "awayGoalsForAvg": 0.5,
+          "awayGoalsAgainstAvg": 0.75,
+          "homeForm": [
+            "D",
+            "W",
+            "D",
+            "D"
+          ],
+          "awayForm": [
+            "L",
+            "D",
+            "W",
+            "D"
+          ]
+        }
+      },
+      "score": {
+        "winLikelihood": 0.19746366406520063,
+        "bttsLikelihood": 0.16532219766974895,
+        "combined": 0.02,
+        "confidence": "low"
+      },
+      "modes": {
+        "away": {
+          "winLikelihood": 0.19746366406520063,
+          "bttsLikelihood": 0.16532219766974895,
+          "combined": 0.02,
+          "confidence": "low"
+        },
+        "home": {
+          "winLikelihood": 0.36325932506119296,
+          "bttsLikelihood": 0.16532219766974895,
+          "combined": 0.09049355262567493,
+          "confidence": "low"
+        },
+        "goals": {
+          "winLikelihood": 0.09605784643001579,
+          "bttsLikelihood": 0.16532219766974895,
+          "combined": 0.38333333333333336,
+          "confidence": "low"
+        },
+        "dc1x": {
+          "winLikelihood": 0.8025363359343438,
+          "bttsLikelihood": 0.16532219766974895,
+          "combined": 0.24511906348327264,
+          "confidence": "low"
+        },
+        "homeWin": {
+          "winLikelihood": 0.3543510365065013,
+          "bttsLikelihood": null,
+          "combined": 0.3543510365065013,
+          "confidence": "low"
+        },
+        "awayWin": {
+          "winLikelihood": 0.22820877169601145,
+          "bttsLikelihood": null,
+          "combined": 0.22820877169601145,
+          "confidence": "low"
+        },
+        "draw": {
+          "winLikelihood": 0.3287671232876712,
+          "bttsLikelihood": null,
+          "combined": 0.3287671232876712,
+          "confidence": "low"
+        },
+        "expectedGoals": {
+          "home": 0.6678515405187905,
+          "away": 0.4145123796105426
+        },
+        "sampleHome": 4,
+        "sampleAway": 4,
+        "best": {
+          "winLikelihood": 0.09605784643001579,
+          "bttsLikelihood": 0.16532219766974895,
+          "combined": 0.4083333333333333,
+          "confidence": "low",
+          "sourceMode": "goals"
+        }
+      },
+      "finalScore": {
+        "home": 1,
+        "away": 1
+      },
+      "actual": {
+        "homeWin": false,
+        "awayWin": false,
+        "draw": true,
+        "btts": true,
+        "over25": false
+      },
+      "probSource": "model"
     },
     {
       "id": "401875586",
@@ -36170,6 +38920,274 @@
       }
     },
     {
+      "id": "tsdb-2528892",
+      "date": "2026-10-10T16:00:00.000Z",
+      "league": "TFF 1. Lig",
+      "leagueCountry": "Turkey",
+      "home": {
+        "id": "tsdb-133802",
+        "name": "Kayserispor"
+      },
+      "away": {
+        "id": "tsdb-138955",
+        "name": "Manisa"
+      },
+      "stats": {
+        "home": {
+          "homeSample": 3,
+          "awaySample": 5,
+          "homeGoalsForAvg": 2.3333333333333335,
+          "homeGoalsAgainstAvg": 0.6666666666666666,
+          "awayGoalsForAvg": 1.6,
+          "awayGoalsAgainstAvg": 0.2,
+          "homeForm": [
+            "W",
+            "L",
+            "W"
+          ],
+          "awayForm": [
+            "W",
+            "W",
+            "D",
+            "W",
+            "W"
+          ]
+        },
+        "away": {
+          "homeSample": 18,
+          "awaySample": 18,
+          "homeGoalsForAvg": 1.8888888888888888,
+          "homeGoalsAgainstAvg": 0.8333333333333334,
+          "awayGoalsForAvg": 1.1666666666666667,
+          "awayGoalsAgainstAvg": 1.8333333333333333,
+          "homeForm": [
+            "W",
+            "W",
+            "D",
+            "L",
+            "L"
+          ],
+          "awayForm": [
+            "L",
+            "W",
+            "D",
+            "L",
+            "D"
+          ]
+        }
+      },
+      "score": {
+        "winLikelihood": 0.07300000128127208,
+        "bttsLikelihood": 0.4377305524821963,
+        "combined": 0.03402525359469412,
+        "confidence": "low"
+      },
+      "modes": {
+        "away": {
+          "winLikelihood": 0.07300000128127208,
+          "bttsLikelihood": 0.4377305524821963,
+          "combined": 0.03402525359469412,
+          "confidence": "low"
+        },
+        "home": {
+          "winLikelihood": 0.7844271394630206,
+          "bttsLikelihood": 0.4377305524821963,
+          "combined": 0.23777533566365203,
+          "confidence": "low"
+        },
+        "goals": {
+          "winLikelihood": 0.6168033740652473,
+          "bttsLikelihood": 0.4377305524821963,
+          "combined": 0.4649695058768161,
+          "confidence": "low"
+        },
+        "dc1x": {
+          "winLikelihood": 0.9269971796060962,
+          "bttsLikelihood": 0.4377305524821963,
+          "combined": 0.41518445409138033,
+          "confidence": "low"
+        },
+        "homeWin": {
+          "winLikelihood": 0.73481308641877,
+          "bttsLikelihood": null,
+          "combined": 0.73481308641877,
+          "confidence": "low"
+        },
+        "awayWin": {
+          "winLikelihood": 0.02,
+          "bttsLikelihood": null,
+          "combined": 0.02,
+          "confidence": "low"
+        },
+        "draw": {
+          "winLikelihood": 0.2037037037037037,
+          "bttsLikelihood": null,
+          "combined": 0.2037037037037037,
+          "confidence": "low"
+        },
+        "expectedGoals": {
+          "home": 2.539484870120833,
+          "away": 0.644797034949733
+        },
+        "sampleHome": 3,
+        "sampleAway": 18,
+        "best": {
+          "winLikelihood": 0.7378639101235214,
+          "bttsLikelihood": null,
+          "combined": 0.7378639101235214,
+          "confidence": "low",
+          "sourceMode": "homeWin"
+        }
+      },
+      "finalScore": {
+        "home": 3,
+        "away": 2
+      },
+      "actual": {
+        "homeWin": true,
+        "awayWin": false,
+        "draw": false,
+        "btts": true,
+        "over25": true
+      },
+      "probSource": "model"
+    },
+    {
+      "id": "tsdb-2528897",
+      "date": "2026-10-10T16:00:00.000Z",
+      "league": "TFF 1. Lig",
+      "leagueCountry": "Turkey",
+      "home": {
+        "id": "tsdb-134238",
+        "name": "İstanbulspor"
+      },
+      "away": {
+        "id": "tsdb-146461",
+        "name": "Esenler Erokspor"
+      },
+      "stats": {
+        "home": {
+          "homeSample": 16,
+          "awaySample": 20,
+          "homeGoalsForAvg": 1.625,
+          "homeGoalsAgainstAvg": 1.75,
+          "awayGoalsForAvg": 1.3,
+          "awayGoalsAgainstAvg": 1.7,
+          "homeForm": [
+            "W",
+            "W",
+            "D",
+            "D",
+            "L"
+          ],
+          "awayForm": [
+            "L",
+            "L",
+            "L",
+            "L",
+            "W"
+          ]
+        },
+        "away": {
+          "homeSample": 17,
+          "awaySample": 19,
+          "homeGoalsForAvg": 1.2352941176470589,
+          "homeGoalsAgainstAvg": 1,
+          "awayGoalsForAvg": 1.894736842105263,
+          "awayGoalsAgainstAvg": 0.8421052631578947,
+          "homeForm": [
+            "D",
+            "D",
+            "L",
+            "L",
+            "L"
+          ],
+          "awayForm": [
+            "L",
+            "D",
+            "D",
+            "D",
+            "D"
+          ]
+        }
+      },
+      "score": {
+        "winLikelihood": 0.7783396730776768,
+        "bttsLikelihood": 0.5205896487992218,
+        "combined": 0.2905405405405405,
+        "confidence": "ok"
+      },
+      "modes": {
+        "away": {
+          "winLikelihood": 0.7783396730776768,
+          "bttsLikelihood": 0.5205896487992218,
+          "combined": 0.2905405405405405,
+          "confidence": "ok"
+        },
+        "home": {
+          "winLikelihood": 0.08428390416875473,
+          "bttsLikelihood": 0.5205896487992218,
+          "combined": 0.09866386812561484,
+          "confidence": "ok"
+        },
+        "goals": {
+          "winLikelihood": 0.6903227150108338,
+          "bttsLikelihood": 0.5205896487992218,
+          "combined": 0.49075443413541,
+          "confidence": "ok"
+        },
+        "dc1x": {
+          "winLikelihood": 0.22165380731792977,
+          "bttsLikelihood": 0.5205896487992218,
+          "combined": 0.25621680253683216,
+          "confidence": "ok"
+        },
+        "homeWin": {
+          "winLikelihood": 0.12498141891912162,
+          "bttsLikelihood": null,
+          "combined": 0.12498141891912162,
+          "confidence": "ok"
+        },
+        "awayWin": {
+          "winLikelihood": 0.6062736662390616,
+          "bttsLikelihood": null,
+          "combined": 0.6062736662390616,
+          "confidence": "ok"
+        },
+        "draw": {
+          "winLikelihood": 0.2037037037037037,
+          "bttsLikelihood": null,
+          "combined": 0.2037037037037037,
+          "confidence": "ok"
+        },
+        "expectedGoals": {
+          "home": 0.8123574294029732,
+          "away": 2.7488715700488613
+        },
+        "sampleHome": 16,
+        "sampleAway": 19,
+        "best": {
+          "winLikelihood": 0.6471287590387929,
+          "bttsLikelihood": null,
+          "combined": 0.6471287590387929,
+          "confidence": "ok",
+          "sourceMode": "awayWin"
+        }
+      },
+      "finalScore": {
+        "home": 0,
+        "away": 1
+      },
+      "actual": {
+        "homeWin": false,
+        "awayWin": true,
+        "draw": false,
+        "btts": false,
+        "over25": false
+      },
+      "probSource": "model"
+    },
+    {
       "id": "401876446",
       "date": "2026-10-10T15:15Z",
       "league": "Ligue 1",
@@ -39611,6 +42629,139 @@
       }
     },
     {
+      "id": "tsdb-2528901",
+      "date": "2026-10-10T13:00:00.000Z",
+      "league": "TFF 1. Lig",
+      "leagueCountry": "Turkey",
+      "home": {
+        "id": "tsdb-147638",
+        "name": "Iğdır"
+      },
+      "away": {
+        "id": "tsdb-146459",
+        "name": "Batman Petrolspor"
+      },
+      "stats": {
+        "home": {
+          "homeSample": 17,
+          "awaySample": 19,
+          "homeGoalsForAvg": 1.3529411764705883,
+          "homeGoalsAgainstAvg": 1.2352941176470589,
+          "awayGoalsForAvg": 1.263157894736842,
+          "awayGoalsAgainstAvg": 1.4210526315789473,
+          "homeForm": [
+            "D",
+            "W",
+            "L",
+            "W",
+            "W"
+          ],
+          "awayForm": [
+            "L",
+            "L",
+            "W",
+            "W",
+            "D"
+          ]
+        },
+        "away": {
+          "homeSample": 4,
+          "awaySample": 4,
+          "homeGoalsForAvg": 2.25,
+          "homeGoalsAgainstAvg": 1.5,
+          "awayGoalsForAvg": 1.5,
+          "awayGoalsAgainstAvg": 1.75,
+          "homeForm": [
+            "W",
+            "W",
+            "W",
+            "L"
+          ],
+          "awayForm": [
+            "D",
+            "W",
+            "W",
+            "L"
+          ]
+        }
+      },
+      "score": {
+        "winLikelihood": 0.40636899086488254,
+        "bttsLikelihood": 0.5923319409057611,
+        "combined": 0.2142989790802935,
+        "confidence": "low"
+      },
+      "modes": {
+        "away": {
+          "winLikelihood": 0.40636899086488254,
+          "bttsLikelihood": 0.5923319409057611,
+          "combined": 0.2142989790802935,
+          "confidence": "low"
+        },
+        "home": {
+          "winLikelihood": 0.34846473513558907,
+          "bttsLikelihood": 0.5923319409057611,
+          "combined": 0.2172707561015103,
+          "confidence": "low"
+        },
+        "goals": {
+          "winLikelihood": 0.5636171588018518,
+          "bttsLikelihood": 0.5923319409057611,
+          "combined": 0.49761215556590255,
+          "confidence": "low"
+        },
+        "dc1x": {
+          "winLikelihood": 0.5936309951950112,
+          "bttsLikelihood": 0.5923319409057611,
+          "combined": 0.41329378157062685,
+          "confidence": "low"
+        },
+        "homeWin": {
+          "winLikelihood": 0.33934143107509923,
+          "bttsLikelihood": null,
+          "combined": 0.33934143107509923,
+          "confidence": "low"
+        },
+        "awayWin": {
+          "winLikelihood": 0.3653899934161465,
+          "bttsLikelihood": null,
+          "combined": 0.3653899934161465,
+          "confidence": "low"
+        },
+        "draw": {
+          "winLikelihood": 0.2693722874564101,
+          "bttsLikelihood": null,
+          "combined": 0.2693722874564101,
+          "confidence": "low"
+        },
+        "expectedGoals": {
+          "home": 1.4055437650134024,
+          "away": 1.536134112674364
+        },
+        "sampleHome": 17,
+        "sampleAway": 4,
+        "best": {
+          "winLikelihood": 0.5636171588018518,
+          "bttsLikelihood": 0.5923319409057611,
+          "combined": 0.4842771590027467,
+          "confidence": "low",
+          "sourceMode": "goals"
+        }
+      },
+      "finalScore": {
+        "home": 2,
+        "away": 1
+      },
+      "actual": {
+        "homeWin": true,
+        "awayWin": false,
+        "draw": false,
+        "btts": true,
+        "over25": true
+      },
+      "probSource": "model"
+    },
+    {
       "id": "401882849",
       "date": "2026-10-10T12:00Z",
       "league": "La Liga",
@@ -40940,6 +44091,139 @@
           "under": 2
         }
       }
+    },
+    {
+      "id": "tsdb-2528895",
+      "date": "2026-10-10T10:30:00.000Z",
+      "league": "TFF 1. Lig",
+      "leagueCountry": "Turkey",
+      "home": {
+        "id": "tsdb-138939",
+        "name": "Boluspor"
+      },
+      "away": {
+        "id": "tsdb-133799",
+        "name": "Antalyaspor"
+      },
+      "stats": {
+        "home": {
+          "homeSample": 18,
+          "awaySample": 18,
+          "homeGoalsForAvg": 1.7222222222222223,
+          "homeGoalsAgainstAvg": 1.1111111111111112,
+          "awayGoalsForAvg": 0.9444444444444444,
+          "awayGoalsAgainstAvg": 2.388888888888889,
+          "homeForm": [
+            "W",
+            "L",
+            "L",
+            "L",
+            "D"
+          ],
+          "awayForm": [
+            "L",
+            "L",
+            "L",
+            "L",
+            "L"
+          ]
+        },
+        "away": {
+          "homeSample": 5,
+          "awaySample": 3,
+          "homeGoalsForAvg": 2.2,
+          "homeGoalsAgainstAvg": 2,
+          "awayGoalsForAvg": 1,
+          "awayGoalsAgainstAvg": 1,
+          "homeForm": [
+            "W",
+            "L",
+            "L",
+            "L",
+            "W"
+          ],
+          "awayForm": [
+            "L",
+            "W",
+            "W"
+          ]
+        }
+      },
+      "score": {
+        "winLikelihood": 0.31651794262692334,
+        "bttsLikelihood": 0.38539808486421645,
+        "combined": 0.14722866851437183,
+        "confidence": "low"
+      },
+      "modes": {
+        "away": {
+          "winLikelihood": 0.31651794262692334,
+          "bttsLikelihood": 0.38539808486421645,
+          "combined": 0.14722866851437183,
+          "confidence": "low"
+        },
+        "home": {
+          "winLikelihood": 0.3701492250822359,
+          "bttsLikelihood": 0.38539808486421645,
+          "combined": 0.17153900912576198,
+          "confidence": "low"
+        },
+        "goals": {
+          "winLikelihood": 0.30804256646561956,
+          "bttsLikelihood": 0.38539808486421645,
+          "combined": 0.40217485167801315,
+          "confidence": "low"
+        },
+        "dc1x": {
+          "winLikelihood": 0.6834820572664878,
+          "bttsLikelihood": 0.38539808486421645,
+          "combined": 0.4025037440479719,
+          "confidence": "low"
+        },
+        "homeWin": {
+          "winLikelihood": 0.36134107011322475,
+          "bttsLikelihood": null,
+          "combined": 0.36134107011322475,
+          "confidence": "low"
+        },
+        "awayWin": {
+          "winLikelihood": 0.3333333333333333,
+          "bttsLikelihood": null,
+          "combined": 0.3333333333333333,
+          "confidence": "low"
+        },
+        "draw": {
+          "winLikelihood": 0.3185659168455242,
+          "bttsLikelihood": null,
+          "combined": 0.3185659168455242,
+          "confidence": "low"
+        },
+        "expectedGoals": {
+          "home": 1.0223900126460497,
+          "away": 0.9211386213567614
+        },
+        "sampleHome": 18,
+        "sampleAway": 3,
+        "best": {
+          "winLikelihood": 0.6834820572664878,
+          "bttsLikelihood": 0.38539808486421645,
+          "combined": 0.4083333333333333,
+          "confidence": "low",
+          "sourceMode": "dc1x"
+        }
+      },
+      "finalScore": {
+        "home": 0,
+        "away": 1
+      },
+      "actual": {
+        "homeWin": false,
+        "awayWin": true,
+        "draw": false,
+        "btts": false,
+        "over25": false
+      },
+      "probSource": "model"
     },
     {
       "id": "401885427",
@@ -42290,6 +45574,276 @@
       }
     },
     {
+      "id": "tsdb-2528896",
+      "date": "2026-10-09T17:00:00.000Z",
+      "league": "TFF 1. Lig",
+      "leagueCountry": "Turkey",
+      "home": {
+        "id": "tsdb-138935",
+        "name": "Ümraniyespor"
+      },
+      "away": {
+        "id": "tsdb-138958",
+        "name": "Sarıyer"
+      },
+      "stats": {
+        "home": {
+          "homeSample": 17,
+          "awaySample": 19,
+          "homeGoalsForAvg": 1.7058823529411764,
+          "homeGoalsAgainstAvg": 1.1176470588235294,
+          "awayGoalsForAvg": 0.8947368421052632,
+          "awayGoalsAgainstAvg": 1.3157894736842106,
+          "homeForm": [
+            "L",
+            "D",
+            "D",
+            "L",
+            "L"
+          ],
+          "awayForm": [
+            "W",
+            "L",
+            "D",
+            "L",
+            "W"
+          ]
+        },
+        "away": {
+          "homeSample": 20,
+          "awaySample": 16,
+          "homeGoalsForAvg": 1.7,
+          "homeGoalsAgainstAvg": 0.65,
+          "awayGoalsForAvg": 0.6875,
+          "awayGoalsAgainstAvg": 1.5625,
+          "homeForm": [
+            "W",
+            "L",
+            "W",
+            "D",
+            "W"
+          ],
+          "awayForm": [
+            "L",
+            "W",
+            "D",
+            "W",
+            "L"
+          ]
+        }
+      },
+      "score": {
+        "winLikelihood": 0.14798059661542917,
+        "bttsLikelihood": 0.37431264859392194,
+        "combined": 0.13532882561396484,
+        "confidence": "ok"
+      },
+      "modes": {
+        "away": {
+          "winLikelihood": 0.14798059661542917,
+          "bttsLikelihood": 0.37431264859392194,
+          "combined": 0.13532882561396484,
+          "confidence": "ok"
+        },
+        "home": {
+          "winLikelihood": 0.602893535966031,
+          "bttsLikelihood": 0.37431264859392194,
+          "combined": 0.21559610032795182,
+          "confidence": "ok"
+        },
+        "goals": {
+          "winLikelihood": 0.3824663716507232,
+          "bttsLikelihood": 0.37431264859392194,
+          "combined": 0.4102442473901236,
+          "confidence": "ok"
+        },
+        "dc1x": {
+          "winLikelihood": 0.8520193888962293,
+          "bttsLikelihood": 0.37431264859392194,
+          "combined": 0.4093939474191115,
+          "confidence": "ok"
+        },
+        "homeWin": {
+          "winLikelihood": 0.5333333333333333,
+          "bttsLikelihood": null,
+          "combined": 0.5333333333333333,
+          "confidence": "ok"
+        },
+        "awayWin": {
+          "winLikelihood": 0.1852090786326119,
+          "bttsLikelihood": null,
+          "combined": 0.1852090786326119,
+          "confidence": "ok"
+        },
+        "draw": {
+          "winLikelihood": 0.2697699979038064,
+          "bttsLikelihood": null,
+          "combined": 0.2697699979038064,
+          "confidence": "ok"
+        },
+        "expectedGoals": {
+          "home": 1.5823279963271997,
+          "away": 0.6370079951367899
+        },
+        "sampleHome": 17,
+        "sampleAway": 16,
+        "best": {
+          "winLikelihood": 0.4888888888888889,
+          "bttsLikelihood": null,
+          "combined": 0.4888888888888889,
+          "confidence": "ok",
+          "sourceMode": "homeWin"
+        }
+      },
+      "finalScore": {
+        "home": 1,
+        "away": 1
+      },
+      "actual": {
+        "homeWin": false,
+        "awayWin": false,
+        "draw": true,
+        "btts": true,
+        "over25": false
+      },
+      "probSource": "model"
+    },
+    {
+      "id": "tsdb-2528900",
+      "date": "2026-10-09T17:00:00.000Z",
+      "league": "TFF 1. Lig",
+      "leagueCountry": "Turkey",
+      "home": {
+        "id": "tsdb-138969",
+        "name": "Vanspor"
+      },
+      "away": {
+        "id": "tsdb-138970",
+        "name": "Bandırmaspor"
+      },
+      "stats": {
+        "home": {
+          "homeSample": 18,
+          "awaySample": 18,
+          "homeGoalsForAvg": 1.2777777777777777,
+          "homeGoalsAgainstAvg": 1.2222222222222223,
+          "awayGoalsForAvg": 1.5,
+          "awayGoalsAgainstAvg": 1.8888888888888888,
+          "homeForm": [
+            "L",
+            "L",
+            "W",
+            "L",
+            "D"
+          ],
+          "awayForm": [
+            "L",
+            "L",
+            "D",
+            "D",
+            "L"
+          ]
+        },
+        "away": {
+          "homeSample": 19,
+          "awaySample": 17,
+          "homeGoalsForAvg": 1.4736842105263157,
+          "homeGoalsAgainstAvg": 0.47368421052631576,
+          "awayGoalsForAvg": 0.9411764705882353,
+          "awayGoalsAgainstAvg": 1.0588235294117647,
+          "homeForm": [
+            "W",
+            "D",
+            "L",
+            "W",
+            "L"
+          ],
+          "awayForm": [
+            "D",
+            "D",
+            "D",
+            "D",
+            "D"
+          ]
+        }
+      },
+      "score": {
+        "winLikelihood": 0.37529370798668826,
+        "bttsLikelihood": 0.33935328292632955,
+        "combined": 0.1472280958447002,
+        "confidence": "ok"
+      },
+      "modes": {
+        "away": {
+          "winLikelihood": 0.37529370798668826,
+          "bttsLikelihood": 0.33935328292632955,
+          "combined": 0.1472280958447002,
+          "confidence": "ok"
+        },
+        "home": {
+          "winLikelihood": 0.2923424975739858,
+          "bttsLikelihood": 0.33935328292632955,
+          "combined": 0.1506290792089636,
+          "confidence": "ok"
+        },
+        "goals": {
+          "winLikelihood": 0.2578451934555544,
+          "bttsLikelihood": 0.33935328292632955,
+          "combined": 0.38333333333333336,
+          "confidence": "ok"
+        },
+        "dc1x": {
+          "winLikelihood": 0.6247062919730784,
+          "bttsLikelihood": 0.33935328292632955,
+          "combined": 0.3646369680858238,
+          "confidence": "ok"
+        },
+        "homeWin": {
+          "winLikelihood": 0.3001634558548328,
+          "bttsLikelihood": null,
+          "combined": 0.3001634558548328,
+          "confidence": "ok"
+        },
+        "awayWin": {
+          "winLikelihood": 0.3511390695659656,
+          "bttsLikelihood": null,
+          "combined": 0.3511390695659656,
+          "confidence": "ok"
+        },
+        "draw": {
+          "winLikelihood": 0.32667372687340784,
+          "bttsLikelihood": null,
+          "combined": 0.32667372687340784,
+          "confidence": "ok"
+        },
+        "expectedGoals": {
+          "home": 0.8031678657219441,
+          "away": 0.9536493962281766
+        },
+        "sampleHome": 18,
+        "sampleAway": 17,
+        "best": {
+          "winLikelihood": 0.2578451934555544,
+          "bttsLikelihood": 0.33935328292632955,
+          "combined": 0.4083333333333333,
+          "confidence": "ok",
+          "sourceMode": "goals"
+        }
+      },
+      "finalScore": {
+        "home": 0,
+        "away": 2
+      },
+      "actual": {
+        "homeWin": false,
+        "awayWin": true,
+        "draw": false,
+        "btts": false,
+        "over25": false
+      },
+      "probSource": "model"
+    },
+    {
       "id": "401885100",
       "date": "2026-10-09T16:30Z",
       "league": "2. Bundesliga",
@@ -42586,6 +46140,276 @@
           "under": 2.55
         }
       }
+    },
+    {
+      "id": "tsdb-2528893",
+      "date": "2026-10-09T14:00:00.000Z",
+      "league": "TFF 1. Lig",
+      "leagueCountry": "Turkey",
+      "home": {
+        "id": "tsdb-133806",
+        "name": "Sivasspor"
+      },
+      "away": {
+        "id": "tsdb-138957",
+        "name": "Pendikspor"
+      },
+      "stats": {
+        "home": {
+          "homeSample": 19,
+          "awaySample": 17,
+          "homeGoalsForAvg": 1.368421052631579,
+          "homeGoalsAgainstAvg": 1.263157894736842,
+          "awayGoalsForAvg": 1,
+          "awayGoalsAgainstAvg": 1.2352941176470589,
+          "homeForm": [
+            "W",
+            "D",
+            "D",
+            "D",
+            "D"
+          ],
+          "awayForm": [
+            "L",
+            "L",
+            "L",
+            "W",
+            "D"
+          ]
+        },
+        "away": {
+          "homeSample": 19,
+          "awaySample": 17,
+          "homeGoalsForAvg": 1.4210526315789473,
+          "homeGoalsAgainstAvg": 0.7368421052631579,
+          "awayGoalsForAvg": 1.2941176470588236,
+          "awayGoalsAgainstAvg": 1.3529411764705883,
+          "homeForm": [
+            "W",
+            "D",
+            "D",
+            "W",
+            "D"
+          ],
+          "awayForm": [
+            "D",
+            "L",
+            "W",
+            "L",
+            "D"
+          ]
+        }
+      },
+      "score": {
+        "winLikelihood": 0.42623155924597705,
+        "bttsLikelihood": 0.4948474275178178,
+        "combined": 0.16980908463536482,
+        "confidence": "ok"
+      },
+      "modes": {
+        "away": {
+          "winLikelihood": 0.42623155924597705,
+          "bttsLikelihood": 0.4948474275178178,
+          "combined": 0.16980908463536482,
+          "confidence": "ok"
+        },
+        "home": {
+          "winLikelihood": 0.3035350785717328,
+          "bttsLikelihood": 0.4948474275178178,
+          "combined": 0.18684796681637128,
+          "confidence": "ok"
+        },
+        "goals": {
+          "winLikelihood": 0.4444007871982967,
+          "bttsLikelihood": 0.4948474275178178,
+          "combined": 0.46456027988442883,
+          "confidence": "ok"
+        },
+        "dc1x": {
+          "winLikelihood": 0.5737684381732711,
+          "bttsLikelihood": 0.4948474275178178,
+          "combined": 0.40806489375876803,
+          "confidence": "ok"
+        },
+        "homeWin": {
+          "winLikelihood": 0.3020507842103852,
+          "bttsLikelihood": null,
+          "combined": 0.3020507842103852,
+          "confidence": "ok"
+        },
+        "awayWin": {
+          "winLikelihood": 0.3729652632030429,
+          "bttsLikelihood": null,
+          "combined": 0.3729652632030429,
+          "confidence": "ok"
+        },
+        "draw": {
+          "winLikelihood": 0.28655168780851586,
+          "bttsLikelihood": null,
+          "combined": 0.28655168780851586,
+          "confidence": "ok"
+        },
+        "expectedGoals": {
+          "home": 1.0990718162510815,
+          "away": 1.3551859841137242
+        },
+        "sampleHome": 19,
+        "sampleAway": 17,
+        "best": {
+          "winLikelihood": 0.4444007871982967,
+          "bttsLikelihood": 0.4948474275178178,
+          "combined": 0.4487501381377587,
+          "confidence": "ok",
+          "sourceMode": "goals"
+        }
+      },
+      "finalScore": {
+        "home": 4,
+        "away": 1
+      },
+      "actual": {
+        "homeWin": true,
+        "awayWin": false,
+        "draw": false,
+        "btts": true,
+        "over25": true
+      },
+      "probSource": "model"
+    },
+    {
+      "id": "tsdb-2528898",
+      "date": "2026-10-09T14:00:00.000Z",
+      "league": "TFF 1. Lig",
+      "leagueCountry": "Turkey",
+      "home": {
+        "id": "tsdb-138974",
+        "name": "Bodrum"
+      },
+      "away": {
+        "id": "tsdb-138941",
+        "name": "Ankara Keçiörengücü"
+      },
+      "stats": {
+        "home": {
+          "homeSample": 18,
+          "awaySample": 18,
+          "homeGoalsForAvg": 1.7222222222222223,
+          "homeGoalsAgainstAvg": 0.8333333333333334,
+          "awayGoalsForAvg": 1.2222222222222223,
+          "awayGoalsAgainstAvg": 1.1666666666666667,
+          "homeForm": [
+            "L",
+            "L",
+            "D",
+            "D",
+            "W"
+          ],
+          "awayForm": [
+            "D",
+            "D",
+            "D",
+            "L",
+            "D"
+          ]
+        },
+        "away": {
+          "homeSample": 18,
+          "awaySample": 18,
+          "homeGoalsForAvg": 2.611111111111111,
+          "homeGoalsAgainstAvg": 0.8888888888888888,
+          "awayGoalsForAvg": 1.8333333333333333,
+          "awayGoalsAgainstAvg": 1.3888888888888888,
+          "homeForm": [
+            "W",
+            "W",
+            "D",
+            "W",
+            "D"
+          ],
+          "awayForm": [
+            "W",
+            "L",
+            "D",
+            "W",
+            "D"
+          ]
+        }
+      },
+      "score": {
+        "winLikelihood": 0.3355822216216667,
+        "bttsLikelihood": 0.5446002746342206,
+        "combined": 0.16494110968896125,
+        "confidence": "ok"
+      },
+      "modes": {
+        "away": {
+          "winLikelihood": 0.3355822216216667,
+          "bttsLikelihood": 0.5446002746342206,
+          "combined": 0.16494110968896125,
+          "confidence": "ok"
+        },
+        "home": {
+          "winLikelihood": 0.40637634511136067,
+          "bttsLikelihood": 0.5446002746342206,
+          "combined": 0.21979530835900743,
+          "confidence": "ok"
+        },
+        "goals": {
+          "winLikelihood": 0.5030754388981343,
+          "bttsLikelihood": 0.5446002746342206,
+          "combined": 0.4794209429571873,
+          "confidence": "ok"
+        },
+        "dc1x": {
+          "winLikelihood": 0.6644177731858665,
+          "bttsLikelihood": 0.5446002746342206,
+          "combined": 0.4136273270513514,
+          "confidence": "ok"
+        },
+        "homeWin": {
+          "winLikelihood": 0.39809469290963423,
+          "bttsLikelihood": null,
+          "combined": 0.39809469290963423,
+          "confidence": "ok"
+        },
+        "awayWin": {
+          "winLikelihood": 0.3333333333333333,
+          "bttsLikelihood": null,
+          "combined": 0.3333333333333333,
+          "confidence": "ok"
+        },
+        "draw": {
+          "winLikelihood": 0.2748559070250973,
+          "bttsLikelihood": null,
+          "combined": 0.2748559070250973,
+          "confidence": "ok"
+        },
+        "expectedGoals": {
+          "home": 1.419986128675069,
+          "away": 1.2665656043655469
+        },
+        "sampleHome": 18,
+        "sampleAway": 18,
+        "best": {
+          "winLikelihood": 0.5030754388981343,
+          "bttsLikelihood": 0.5446002746342206,
+          "combined": 0.47085335724742483,
+          "confidence": "ok",
+          "sourceMode": "goals"
+        }
+      },
+      "finalScore": {
+        "home": 0,
+        "away": 2
+      },
+      "actual": {
+        "homeWin": false,
+        "awayWin": true,
+        "draw": false,
+        "btts": false,
+        "over25": false
+      },
+      "probSource": "model"
     },
     {
       "id": "401861140",

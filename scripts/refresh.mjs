@@ -19,6 +19,7 @@ import { fileURLToPath } from 'node:url';
 import { scoreFixture, scoreFromExpectedGoals, impliedExpectedGoals, summarizeTeamForm, computeLeagueAverages, pickBestMode, buildCalibrationCurve, isHit, REAL_MODE_KEYS } from './lib/stats.mjs';
 import { generateMockSeason } from './lib/mock.mjs';
 import { LEAGUES, fetchLeagueWindow } from './lib/espn.mjs';
+import { TSDB_LEAGUES, fetchTsdbLeagueWindow } from './lib/thesportsdb.mjs';
 import { FD_CODES, fetchLeagueHistory, fetchUpcomingOdds, matchTeamName, teamMatchesBefore, findMatch } from './lib/footballdata.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
@@ -252,6 +253,22 @@ function buildEuropeanCalibrationSet(matchesByTeam) {
 }
 
 /**
+ * A league's fixtures, results and team form from whichever source carries
+ * it. ESPN's client tolerates individual failed requests on its own;
+ * TheSportsDB's can fail outright (rate limit, outage), which skips just that
+ * league rather than sinking the whole refresh into demo data.
+ */
+async function fetchWindow(league) {
+  if (!league.tsdbId) return fetchLeagueWindow(league);
+  try {
+    return await fetchTsdbLeagueWindow(league, { formMatches: FORM_WINDOW });
+  } catch (err) {
+    log(`  ${league.name}: TheSportsDB unavailable (${err.message || err}), skipped this refresh`);
+    return null;
+  }
+}
+
+/**
  * football-data.co.uk history for one league, or null (with a log line) if it
  * can't be fetched — the league then just runs on ESPN form, as before.
  */
@@ -283,8 +300,12 @@ async function buildFromApi() {
     log('upcoming odds unavailable:', err.message || err);
   }
 
-  for (const league of LEAGUES) {
-    const { fixtures, results, matchesByTeam } = await fetchLeagueWindow(league);
+  let tsdbLoaded = false;
+  for (const league of [...LEAGUES, ...TSDB_LEAGUES]) {
+    const window = await fetchWindow(league);
+    if (!window) continue;
+    if (league.tsdbId) tsdbLoaded = true;
+    const { fixtures, results, matchesByTeam } = window;
     const history = await loadHistory(league);
     const fdNames = history ? new Set(history.flatMap((m) => [m.home, m.away])) : null;
     const fdNameById = new Map();
@@ -326,7 +347,7 @@ async function buildFromApi() {
 
     const withOdds = fixtures.filter((f) => f.odds).length;
     log(`  ${league.name}: ${fixtures.length} upcoming (${withOdds} with odds), ${results.length} recent results, ${matchesByTeam.size} teams` +
-      (history ? `, ${history.length} football-data matches` : ', ESPN form only') +
+      (history ? `, ${history.length} football-data matches` : league.tsdbId ? ', TheSportsDB form' : ', ESPN form only') +
       (unmatched.size ? ` — unmatched: ${[...unmatched].join(', ')}` : ''));
     allFixtures.push(...fixtures);
     allResults.push(...results);
@@ -357,7 +378,8 @@ async function buildFromApi() {
   }
   // Calibration moved only the model-sourced half, so re-rank the merged list.
   fixtures.sort((a, b) => b.score.combined - a.score.combined);
-  return { fixtures, results, calibration, sources: historyByLeague.size ? 'ESPN + football-data.co.uk' : 'ESPN' };
+  const sources = ['ESPN', historyByLeague.size && 'football-data.co.uk', tsdbLoaded && 'TheSportsDB'].filter(Boolean).join(' + ');
+  return { fixtures, results, calibration, sources };
 }
 
 async function main() {
