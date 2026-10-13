@@ -27,6 +27,14 @@ Conference League and Nations League:
 | BTTS | Likelihood both teams score |
 | Combined | Away win × BTTS — the headline ranking metric |
 
+At the very top, **Best picks · all leagues** shows the 3 upcoming matches
+whose single most likely bet — any of the seven bet types, any league —
+has the highest probability, with bwin's price when bwin has one (implied
+odds otherwise). It ignores the filters and ranking below, so it always
+answers "what are the strongest picks right now", and it skips "low
+sample" fixtures, since the highest raw numbers tend to come from teams
+with too little history to trust.
+
 A **Day** filter narrows everything — top matches, the combined bet slip,
 and the table — to one day (Friday, Saturday, Sunday, ...) or back to
 **All weekend**; within whatever's selected, the most likely "away win +

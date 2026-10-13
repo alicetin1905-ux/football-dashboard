@@ -45,6 +45,8 @@ const els = {
   viewResultsBtn: document.getElementById('viewResultsBtn'),
   resultsStats: document.getElementById('resultsStats'),
   hero: document.getElementById('hero'),
+  bestPicks: document.getElementById('bestPicks'),
+  bestPicksCards: document.getElementById('bestPicksCards'),
   heroCards: document.getElementById('heroCards'),
   betSlip: document.getElementById('betSlip'),
   legsSelect: document.getElementById('legsSelect'),
@@ -144,6 +146,42 @@ function renderHero(fixtures) {
   `;
   }).join('');
   renderBetSlip(top, mode);
+}
+
+const BEST_PICKS = 3;
+
+/**
+ * The top row: the upcoming matches whose single most likely bet (any mode,
+ * any league) has the highest probability. Ignores the filters below so it
+ * always answers "what are the strongest picks right now", and skips
+ * low-sample fixtures — the biggest raw numbers tend to come from teams
+ * with too little history to trust.
+ */
+function renderBestPicks() {
+  const now = Date.now();
+  const picks = state.fixtures
+    .filter((f) => f.modes?.best && f.modes.best.confidence === 'ok' && new Date(f.date).getTime() > now)
+    .sort((a, b) => b.modes.best.combined - a.modes.best.combined || new Date(a.date) - new Date(b.date))
+    .slice(0, BEST_PICKS);
+  els.bestPicks.hidden = state.view !== 'upcoming' || !picks.length;
+  els.bestPicksCards.innerHTML = picks.map((f, i) => {
+    const best = f.modes.best;
+    const real = bwinOdds(f, best.sourceMode);
+    const odds = real ?? impliedOdds(best.combined);
+    return `
+    <div class="hero-card">
+      <div class="hero-card-head">
+        <span class="hero-rank">#${i + 1}</span>
+        <span class="hero-league">${bwinTag(f)}${f.league}</span>
+      </div>
+      <div class="hero-match"><span class="home">${f.home.name}</span><span class="vs">vs</span>${f.away.name}</div>
+      <div class="hero-figures">
+        <div class="figure figure-combined"><div class="figure-value">${pct(best.combined)}</div><div class="figure-label">${MODES[best.sourceMode].label}</div></div>
+        <div class="figure"><div class="figure-value">${odds.toFixed(2)}</div><div class="figure-label">${real ? 'bwin odds' : 'implied odds'}</div></div>
+      </div>
+      <div class="hero-kickoff">${kickoff(f.date)}</div>
+    </div>`;
+  }).join('');
 }
 
 /** 1 ÷ probability — the decimal odds our own estimate implies, not a bookmaker price. */
@@ -395,6 +433,7 @@ function syncViewUi() {
 function render() {
   syncModeUi();
   syncViewUi();
+  renderBestPicks();
   const mode = { ...MODES[state.mode], key: state.mode };
 
   if (state.view === 'results') {
