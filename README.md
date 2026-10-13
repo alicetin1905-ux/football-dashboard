@@ -87,10 +87,13 @@ you see already accounts for that mode's own measured bias — low, mid,
 and high predictions corrected independently instead of by one shared
 factor. `Best of all modes`' selection gets a second such curve fit on top
 of the now-calibrated modes, for whatever bias remains from picking a max
-across several of them at once. Both curves are rebuilt from the rolling
-backtest window each refresh (minimum sample sizes apply — a mode with too
-little backtest history yet is left uncalibrated rather than fit to noise),
-so they adapt as more weeks of data accumulate.
+across several of them at once. Both curves are rebuilt each refresh from
+a point-in-time backtest of every club-league match in the last 180 days
+(~1,300 graded matches, each predicted from only the data available before
+its kickoff) — about ten times the last-week Results sample they were
+originally fit on, which is what let the curves go from 3–4 coarse bins to
+6–19. Minimum sample sizes still apply: a mode with too little history is
+left uncalibrated rather than fit to noise.
 
 A higher bar (an outright win, or a win stacked with BTTS) clears less often
 than an easier one (avoiding defeat, dropping the BTTS requirement, or just
@@ -106,8 +109,9 @@ it treats the two teams' goal counts as independent when real matches
 correlate low-scoring outcomes somewhat more than that. Your choice is
 remembered locally. Alerts always stay tied to away win + BTTS regardless
 of which mode you're viewing. A "low sample" tag marks fixtures where
-either team has fewer than 5 recent
-matches on record, since the underlying rate is noisier with less data.
+either team has fewer than 5 matches at that venue on record — mostly
+teams new to their division, whose previous season was in another league
+(see Caveats) — since the underlying rate is noisier with less data.
 
 Below "Top matches", a **Legs** selector (1–5, defaults to 3) picks how many
 of the ranked fixtures to focus on — it controls both how many cards show
@@ -118,6 +122,17 @@ them are multiplied together, and that's shown against a stake you type in
 locally. These are **not** bookmaker odds — they're our own estimate turned
 into odds notation — and combining legs compounds each one's uncertainty,
 so treat it as illustrative, not a real price.
+
+Where a real price exists, it's shown next to ours as **bwin x.xx**: on the
+hero cards, bet-slip legs and table rows, for the **Home win**, **Draw** and
+**Away win** modes (and Best of all modes when it picked one of those). The
+odds feed has no BTTS or combo markets, so the combo modes never show one,
+and upcoming prices only appear once the feed lists the fixture — usually a
+few days ahead, refreshed Tuesdays and Fridays. The Results view shows
+bwin's price for already-played matches too, so you can see where the model
+and the market disagreed and who was right. A big gap on a "low sample"
+fixture is usually the model missing what the bookmaker knows about a team
+new to the division.
 
 **This is not a bookmaker probability or betting advice** — it's a simplified
 estimate from public/derived match data, shown for information only.
@@ -166,13 +181,17 @@ locally so it survives a reload.
 
 ## How the score is computed
 
-Nothing here comes from an odds feed. It's a **Poisson goal-expectancy
+The probabilities are the model's own — bookmaker odds are only shown
+alongside for comparison, never fed in. It's a **Poisson goal-expectancy
 model** — the standard approach football analytics use, not a bookmaker's
-proprietary model, but a real step up from just averaging historical rates:
+proprietary model, but a real step up from just averaging historical rates.
+Each team's "recent" record is its last 38 league matches (split home and
+away), using **expected goals (xG)** instead of actual goals wherever the
+data has them (this season onward):
 
 ```
-homeAttack  = home team's recent home goals-for average  ÷ league's home-goals average
-awayDefense = away team's recent away goals-against avg  ÷ league's home-goals average
+homeAttack  = home team's home xG-for average  ÷ league's home average
+awayDefense = away team's away xG-against avg  ÷ league's home average
 expectedHomeGoals = league's home-goals average × homeAttack × awayDefense
   (mirrored for expectedAwayGoals, using away attack / home defense)
 
@@ -195,17 +214,48 @@ win + BTTS) come from the same underlying expected-goals pair. See
 `scripts/lib/stats.mjs` for the exact logic, and the Results view (below)
 for an ongoing, honest check of how well it's actually calibrated.
 
+The 38-match window and xG weren't picked by taste. A point-in-time
+backtest of 3,442 matches across all 11 club leagues (each predicted using
+only earlier matches), scored with log-loss (lower is better):
+
+| Team form from | 1X2 | Over 2.5 | BTTS |
+|---|---|---|---|
+| Last 15 matches, goals (the old ESPN-only setup) | 1.112 | 0.778 | 0.763 |
+| Last 38 matches, goals | 1.072 | 0.750 | 0.741 |
+| **Last 38 matches, xG where available** | **1.063** | **0.735** | **0.731** |
+| Bookmakers' own prices, for reference | 0.992 | 0.678 | — |
+
+Each step helps every market, and the final setup closes roughly 40% of
+the gap to the bookmakers. On last week's 104 matches with bwin prices,
+the average gap between our 1X2 probabilities and bwin's went from 8.9 to
+6.6 percentage points.
+
 ## Data source
 
-**Live, always** — `scripts/refresh.mjs` pulls from
-[ESPN's public site API](https://site.api.espn.com), which needs no key, no
-signup, and has shown no rate limiting under normal use. Upcoming fixtures
-come from a day-by-day scoreboard sweep (there's no "next N" endpoint).
-Recent team form comes from each team's own schedule endpoint rather than a
-wider day sweep — early in a season that alone doesn't have enough finished
-matches, so it automatically bridges into the previous season's tail to
-keep sample sizes meaningful instead of flagging almost everything
-"low sample" for the first couple of months. Demo data (`scripts/lib/mock.mjs`)
+**Live, always** — two free sources, no keys or signup for either:
+
+- **[football-data.co.uk](https://www.football-data.co.uk)** (`scripts/lib/footballdata.mjs`)
+  — CSVs of every match of the current and previous season for all 11
+  club leagues, with xG (this season onward) and pre-match odds from
+  several bookmakers including bwin, plus a `fixtures.csv` of upcoming
+  matches with their odds. This is where team strength, xG, the
+  calibration backtest and every bwin price come from.
+- **[ESPN's public site API](https://site.api.espn.com)** (`scripts/lib/espn.mjs`)
+  — the fixture schedule (a day-by-day scoreboard sweep, 10 days out —
+  football-data.co.uk's own upcoming list only reaches a few days ahead),
+  last week's results for the Results view, and team form for the UEFA
+  Nations League, which football-data.co.uk doesn't cover. If
+  football-data.co.uk is ever unreachable, each league quietly falls back
+  to ESPN form, as before.
+
+The two name teams differently ("Man United" vs "Manchester United",
+"Ath Madrid" vs "Atlético Madrid"), so `matchTeamName` bridges them:
+explicit aliases first, then a normalized exact match, then "every word of
+the football-data name appears in ESPN's", with the most-specific match
+winning and ties left unmatched rather than guessed (so "Cercle Brugge KSV"
+can't land on "Club Brugge"). It currently matches all 210 club teams;
+any it can't are named in the refresh log and fall back to ESPN form.
+Demo data (`scripts/lib/mock.mjs`)
 is only a fallback if the live fetch fails for any reason, so the dashboard
 always has something to show; the meta badge in the top-left says which mode
 produced the current data.
@@ -216,9 +266,9 @@ Three other routes were tried and abandoned before this one:
   blocks exactly the parameters a live-fixtures dashboard needs (`next`,
   `last`, and filtered historical queries all rejected).
 - **SofaScore's own API** — `403 Forbidden` for datacenter/CI IPs.
-- **football-data.org** — worked, but its free tier's fixed 13-competition
-  list doesn't include the Turkish Süper Lig, and ESPN turned out simpler
-  anyway (no token, no per-minute rate limit to work around).
+- **football-data.org** (not to be confused with football-data.co.uk) —
+  worked, but its free tier's fixed 13-competition list doesn't include the
+  Turkish Süper Lig, and needs a token with a per-minute rate limit.
 
 ## Running locally
 
@@ -256,7 +306,8 @@ scripts/refresh.mjs      the pipeline: live fetch or demo fallback, then scores 
 scripts/serve.mjs        local static server
 scripts/make-icons.mjs   one-off icon renderer (headless Chromium) — run once, commit the output
 scripts/lib/stats.mjs    the scoring logic, shared by live and demo paths
-scripts/lib/espn.mjs     ESPN site-API client
+scripts/lib/espn.mjs     ESPN site-API client: fixture schedule, recent results, Nations League form
+scripts/lib/footballdata.mjs  football-data.co.uk CSV client: team history, xG, bookmaker odds
 scripts/lib/mock.mjs     deterministic demo data generator
 ```
 
@@ -269,10 +320,14 @@ scripts/lib/mock.mjs     deterministic demo data generator
 - ESPN's site API is undocumented — it could change shape or start rate
   limiting without notice. If a refresh starts failing, check
   `scripts/lib/espn.mjs` against a fresh response first.
-- Some fixtures still come back "low confidence" early in a season even with
-  the previous-season bridge — mainly newly promoted/relegated teams, whose
-  "previous season" was in a different division and so isn't queried under
-  the current league's slug. This is a real data gap, not a bug.
+- Newly promoted and relegated teams come back "low sample" for the first
+  couple of months: their previous season was in a different division, so
+  only this season's handful of matches count, and their strength isn't
+  comparable across divisions without an adjustment this model doesn't
+  make. This is where the model disagrees with bookmakers most (e.g. a
+  promoted side at home to a relegated one) — the bwin price shown next to
+  ours is the quickest way to spot it, and "Hide low-sample fixtures"
+  filters them out entirely.
 - The **UEFA Nations League** only plays during a handful of international
   windows a year (not every week like a club league), so its upcoming list
   is often empty between them — that's real, not a fetch failure. Its

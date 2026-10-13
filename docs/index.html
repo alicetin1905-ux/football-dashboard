@@ -109,9 +109,10 @@
 
   <footer>
     <p id="methodology">
-      <strong>Methodology.</strong> Each team gets an attack and defense strength (their
-      recent goals scored/conceded, split by home/away venue, relative to their league's
-      own average), which combine into an <em>expected goal count</em> for each side of a
+      <strong>Methodology.</strong> Each team gets an attack and defense strength (from
+      its last 38 league matches, split by home/away venue, using expected goals (xG)
+      rather than actual goals wherever available, relative to its league's own
+      average), which combine into an <em>expected goal count</em> for each side of a
       fixture. From those two expected counts, a full score-probability matrix (0&ndash;0,
       1&ndash;0, 0&ndash;1, ...) gives properly joint win/BTTS/combined probabilities &mdash;
       unlike just multiplying two unrelated historical rates, this correctly links the two:
@@ -138,16 +139,19 @@
       Picking a maximum across several estimates this way has a well-known bias, though
       &mdash; a "winner's curse" that favors whichever estimate got the luckiest noise, not
       necessarily the genuinely best bet. Every mode's raw probability (not just Best of
-      all modes' selection) is calibrated against the Results backtest each refresh before
-      it's shown: predictions are binned by their own raw value, each bin is checked
+      all modes' selection) is calibrated each refresh before it's shown, against a
+      point-in-time backtest of every club-league match in the last 180 days (~1,300
+      matches): predictions are binned by their own raw value, each bin is checked
       against what actually happened in that bin, and a monotonic curve built from those
       bins (via isotonic regression) replaces the raw number with the empirically-observed
       rate &mdash; low/mid predictions and the rare high-confidence ones are corrected
       independently, rather than by one flat factor applied to everything alike. Best of
       all modes then gets its own additional curve on top, fit the same way, for whatever
       selection bias remains from picking a max across several already-calibrated modes at
-      once. Fixtures where either team has fewer than 5 recent matches on record are flagged
-      "low sample", since a small sample makes for a noisy goal-scoring average. Alerts are
+      once. Fixtures where either team has fewer than 5 matches at that venue on record are
+      flagged "low sample" &mdash; mostly teams new to their division &mdash; since a small
+      sample makes for a noisy average. Where a real price exists (Home win, Draw, Away win),
+      bwin's odds are shown next to ours for comparison; they're never fed into the model. Alerts are
       always based on away win + BTTS, regardless of the selected ranking. The
       <strong>Home</strong>/<strong>Away</strong> form badges on each row are the matches
       that average comes from — the home team's own home matches, oldest to newest, and
@@ -156,6 +160,9 @@
       each prediction there is computed from only the matches that came <em>before</em> that
       kickoff, so it's the call the model would actually have made going in, checked against
       what really happened.
+      Data: team history, xG and bookmaker odds from
+      <a href="https://www.football-data.co.uk">football-data.co.uk</a>; the fixture schedule,
+      recent results and UEFA Nations League form from ESPN.
     </p>
     <p>Public/derived match data, shown for information only. Not betting advice.</p>
   </footer>

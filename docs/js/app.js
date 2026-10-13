@@ -83,7 +83,7 @@ function writeStore(key, value) {
  * and ships them as `f.modes.away` / `f.modes.home` / etc, including
  * `f.modes.best` (whichever mode had the top probability for that fixture,
  * calibrated against the backtest to correct its winner's-curse
- * overconfidence — see calibrateBestMode in stats.mjs). Picking a mode
+ * overconfidence — see buildCalibrationCurve in stats.mjs). Picking a mode
  * client-side is just a lookup.
  */
 function computeScore(f, mode) {
@@ -112,7 +112,7 @@ function meter(value, cls = '') {
 
 function renderMeta(payload) {
   const isLive = payload.source !== 'mock';
-  const sourceLabel = isLive ? `Live · ${payload.source.toUpperCase()}` : 'Demo data';
+  const sourceLabel = isLive ? `Live · ${payload.sourceLabel || payload.source.toUpperCase()}` : 'Demo data';
   els.metaRow.innerHTML = `
     <span class="badge ${isLive ? 'source-live' : 'source-mock'}">${sourceLabel}</span>
     <span>Refreshed ${relativeAgo(payload.generatedAt)}</span>
@@ -139,7 +139,7 @@ function renderHero(fixtures) {
         <div class="figure"><div class="figure-value">${pct(f._view.winLikelihood)}</div><div class="figure-label">${rowMode.winLabel}</div></div>
         <div class="figure"><div class="figure-value">${pct(f._view.bttsLikelihood)}</div><div class="figure-label">BTTS</div></div>
       </div>
-      <div class="hero-kickoff">${kickoff(f.date)}</div>
+      <div class="hero-kickoff">${kickoff(f.date)}${bookOddsHtml(f, effectiveModeKey(f, mode), 'hero-book')}</div>
     </div>
   `;
   }).join('');
@@ -148,6 +148,23 @@ function renderHero(fixtures) {
 
 /** 1 ÷ probability — the decimal odds our own estimate implies, not a bookmaker price. */
 const impliedOdds = (p) => (p > 0 ? 1 / p : null);
+
+const BOOK_SIDE = { homeWin: 'home', draw: 'draw', awayWin: 'away' };
+
+/**
+ * bwin's real price for the market this mode bets on, or null. Only the
+ * single-outcome modes have one — the odds feed has no BTTS or combo markets
+ * — and only for fixtures the feed already lists (a few days ahead).
+ */
+function bwinOdds(f, modeKey) {
+  const side = BOOK_SIDE[modeKey];
+  return side && f.odds && f.odds.bwin ? f.odds.bwin[side] : null;
+}
+
+function bookOddsHtml(f, modeKey, cls) {
+  const odds = bwinOdds(f, modeKey);
+  return odds ? `<span class="${cls}" title="bwin's price for this outcome — a real bookmaker quote">bwin ${odds.toFixed(2)}</span>` : '';
+}
 
 /** Recomputes just the return/profit figures for the current stake — leaves the rest of the card, and the stake input's focus, untouched. */
 function updateBetSlipReturn(combinedOdds) {
@@ -183,7 +200,7 @@ function renderBetSlip(top, mode) {
           <span class="leg-teams">${leg.f.home.name}<span class="vs">vs</span>${leg.f.away.name}${
             mode.key === 'best' ? ` <span class="leg-mode">${MODES[effectiveModeKey(leg.f, mode)].label}</span>` : ''
           }</span>
-          <span class="leg-odds">${leg.odds.toFixed(2)}</span>
+          <span class="leg-odds">${bookOddsHtml(leg.f, effectiveModeKey(leg.f, mode), 'leg-book')}${leg.odds.toFixed(2)}</span>
         </div>
       `).join('')}
     </div>
@@ -201,7 +218,8 @@ function renderBetSlip(top, mode) {
     </div>
     <p class="bet-slip-disclaimer">
       Odds implied from our own ${mode.key === 'best' ? 'best-fit-mode-per-match' : mode.label.toLowerCase()}
-      estimate (1 &divide; probability) &mdash; not a bookmaker price. Combining legs multiplies their
+      estimate (1 &divide; probability) &mdash; not a bookmaker price; where shown, &ldquo;bwin&rdquo; is
+      bwin's real quote for the same outcome. Combining legs multiplies their
       uncertainty together, not just their odds. Illustrative only, not betting advice.
     </p>
   `;
@@ -329,7 +347,7 @@ function matchRowHtml(f, mode, isResult) {
         <span class="home">${f.home.name}</span><span class="vs">vs</span>${f.away.name}
         ${modeBadge}
         ${scoreBadge}
-        ${f._view.confidence === 'low' ? '<span class="confidence-low" title="Fewer than 5 recent matches on record for one side">low sample</span>' : ''}
+        ${f._view.confidence === 'low' ? '<span class="confidence-low" title="Fewer than 5 matches at this venue on record for one side — e.g. a team new to the division">low sample</span>' : ''}
         <div class="form-row">
           <span class="form-label">Home</span>
           ${formBadges(f.stats.home.homeForm, `${f.home.name}'s last home matches, oldest to newest`)}
@@ -339,7 +357,7 @@ function matchRowHtml(f, mode, isResult) {
       </td>
       <td data-label="${rowMode.winLabel}">${meter(f._view.winLikelihood)}</td>
       <td data-label="BTTS">${meter(f._view.bttsLikelihood)}</td>
-      <td data-label="Combined">${meter(f._view.combined, 'combined')}</td>
+      <td data-label="Combined">${meter(f._view.combined, 'combined')}${bookOddsHtml(f, effectiveModeKey(f, mode), 'row-book')}</td>
     </tr>
   `;
 }
