@@ -16,7 +16,7 @@ import { writeFile, mkdir } from 'node:fs/promises';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-import { scoreFixture, summarizeTeamForm, computeLeagueAverages, pickBestMode, buildCalibrationCurve, isHit, REAL_MODE_KEYS } from './lib/stats.mjs';
+import { scoreFixture, scoreFromExpectedGoals, impliedExpectedGoals, summarizeTeamForm, computeLeagueAverages, pickBestMode, buildCalibrationCurve, isHit, REAL_MODE_KEYS } from './lib/stats.mjs';
 import { generateMockSeason } from './lib/mock.mjs';
 import { LEAGUES, fetchLeagueWindow } from './lib/espn.mjs';
 import { FD_CODES, fetchLeagueHistory, fetchUpcomingOdds, matchTeamName, teamMatchesBefore, findMatch } from './lib/footballdata.mjs';
@@ -31,6 +31,13 @@ const CALIBRATION_DAYS = 180;
 
 const log = (...a) => console.log('[refresh]', ...a);
 
+/**
+ * Team form is per competition: a club has the same ESPN id in its league
+ * and in the Champions League, but its strength there is measured against
+ * different opposition, so the two must not share (or overwrite) an entry.
+ */
+const teamKey = (league, teamId) => `${league}|${teamId}`;
+
 const actualOutcome = (hg, ag) => ({
   homeWin: hg > ag,
   awayWin: ag > hg,
@@ -38,6 +45,25 @@ const actualOutcome = (hg, ag) => ({
   btts: hg > 0 && ag > 0,
   over25: hg + ag > 2.5,
 });
+
+/**
+ * Where bwin has priced a match, its probabilities come from bwin rather than
+ * our form model: expected goals solved from bwin's home/draw/away price and
+ * the market Over 2.5 line, run through the same score matrix so every mode
+ * (BTTS and combos too) reflects bwin's view. A point-in-time backtest of
+ * 3,431 matches found this beats our model — and any blend of the two — on
+ * 1X2, Over 2.5 and BTTS alike, and that it's already well calibrated (the
+ * isotonic curves made it slightly worse out of sample, and Best of all modes
+ * showed no winner's curse: 53.1% predicted vs 53.2% actual), so it's used
+ * as-is. Our model's form figures (samples, W/D/L badges) are kept alongside.
+ */
+function withBwinModes(scored, odds) {
+  if (!odds?.bwin) return scored;
+  const over = odds.over25 ? (1 / odds.over25.over) / (1 / odds.over25.over + 1 / odds.over25.under) : null;
+  const xg = impliedExpectedGoals(odds.bwin, over);
+  const modes = { ...scoreFromExpectedGoals(xg.home, xg.away, 'ok'), sampleHome: scored.modes.sampleHome, sampleAway: scored.modes.sampleAway };
+  return { ...scored, score: modes.away, modes, probSource: 'bwin' };
+}
 
 /** Teams in a league's most recent stretch of matches — this season's lineup, not relegated sides. */
 function currentTeams(history) {
@@ -77,13 +103,13 @@ function buildCalibrationSet(historyByLeague, now) {
 function scoreAll(fixtures, formById, leagueAvgByName) {
   const scored = [];
   for (const f of fixtures) {
-    const homeForm = formById.get(f.home.id);
-    const awayForm = formById.get(f.away.id);
+    const homeForm = formById.get(teamKey(f.league, f.home.id));
+    const awayForm = formById.get(teamKey(f.league, f.away.id));
     if (!homeForm || !awayForm || homeForm.__error || awayForm.__error) continue;
     const leagueAvg = leagueAvgByName.get(f.league);
     if (!leagueAvg) continue;
     const modes = scoreFixture(homeForm, awayForm, leagueAvg);
-    scored.push({ ...f, stats: { home: homeForm, away: awayForm }, score: modes.away, modes });
+    scored.push(withBwinModes({ ...f, stats: { home: homeForm, away: awayForm }, score: modes.away, modes, probSource: 'model' }, f.odds));
   }
   scored.sort((a, b) => b.score.combined - a.score.combined);
   return scored;
@@ -105,8 +131,8 @@ function scoreAll(fixtures, formById, leagueAvgByName) {
 function scoreResults(results, rawMatchesByTeam, leagueAvgByName) {
   const scored = [];
   for (const r of results) {
-    const homeMatches = rawMatchesByTeam.get(r.home.id);
-    const awayMatches = rawMatchesByTeam.get(r.away.id);
+    const homeMatches = rawMatchesByTeam.get(teamKey(r.league, r.home.id));
+    const awayMatches = rawMatchesByTeam.get(teamKey(r.league, r.away.id));
     if (!homeMatches || !awayMatches || homeMatches.__error || awayMatches.__error) continue;
     const leagueAvg = leagueAvgByName.get(r.league);
     if (!leagueAvg) continue;
@@ -117,7 +143,7 @@ function scoreResults(results, rawMatchesByTeam, leagueAvgByName) {
     const awayForm = summarizeTeamForm(before(awayMatches));
     const modes = scoreFixture(homeForm, awayForm, leagueAvg);
 
-    scored.push({
+    scored.push(withBwinModes({
       id: r.id,
       date: r.date,
       league: r.league,
@@ -129,8 +155,9 @@ function scoreResults(results, rawMatchesByTeam, leagueAvgByName) {
       modes,
       finalScore: { home: r.home.score, away: r.away.score },
       actual: actualOutcome(r.home.score, r.away.score),
+      probSource: 'model',
       ...(r.odds ? { odds: r.odds } : {}),
-    });
+    }, r.odds));
   }
   scored.sort((a, b) => new Date(b.date) - new Date(a.date));
   return scored;
@@ -164,7 +191,13 @@ function applyCalibration(fixtures, results, calibrationSet = results) {
     const curve = buildCalibrationCurve(gradedPicks);
     modeCurves[key] = curve.points;
     for (const list of targets) {
-      for (const x of list) { if (x.modes[key]) x.modes[key].combined = curve.apply(x.modes[key].combined); }
+      for (const x of list) {
+        const m = x.modes[key];
+        if (!m) continue;
+        m.combined = curve.apply(m.combined);
+        // Single-outcome modes show the same event in both columns — keep them equal.
+        if (m.bttsLikelihood == null) m.winLikelihood = m.combined;
+      }
     }
   }
 
@@ -182,6 +215,40 @@ function applyCalibration(fixtures, results, calibrationSet = results) {
   }
 
   return { modes: modeCurves, best: bestCurve.points, sampleSize: calibrationSet.length };
+}
+
+/**
+ * The European cups' own calibration backtest. Every past cup match where
+ * both sides are in this season's pooled histories is rebuilt from those
+ * histories (each match appears once from each team's side, joined on ESPN's
+ * event id) and scored point-in-time. Domestic curves don't fit here: on
+ * 238 such matches the European model ran timid on average (Over 2.5: 55%
+ * predicted, 63% actual) yet bold at the top (top-fifth BTTS + Over 2.5:
+ * 73% predicted, 58% actual) — the same shape as the domestic model, but
+ * not the same amounts.
+ */
+function buildEuropeanCalibrationSet(matchesByTeam) {
+  const events = new Map();
+  for (const [teamId, matches] of matchesByTeam) {
+    for (const m of matches) {
+      if (!m.id) continue;
+      const e = events.get(m.id) || { date: m.date };
+      if (m.venue === 'home') Object.assign(e, { home: teamId, hg: m.gf, ag: m.ga });
+      else e.away = teamId;
+      events.set(m.id, e);
+    }
+  }
+  const histories = [...matchesByTeam.values()];
+  const before = (matches, t) => matches.filter((m) => new Date(m.date) < t).slice(-FORM_WINDOW);
+  const set = [];
+  for (const e of events.values()) {
+    if (!e.home || !e.away) continue;
+    const t = new Date(e.date);
+    const leagueAvg = computeLeagueAverages(histories.map((h) => summarizeTeamForm(before(h, t))));
+    const modes = scoreFixture(summarizeTeamForm(before(matchesByTeam.get(e.home), t)), summarizeTeamForm(before(matchesByTeam.get(e.away), t)), leagueAvg);
+    set.push({ modes, actual: actualOutcome(e.hg, e.ag) });
+  }
+  return set;
 }
 
 /**
@@ -207,6 +274,7 @@ async function buildFromApi() {
   const rawMatchesByTeam = new Map();
   const leagueAvgByName = new Map();
   const historyByLeague = new Map();
+  const europeanMatchesByTeam = new Map();
 
   let upcomingOdds = new Map();
   try {
@@ -236,8 +304,9 @@ async function buildFromApi() {
       // cut back to "before kickoff" and keep a full FORM_WINDOW.
       const matches = fdName ? teamMatchesBefore(history, fdName, now, FORM_WINDOW + 10) : espnMatches;
       const form = summarizeTeamForm(matches.slice(-FORM_WINDOW));
-      formById.set(teamId, form);
-      rawMatchesByTeam.set(teamId, matches);
+      formById.set(teamKey(league.name, teamId), form);
+      rawMatchesByTeam.set(teamKey(league.name, teamId), matches);
+      if (league.formSlugs) europeanMatchesByTeam.set(teamId, matches);
       forms.push(form);
     }
     leagueAvgByName.set(league.name, history ? leagueAverageAt(history, now) : computeLeagueAverages(forms));
@@ -274,8 +343,20 @@ async function buildFromApi() {
   if (!allFixtures.length && !allResults.length) throw new Error('no live data returned for any league');
   const fixtures = scoreAll(allFixtures, formById, leagueAvgByName);
   const results = scoreResults(allResults, rawMatchesByTeam, leagueAvgByName);
-  const calibrationSet = historyByLeague.size ? buildCalibrationSet(historyByLeague, now) : results;
-  const calibration = applyCalibration(fixtures, results, calibrationSet);
+  // The curves correct our model's bias only; bwin-derived numbers are used as-is (see withBwinModes).
+  const europeanLeagues = new Set(LEAGUES.filter((l) => l.formSlugs).map((l) => l.name));
+  const group = (list, european) => list.filter((x) => x.probSource === 'model' && europeanLeagues.has(x.league) === european);
+  const domesticResults = group(results, false);
+  const europeanResults = group(results, true);
+  const calibration = {
+    domestic: applyCalibration(group(fixtures, false), domesticResults, historyByLeague.size ? buildCalibrationSet(historyByLeague, now) : domesticResults),
+    european: applyCalibration(group(fixtures, true), europeanResults, buildEuropeanCalibrationSet(europeanMatchesByTeam)),
+  };
+  for (const x of [...fixtures, ...results]) {
+    if (x.probSource === 'bwin') x.modes.best = pickBestMode(x.modes);
+  }
+  // Calibration moved only the model-sourced half, so re-rank the merged list.
+  fixtures.sort((a, b) => b.score.combined - a.score.combined);
   return { fixtures, results, calibration, sources: historyByLeague.size ? 'ESPN + football-data.co.uk' : 'ESPN' };
 }
 
@@ -296,9 +377,10 @@ async function main() {
   if (!fixtures) {
     log('using demo data (live fetch unavailable)');
     const { fixtures: mockFixtures, forms, leagueAverages } = generateMockSeason();
-    fixtures = scoreAll(mockFixtures, forms, leagueAverages);
+    const scopedForms = new Map(mockFixtures.flatMap((f) => [f.home, f.away].map((t) => [teamKey(f.league, t.id), forms.get(t.id)])));
+    fixtures = scoreAll(mockFixtures, scopedForms, leagueAverages);
     results = []; // demo mode has no play-by-play history to backtest against
-    calibration = applyCalibration(fixtures, results); // no results to calibrate from, so every factor is 1 (uncorrected)
+    calibration = { domestic: applyCalibration(fixtures, results) }; // no results to calibrate from, so every curve is the identity
     source = 'mock';
     sourceLabel = 'Demo data';
   }
@@ -314,8 +396,9 @@ async function main() {
   };
   await writeFile(resolve(OUT, 'fixtures.json'), JSON.stringify(payload, null, 2));
   const curveLog = (points) => (points.length ? `${points.length}pt` : 'off');
-  const factorsLog = Object.entries(calibration.modes).map(([k, v]) => `${k}=${curveLog(v)}`).join(' ');
-  log(`wrote ${fixtures.length} fixtures, ${results.length} recent results, calibration: ${factorsLog} best=${curveLog(calibration.best)} fit on ${calibration.sampleSize} graded matches (source: ${sourceLabel})`);
+  const groupLog = Object.entries(calibration).map(([name, c]) =>
+    `${name} [${Object.entries(c.modes).map(([k, v]) => `${k}=${curveLog(v)}`).join(' ')} best=${curveLog(c.best)}, ${c.sampleSize} matches]`).join('; ');
+  log(`wrote ${fixtures.length} fixtures, ${results.length} recent results, calibration: ${groupLog} (source: ${sourceLabel})`);
 }
 
 main().catch((err) => {

@@ -18,7 +18,7 @@ stays in a legible face rather than a display one throughout.
 For every upcoming fixture across eleven European club leagues (Premier
 League, Championship, La Liga, Bundesliga, 2. Bundesliga, Serie A, Ligue 1,
 Turkish Süper Lig, Eredivisie, Belgian Pro League, Primeira Liga) plus the
-UEFA Nations League:
+UEFA Champions League, UEFA Europa League and UEFA Nations League:
 
 | Column | Meaning |
 |---|---|
@@ -119,20 +119,40 @@ and how many go into the **Combined** card underneath: each leg's own
 likelihood is converted to implied decimal odds (1 ÷ probability), all of
 them are multiplied together, and that's shown against a stake you type in
 (defaults to €10) as a potential return. Legs and stake are both remembered
-locally. These are **not** bookmaker odds — they're our own estimate turned
-into odds notation — and combining legs compounds each one's uncertainty,
-so treat it as illustrative, not a real price.
+locally. A leg marked **bwin** uses bwin's real price for that outcome
+(Home win, Draw or Away win, once bwin has priced the match); every other
+leg is 1 ÷ our probability — not a bookmaker price — and combining legs
+compounds each one's uncertainty, so treat it as illustrative.
 
-Where a real price exists, it's shown next to ours as **bwin x.xx**: on the
-hero cards, bet-slip legs and table rows, for the **Home win**, **Draw** and
-**Away win** modes (and Best of all modes when it picked one of those). The
-odds feed has no BTTS or combo markets, so the combo modes never show one,
-and upcoming prices only appear once the feed lists the fixture — usually a
-few days ahead, refreshed Tuesdays and Fridays. The Results view shows
-bwin's price for already-played matches too, so you can see where the model
-and the market disagreed and who was right. A big gap on a "low sample"
-fixture is usually the model missing what the bookmaker knows about a team
-new to the division.
+### bwin odds
+
+Where bwin has priced a match, **its probabilities come from bwin**, not
+our form model — the row is tagged **bwin odds**. bwin's home/draw/away
+price (plus the market Over/Under 2.5 line — bwin's own isn't in the feed)
+is turned into an expected-goals pair that reproduces it, and every mode is
+read off that pair's score matrix, so BTTS and the combo modes reflect
+bwin's view too even though bwin doesn't price them in this feed. This
+won the backtest outright — 3,431 matches, log-loss, lower is better:
+
+| Weight on bwin vs our model | 1X2 | Over 2.5 | BTTS |
+|---|---|---|---|
+| 0 (our model only) | 1.063 | 0.735 | 0.731 |
+| 0.5 | 1.015 | 0.693 | 0.697 |
+| 0.85 | 0.997 | 0.677 | 0.684 |
+| **1 (bwin only)** | **0.994** | **0.674** | **0.682** |
+
+bwin-derived numbers skip the calibration curves: on a time split the
+curves made them very slightly worse (they're already well calibrated),
+and Best of all modes showed no winner's curse on them (53.1% predicted
+vs 53.2% actual). The draw comes out a point or two under bwin's own
+figure — the score matrix's usual draw shortfall.
+
+The catch is coverage. The feed lists a match only a few days ahead
+(refreshed Tuesdays and Fridays), covers the 11 club leagues but not the
+European cups or the Nations League, and has no BTTS markets — so fixtures
+further out, and all cup and Nations League matches, stay on our model.
+bwin's price is also shown as **bwin x.xx** next to the Home win / Draw /
+Away win figure in the table, and on already-played matches in Results.
 
 **This is not a bookmaker probability or betting advice** — it's a simplified
 estimate from public/derived match data, shown for information only.
@@ -181,8 +201,8 @@ locally so it survives a reload.
 
 ## How the score is computed
 
-The probabilities are the model's own — bookmaker odds are only shown
-alongside for comparison, never fed in. It's a **Poisson goal-expectancy
+Where bwin has priced a match its probabilities come from bwin (see
+"bwin odds" above); everywhere else they're our own model's. That's a **Poisson goal-expectancy
 model** — the standard approach football analytics use, not a bookmaker's
 proprietary model, but a real step up from just averaging historical rates.
 Each team's "recent" record is its last 38 league matches (split home and
@@ -243,8 +263,9 @@ the average gap between our 1X2 probabilities and bwin's went from 8.9 to
 - **[ESPN's public site API](https://site.api.espn.com)** (`scripts/lib/espn.mjs`)
   — the fixture schedule (a day-by-day scoreboard sweep, 10 days out —
   football-data.co.uk's own upcoming list only reaches a few days ahead),
-  last week's results for the Results view, and team form for the UEFA
-  Nations League, which football-data.co.uk doesn't cover. If
+  last week's results for the Results view, and team form for the
+  Champions League, Europa League and Nations League, which
+  football-data.co.uk doesn't cover. If
   football-data.co.uk is ever unreachable, each league quietly falls back
   to ESPN form, as before.
 
@@ -335,6 +356,18 @@ scripts/lib/mock.mjs     deterministic demo data generator
   way it does to a club league; `fetchTeamForm` bridges back up to two
   seasons rather than one to find a team's most recent games, since the
   competition itself only runs every other year.
+- **Champions League and Europa League** form comes from each club's
+  matches across all three UEFA club competitions (Champions, Europa and
+  Conference League, up to three seasons back) — the Europa League alone
+  gave a median of 1 match per team, pooled it's 16 (Champions League: 23).
+  Every match counted is against European-cup opposition, so strengths stay
+  relative to that level, and the cups get their own calibration curves,
+  fit each refresh on ~350 past cup matches rebuilt from those histories
+  (domestic curves didn't fit: the European model's top-fifth BTTS + Over
+  2.5 picks claimed 73% but hit 58%). Form is kept per competition — a
+  club's Champions League fixture uses its European record, its league
+  fixture its domestic one. Teams with little European history (debutants)
+  are "low sample", and there are no bwin prices for cup matches in the feed.
 - **Africa Cup of Nations was deliberately left out.** Its next edition is
   roughly two years off, and — more fundamentally — it's played entirely in
   one host country: ESPN's home/away labels don't reflect real home

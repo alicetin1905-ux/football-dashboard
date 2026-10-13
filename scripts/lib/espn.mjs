@@ -14,6 +14,16 @@
 
 const BASE = 'https://site.api.espn.com/apis/site/v2/sports/soccer';
 
+/**
+ * A team's form in a European cup is pooled across all three UEFA club
+ * competitions: Europa League sides mostly played a different one (or
+ * none) in earlier seasons, so the Europa League alone gave a median of 1
+ * match per team. Pooled, it's 16 (Champions League: 11 → 23), and every
+ * match is still against European-cup opposition, so the strengths stay
+ * relative to that level rather than to some domestic league.
+ */
+const UEFA_CLUB_SLUGS = ['uefa.champions', 'uefa.europa', 'uefa.europa.conf'];
+
 export const LEAGUES = [
   { slug: 'eng.1', name: 'Premier League', country: 'England' },
   { slug: 'eng.2', name: 'Championship', country: 'England' },
@@ -27,6 +37,8 @@ export const LEAGUES = [
   { slug: 'bel.1', name: 'Belgian Pro League', country: 'Belgium' },
   { slug: 'por.1', name: 'Primeira Liga', country: 'Portugal' },
   { slug: 'uefa.nations', name: 'UEFA Nations League', country: 'Europe' },
+  { slug: 'uefa.champions', name: 'UEFA Champions League', country: 'Europe', formSlugs: UEFA_CLUB_SLUGS, formMatches: 38 },
+  { slug: 'uefa.europa', name: 'UEFA Europa League', country: 'Europe', formSlugs: UEFA_CLUB_SLUGS, formMatches: 38 },
 ];
 
 /** European season labels run by start year (e.g. 2026 for the 2026-27 season). */
@@ -146,6 +158,7 @@ function parseFinishedMatches(events, teamId) {
     if (!Number.isFinite(gh) || !Number.isFinite(ga)) continue;
     const isHome = home.team.id === teamId;
     out.push({
+      id: event.id,
       date: event.date,
       venue: isHome ? 'home' : 'away',
       gf: isHome ? gh : ga,
@@ -166,14 +179,24 @@ function parseFinishedMatches(events, teamId) {
  * off-year in between (`season - 1`, when the competition didn't run at
  * all), with the real previous edition sitting at `season - 2`.
  */
-async function fetchTeamForm(leagueSlug, teamId, season, minMatches = 10, keep = 15, maxSeasonsBack = 3) {
-  let matches = [];
-  for (let back = 0; back < maxSeasonsBack && matches.length < minMatches; back++) {
-    const resp = await apiGet(`/${leagueSlug}/teams/${teamId}/schedule?season=${season - back}`);
-    matches = [...parseFinishedMatches(resp.events || [], teamId), ...matches];
+async function fetchTeamForm(slugs, teamId, season, { minMatches = 10, keep = 15, maxSeasonsBack = 3 } = {}) {
+  const byEvent = new Map();
+  let lastError = null;
+  let succeeded = 0;
+  for (let back = 0; back < maxSeasonsBack && byEvent.size < minMatches; back++) {
+    for (const slug of slugs) {
+      try {
+        const resp = await apiGet(`/${slug}/teams/${teamId}/schedule?season=${season - back}`);
+        succeeded++;
+        for (const m of parseFinishedMatches(resp.events || [], teamId)) byEvent.set(m.id, m);
+      } catch (err) {
+        lastError = err; // a team that never played in one of several pooled competitions
+      }
+    }
   }
+  if (!succeeded && lastError) throw lastError;
 
-  matches.sort((a, b) => new Date(a.date) - new Date(b.date));
+  const matches = [...byEvent.values()].sort((a, b) => new Date(a.date) - new Date(b.date));
   // Keeps `date` (unlike the other summarized fields) — refresh.mjs needs it
   // to filter each team's matches down to "before this result" when scoring
   // already-played fixtures, so that backtest doesn't peek at the future.
@@ -192,7 +215,8 @@ export async function fetchLeagueWindow(league, { futureDays = 10, pastDays = 7,
   const season = currentSeasonYear();
 
   const teamIds = [...new Set([...fixtures, ...results].flatMap((f) => [f.home.id, f.away.id]))];
-  const formResults = await pool(teamIds, (id) => fetchTeamForm(league.slug, id, season), concurrency);
+  const formOptions = league.formSlugs ? { minMatches: league.formMatches, keep: league.formMatches } : undefined;
+  const formResults = await pool(teamIds, (id) => fetchTeamForm(league.formSlugs || [league.slug], id, season, formOptions), concurrency);
 
   const matchesByTeam = new Map();
   teamIds.forEach((id, i) => {

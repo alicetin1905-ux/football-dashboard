@@ -151,6 +151,15 @@ export function scoreFixture(homeForm, awayForm, leagueAvg) {
   const expectedHomeGoals = clamp(leagueAvg.home * homeAttack * awayDefense, ...EXPECTED_GOALS_RANGE);
   const expectedAwayGoals = clamp(leagueAvg.away * awayAttack * homeDefense, ...EXPECTED_GOALS_RANGE);
 
+  return {
+    ...scoreFromExpectedGoals(expectedHomeGoals, expectedAwayGoals, confidence),
+    sampleHome: homeForm.homeSample,
+    sampleAway: awayForm.awaySample,
+  };
+}
+
+/** Every mode's probabilities from one expected-goals pair — shared by the form model and the bwin-implied path. */
+export function scoreFromExpectedGoals(expectedHomeGoals, expectedAwayGoals, confidence) {
   const { homeWin, awayWin, draw, btts, homeWinBtts, awayWinBtts, over25, bttsOver25, homeOrDraw, homeOrDrawBtts } =
     outcomeProbs(expectedHomeGoals, expectedAwayGoals);
 
@@ -169,10 +178,43 @@ export function scoreFixture(homeForm, awayForm, leagueAvg) {
     homeWin: { winLikelihood: homeWin, bttsLikelihood: null, combined: homeWin, confidence },
     awayWin: { winLikelihood: awayWin, bttsLikelihood: null, combined: awayWin, confidence },
     draw: { winLikelihood: draw, bttsLikelihood: null, combined: draw, confidence },
-    sampleHome: homeForm.homeSample,
-    sampleAway: awayForm.awaySample,
     expectedGoals: { home: expectedHomeGoals, away: expectedAwayGoals },
   };
+}
+
+/**
+ * The expected-goals pair whose Poisson score matrix best reproduces a
+ * bookmaker's prices: home/draw/away (margin removed) and, when given, the
+ * Over 2.5 probability, which pins down the total. Lets every mode — BTTS
+ * and combos included, which the odds feed doesn't price — be read off the
+ * bookmaker's view of the match. A small coordinate search in log space;
+ * two parameters, so it converges in well under a millisecond.
+ * @param {{home: number, draw: number, away: number}} decimalOdds
+ * @param {number|null} overProb market P(Over 2.5), margin removed, or null
+ */
+export function impliedExpectedGoals(decimalOdds, overProb = null) {
+  const inv = [1 / decimalOdds.home, 1 / decimalOdds.draw, 1 / decimalOdds.away];
+  const z = inv[0] + inv[1] + inv[2];
+  const [th, td, ta] = inv.map((x) => x / z);
+  const err = ([u, v]) => {
+    const p = outcomeProbs(Math.exp(u), Math.exp(v));
+    let e = (p.homeWin - th) ** 2 + (p.draw - td) ** 2 + (p.awayWin - ta) ** 2;
+    if (overProb != null) e += (p.over25 - overProb) ** 2;
+    return e;
+  };
+  let x = [Math.log(1.4), Math.log(1.1)];
+  let best = err(x);
+  for (let step = 0.5, it = 0; step > 1e-4 && it < 500; it++) {
+    let improved = false;
+    for (const [i, s] of [[0, 1], [0, -1], [1, 1], [1, -1]]) {
+      const y = [...x];
+      y[i] += s * step;
+      const e = err(y);
+      if (e < best) { best = e; x = y; improved = true; }
+    }
+    if (!improved) step /= 2;
+  }
+  return { home: clamp(Math.exp(x[0]), ...EXPECTED_GOALS_RANGE), away: clamp(Math.exp(x[1]), ...EXPECTED_GOALS_RANGE) };
 }
 
 /** Modes `pickBestMode` chooses from — every mode `scoreFixture` returns except `best` itself. */
@@ -204,7 +246,8 @@ export function pickBestMode(modes, applyCurve = (p) => p) {
     if (!best || m.combined > best.combined) { best = m; bestKey = key; }
   }
   if (!best) return null;
-  return { ...best, combined: applyCurve(best.combined), sourceMode: bestKey };
+  const combined = applyCurve(best.combined);
+  return { ...best, combined, ...(best.bttsLikelihood == null ? { winLikelihood: combined } : {}), sourceMode: bestKey };
 }
 
 /**

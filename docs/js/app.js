@@ -131,7 +131,7 @@ function renderHero(fixtures) {
     <div class="hero-card">
       <div class="hero-card-head">
         <span class="hero-rank">#${i + 1}</span>
-        <span class="hero-league">${f.league}</span>
+        <span class="hero-league">${bwinTag(f)}${f.league}</span>
       </div>
       <div class="hero-match"><span class="home">${f.home.name}</span><span class="vs">vs</span>${f.away.name}</div>
       <div class="hero-figures">
@@ -161,6 +161,10 @@ function bwinOdds(f, modeKey) {
   return side && f.odds && f.odds.bwin ? f.odds.bwin[side] : null;
 }
 
+const bwinTag = (f) => (f.probSource === 'bwin'
+  ? '<span class="prob-bwin" title="Probabilities derived from bwin\'s odds for this match, not our form model">bwin odds</span>'
+  : '');
+
 function bookOddsHtml(f, modeKey, cls) {
   const odds = bwinOdds(f, modeKey);
   return odds ? `<span class="${cls}" title="bwin's price for this outcome — a real bookmaker quote">bwin ${odds.toFixed(2)}</span>` : '';
@@ -180,8 +184,12 @@ function updateBetSlipReturn(combinedOdds) {
 function renderBetSlip(top, mode) {
   if (!els.betSlip) return;
   const legs = top
-    .map((f) => ({ f, odds: impliedOdds(f._view.combined) }))
+    .map((f) => {
+      const real = bwinOdds(f, effectiveModeKey(f, mode));
+      return { f, odds: real ?? impliedOdds(f._view.combined), real: real != null };
+    })
     .filter((leg) => leg.odds != null);
+  const realCount = legs.filter((leg) => leg.real).length;
 
   if (!legs.length) { els.betSlip.innerHTML = ''; return; }
 
@@ -200,7 +208,7 @@ function renderBetSlip(top, mode) {
           <span class="leg-teams">${leg.f.home.name}<span class="vs">vs</span>${leg.f.away.name}${
             mode.key === 'best' ? ` <span class="leg-mode">${MODES[effectiveModeKey(leg.f, mode)].label}</span>` : ''
           }</span>
-          <span class="leg-odds">${bookOddsHtml(leg.f, effectiveModeKey(leg.f, mode), 'leg-book')}${leg.odds.toFixed(2)}</span>
+          <span class="leg-odds">${leg.real ? '<span class="leg-book">bwin</span>' : ''}${leg.odds.toFixed(2)}</span>
         </div>
       `).join('')}
     </div>
@@ -217,9 +225,11 @@ function renderBetSlip(top, mode) {
       <span class="bet-slip-profit" id="betSlipProfit">(+&euro;${profit.toFixed(2)})</span>
     </div>
     <p class="bet-slip-disclaimer">
-      Odds implied from our own ${mode.key === 'best' ? 'best-fit-mode-per-match' : mode.label.toLowerCase()}
-      estimate (1 &divide; probability) &mdash; not a bookmaker price; where shown, &ldquo;bwin&rdquo; is
-      bwin's real quote for the same outcome. Combining legs multiplies their
+      ${realCount === legs.length
+        ? 'Every leg uses bwin&rsquo;s real price.'
+        : `${realCount ? 'Legs marked &ldquo;bwin&rdquo; use bwin&rsquo;s real price; the others are' : 'Odds are'}
+      1 &divide; our probability, not a bookmaker price (the bwin feed has no price for that match or market).`}
+      Combining legs multiplies their
       uncertainty together, not just their odds. Illustrative only, not betting advice.
     </p>
   `;
@@ -346,6 +356,7 @@ function matchRowHtml(f, mode, isResult) {
       <td class="fixture" data-label="Fixture">
         <span class="home">${f.home.name}</span><span class="vs">vs</span>${f.away.name}
         ${modeBadge}
+        ${bwinTag(f)}
         ${scoreBadge}
         ${f._view.confidence === 'low' ? '<span class="confidence-low" title="Fewer than 5 matches at this venue on record for one side — e.g. a team new to the division">low sample</span>' : ''}
         <div class="form-row">

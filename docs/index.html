@@ -150,8 +150,13 @@
       selection bias remains from picking a max across several already-calibrated modes at
       once. Fixtures where either team has fewer than 5 matches at that venue on record are
       flagged "low sample" &mdash; mostly teams new to their division &mdash; since a small
-      sample makes for a noisy average. Where a real price exists (Home win, Draw, Away win),
-      bwin's odds are shown next to ours for comparison; they're never fed into the model. Alerts are
+      sample makes for a noisy average. <strong>Rows tagged &ldquo;bwin odds&rdquo;</strong> take their
+      probabilities from bwin instead: bwin's home/draw/away price (plus the market Over/Under 2.5)
+      is turned into the expected-goals pair that reproduces it, and every mode is read off that
+      &mdash; in a 3,431-match backtest this beat our own model on every market, BTTS included.
+      bwin only appears a few days before kickoff and doesn't cover the European cups, so other
+      fixtures use our model. Champions League and Europa League form is each club's record
+      across all three UEFA club competitions, with its own calibration. Alerts are
       always based on away win + BTTS, regardless of the selected ranking. The
       <strong>Home</strong>/<strong>Away</strong> form badges on each row are the matches
       that average comes from — the home team's own home matches, oldest to newest, and
