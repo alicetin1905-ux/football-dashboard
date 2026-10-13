@@ -47,6 +47,7 @@ const els = {
   hero: document.getElementById('hero'),
   bestPicks: document.getElementById('bestPicks'),
   bestPicksCards: document.getElementById('bestPicksCards'),
+  bestPicksSlip: document.getElementById('bestPicksSlip'),
   heroCards: document.getElementById('heroCards'),
   betSlip: document.getElementById('betSlip'),
   legsSelect: document.getElementById('legsSelect'),
@@ -145,7 +146,7 @@ function renderHero(fixtures) {
     </div>
   `;
   }).join('');
-  renderBetSlip(top, mode);
+  renderBetSlip(els.betSlip, top.map((f) => slipLeg(f, effectiveModeKey(f, mode), f._view.combined)), { showModes: mode.key === 'best' });
 }
 
 const BEST_PICKS = 3;
@@ -182,6 +183,7 @@ function renderBestPicks() {
       <div class="hero-kickoff">${kickoff(f.date)}</div>
     </div>`;
   }).join('');
+  renderBetSlip(els.bestPicksSlip, picks.map((f) => slipLeg(f, f.modes.best.sourceMode, f.modes.best.combined)), { showModes: true });
 }
 
 /** 1 ÷ probability — the decimal odds our own estimate implies, not a bookmaker price. */
@@ -208,34 +210,53 @@ function bookOddsHtml(f, modeKey, cls) {
   return odds ? `<span class="${cls}" title="bwin's price for this outcome — a real bookmaker quote">bwin ${odds.toFixed(2)}</span>` : '';
 }
 
+const slipContainers = () => [els.betSlip, els.bestPicksSlip].filter(Boolean);
+
 /** Recomputes just the return/profit figures for the current stake — leaves the rest of the card, and the stake input's focus, untouched. */
-function updateBetSlipReturn(combinedOdds) {
-  const returnEl = els.betSlip.querySelector('#betSlipReturn');
-  const profitEl = els.betSlip.querySelector('#betSlipProfit');
-  if (!returnEl || !profitEl) return;
+function updateBetSlipReturn(container) {
+  const combinedOdds = Number(container.dataset.combinedOdds);
+  const returnEl = container.querySelector('.bet-slip-return-value');
+  const profitEl = container.querySelector('.bet-slip-profit');
+  if (!returnEl || !profitEl || !Number.isFinite(combinedOdds)) return;
   const returns = combinedOdds * state.stake;
-  const profit = returns - state.stake;
   returnEl.textContent = `€${returns.toFixed(2)}`;
-  profitEl.textContent = `(+€${profit.toFixed(2)})`;
+  profitEl.textContent = `(+€${(returns - state.stake).toFixed(2)})`;
 }
 
-function renderBetSlip(top, mode) {
-  if (!els.betSlip) return;
-  const legs = top
-    .map((f) => {
-      const real = bwinOdds(f, effectiveModeKey(f, mode));
-      return { f, odds: real ?? impliedOdds(f._view.combined), real: real != null };
-    })
-    .filter((leg) => leg.odds != null);
+/** The stake is shared: typing in either slip updates both. */
+function onStakeInput(e) {
+  const val = parseFloat(e.target.value);
+  state.stake = Number.isFinite(val) && val >= 0 ? val : 0;
+  writeStore('btts-stake', state.stake);
+  for (const c of slipContainers()) {
+    const input = c.querySelector('.stake-input');
+    if (input && input !== e.target) input.value = state.stake;
+    updateBetSlipReturn(c);
+  }
+}
+
+/** A leg for each fixture: bwin's real price for its bet when there is one, otherwise 1 ÷ probability. */
+function slipLeg(f, modeKey, probability) {
+  const real = bwinOdds(f, modeKey);
+  return { f, modeKey, odds: real ?? impliedOdds(probability), real: real != null };
+}
+
+/**
+ * @param {HTMLElement} container
+ * @param {{f: object, modeKey: string, odds: number, real: boolean}[]} legs
+ * @param {{showModes: boolean}} options show each leg's bet type (when legs differ)
+ */
+function renderBetSlip(container, legs, { showModes }) {
+  if (!container) return;
+  legs = legs.filter((leg) => leg.odds != null);
+  if (!legs.length) { container.innerHTML = ''; return; }
   const realCount = legs.filter((leg) => leg.real).length;
-
-  if (!legs.length) { els.betSlip.innerHTML = ''; return; }
-
   const combinedOdds = legs.reduce((acc, leg) => acc * leg.odds, 1);
   const returns = combinedOdds * state.stake;
-  const profit = returns - state.stake;
+  const inputId = `${container.id}Stake`;
+  container.dataset.combinedOdds = combinedOdds;
 
-  els.betSlip.innerHTML = `
+  container.innerHTML = `
     <div class="bet-slip-head">
       <span class="bet-slip-label">Combined &middot; ${legs.length}-leg acca</span>
       <span class="bet-slip-odds">${combinedOdds.toFixed(2)}&times;</span>
@@ -244,23 +265,23 @@ function renderBetSlip(top, mode) {
       ${legs.map((leg) => `
         <div class="bet-slip-leg">
           <span class="leg-teams">${leg.f.home.name}<span class="vs">vs</span>${leg.f.away.name}${
-            mode.key === 'best' ? ` <span class="leg-mode">${MODES[effectiveModeKey(leg.f, mode)].label}</span>` : ''
+            showModes ? ` <span class="leg-mode">${MODES[leg.modeKey].label}</span>` : ''
           }</span>
           <span class="leg-odds">${leg.real ? '<span class="leg-book">bwin</span>' : ''}${leg.odds.toFixed(2)}</span>
         </div>
       `).join('')}
     </div>
     <div class="bet-slip-stake">
-      <label for="stakeInput">Stake</label>
+      <label for="${inputId}">Stake</label>
       <span class="stake-input-wrap">
         <span class="stake-currency">&euro;</span>
-        <input type="number" id="stakeInput" min="0" step="1" inputmode="decimal" value="${state.stake}">
+        <input type="number" id="${inputId}" class="stake-input" min="0" step="1" inputmode="decimal" value="${state.stake}">
       </span>
     </div>
     <div class="bet-slip-return">
       <span>Potential return</span>
-      <strong id="betSlipReturn">&euro;${returns.toFixed(2)}</strong>
-      <span class="bet-slip-profit" id="betSlipProfit">(+&euro;${profit.toFixed(2)})</span>
+      <strong class="bet-slip-return-value">&euro;${returns.toFixed(2)}</strong>
+      <span class="bet-slip-profit">(+&euro;${(returns - state.stake).toFixed(2)})</span>
     </div>
     <p class="bet-slip-disclaimer">
       ${realCount === legs.length
@@ -271,13 +292,7 @@ function renderBetSlip(top, mode) {
       uncertainty together, not just their odds. Illustrative only, not betting advice.
     </p>
   `;
-
-  els.betSlip.querySelector('#stakeInput').addEventListener('input', (e) => {
-    const val = parseFloat(e.target.value);
-    state.stake = Number.isFinite(val) && val >= 0 ? val : 0;
-    writeStore('btts-stake', state.stake);
-    updateBetSlipReturn(combinedOdds);
-  });
+  container.querySelector('.stake-input').addEventListener('input', onStakeInput);
 }
 
 function populateLeagues(fixtures) {

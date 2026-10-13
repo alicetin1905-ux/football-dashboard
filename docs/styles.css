@@ -466,7 +466,7 @@ header.top .crumbs {
   font-size: 0.85rem;
 }
 
-#stakeInput {
+.stake-input {
   width: 64px;
   background: none;
   border: none;
@@ -477,7 +477,7 @@ header.top .crumbs {
   font-variant-numeric: tabular-nums;
 }
 
-#stakeInput:focus { outline: none; }
+.stake-input:focus { outline: none; }
 
 .bet-slip-return {
   display: flex;
