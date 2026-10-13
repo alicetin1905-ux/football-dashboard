@@ -155,7 +155,8 @@ bwin-derived numbers skip the calibration curves: on a time split the
 curves made them very slightly worse (they're already well calibrated),
 and Best of all modes showed no winner's curse on them (53.1% predicted
 vs 53.2% actual). The draw comes out a point or two under bwin's own
-figure — the score matrix's usual draw shortfall.
+figure — the score matrix's usual draw shortfall. (A Dixon-Coles low-score
+correction, below, removed most of that.)
 
 The catch is coverage. The feed lists a match only a few days ahead
 (refreshed Tuesdays and Fridays), covers the 11 club leagues but not the
@@ -243,6 +244,17 @@ protecting a lead sits back). Both ranking modes (away win + BTTS, home
 win + BTTS) come from the same underlying expected-goals pair. See
 `scripts/lib/stats.mjs` for the exact logic, and the Results view (below)
 for an ongoing, honest check of how well it's actually calibrated.
+
+Plain Poisson treats the two teams' goals as independent, which underrates
+0-0 and 1-1 and overrates 1-0 / 0-1 — so draws come out short (1.25 points
+below bwin's own draw price, on average). The score matrix applies the
+standard **Dixon-Coles** correction to those four scorelines, with
+ρ = −0.06 fitted on 3,431 matches: re-solving every match's expected goals
+from bwin's odds at each candidate ρ and scoring the real scorelines,
+−0.04 fit exact scores best and −0.08 matched bwin's prices best (the draw
+gap crosses zero near −0.06). It's a small, consistent gain — BTTS
+log-loss 0.7311 → 0.7288 on our model, 0.6833 → 0.6825 on bwin's — and
+1X2 unchanged within noise.
 
 The 38-match window and xG weren't picked by taste. A point-in-time
 backtest of 3,442 matches across all 11 club leagues (each predicted using

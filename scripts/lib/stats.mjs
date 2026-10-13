@@ -28,6 +28,17 @@ const MIN_SAMPLE_FOR_CONFIDENCE = 5;
 const MAX_GOALS = 12; // Poisson tail beyond this is negligible even at the expected-goals cap below.
 const EXPECTED_GOALS_RANGE = [0.15, 5.5]; // guards against small-sample noise producing runaway predictions
 
+/**
+ * Dixon-Coles low-score correction. Independent Poisson goal counts
+ * underrate 0-0 and 1-1 and overrate 1-0 / 0-1, so draws come out short —
+ * by 1.25 points against bwin's own draw price, on 3,431 matches. Fitted
+ * by re-solving each match's expected goals from bwin's odds at each
+ * candidate rho and scoring the real scorelines: -0.04 fit exact scores
+ * best, -0.08 matched bwin's prices best (the draw gap crosses zero at
+ * about -0.06), and BTTS log-loss improved throughout. -0.06 splits it.
+ */
+const DC_RHO = -0.06;
+
 /** Fallbacks if a league's own data can't produce an average (e.g. everything low-sample). */
 const DEFAULT_LEAGUE_AVG = { home: 1.45, away: 1.15 };
 
@@ -114,7 +125,13 @@ function outcomeProbs(expectedHome, expectedAway) {
 
   for (let i = 0; i <= MAX_GOALS; i++) {
     for (let j = 0; j <= MAX_GOALS; j++) {
-      const p = home[i] * away[j];
+      let p = home[i] * away[j];
+      if (i <= 1 && j <= 1) {
+        p *= i === 0 && j === 0 ? 1 - expectedHome * expectedAway * DC_RHO
+          : i === 0 ? 1 + expectedHome * DC_RHO
+            : j === 0 ? 1 + expectedAway * DC_RHO
+              : 1 - DC_RHO;
+      }
       const bothScored = i > 0 && j > 0;
       if (i > j) homeWin += p; else if (i < j) awayWin += p; else draw += p;
       if (i >= j) homeOrDraw += p;
