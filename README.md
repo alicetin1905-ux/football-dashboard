@@ -373,14 +373,19 @@ scripts/lib/mock.mjs     deterministic demo data generator
 - ESPN's site API is undocumented — it could change shape or start rate
   limiting without notice. If a refresh starts failing, check
   `scripts/lib/espn.mjs` against a fresh response first.
-- Newly promoted and relegated teams come back "low sample" for the first
-  couple of months: their previous season was in a different division, so
-  only this season's handful of matches count, and their strength isn't
-  comparable across divisions without an adjustment this model doesn't
-  make. This is where the model disagrees with bookmakers most (e.g. a
-  promoted side at home to a relegated one) — the bwin price shown next to
-  ours is the quickest way to spot it, and "Hide low-sample fixtures"
-  filters them out entirely.
+- **Newly promoted and relegated teams** borrow last season's matches from
+  the division they came from, rescaled by how movers between those two
+  divisions have actually fared (`DIVISION_SHIFT` in
+  `scripts/lib/footballdata.mjs`: 10-15 movers per direction, 2020-21 to
+  2025-26 — e.g. a side relegated from the Premier League has scored 1.67x
+  and conceded 0.52x as many per game in the Championship). On 1,018
+  matches involving such a team this cut 1X2 log-loss from 1.110 to 1.067
+  (bwin: 1.011) and the gap to bwin's probabilities from 9.3 to 7.1
+  points; on this season's 162, which the factors weren't fitted on, 1.135
+  to 1.091 and 9.7 to 7.5. Covered for E0↔E1, E1↔League One, D1↔D2 and
+  La Liga / Serie A / Ligue 1 with their second tiers; the Eredivisie,
+  Belgium, Portugal and Turkey have no second-tier data in the feed, so
+  their movers still start "low sample".
 - The **UEFA Nations League** only plays during a handful of international
   windows a year (not every week like a club league), so its upcoming list
   is often empty between them — that's real, not a fetch failure. Its

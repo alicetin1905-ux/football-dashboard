@@ -177,6 +177,66 @@ async function fetchCsv(path) {
 }
 
 /**
+ * How a team's goals per game change when it moves between two divisions —
+ * measured on every promoted and relegated team from 2020-21 to 2025-26
+ * (10-15 movers per direction), comparing its last season in the old
+ * division with its first in the new one. Keyed by the division moved
+ * *into*: a team relegated from the Premier League (E0 -> E1) has scored
+ * 1.67x and conceded 0.52x as many per game in the Championship. Lets a
+ * team new to a division borrow last season's matches from the one it came
+ * from, rescaled, instead of starting from a handful of games.
+ */
+const DIVISION_SHIFT = {
+  E0: [{ from: 'E1', attack: 0.604, defense: 2.248 }],
+  E1: [{ from: 'E0', attack: 1.672, defense: 0.517 }, { from: 'E2', attack: 0.694, defense: 1.544 }],
+  D1: [{ from: 'D2', attack: 0.615, defense: 1.636 }],
+  D2: [{ from: 'D1', attack: 1.676, defense: 0.712 }],
+  SP1: [{ from: 'SP2', attack: 0.745, defense: 1.872 }],
+  I1: [{ from: 'I2', attack: 0.657, defense: 1.673 }],
+  F1: [{ from: 'F2', attack: 0.674, defense: 1.967 }],
+};
+
+function rowsOf(parsed) {
+  const rows = [];
+  for (const g of parsed) {
+    const hg = num(g('FTHG'));
+    const ag = num(g('FTAG'));
+    if (hg == null || ag == null || !g('HomeTeam')) continue;
+    rows.push({
+      date: parseDate(g('Date'), g('Time')),
+      home: g('HomeTeam'),
+      away: g('AwayTeam'),
+      hg,
+      ag,
+      hxg: num(g('HxG')),
+      axg: num(g('AxG')),
+      odds: oddsOf(g),
+    });
+  }
+  return rows;
+}
+
+/**
+ * Last season's matches from the divisions teams moved into `code` from,
+ * each tagged with that move's attack/defense scaling. Empty where there's
+ * no adjacent division in the data (Eredivisie, Belgium, Portugal, Turkey)
+ * or it can't be fetched — teams new to the division then just have fewer
+ * matches, as before.
+ */
+export async function fetchAdjacentHistory(code, now = new Date()) {
+  const previous = previousSeasonCode(seasonCode(now));
+  const rows = [];
+  for (const { from, attack, defense } of DIVISION_SHIFT[code] || []) {
+    try {
+      for (const r of rowsOf(await fetchCsv(`/mmz4281/${previous}/${from}.csv`))) rows.push({ ...r, attack, defense });
+    } catch {
+      // optional data: fall through with whatever loaded
+    }
+  }
+  return rows.sort((a, b) => a.date - b.date);
+}
+
+/**
  * Every finished match of a league's current and previous season, oldest
  * first. A missing previous-season file (e.g. a league added mid-history)
  * is tolerated; a missing current one isn't.
@@ -193,21 +253,7 @@ export async function fetchLeagueHistory(code, now = new Date()) {
       if (s === current) throw err;
       continue;
     }
-    for (const g of parsed) {
-      const hg = num(g('FTHG'));
-      const ag = num(g('FTAG'));
-      if (hg == null || ag == null || !g('HomeTeam')) continue;
-      rows.push({
-        date: parseDate(g('Date'), g('Time')),
-        home: g('HomeTeam'),
-        away: g('AwayTeam'),
-        hg,
-        ag,
-        hxg: num(g('HxG')),
-        axg: num(g('AxG')),
-        odds: oddsOf(g),
-      });
-    }
+    rows.push(...rowsOf(parsed));
   }
   return rows.sort((a, b) => a.date - b.date);
 }
@@ -230,22 +276,32 @@ export async function fetchUpcomingOdds() {
  * summarizeTeamForm expects — real goals for the W/D/L badges, xG (where the
  * source has it) for strength.
  */
-export function teamMatchesBefore(history, team, before, keep = 38) {
-  const out = [];
-  for (const m of history) {
-    if (m.date >= before) break;
-    if (m.home !== team && m.away !== team) continue;
-    const isHome = m.home === team;
-    out.push({
-      date: m.date.toISOString(),
-      venue: isHome ? 'home' : 'away',
-      gf: isHome ? m.hg : m.ag,
-      ga: isHome ? m.ag : m.hg,
-      xgf: isHome ? m.hxg : m.axg,
-      xga: isHome ? m.axg : m.hxg,
-    });
-  }
-  return out.slice(-keep);
+export function teamMatchesBefore(history, team, before, keep = 38, adjacent = null) {
+  const collect = (rows, scale) => {
+    const out = [];
+    for (const m of rows) {
+      if (m.date >= before) break;
+      if (m.home !== team && m.away !== team) continue;
+      const isHome = m.home === team;
+      const xgf = isHome ? m.hxg : m.axg;
+      const xga = isHome ? m.axg : m.hxg;
+      const gf = isHome ? m.hg : m.ag;
+      const ga = isHome ? m.ag : m.hg;
+      out.push({
+        date: m.date.toISOString(),
+        venue: isHome ? 'home' : 'away',
+        gf,
+        ga,
+        // Another division's matches only feed strength, rescaled to this one.
+        xgf: scale ? (xgf ?? gf) * m.attack : xgf,
+        xga: scale ? (xga ?? ga) * m.defense : xga,
+      });
+    }
+    return out;
+  };
+  const own = collect(history, false);
+  if (own.length >= keep || !adjacent?.length) return own.slice(-keep);
+  return [...collect(adjacent, true), ...own].sort((a, b) => new Date(a.date) - new Date(b.date)).slice(-keep);
 }
 
 /** Same match in the history (or upcoming list): same pair of teams, kickoff within a day. */

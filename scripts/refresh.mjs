@@ -20,7 +20,7 @@ import { scoreFixture, scoreFromExpectedGoals, impliedExpectedGoals, summarizeTe
 import { generateMockSeason } from './lib/mock.mjs';
 import { LEAGUES, fetchLeagueWindow } from './lib/espn.mjs';
 import { TSDB_LEAGUES, fetchTsdbLeagueWindow } from './lib/thesportsdb.mjs';
-import { FD_CODES, fetchLeagueHistory, fetchUpcomingOdds, matchTeamName, teamMatchesBefore, findMatch } from './lib/footballdata.mjs';
+import { FD_CODES, fetchLeagueHistory, fetchAdjacentHistory, fetchUpcomingOdds, matchTeamName, teamMatchesBefore, findMatch } from './lib/footballdata.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const OUT = resolve(ROOT, 'docs/data');
@@ -71,8 +71,8 @@ function currentTeams(history) {
   return [...new Set(history.slice(-200).flatMap((m) => [m.home, m.away]))];
 }
 
-function leagueAverageAt(history, before) {
-  const forms = currentTeams(history.filter((m) => m.date < before)).map((t) => summarizeTeamForm(teamMatchesBefore(history, t, before, FORM_WINDOW)));
+function leagueAverageAt(history, before, adjacent) {
+  const forms = currentTeams(history.filter((m) => m.date < before)).map((t) => summarizeTeamForm(teamMatchesBefore(history, t, before, FORM_WINDOW, adjacent)));
   return computeLeagueAverages(forms);
 }
 
@@ -83,15 +83,16 @@ function leagueAverageAt(history, before) {
  * view still shows only the last week; this is the same kind of backtest,
  * just ~10× larger, so the curves aren't fit to a handful of picks per bin.
  */
-function buildCalibrationSet(historyByLeague, now) {
+function buildCalibrationSet(historyByLeague, adjacentByLeague, now) {
   const since = new Date(now.getTime() - CALIBRATION_DAYS * 86_400_000);
   const set = [];
-  for (const history of historyByLeague.values()) {
+  for (const [league, history] of historyByLeague) {
+    const adjacent = adjacentByLeague.get(league);
     for (const m of history) {
       if (m.date < since) continue;
-      const home = summarizeTeamForm(teamMatchesBefore(history, m.home, m.date, FORM_WINDOW));
-      const away = summarizeTeamForm(teamMatchesBefore(history, m.away, m.date, FORM_WINDOW));
-      set.push({ modes: scoreFixture(home, away, leagueAverageAt(history, m.date)), actual: actualOutcome(m.hg, m.ag) });
+      const home = summarizeTeamForm(teamMatchesBefore(history, m.home, m.date, FORM_WINDOW, adjacent));
+      const away = summarizeTeamForm(teamMatchesBefore(history, m.away, m.date, FORM_WINDOW, adjacent));
+      set.push({ modes: scoreFixture(home, away, leagueAverageAt(history, m.date, adjacent)), actual: actualOutcome(m.hg, m.ag) });
     }
   }
   return set;
@@ -292,6 +293,7 @@ async function buildFromApi() {
   const leagueAvgByName = new Map();
   const historyByLeague = new Map();
   const europeanMatchesByTeam = new Map();
+  const adjacentByLeague = new Map();
 
   let upcomingOdds = new Map();
   try {
@@ -307,6 +309,8 @@ async function buildFromApi() {
     if (league.tsdbId) tsdbLoaded = true;
     const { fixtures, results, matchesByTeam } = window;
     const history = await loadHistory(league);
+    // Last season in the division a promoted/relegated team came from, rescaled (see DIVISION_SHIFT).
+    const adjacent = history ? await fetchAdjacentHistory(FD_CODES[league.name], now) : null;
     const fdNames = history ? new Set(history.flatMap((m) => [m.home, m.away])) : null;
     const fdNameById = new Map();
     const unmatched = new Set();
@@ -323,17 +327,18 @@ async function buildFromApi() {
       const fdName = fdNameById.get(teamId);
       // A little more than the window, so the Results backtest can still
       // cut back to "before kickoff" and keep a full FORM_WINDOW.
-      const matches = fdName ? teamMatchesBefore(history, fdName, now, FORM_WINDOW + 10) : espnMatches;
+      const matches = fdName ? teamMatchesBefore(history, fdName, now, FORM_WINDOW + 10, adjacent) : espnMatches;
       const form = summarizeTeamForm(matches.slice(-FORM_WINDOW));
       formById.set(teamKey(league.name, teamId), form);
       rawMatchesByTeam.set(teamKey(league.name, teamId), matches);
       if (league.formSlugs) europeanMatchesByTeam.set(teamId, matches);
       forms.push(form);
     }
-    leagueAvgByName.set(league.name, history ? leagueAverageAt(history, now) : computeLeagueAverages(forms));
+    leagueAvgByName.set(league.name, history ? leagueAverageAt(history, now, adjacent) : computeLeagueAverages(forms));
 
     if (history) {
       historyByLeague.set(league.name, history);
+      adjacentByLeague.set(league.name, adjacent);
       const upcoming = upcomingOdds.get(FD_CODES[league.name]) || [];
       for (const f of fixtures) {
         const row = findMatch(upcoming, fdNameById.get(f.home.id), fdNameById.get(f.away.id), f.date);
@@ -370,7 +375,7 @@ async function buildFromApi() {
   const domesticResults = group(results, false);
   const europeanResults = group(results, true);
   const calibration = {
-    domestic: applyCalibration(group(fixtures, false), domesticResults, historyByLeague.size ? buildCalibrationSet(historyByLeague, now) : domesticResults),
+    domestic: applyCalibration(group(fixtures, false), domesticResults, historyByLeague.size ? buildCalibrationSet(historyByLeague, adjacentByLeague, now) : domesticResults),
     european: applyCalibration(group(fixtures, true), europeanResults, buildEuropeanCalibrationSet(europeanMatchesByTeam)),
   };
   for (const x of [...fixtures, ...results]) {
