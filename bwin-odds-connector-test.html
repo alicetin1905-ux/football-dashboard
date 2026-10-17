@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bwin Odds Connector — Diagnostics</title>
+<style>
+:root{color-scheme:dark;--bg:#0b1020;--panel:#141c31;--line:#293653;--text:#edf2ff;--muted:#9ba9c7;--accent:#65e0b5;--warn:#ffd27a;--bad:#ff8d98}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:15px/1.5 system-ui,-apple-system,Segoe UI,sans-serif}
+main{max-width:1000px;margin:auto;padding:20px}h1{font-size:1.55rem;margin:.2rem 0}p{color:var(--muted)}.panel{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px;margin:14px 0}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}button{background:var(--accent);color:#07150f;border:0;border-radius:9px;padding:11px 15px;font-weight:700;cursor:pointer}button:disabled{opacity:.5}a{color:var(--accent)}.status{padding:3px 9px;border-radius:999px;background:#25314b;font-size:.8rem}.ok{color:var(--accent)}.bad{color:var(--bad)}.warn{color:var(--warn)}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#080c17;padding:12px;border-radius:9px;max-height:360px;overflow:auto;font-size:12px}.small{font-size:.88rem}.marketgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:10px}.market{border:1px solid var(--line);padding:12px;border-radius:10px}.market b{display:block;margin-bottom:6px}.muted{color:var(--muted)}.odds{font-size:1.15rem;font-weight:700;letter-spacing:.02em}
+</style>
+</head>
+<body><main>
+  <div class="row"><div style="flex:1"><h1>Bwin Odds Connector</h1><p style="margin-top:4px">Directe browser-test voor GitHub Pages · geen demoquoteringen</p></div><span class="status">Prototype / diagnose</span></div>
+  <section class="panel">
+    <h2>1. Verbinding testen</h2>
+    <p>Deze pagina probeert de openbare bwin Sports API vanuit de browser te benaderen. Als CORS, toegangsbeveiliging of het endpoint dit blokkeert, toont de test dat expliciet. Er wordt geen proxy of externe odds-provider gebruikt.</p>
+    <div class="row"><button id="run">Test bwin API</button><a href="https://www.bwin.be/en/sports/football-4/betting" target="_blank" rel="noopener">Open bwin.be</a><a href="https://sportsapi.bwin.com/offer/swagger/index.html" target="_blank" rel="noopener">API-documentatie</a></div>
+    <p id="overall" class="muted">Nog niet getest.</p>
+    <div id="results"></div>
+  </section>
+  <section class="panel">
+    <h2>2. Odds & markten</h2>
+    <p>De 1X2-, BTTS- en Over/Under 2,5-markten worden pas getoond zodra de response-structuur en markt-ID's van de werkelijke bwin-feed bevestigd zijn. Deze test vult daarom geen odds in op basis van aannames.</p>
+    <div class="marketgrid">
+      <div class="market"><b>1X2</b><span class="muted">Thuis / Gelijk / Uit</span><div class="odds">— / — / —</div></div>
+      <div class="market"><b>BTTS</b><span class="muted">Ja / Nee</span><div class="odds">— / —</div></div>
+      <div class="market"><b>Over/Under 2,5</b><span class="muted">Over / Under</span><div class="odds">— / —</div></div>
+      <div class="market"><b>Odds movement</b><span class="muted">Vereist opeenvolgende echte snapshots</span><div class="odds">Wacht op feed</div></div>
+    </div>
+  </section>
+  <section class="panel">
+    <h2>3. Ruwe API-response</h2><p class="small">Handig om de echte velden te controleren wanneer een endpoint bereikbaar is.</p><pre id="raw">Nog geen response ontvangen.</pre>
+  </section>
+  <section class="panel">
+    <h2>Wat betekent de uitslag?</h2>
+    <ul>
+      <li><b class="ok">HTTP 200 + JSON:</b> endpoint is bereikbaar; daarna kunnen de exacte velden en markt-ID's worden gekoppeld.</li>
+      <li><b class="warn">CORS/network error:</b> de browser laat de response niet aan GitHub Pages zien. Een statische HTML-pagina kan dit niet zelf oplossen.</li>
+      <li><b class="warn">401/403/404:</b> endpoint, landcode, sport-ID of toegang moet verder worden gecontroleerd.</li>
+    </ul>
+  </section>
+  <p class="small">Bronnen: <a href="https://sportsapi.bwin.com/offer/swagger/index.html" target="_blank" rel="noopener">bwin Sports API-documentatie</a> · <a href="https://www.bwin.be/en/sports/football-4/betting" target="_blank" rel="noopener">bwin.be voetbal</a>.</p>
+</main>
+<script>
+const candidates = [
+  {name:"Football fixtures · sportId 4 · BE", url:"https://sportsapi.bwin.com/offer/api/4/be/fixtures?language=nl-be"},
+  {name:"Football fixtures · sportId 5 · BE", url:"https://sportsapi.bwin.com/offer/api/5/be/fixtures?language=nl-be"},
+  {name:"Football fixture index · sportId 4 · BE", url:"https://sportsapi.bwin.com/offer/api/4/be/fixtureIndex?language=nl-be"},
+  {name:"Football fixture index · sportId 5 · BE", url:"https://sportsapi.bwin.com/offer/api/5/be/fixtureIndex?language=nl-be"}
+];
+const results = document.getElementById("results");
+const overall = document.getElementById("overall");
+const raw = document.getElementById("raw");
+const btn = document.getElementById("run");
+function safeText(s){return String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));}
+function summarize(obj){
+  if(Array.isArray(obj)) return `JSON-array met ${obj.length} items`;
+  if(obj && typeof obj==="object") return `JSON-object · velden: ${Object.keys(obj).slice(0,30).join(", ") || "(geen)"}`;
+  return `${typeof obj}: ${String(obj).slice(0,100)}`;
+}
+btn.addEventListener("click", async ()=>{
+  btn.disabled=true; results.innerHTML=""; raw.textContent="Test loopt…"; overall.textContent="Endpoints worden getest vanuit deze browser.";
+  let successes=0, completed=0, firstGood=null;
+  for(const item of candidates){
+    const card=document.createElement("div"); card.className="market"; card.style.marginTop="10px";
+    card.innerHTML=`<b>${safeText(item.name)}</b><div class="muted">GET ${safeText(item.url)}</div><p>Bezig…</p>`;
+    results.appendChild(card);
+    try{
+      const controller=new AbortController();
+      const timeout=setTimeout(()=>controller.abort(),9000);
+      const response=await fetch(item.url,{method:"GET",mode:"cors",credentials:"omit",signal:controller.signal,headers:{Accept:"application/json"}});
+      clearTimeout(timeout);
+      const body=await response.text();
+      let parsed; try{parsed=JSON.parse(body)}catch{parsed=null}
+      completed++;
+      if(response.ok && parsed!==null){
+        successes++; if(!firstGood) firstGood={item,parsed,status:response.status};
+        card.innerHTML=`<b>${safeText(item.name)}</b><span class="status ok">HTTP ${response.status} · JSON</span><p>${safeText(summarize(parsed))}</p>`;
+      }else{
+        card.innerHTML=`<b>${safeText(item.name)}</b><span class="status warn">HTTP ${response.status}</span><p>${safeText(body.slice(0,350) || "Lege response")}</p>`;
+      }
+    }catch(e){
+      completed++;
+      const message=e.name==="AbortError"?"Timeout na 9 seconden":(e.message||"Fetch mislukt; vaak CORS of netwerkbeveiliging");
+      card.innerHTML=`<b>${safeText(item.name)}</b><span class="status bad">Niet leesbaar</span><p>${safeText(message)}</p><p class="small muted">Browserfetch kan geen onderscheid maken tussen CORS en sommige netwerkfouten.</p>`;
+    }
+  }
+  if(firstGood){
+    overall.innerHTML=`<span class="ok"><b>Minstens één endpoint bereikbaar.</b></span> Exacte marktstructuur moet nog worden gekoppeld.`;
+    raw.textContent=JSON.stringify({endpoint:firstGood.item.url,httpStatus:firstGood.status,response:firstGood.parsed},null,2);
+  }else{
+    overall.innerHTML=`<span class="bad"><b>Geen endpoint gaf leesbare JSON terug.</b></span> Rechtstreekse integratie via alleen GitHub Pages is met deze routes niet bevestigd.`;
+    raw.textContent="Geen leesbare JSON-response. Zie de fout per endpoint hierboven.";
+  }
+  btn.disabled=false;
+});
+</script>
+</body></html>
